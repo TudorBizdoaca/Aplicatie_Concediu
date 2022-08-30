@@ -43,8 +43,8 @@ namespace Aplicatie_Concediu
                 {
                     dr.Close();
                     this.Hide();
-                    Form PaginaMea = new Form();
-                    PaginaMea.Show();
+                    PaginaMea paginaMea = new PaginaMea();
+                    paginaMea.Show();
                 }
                 else
                 {
