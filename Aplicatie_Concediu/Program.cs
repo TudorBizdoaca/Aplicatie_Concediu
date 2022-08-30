@@ -16,7 +16,7 @@ namespace Aplicatie_Concediu
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Inregistrare());
+            Application.Run(new PaginaMea());
         }
     }
 }

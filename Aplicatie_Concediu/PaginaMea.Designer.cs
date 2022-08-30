@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaginaMea));
-            this.logo = new System.Windows.Forms.PictureBox();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,39 +41,36 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.textBoxNume = new System.Windows.Forms.TextBox();
             this.labelNume = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.labelDateleMele = new System.Windows.Forms.Label();
             this.labelFunctieAngajat = new System.Windows.Forms.Label();
             this.pictureBoxUtilizator = new System.Windows.Forms.PictureBox();
             this.labelNumeUtilizator = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.buttonEditeazaProfil = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUtilizator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // logo
+            // pictureBoxLogo
             // 
-            this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
-            this.logo.Location = new System.Drawing.Point(25, 30);
-            this.logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(158, 132);
-            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logo.TabIndex = 0;
-            this.logo.TabStop = false;
-            this.logo.Click += new System.EventHandler(this.logo_Click);
+            this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
+            this.pictureBoxLogo.Location = new System.Drawing.Point(33, 37);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(210, 162);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // panel4
             // 
@@ -126,7 +123,6 @@
             this.label2.Size = new System.Drawing.Size(137, 20);
             this.label2.TabIndex = 8;
             this.label2.Text = "Cereri Concediu";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel2
             // 
@@ -153,7 +149,6 @@
             this.label3.Size = new System.Drawing.Size(114, 20);
             this.label3.TabIndex = 8;
             this.label3.Text = "Toti Angajatii";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // panel3
             // 
@@ -188,8 +183,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(239)))), ((int)(((byte)(198)))));
+            this.panel6.Controls.Add(this.buttonEditeazaProfil);
+            this.panel6.Controls.Add(this.textBoxNume);
             this.panel6.Controls.Add(this.labelNume);
-            this.panel6.Controls.Add(this.panel5);
             this.panel6.Controls.Add(this.labelDateleMele);
             this.panel6.Controls.Add(this.labelFunctieAngajat);
             this.panel6.Controls.Add(this.pictureBoxUtilizator);
@@ -197,47 +193,27 @@
             this.panel6.Location = new System.Drawing.Point(208, 78);
             this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(771, 471);
+            this.panel6.Size = new System.Drawing.Size(1597, 947);
             this.panel6.TabIndex = 9;
+            // 
+            // textBoxNume
+            // 
+            this.textBoxNume.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNume.Location = new System.Drawing.Point(123, 275);
+            this.textBoxNume.Name = "textBoxNume";
+            this.textBoxNume.Size = new System.Drawing.Size(293, 30);
+            this.textBoxNume.TabIndex = 13;
             // 
             // labelNume
             // 
             this.labelNume.AutoSize = true;
             this.labelNume.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNume.ForeColor = System.Drawing.Color.Peru;
-            this.labelNume.Location = new System.Drawing.Point(25, 223);
-            this.labelNume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelNume.Location = new System.Drawing.Point(33, 275);
             this.labelNume.Name = "labelNume";
-            this.labelNume.Size = new System.Drawing.Size(67, 24);
+            this.labelNume.Size = new System.Drawing.Size(84, 29);
             this.labelNume.TabIndex = 12;
             this.labelNume.Text = "Nume:";
-            // 
-            // panel5
-            // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(595, 26);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(148, 37);
-            this.panel5.TabIndex = 8;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(17, 9);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 20);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Editeaza Profil";
             // 
             // labelDateleMele
             // 
@@ -262,7 +238,6 @@
             this.labelFunctieAngajat.Size = new System.Drawing.Size(141, 24);
             this.labelFunctieAngajat.TabIndex = 10;
             this.labelFunctieAngajat.Text = "Functie Angajat";
-            this.labelFunctieAngajat.Click += new System.EventHandler(this.label7_Click);
             // 
             // pictureBoxUtilizator
             // 
@@ -286,14 +261,12 @@
             this.labelNumeUtilizator.Size = new System.Drawing.Size(177, 26);
             this.labelNumeUtilizator.TabIndex = 8;
             this.labelNumeUtilizator.Text = "Nume Utilizator";
-            this.labelNumeUtilizator.Click += new System.EventHandler(this.label6_Click);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(802, 20);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Location = new System.Drawing.Point(1639, 24);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(40, 41);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -306,30 +279,46 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label10.Location = new System.Drawing.Point(860, 30);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Location = new System.Drawing.Point(1716, 37);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(132, 20);
             this.label10.TabIndex = 13;
             this.label10.Text = "Nume Utilizator";
             // 
-            // errorProvider1
+            // contextMenuStrip1
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // buttonEditeazaProfil
+            // 
+            this.buttonEditeazaProfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonEditeazaProfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
+            this.buttonEditeazaProfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditeazaProfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditeazaProfil.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonEditeazaProfil.Location = new System.Drawing.Point(1351, 32);
+            this.buttonEditeazaProfil.Name = "buttonEditeazaProfil";
+            this.buttonEditeazaProfil.Size = new System.Drawing.Size(210, 47);
+            this.buttonEditeazaProfil.TabIndex = 14;
+            this.buttonEditeazaProfil.Text = "Editeaza Profil";
+            this.buttonEditeazaProfil.UseVisualStyleBackColor = false;
+            this.buttonEditeazaProfil.Click += new System.EventHandler(this.buttonEditeazaProfil_Click);
             // 
             // PaginaMea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
-            this.ClientSize = new System.Drawing.Size(1013, 579);
+            this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.logo);
+            this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.pictureBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -338,7 +327,7 @@
             this.Text = "PaginaMea";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PaginaMea_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -349,8 +338,6 @@
             this.panel3.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUtilizator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -360,7 +347,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox logo;
+        private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label1;
@@ -375,11 +362,11 @@
         private System.Windows.Forms.Label labelFunctieAngajat;
         private System.Windows.Forms.PictureBox pictureBoxUtilizator;
         private System.Windows.Forms.Label labelDateleMele;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label labelNume;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox textBoxNume;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button buttonEditeazaProfil;
     }
 }
