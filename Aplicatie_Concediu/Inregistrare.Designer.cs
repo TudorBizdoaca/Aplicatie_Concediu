@@ -71,6 +71,7 @@
             this.errorProviderNrBuletin = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderDataAngajare = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderEmail = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderNrTelefon = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoInreg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmailIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbParolaIcon)).BeginInit();
@@ -90,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNrBuletin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDataAngajare)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEmail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNrTelefon)).BeginInit();
             this.SuspendLayout();
             // 
             // pbLogoInreg
@@ -269,15 +271,18 @@
             // 
             // btnInregistrare
             // 
+            this.btnInregistrare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
             this.btnInregistrare.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnInregistrare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInregistrare.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnInregistrare.Image = ((System.Drawing.Image)(resources.GetObject("btnInregistrare.Image")));
             this.btnInregistrare.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnInregistrare.Location = new System.Drawing.Point(375, 392);
+            this.btnInregistrare.Location = new System.Drawing.Point(324, 395);
             this.btnInregistrare.Name = "btnInregistrare";
             this.btnInregistrare.Size = new System.Drawing.Size(183, 42);
             this.btnInregistrare.TabIndex = 20;
             this.btnInregistrare.Text = "Inregistrare";
-            this.btnInregistrare.UseVisualStyleBackColor = true;
+            this.btnInregistrare.UseVisualStyleBackColor = false;
             this.btnInregistrare.Click += new System.EventHandler(this.btnInregistrare_Click);
             // 
             // pbEmailIcon
@@ -430,11 +435,15 @@
             // 
             this.errorProviderEmail.ContainerControl = this;
             // 
+            // errorProviderNrTelefon
+            // 
+            this.errorProviderNrTelefon.ContainerControl = this;
+            // 
             // Inregistrare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
             this.ClientSize = new System.Drawing.Size(848, 449);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox6);
@@ -490,6 +499,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNrBuletin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDataAngajare)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEmail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNrTelefon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -538,5 +548,6 @@
         private System.Windows.Forms.ErrorProvider errorProviderNrBuletin;
         private System.Windows.Forms.ErrorProvider errorProviderDataAngajare;
         private System.Windows.Forms.ErrorProvider errorProviderEmail;
+        private System.Windows.Forms.ErrorProvider errorProviderNrTelefon;
     }
 }

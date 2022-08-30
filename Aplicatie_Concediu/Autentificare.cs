@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace Aplicatie_Concediu
         {
             InitializeComponent();
         }
-      
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -27,6 +28,9 @@ namespace Aplicatie_Concediu
             cn.Open();
             if (parola.Text != String.Empty && mail.Text != String.Empty)
             {
+                
+                
+                //se decomenteaza in momentul in care pagina register este gata si se inlocuieste la *
                 //SHA256 sHA256 = SHA256.Create();
                 //string compara = null;
                 //compara = parola.Text;
@@ -37,10 +41,14 @@ namespace Aplicatie_Concediu
                 //.Replace("-", string.Empty)
                 //.ToLower();
 
+
+        //* se inlocuieste parola.Text cu result
                 SqlCommand cmd = new SqlCommand("select * from Angajat where  email='" + mail.Text + "' and parola= '" + parola.Text + "'", cn);
                 SqlDataReader dr = cmd.ExecuteReader();
+
                 if (dr.Read())
                 {
+                    Program.UserId = int.Parse(dr["id"].ToString());
                     dr.Close();
                     this.Hide();
                     PaginaMea paginaMea = new PaginaMea();
@@ -57,6 +65,14 @@ namespace Aplicatie_Concediu
             {
                 MessageBox.Show("Inserati valori in ambele campuri");
             }
+        }
+
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Inregistrare inregistrare = new Inregistrare();
+            inregistrare.Show();
         }
     }
 }
