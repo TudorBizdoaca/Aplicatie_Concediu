@@ -69,9 +69,6 @@
     <EmbeddedResource Include="Autentificare.resx">
       <DependentUpon>Autentificare.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PaginaMea.resx">
       <DependentUpon>PaginaMea.cs</DependentUpon>
     </EmbeddedResource>
