@@ -57,6 +57,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BreakingBreadDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inregistrare.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,8 +110,8 @@
     <EmbeddedResource Include="Autentificare.resx">
       <DependentUpon>Autentificare.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InserareConcediu.resx">
-      <DependentUpon>InserareConcediu.cs</DependentUpon>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaginaMea.resx">
       <DependentUpon>PaginaMea.cs</DependentUpon>

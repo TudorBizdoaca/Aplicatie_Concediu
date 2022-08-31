@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -101,6 +102,7 @@ namespace Aplicatie_Concediu
         // Butoane Pagina
         private void buttonEditeazaProfil_Click(object sender, EventArgs e)
         {
+            pictureBoxUtilizator.Enabled = true;
             textBoxNume.ReadOnly = false;
             textBoxPrenume.ReadOnly = false;
             textBoxCnp.ReadOnly = false;
@@ -179,7 +181,35 @@ namespace Aplicatie_Concediu
         // Upload Image
         private void pictureBoxUtilizator_Click(object sender, EventArgs e)
         {
+            // MessageBox.Show("asad","sadas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
+            //{
+            //    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            //    {
+            //        string fileName = openFileDialog1.FileName;
+            //        byte[] bytes = File.ReadAllBytes(fileName);
+            //        string contentType = "";
+            //        //Set the contenttype based on File Extension
 
+            //        switch (Path.GetExtension(fileName))
+            //        {
+            //            case ".jpg":
+            //                contentType = "image/jpeg";
+            //                break;
+            //            case ".png":
+            //                contentType = "image/png";
+            //                break;
+            //            case ".gif":
+            //                contentType = "image/gif";
+            //                break;
+            //            case ".bmp":
+            //                contentType = "image/bmp";
+            //                break;
+            //        }
+
+
+            //    }
+            //}
         }
     }
 }

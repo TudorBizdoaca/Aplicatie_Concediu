@@ -397,6 +397,7 @@
             // 
             // pictureBoxUtilizator
             // 
+            this.pictureBoxUtilizator.Enabled = false;
             this.pictureBoxUtilizator.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUtilizator.Image")));
             this.pictureBoxUtilizator.Location = new System.Drawing.Point(37, 32);
             this.pictureBoxUtilizator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
