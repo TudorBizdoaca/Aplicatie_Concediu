@@ -63,6 +63,12 @@
     <Compile Include="Inregistrare.Designer.cs">
       <DependentUpon>Inregistrare.cs</DependentUpon>
     </Compile>
+    <Compile Include="InserareConcediu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InserareConcediu.Designer.cs">
+      <DependentUpon>InserareConcediu.cs</DependentUpon>
+    </Compile>
     <Compile Include="IstoricConcedii.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </Compile>
     <EmbeddedResource Include="Autentificare.resx">
       <DependentUpon>Autentificare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InserareConcediu.resx">
+      <DependentUpon>InserareConcediu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaginaMea.resx">
       <DependentUpon>PaginaMea.cs</DependentUpon>
