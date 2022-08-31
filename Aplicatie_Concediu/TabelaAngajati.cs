@@ -11,57 +11,21 @@ using System.Windows.Forms;
 
 namespace Aplicatie_Concediu
 {
-    public partial class TabelaAngajati : Form
+    public partial class dgvTabelaAngajati : Form
     {       
-        //Functie pentru create coloane, am realizat ca pot sa folosesc constructorul dar deja am creat functia
-      
-        public DataColumn buildColumn(DataColumn coloana, String dataType, String name, Boolean nullable = true, Boolean isUnique = false, Boolean isReadOnly = false)
+       
+       
+        public dgvTabelaAngajati()
         {
-            coloana = new DataColumn();
-            coloana.DataType = System.Type.GetType(dataType);
-            coloana.ColumnName = name;
-            coloana.AllowDBNull = nullable;
-            coloana.Unique = isUnique;
-            coloana.ReadOnly = isReadOnly;
-            return coloana;
-        }
-      
-        public void CreateDataTable()
-        {   
             DataTable dtAngajati = new DataTable();
-            DataColumn coloana = new DataColumn();
-            buildColumn(coloana,"System.Int32", "id", false, true);
-            dtAngajati.Columns.Add(coloana);
-
-            buildColumn(coloana, "System.String", "nume");
-            dtAngajati.Columns.Add(coloana);
-
-            buildColumn(coloana, "System.String", "prenume");
-            dtAngajati.Columns.Add(coloana);
-
-            DataColumn[] PrimaryKeyColumns = new DataColumn[1];
-            PrimaryKeyColumns[0] = dtAngajati.Columns[0];
-            dtAngajati.PrimaryKey = PrimaryKeyColumns;
-
+            InitializeComponent();
             SqlConnection connection = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
             connection.Open();
-            string query = "select id, nume, prenume, from Angajat;";
+            string query = "select a.nume, a.prenume,a.email, a.dataAngajare, a.dataNasterii, a.cnp, a.serie, a.no, a.nrTelefon, a.poza,a.esteAdmin, case when a.managerId IS NOT NULL then CONCAT(m.nume,' ',m.prenume) else 'No Manager' end as Manager from Angajat a\r\nleft join (select nume,prenume,id\r\nfrom Angajat ) m on m.id = a.managerId;\r\n";
             SqlCommand command = new SqlCommand(query, connection);
             SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                dtAngajati.Rows.Add(reader);
-            }
-
-        }
-        public void FillDataTable()
-        {
-            
-        }
-        public TabelaAngajati()
-        {
-            InitializeComponent();
-            CreateDataTable();
+            dtAngajati.Load(reader);
+            dgvAngajati.DataSource = dtAngajati;
         }
 
        

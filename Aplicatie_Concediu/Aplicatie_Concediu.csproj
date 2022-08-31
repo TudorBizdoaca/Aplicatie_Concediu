@@ -113,6 +113,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TabelaAngajati.resx">
+      <DependentUpon>TabelaAngajati.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tabel_Concedii.resx">
       <DependentUpon>Tabel_Concedii.cs</DependentUpon>
     </EmbeddedResource>

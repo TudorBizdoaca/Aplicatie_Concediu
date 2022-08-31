@@ -1,6 +1,6 @@
 ﻿namespace Aplicatie_Concediu
 {
-    partial class TabelaAngajati
+    partial class dgvTabelaAngajati
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dgvAngajati = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAngajati)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dgvAngajati
+            // 
+            this.dgvAngajati.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAngajati.Location = new System.Drawing.Point(0, 0);
+            this.dgvAngajati.Name = "dgvAngajati";
+            this.dgvAngajati.Size = new System.Drawing.Size(648, 362);
+            this.dgvAngajati.TabIndex = 0;
+            // 
+            // dgvTabelaAngajati
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvAngajati);
+            this.Name = "dgvTabelaAngajati";
             this.Text = "TabelaAngajatiUI";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAngajati)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dgvAngajati;
     }
 }
