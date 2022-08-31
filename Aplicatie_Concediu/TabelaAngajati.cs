@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace Aplicatie_Concediu
 {
-    public partial class dgvTabelaAngajati : Form
+    public partial class TabelaAngajati : Form
     {       
        
        
-        public dgvTabelaAngajati()
+        public TabelaAngajati()
         {
             DataTable dtAngajati = new DataTable();
             InitializeComponent();

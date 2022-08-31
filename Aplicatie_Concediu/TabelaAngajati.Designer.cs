@@ -1,6 +1,6 @@
 ﻿namespace Aplicatie_Concediu
 {
-    partial class dgvTabelaAngajati
+    partial class TabelaAngajati
     {
         /// <summary>
         /// Required designer variable.
@@ -40,14 +40,14 @@
             this.dgvAngajati.Size = new System.Drawing.Size(648, 362);
             this.dgvAngajati.TabIndex = 0;
             // 
-            // dgvTabelaAngajati
+            // TabelaAngajati
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvAngajati);
-            this.Name = "dgvTabelaAngajati";
-            this.Text = "TabelaAngajatiUI";
+            this.Name = "TabelaAngajati";
+            this.Text = "Angajati";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAngajati)).EndInit();
             this.ResumeLayout(false);
 
