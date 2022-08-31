@@ -9,6 +9,7 @@ namespace Aplicatie_Concediu
     internal static class Program
     {
         public static int UserId { get; set; }
+        public static string IdConcediu { get; set; }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,7 +18,7 @@ namespace Aplicatie_Concediu
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Autentificare());
+            Application.Run(new Tabel_Concedii());
         }
     }
 
