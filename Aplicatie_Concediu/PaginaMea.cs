@@ -77,7 +77,44 @@ namespace Aplicatie_Concediu
 
         private void buttonAnuleaza_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Hide();
+        }
+
+        private void buttonPaginaMea_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Hide();
+        }
+
+        private void buttonCereriConcediu_Click(object sender, EventArgs e)
+        {
+            Tabel_Concedii formTabelaConcedii = new Tabel_Concedii();
+            formTabelaConcedii.Show();
+            this.Hide();
+        }
+
+        private void buttonIstoricConcedii_Click(object sender, EventArgs e)
+        {
+            IstoricConcedii formIstoricConcedii = new IstoricConcedii();
+            formIstoricConcedii.Show();
+            this.Hide();
+        }
+
+        private void buttonDetaliiAngajati_Click(object sender, EventArgs e)
+        {
+            TabelaAngajati formTabelaAngajati = new TabelaAngajati();
+            formTabelaAngajati.Show();
+            this.Hide();
+        }
+
+        private void buttonPanouAdmin_Click(object sender, EventArgs e)
+        {
+            PanouAdmin formPanouAdmin = new PanouAdmin();
+            formPanouAdmin.Show();
+            this.Hide();
         }
     }
 }

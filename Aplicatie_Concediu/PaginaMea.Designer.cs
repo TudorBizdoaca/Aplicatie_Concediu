@@ -460,6 +460,7 @@
             this.buttonPaginaMea.TabIndex = 15;
             this.buttonPaginaMea.Text = "Pagina Mea";
             this.buttonPaginaMea.UseVisualStyleBackColor = false;
+            this.buttonPaginaMea.Click += new System.EventHandler(this.buttonPaginaMea_Click);
             // 
             // buttonCereriConcediu
             // 
@@ -474,6 +475,7 @@
             this.buttonCereriConcediu.TabIndex = 16;
             this.buttonCereriConcediu.Text = "Cereri Concediu";
             this.buttonCereriConcediu.UseVisualStyleBackColor = false;
+            this.buttonCereriConcediu.Click += new System.EventHandler(this.buttonCereriConcediu_Click);
             // 
             // buttonDetaliiAngajati
             // 
@@ -488,6 +490,7 @@
             this.buttonDetaliiAngajati.TabIndex = 17;
             this.buttonDetaliiAngajati.Text = "Detalii Angajati";
             this.buttonDetaliiAngajati.UseVisualStyleBackColor = false;
+            this.buttonDetaliiAngajati.Click += new System.EventHandler(this.buttonDetaliiAngajati_Click);
             // 
             // buttonPanouAdmin
             // 
@@ -502,6 +505,7 @@
             this.buttonPanouAdmin.TabIndex = 18;
             this.buttonPanouAdmin.Text = "Panou Admin";
             this.buttonPanouAdmin.UseVisualStyleBackColor = false;
+            this.buttonPanouAdmin.Click += new System.EventHandler(this.buttonPanouAdmin_Click);
             // 
             // buttonIstoricConcedii
             // 
@@ -516,6 +520,7 @@
             this.buttonIstoricConcedii.TabIndex = 19;
             this.buttonIstoricConcedii.Text = "Istoric Concedii";
             this.buttonIstoricConcedii.UseVisualStyleBackColor = false;
+            this.buttonIstoricConcedii.Click += new System.EventHandler(this.buttonIstoricConcedii_Click);
             // 
             // PaginaMea
             // 
