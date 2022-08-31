@@ -64,6 +64,8 @@
             this.buttonDetaliiAngajati = new System.Windows.Forms.Button();
             this.buttonPanouAdmin = new System.Windows.Forms.Button();
             this.buttonIstoricConcedii = new System.Windows.Forms.Button();
+            this.buttonAnuleaza = new System.Windows.Forms.Button();
+            this.buttonSalveaza = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUtilizator)).BeginInit();
@@ -88,6 +90,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(239)))), ((int)(((byte)(198)))));
+            this.panel6.Controls.Add(this.buttonSalveaza);
+            this.panel6.Controls.Add(this.buttonAnuleaza);
             this.panel6.Controls.Add(this.dateTimePickerDataAngajarii);
             this.panel6.Controls.Add(this.dateTimePickerDataNasterii);
             this.panel6.Controls.Add(this.labelDataAngajarii);
@@ -478,6 +482,41 @@
             this.buttonIstoricConcedii.Text = "Istoric Concedii";
             this.buttonIstoricConcedii.UseVisualStyleBackColor = false;
             // 
+            // buttonAnuleaza
+            // 
+            this.buttonAnuleaza.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAnuleaza.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
+            this.buttonAnuleaza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAnuleaza.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAnuleaza.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonAnuleaza.Location = new System.Drawing.Point(37, 846);
+            this.buttonAnuleaza.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAnuleaza.Name = "buttonAnuleaza";
+            this.buttonAnuleaza.Size = new System.Drawing.Size(280, 58);
+            this.buttonAnuleaza.TabIndex = 34;
+            this.buttonAnuleaza.Text = "Anuleaza";
+            this.buttonAnuleaza.UseVisualStyleBackColor = false;
+            this.buttonAnuleaza.Visible = false;
+            this.buttonAnuleaza.Click += new System.EventHandler(this.buttonAnuleaza_Click);
+            // 
+            // buttonSalveaza
+            // 
+            this.buttonSalveaza.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSalveaza.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
+            this.buttonSalveaza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalveaza.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalveaza.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonSalveaza.Location = new System.Drawing.Point(1198, 846);
+            this.buttonSalveaza.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSalveaza.Name = "buttonSalveaza";
+            this.buttonSalveaza.Size = new System.Drawing.Size(280, 58);
+            this.buttonSalveaza.TabIndex = 35;
+            this.buttonSalveaza.Text = "Salveaza";
+            this.buttonSalveaza.UseVisualStyleBackColor = false;
+            this.buttonSalveaza.Visible = false;
+            // 
             // PaginaMea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -545,5 +584,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerDataNasterii;
         private System.Windows.Forms.DateTimePicker dateTimePickerDataAngajarii;
         private System.Windows.Forms.Button buttonIstoricConcedii;
+        private System.Windows.Forms.Button buttonSalveaza;
+        private System.Windows.Forms.Button buttonAnuleaza;
     }
 }

@@ -10,6 +10,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Aplicatie_Concediu
 {
@@ -59,7 +60,24 @@ namespace Aplicatie_Concediu
 
         private void buttonEditeazaProfil_Click(object sender, EventArgs e)
         {
+            textBoxNume.ReadOnly = false;
+            textBoxPrenume.ReadOnly = false;
+            textBoxCnp.ReadOnly = false;
+            textBoxSerie.ReadOnly = false;
+            textBoxNr.ReadOnly = false;
+            textBoxTelefon.ReadOnly = false;
+            textBoxEmail.ReadOnly = false;
+            dateTimePickerDataNasterii.Enabled = true;
+            dateTimePickerDataAngajarii.Enabled = true;
 
+            buttonEditeazaProfil.Visible = false;
+            buttonAnuleaza.Visible = true;
+            buttonSalveaza.Visible = true;
+        }
+
+        private void buttonAnuleaza_Click(object sender, EventArgs e)
+        {
+            this.Refresh();
         }
     }
 }
