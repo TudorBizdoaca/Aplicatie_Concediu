@@ -101,6 +101,7 @@ namespace Aplicatie_Concediu
         // Butoane Pagina
         private void buttonEditeazaProfil_Click(object sender, EventArgs e)
         {
+            pictureBoxUtilizator.Enabled = true;
             textBoxNume.ReadOnly = false;
             textBoxPrenume.ReadOnly = false;
             textBoxCnp.ReadOnly = false;
@@ -179,7 +180,14 @@ namespace Aplicatie_Concediu
         // Upload Image
         private void pictureBoxUtilizator_Click(object sender, EventArgs e)
         {
+            // MessageBox.Show("asad","sadas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
+            {
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
 
+                }
+            }
         }
     }
 }
