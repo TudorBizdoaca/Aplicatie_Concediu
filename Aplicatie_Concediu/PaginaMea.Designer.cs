@@ -33,6 +33,8 @@
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.buttonSalveaza = new System.Windows.Forms.Button();
+            this.buttonAnuleaza = new System.Windows.Forms.Button();
             this.dateTimePickerDataAngajarii = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDataNasterii = new System.Windows.Forms.DateTimePicker();
             this.labelDataAngajarii = new System.Windows.Forms.Label();
@@ -64,8 +66,6 @@
             this.buttonDetaliiAngajati = new System.Windows.Forms.Button();
             this.buttonPanouAdmin = new System.Windows.Forms.Button();
             this.buttonIstoricConcedii = new System.Windows.Forms.Button();
-            this.buttonAnuleaza = new System.Windows.Forms.Button();
-            this.buttonSalveaza = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUtilizator)).BeginInit();
@@ -120,6 +120,42 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1526, 950);
             this.panel6.TabIndex = 9;
+            // 
+            // buttonSalveaza
+            // 
+            this.buttonSalveaza.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSalveaza.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
+            this.buttonSalveaza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalveaza.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalveaza.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonSalveaza.Location = new System.Drawing.Point(1198, 846);
+            this.buttonSalveaza.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSalveaza.Name = "buttonSalveaza";
+            this.buttonSalveaza.Size = new System.Drawing.Size(280, 58);
+            this.buttonSalveaza.TabIndex = 35;
+            this.buttonSalveaza.Text = "Salveaza";
+            this.buttonSalveaza.UseVisualStyleBackColor = false;
+            this.buttonSalveaza.Visible = false;
+            this.buttonSalveaza.Click += new System.EventHandler(this.buttonSalveaza_Click);
+            // 
+            // buttonAnuleaza
+            // 
+            this.buttonAnuleaza.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAnuleaza.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
+            this.buttonAnuleaza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAnuleaza.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAnuleaza.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonAnuleaza.Location = new System.Drawing.Point(37, 846);
+            this.buttonAnuleaza.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAnuleaza.Name = "buttonAnuleaza";
+            this.buttonAnuleaza.Size = new System.Drawing.Size(280, 58);
+            this.buttonAnuleaza.TabIndex = 34;
+            this.buttonAnuleaza.Text = "Anuleaza";
+            this.buttonAnuleaza.UseVisualStyleBackColor = false;
+            this.buttonAnuleaza.Visible = false;
+            this.buttonAnuleaza.Click += new System.EventHandler(this.buttonAnuleaza_Click);
             // 
             // dateTimePickerDataAngajarii
             // 
@@ -361,6 +397,7 @@
             // 
             // pictureBoxUtilizator
             // 
+            this.pictureBoxUtilizator.Enabled = false;
             this.pictureBoxUtilizator.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUtilizator.Image")));
             this.pictureBoxUtilizator.Location = new System.Drawing.Point(37, 32);
             this.pictureBoxUtilizator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -369,6 +406,7 @@
             this.pictureBoxUtilizator.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxUtilizator.TabIndex = 9;
             this.pictureBoxUtilizator.TabStop = false;
+            this.pictureBoxUtilizator.Click += new System.EventHandler(this.pictureBoxUtilizator_Click);
             // 
             // labelNumeUtilizator
             // 
@@ -425,6 +463,7 @@
             this.buttonPaginaMea.TabIndex = 15;
             this.buttonPaginaMea.Text = "Pagina Mea";
             this.buttonPaginaMea.UseVisualStyleBackColor = false;
+            this.buttonPaginaMea.Click += new System.EventHandler(this.buttonPaginaMea_Click);
             // 
             // buttonCereriConcediu
             // 
@@ -439,6 +478,7 @@
             this.buttonCereriConcediu.TabIndex = 16;
             this.buttonCereriConcediu.Text = "Cereri Concediu";
             this.buttonCereriConcediu.UseVisualStyleBackColor = false;
+            this.buttonCereriConcediu.Click += new System.EventHandler(this.buttonCereriConcediu_Click);
             // 
             // buttonDetaliiAngajati
             // 
@@ -453,6 +493,7 @@
             this.buttonDetaliiAngajati.TabIndex = 17;
             this.buttonDetaliiAngajati.Text = "Detalii Angajati";
             this.buttonDetaliiAngajati.UseVisualStyleBackColor = false;
+            this.buttonDetaliiAngajati.Click += new System.EventHandler(this.buttonDetaliiAngajati_Click);
             // 
             // buttonPanouAdmin
             // 
@@ -467,6 +508,7 @@
             this.buttonPanouAdmin.TabIndex = 18;
             this.buttonPanouAdmin.Text = "Panou Admin";
             this.buttonPanouAdmin.UseVisualStyleBackColor = false;
+            this.buttonPanouAdmin.Click += new System.EventHandler(this.buttonPanouAdmin_Click);
             // 
             // buttonIstoricConcedii
             // 
@@ -481,41 +523,7 @@
             this.buttonIstoricConcedii.TabIndex = 19;
             this.buttonIstoricConcedii.Text = "Istoric Concedii";
             this.buttonIstoricConcedii.UseVisualStyleBackColor = false;
-            // 
-            // buttonAnuleaza
-            // 
-            this.buttonAnuleaza.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAnuleaza.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
-            this.buttonAnuleaza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAnuleaza.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAnuleaza.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonAnuleaza.Location = new System.Drawing.Point(37, 846);
-            this.buttonAnuleaza.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonAnuleaza.Name = "buttonAnuleaza";
-            this.buttonAnuleaza.Size = new System.Drawing.Size(280, 58);
-            this.buttonAnuleaza.TabIndex = 34;
-            this.buttonAnuleaza.Text = "Anuleaza";
-            this.buttonAnuleaza.UseVisualStyleBackColor = false;
-            this.buttonAnuleaza.Visible = false;
-            this.buttonAnuleaza.Click += new System.EventHandler(this.buttonAnuleaza_Click);
-            // 
-            // buttonSalveaza
-            // 
-            this.buttonSalveaza.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSalveaza.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
-            this.buttonSalveaza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSalveaza.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSalveaza.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonSalveaza.Location = new System.Drawing.Point(1198, 846);
-            this.buttonSalveaza.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSalveaza.Name = "buttonSalveaza";
-            this.buttonSalveaza.Size = new System.Drawing.Size(280, 58);
-            this.buttonSalveaza.TabIndex = 35;
-            this.buttonSalveaza.Text = "Salveaza";
-            this.buttonSalveaza.UseVisualStyleBackColor = false;
-            this.buttonSalveaza.Visible = false;
+            this.buttonIstoricConcedii.Click += new System.EventHandler(this.buttonIstoricConcedii_Click);
             // 
             // PaginaMea
             // 

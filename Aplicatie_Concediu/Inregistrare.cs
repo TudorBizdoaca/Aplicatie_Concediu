@@ -5,6 +5,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -15,11 +17,12 @@ namespace Aplicatie_Concediu
 {
     public partial class Inregistrare : Form
     {
+        string codVerificareTrimis;
      
        public Inregistrare()
         {
             InitializeComponent();
-           
+            
         }
 
         private string criptareParola(string parola)
@@ -37,9 +40,9 @@ namespace Aplicatie_Concediu
         }
         private void btnInregistrare_Click(object sender, EventArgs e)
         {
-
-
-            if (validareFormular())
+            string codVerificareIntrodus = tbCodVerificare.Text;
+          
+            if (validareFormular() && codVerificareIntrodus == codVerificareTrimis)
             {
                      
                 string connectionString = "Data Source=ts2112\\SQLEXPRESS;Initial Catalog=BreakingBread;User ID=internship2022;Password=int";
@@ -300,7 +303,21 @@ namespace Aplicatie_Concediu
             }
             return eValid;
         }
+        private bool validareCodVerificare()
+        {
+            bool eValid = true;
+            if(tbCodVerificare.Text != codVerificareTrimis)
+            {
+                errorProviderCodVerificare.SetError(tbCodVerificare, "Codul de verificare e incorect!");
+                eValid = true;
+            }
+            else
+            {
+                errorProviderCodVerificare.SetError(tbCodVerificare, "");
+            }
 
+            return eValid;
+        }
         private bool validareFormular()
         {
             bool eValid = false;
@@ -315,9 +332,10 @@ namespace Aplicatie_Concediu
             bool nrvalid = validareNrBuletin();
             bool nrTelefonValid = validareNrTelefon();
             bool parolaValida = validareParola();
+            bool codVerificareValid = validareCodVerificare();
 
             if(numeValid && prenumeValid && emailValid && dataNastereValida && dataAngajariiValida && cnpValid 
-                && serieValida && nrvalid && nrTelefonValid && parolaValida)
+                && serieValida && nrvalid && nrTelefonValid && parolaValida && codVerificareValid)
             {
                 eValid = true;
             }
@@ -438,7 +456,51 @@ namespace Aplicatie_Concediu
           
         }
 
+        private void tbCodVerificare_Validating(object sender, CancelEventArgs e)
+        {
+            validareCodVerificare();
+        }
+
+        private void tbCodVerificare_Validated(object sender, EventArgs e)
+        {
+            errorProviderCodVerificare.Clear();
+        }
+
         #endregion
+
+
+        #region Trimitere E-mail Cod Verificare
+        private string generareCodVerificare()
+        {
+            Random random = new Random();
+            return random.Next(100000, 999999).ToString();
+
+        }
+
+        private string trimiteCodVerificare()
+        {
+            string codVerificare = generareCodVerificare();
+            string mesaj = "Codul tau de verificare este: " + codVerificare;
+            MailMessage mail = new MailMessage("madalina.mireag@totalsoft.ro", tbEmail.Text, "Cod Verificare Email", mesaj);
+            SmtpClient smtpClient = new SmtpClient();
+            smtpClient.Host = "mailer14.totalsoft.local";
+            smtpClient.Port = 587;
+            smtpClient.EnableSsl = true;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Credentials = new NetworkCredential("madalina.mireag@totalsoft.ro", "Skillet19");
+            smtpClient.Send(mail);
+            MessageBox.Show("Cod de verificare trimis pe e-mail","Cod de verificare", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return codVerificare;
+        }
+        private void btnTrimiteCodVerificare_Click(object sender, EventArgs e)
+        {
+            codVerificareTrimis = trimiteCodVerificare();
+           
+        }
+
+        #endregion
+
+
     }
 
 }
