@@ -74,6 +74,7 @@ namespace Aplicatie_Concediu
             Inregistrare inregistrare = new Inregistrare();
             inregistrare.Show();
         }
+
     }
 }
 
