@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -181,13 +182,34 @@ namespace Aplicatie_Concediu
         private void pictureBoxUtilizator_Click(object sender, EventArgs e)
         {
             // MessageBox.Show("asad","sadas", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
-            {
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                {
+            //using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
+            //{
+            //    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            //    {
+            //        string fileName = openFileDialog1.FileName;
+            //        byte[] bytes = File.ReadAllBytes(fileName);
+            //        string contentType = "";
+            //        //Set the contenttype based on File Extension
 
-                }
-            }
+            //        switch (Path.GetExtension(fileName))
+            //        {
+            //            case ".jpg":
+            //                contentType = "image/jpeg";
+            //                break;
+            //            case ".png":
+            //                contentType = "image/png";
+            //                break;
+            //            case ".gif":
+            //                contentType = "image/gif";
+            //                break;
+            //            case ".bmp":
+            //                contentType = "image/bmp";
+            //                break;
+            //        }
+
+
+            //    }
+            //}
         }
     }
 }
