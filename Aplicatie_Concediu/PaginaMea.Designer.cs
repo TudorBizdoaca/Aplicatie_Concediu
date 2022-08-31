@@ -59,7 +59,7 @@
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUtilizator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-           
+
             this.SuspendLayout();
             // 
             // pictureBoxLogo
