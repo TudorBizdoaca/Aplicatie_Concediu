@@ -20,4 +20,5 @@ namespace Aplicatie_Concediu
             Application.Run(new Autentificare());
         }
     }
+
 }

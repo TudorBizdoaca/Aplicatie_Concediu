@@ -28,22 +28,22 @@ namespace Aplicatie_Concediu
             cn.Open();
             if (parola.Text != String.Empty && mail.Text != String.Empty)
             {
-                
-                
+
+
                 //se decomenteaza in momentul in care pagina register este gata si se inlocuieste la *
-                //SHA256 sHA256 = SHA256.Create();
-                //string compara = null;
-                //compara = parola.Text;
-                //byte[] inputBytes = System.Text.Encoding.UTF8.GetBytes(compara);
-                //byte[] inputHashedBytes = sHA256.ComputeHash(inputBytes);
-                //String inputHash = Convert.ToBase64String(inputHashedBytes);
-                //string result = BitConverter.ToString(inputHashedBytes)
-                //.Replace("-", string.Empty)
-                //.ToLower();
+                SHA256 sHA256 = SHA256.Create();
+                string compara = null;
+                compara = parola.Text;
+                byte[] inputBytes = System.Text.Encoding.UTF8.GetBytes(compara);
+                byte[] inputHashedBytes = sHA256.ComputeHash(inputBytes);
+                String inputHash = Convert.ToBase64String(inputHashedBytes);
+                string result = BitConverter.ToString(inputHashedBytes)
+                .Replace("-", string.Empty)
+                .ToLower();
 
 
-        //* se inlocuieste parola.Text cu result
-                SqlCommand cmd = new SqlCommand("select * from Angajat where  email='" + mail.Text + "' and parola= '" + parola.Text + "'", cn);
+                //* se inlocuieste parola.Text cu result
+                SqlCommand cmd = new SqlCommand("select * from Angajat where  email='" + mail.Text + "' and parola= '" + result + "'", cn);
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 if (dr.Read())
@@ -57,7 +57,7 @@ namespace Aplicatie_Concediu
                 else
                 {
                     dr.Close();
-                    MessageBox.Show("E-mail sau parola gresita");
+                    MessageBox.Show("Email sau parola gresita");
                 }
             
             }
@@ -74,6 +74,7 @@ namespace Aplicatie_Concediu
             Inregistrare inregistrare = new Inregistrare();
             inregistrare.Show();
         }
+
     }
 }
 
