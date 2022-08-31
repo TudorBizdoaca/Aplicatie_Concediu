@@ -52,7 +52,7 @@ namespace Aplicatie_Concediu
                 pPrenume.Value = tbPrenume.Text;
                 SqlParameter pEmail = new SqlParameter("@email", System.Data.SqlDbType.NVarChar,50);
                 pEmail.Value = tbEmail.Text;
-                SqlParameter pParola = new SqlParameter("@parola", System.Data.SqlDbType.NVarChar,50);
+                SqlParameter pParola = new SqlParameter("@parola", System.Data.SqlDbType.NVarChar,100);
                 pParola.Value = criptareParola(tbParola.Text);
                 SqlParameter pDataNastere = new SqlParameter("@dataNasterii", System.Data.SqlDbType.DateTime); ;
                 pDataNastere.Value = dtpDataNastere.Value;
