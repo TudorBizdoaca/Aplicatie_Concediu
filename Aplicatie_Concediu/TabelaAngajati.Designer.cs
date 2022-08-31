@@ -35,7 +35,7 @@
             // dgvAngajati
             // 
             this.dgvAngajati.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAngajati.Location = new System.Drawing.Point(0, 0);
+            this.dgvAngajati.Location = new System.Drawing.Point(12, 12);
             this.dgvAngajati.Name = "dgvAngajati";
             this.dgvAngajati.Size = new System.Drawing.Size(648, 362);
             this.dgvAngajati.TabIndex = 0;
