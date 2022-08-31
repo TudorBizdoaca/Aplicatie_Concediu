@@ -59,7 +59,7 @@
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUtilizator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+           
             this.SuspendLayout();
             // 
             // pictureBoxLogo
@@ -340,7 +340,7 @@
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUtilizator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
