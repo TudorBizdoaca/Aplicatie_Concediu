@@ -17,7 +17,7 @@ namespace Aplicatie_Concediu
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TabelaAngajati());
+            Application.Run(new Autentificare());
         }
     }
 

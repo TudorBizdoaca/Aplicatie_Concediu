@@ -137,6 +137,7 @@
             this.buttonSalveaza.Text = "Salveaza";
             this.buttonSalveaza.UseVisualStyleBackColor = false;
             this.buttonSalveaza.Visible = false;
+            this.buttonSalveaza.Click += new System.EventHandler(this.buttonSalveaza_Click);
             // 
             // buttonAnuleaza
             // 
@@ -404,6 +405,7 @@
             this.pictureBoxUtilizator.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxUtilizator.TabIndex = 9;
             this.pictureBoxUtilizator.TabStop = false;
+            this.pictureBoxUtilizator.Click += new System.EventHandler(this.pictureBoxUtilizator_Click);
             // 
             // labelNumeUtilizator
             // 
