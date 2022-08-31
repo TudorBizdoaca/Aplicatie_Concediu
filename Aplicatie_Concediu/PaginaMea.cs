@@ -77,7 +77,7 @@ namespace Aplicatie_Concediu
 
         private void buttonAnuleaza_Click(object sender, EventArgs e)
         {
-            this.Refresh();
+            InitializeComponent();
         }
     }
 }
