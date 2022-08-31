@@ -72,6 +72,7 @@
             this.errorProviderDataAngajare = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderEmail = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderNrTelefon = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderParola = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoInreg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmailIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbParolaIcon)).BeginInit();
@@ -92,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDataAngajare)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNrTelefon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderParola)).BeginInit();
             this.SuspendLayout();
             // 
             // pbLogoInreg
@@ -110,6 +112,8 @@
             this.tbInregistrareNume.Name = "tbInregistrareNume";
             this.tbInregistrareNume.Size = new System.Drawing.Size(235, 20);
             this.tbInregistrareNume.TabIndex = 1;
+            this.tbInregistrareNume.Validating += new System.ComponentModel.CancelEventHandler(this.tbInregistrareNume_Validating);
+            this.tbInregistrareNume.Validated += new System.EventHandler(this.tbInregistrareNume_Validated);
             // 
             // lInregistrareTitlu
             // 
@@ -127,6 +131,8 @@
             this.tbPrenume.Name = "tbPrenume";
             this.tbPrenume.Size = new System.Drawing.Size(235, 20);
             this.tbPrenume.TabIndex = 3;
+            this.tbPrenume.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrenume_Validating);
+            this.tbPrenume.Validated += new System.EventHandler(this.tbPrenume_Validated);
             // 
             // tbEmail
             // 
@@ -134,6 +140,8 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(235, 20);
             this.tbEmail.TabIndex = 4;
+            this.tbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEmail_Validating);
+            this.tbEmail.Validated += new System.EventHandler(this.tbEmail_Validated);
             // 
             // tbParola
             // 
@@ -142,13 +150,18 @@
             this.tbParola.PasswordChar = '*';
             this.tbParola.Size = new System.Drawing.Size(235, 20);
             this.tbParola.TabIndex = 5;
+            this.tbParola.Validating += new System.ComponentModel.CancelEventHandler(this.tbParola_Validating);
+            this.tbParola.Validated += new System.EventHandler(this.tbParola_Validated);
             // 
             // dtpDataNastere
             // 
+            this.dtpDataNastere.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDataNastere.Location = new System.Drawing.Point(144, 193);
             this.dtpDataNastere.Name = "dtpDataNastere";
             this.dtpDataNastere.Size = new System.Drawing.Size(235, 20);
             this.dtpDataNastere.TabIndex = 6;
+            this.dtpDataNastere.Validating += new System.ComponentModel.CancelEventHandler(this.dtpDataNastere_Validating);
+            this.dtpDataNastere.Validated += new System.EventHandler(this.dtpDataNastere_Validated);
             // 
             // tbCnp
             // 
@@ -157,6 +170,8 @@
             this.tbCnp.Size = new System.Drawing.Size(235, 20);
             this.tbCnp.TabIndex = 7;
             this.tbCnp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCnp_KeyPress);
+            this.tbCnp.Validating += new System.ComponentModel.CancelEventHandler(this.tbCnp_Validating);
+            this.tbCnp.Validated += new System.EventHandler(this.tbCnp_Validated);
             // 
             // tbSerieBuletin
             // 
@@ -164,6 +179,8 @@
             this.tbSerieBuletin.Name = "tbSerieBuletin";
             this.tbSerieBuletin.Size = new System.Drawing.Size(235, 20);
             this.tbSerieBuletin.TabIndex = 8;
+            this.tbSerieBuletin.Validating += new System.ComponentModel.CancelEventHandler(this.tbSerieBuletin_Validating);
+            this.tbSerieBuletin.Validated += new System.EventHandler(this.tbSerieBuletin_Validated);
             // 
             // tbNrTelefon
             // 
@@ -172,6 +189,8 @@
             this.tbNrTelefon.Size = new System.Drawing.Size(235, 20);
             this.tbNrTelefon.TabIndex = 9;
             this.tbNrTelefon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNrTelefon_KeyPress);
+            this.tbNrTelefon.Validating += new System.ComponentModel.CancelEventHandler(this.tbNrTelefon_Validating);
+            this.tbNrTelefon.Validated += new System.EventHandler(this.tbNrTelefon_Validated);
             // 
             // lNumeInreg
             // 
@@ -268,6 +287,8 @@
             this.dtpDataAngajare.Name = "dtpDataAngajare";
             this.dtpDataAngajare.Size = new System.Drawing.Size(235, 20);
             this.dtpDataAngajare.TabIndex = 19;
+            this.dtpDataAngajare.Validating += new System.ComponentModel.CancelEventHandler(this.dtpDataAngajare_Validating);
+            this.dtpDataAngajare.Validated += new System.EventHandler(this.dtpDataAngajare_Validated);
             // 
             // btnInregistrare
             // 
@@ -398,6 +419,8 @@
             this.tbNrBuletin.Size = new System.Drawing.Size(235, 20);
             this.tbNrBuletin.TabIndex = 30;
             this.tbNrBuletin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNrBuletin_KeyPress);
+            this.tbNrBuletin.Validating += new System.ComponentModel.CancelEventHandler(this.tbNrBuletin_Validating);
+            this.tbNrBuletin.Validated += new System.EventHandler(this.tbNrBuletin_Validated);
             // 
             // pictureBox6
             // 
@@ -439,10 +462,15 @@
             // 
             this.errorProviderNrTelefon.ContainerControl = this;
             // 
+            // errorProviderParola
+            // 
+            this.errorProviderParola.ContainerControl = this;
+            // 
             // Inregistrare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
             this.ClientSize = new System.Drawing.Size(848, 449);
             this.Controls.Add(this.label2);
@@ -500,6 +528,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDataAngajare)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNrTelefon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderParola)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -549,5 +578,6 @@
         private System.Windows.Forms.ErrorProvider errorProviderDataAngajare;
         private System.Windows.Forms.ErrorProvider errorProviderEmail;
         private System.Windows.Forms.ErrorProvider errorProviderNrTelefon;
+        private System.Windows.Forms.ErrorProvider errorProviderParola;
     }
 }

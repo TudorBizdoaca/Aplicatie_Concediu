@@ -2121,7 +2121,7 @@
   <data name="btnInregistrare.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        5QAAAOUBj+WbPAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJxSURBVFhHtZa3
+        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJxSURBVFhHtZa3
         6xRBGEDPnAq10kYMrQkFwUZULEQLC3OpWOs/YCtqI4gRG0MrKBaKWSxE7VUMlZhAUUExYnxv+X2wHLs3
         c7f7e/DgZm7m2wnfzG4ngwV4BJ/gL/yJj/Eo+t+wMQFP4F/8V+MfPIbjsFV8+G0sP+wNXsKbQ7/L/93C
         VgdxHCP4K1yHIzAYiZvwNUY7t6QVFqJLGw+fgXXMxhiEfeZjY5xJzMqZp9iK0f6wFU0xww3mzMrLXofb
@@ -2516,7 +2516,7 @@
   <data name="pbPhoneIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAD2WSURBVHhe7d0H
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAD2WSURBVHhe7d0H
         lGxVmfZxUZIEBRRQgqCAghgQEMEMYkBkxjFhQBCzmEYZwdFRMaMyoqIgoqiYEcMYCQoKiIpIUpJIUJGc
         c/6+5xmouR3e7q7uqlO1373//7V+a824+l5unT51zj5pn3sQESXohXKnXHm3C+Wcu/1RTpDj5Ag5VL4h
         n5b3yhvlxbKVPFpWl6WFiIiICs8DgP83ZNeLBxBHyYHiwcLL5YniQcJiQkQ0lu4pD73r/yRqui4GAHO5
@@ -3505,7 +3505,7 @@
   <data name="pictureBox4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAC9bSURBVHhe7d0H
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAC9bSURBVHhe7d0H
         lGV1le/xgga6AQUFyRJmEJE4ozOYQVFQVBjkIaCIKKMSBWcMA74RxTQPUBAEUZA3KKggSZIOghIMiKIS
         BG2SBBEJSs7pvd9uaCy6d3VV3br73r3P//td67OWq6iuuufc4z277j1hhIg61Xzy97Kp7C4HyAlynvxW
         bpY75D75f0+x/21fs/9m32Pfe7zYv7Wf8Raxn2k/m4iIiBK0gmwtB8sFco/M3rH3m/3sn8lBspUsL0RE
@@ -3714,7 +3714,7 @@
   <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAC9bSURBVHhe7d0H
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAC9bSURBVHhe7d0H
         lGV1le/xgga6AQUFyRJmEJE4ozOYQVFQVBjkIaCIKKMSBWcMA74RxTQPUBAEUZA3KKggSZIOghIMiKIS
         BG2SBBEJSs7pvd9uaCy6d3VV3br73r3P//td67OWq6iuuufc4z277j1hhIg61Xzy97Kp7C4HyAlynvxW
         bpY75D75f0+x/21fs/9m32Pfe7zYv7Wf8Raxn2k/m4iIiBK0gmwtB8sFco/M3rH3m/3sn8lBspUsL0RE
@@ -3924,12 +3924,12 @@
     <value>17, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>156</value>
+    <value>25</value>
   </metadata>
   <data name="pictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAC9bSURBVHhe7d0H
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAC9bSURBVHhe7d0H
         lGV1le/xgga6AQUFyRJmEJE4ozOYQVFQVBjkIaCIKKMSBWcMA74RxTQPUBAEUZA3KKggSZIOghIMiKIS
         BG2SBBEJSs7pvd9uaCy6d3VV3br73r3P//td67OWq6iuuufc4z277j1hhIg61Xzy97Kp7C4HyAlynvxW
         bpY75D75f0+x/21fs/9m32Pfe7zYv7Wf8Raxn2k/m4iIiBK0gmwtB8sFco/M3rH3m/3sn8lBspUsL0RE
@@ -4158,5 +4158,8 @@
   </metadata>
   <metadata name="errorProviderNrTelefon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>542, 56</value>
+  </metadata>
+  <metadata name="errorProviderParola.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
   </metadata>
 </root>
