@@ -117,37 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="var_nume.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="var_prenume.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Manager.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="tip_concediu.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Concediu_i.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="data_concediu_f.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="inlocuitor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="var_stare.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="breakingBreadDataSetBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>226, 17</value>
-  </metadata>
-  <metadata name="breakingBreadDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>245</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnResetareParola.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJxSURBVFhHtZa3
+        6xRBGEDPnAq10kYMrQkFwUZULEQLC3OpWOs/YCtqI4gRG0MrKBaKWSxE7VUMlZhAUUExYnxv+X2wHLs3
+        c7f7e/DgZm7m2wnfzG4ngwV4BJ/gL/yJj/Eo+t+wMQFP4F/8V+MfPIbjsFV8+G0sP+wNXsKbQ7/L/93C
+        VgdxHCP4K1yHIzAYiZvwNUY7t6QVFqJLGw+fgXXMxhiEfeZjY5xJzMqZp9iK0f6wFU0xww3mzMrLXofb
+        8R7t88iKpnxDg10uSnlcRft8KUoN+YwGM9tzuYatDcBlNJhHzeVNMRrfoX0eWtGUg2gw9ail2IzR/pAV
+        FYzBNTi9KCWYh7/RgB7DOVjHLIwE9Bjat4p9aJtnRSkD7/6YladhC5a3YxQ683i42qeOsxjtshiLNzA6
+        qQ8zMa9j7Hlo2/FYR98DEAfhxRLbUaXL7sy73wMm5lo0h/QeRp+oW49ZOTEXD+AD9Ih+RU+KCZfa85TZ
+        OdEve7Hqgd0+xWHBLfDYpbZgGmYxBX3TGVT9PRlzGSgJJ+Eu9MOkKhGt87+dOBF70fcAdmD3V08vvSu2
+        Yx2RE8k99zidwXLw73gRd+O2If3t59kPLLc9hVWfZl7Fq7Hnnps48VpVX8seJ/e/jqm4Hx1k9LuCxuob
+        z3UEeYGLMJfF+BKjvy+0vliO0fktzsR+8cVUvqKXYRZ+dt3H6LgSB2UVRpy7mPNJ11mK0em8FQ25gBFv
+        iRUpyvf2Cisa4gpGvD1WpHCpbPwBB8reLozxEY15x4oUZryNva/bInLqeVFKEGf4XFFqB2MZ07skyWn8
+        hBuKUjtsRGOeLEq1dDr/AfXt+56WvfWHAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

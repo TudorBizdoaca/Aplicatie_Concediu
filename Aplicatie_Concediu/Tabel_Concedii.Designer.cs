@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.breakingBreadDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.breakingBreadDataSet = new Aplicatie_Concediu.BreakingBreadDataSet();
             this.var_nume = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.var_prenume = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Manager = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,6 +38,8 @@
             this.data_concediu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inlocuitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.var_stare = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.breakingBreadDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.breakingBreadDataSet = new Aplicatie_Concediu.BreakingBreadDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breakingBreadDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breakingBreadDataSet)).BeginInit();
@@ -64,23 +64,14 @@
             this.var_stare});
             this.dataGridView1.DataSource = this.breakingBreadDataSetBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(-1, -1);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1120, 269);
+            this.dataGridView1.Size = new System.Drawing.Size(840, 219);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // breakingBreadDataSetBindingSource
-            // 
-            this.breakingBreadDataSetBindingSource.DataSource = this.breakingBreadDataSet;
-            this.breakingBreadDataSetBindingSource.Position = 0;
-            // 
-            // breakingBreadDataSet
-            // 
-            this.breakingBreadDataSet.DataSetName = "BreakingBreadDataSet";
-            this.breakingBreadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // var_nume
             // 
@@ -95,6 +86,7 @@
             this.var_prenume.HeaderText = "Prenume";
             this.var_prenume.MinimumWidth = 6;
             this.var_prenume.Name = "var_prenume";
+            this.var_prenume.ReadOnly = true;
             this.var_prenume.Width = 170;
             // 
             // Manager
@@ -102,6 +94,7 @@
             this.Manager.HeaderText = "Manager";
             this.Manager.MinimumWidth = 6;
             this.Manager.Name = "Manager";
+            this.Manager.ReadOnly = true;
             this.Manager.Width = 125;
             // 
             // tip_concediu
@@ -109,6 +102,7 @@
             this.tip_concediu.HeaderText = "Tip Concediu";
             this.tip_concediu.MinimumWidth = 6;
             this.tip_concediu.Name = "tip_concediu";
+            this.tip_concediu.ReadOnly = true;
             this.tip_concediu.Width = 125;
             // 
             // Concediu_i
@@ -116,6 +110,7 @@
             this.Concediu_i.HeaderText = "Data Incepere Concediu";
             this.Concediu_i.MinimumWidth = 6;
             this.Concediu_i.Name = "Concediu_i";
+            this.Concediu_i.ReadOnly = true;
             this.Concediu_i.Width = 125;
             // 
             // data_concediu_f
@@ -123,6 +118,7 @@
             this.data_concediu_f.HeaderText = "Data Final Concediu";
             this.data_concediu_f.MinimumWidth = 6;
             this.data_concediu_f.Name = "data_concediu_f";
+            this.data_concediu_f.ReadOnly = true;
             this.data_concediu_f.Width = 170;
             // 
             // inlocuitor
@@ -130,6 +126,7 @@
             this.inlocuitor.HeaderText = "Inlocuitor";
             this.inlocuitor.MinimumWidth = 6;
             this.inlocuitor.Name = "inlocuitor";
+            this.inlocuitor.ReadOnly = true;
             this.inlocuitor.Width = 125;
             // 
             // var_stare
@@ -137,14 +134,26 @@
             this.var_stare.HeaderText = "Stare";
             this.var_stare.MinimumWidth = 6;
             this.var_stare.Name = "var_stare";
+            this.var_stare.ReadOnly = true;
             this.var_stare.Width = 170;
+            // 
+            // breakingBreadDataSetBindingSource
+            // 
+            this.breakingBreadDataSetBindingSource.DataSource = this.breakingBreadDataSet;
+            this.breakingBreadDataSetBindingSource.Position = 0;
+            // 
+            // breakingBreadDataSet
+            // 
+            this.breakingBreadDataSet.DataSetName = "BreakingBreadDataSet";
+            this.breakingBreadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Tabel_Concedii
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1122, 534);
+            this.ClientSize = new System.Drawing.Size(842, 434);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Tabel_Concedii";
             this.Text = "Tabel_Concedii";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

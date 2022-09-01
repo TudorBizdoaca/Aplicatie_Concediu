@@ -87,13 +87,19 @@ namespace Aplicatie_Concediu
 
                 sqlConnection.Open();
                 int n = insertCommand.ExecuteNonQuery();
+                sqlConnection.Close();
                 if (n > 0)
                 {
                     MessageBox.Show("Angajat inserat cu succes!", "Succes Inserare", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                    Autentificare autentificare = new Autentificare();
+                    autentificare.Show();
                 } else
                 {
                     MessageBox.Show("Inserarea a esuat!", "Eroare Inserare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                ;
 
 
            } else
