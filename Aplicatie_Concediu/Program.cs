@@ -10,7 +10,8 @@ namespace Aplicatie_Concediu
 {
     internal static class Program
     {
-        public static int UserId { get; set; }
+        public static int UserId  { get; set;  }
+       
         public static string IdConcediu { get; set; }
 
         #region Metode Validare date angajat
