@@ -79,14 +79,15 @@ namespace Aplicatie_Concediu
         private void buttonCerereConcediu_Click(object sender, EventArgs e)
         {
             InserareConcediu formInserareConcediu = new InserareConcediu(Program.UserId);
-            formInserareConcediu.Show();
+            formInserareConcediu.ShowDialog();
+            formInserareConcediu.Focus();
         }
 
         private void buttonIstoricConcedii_Click(object sender, EventArgs e)
         {
             IstoricConcedii formIstoricConcedii = new IstoricConcedii();
-            formIstoricConcedii.Show();
-            this.Close();
+            formIstoricConcedii.ShowDialog();
+            formIstoricConcedii.Focus();
         }
 
         private void buttonDetaliiAngajati_Click(object sender, EventArgs e)
