@@ -75,6 +75,12 @@ namespace Aplicatie_Concediu
             inregistrare.Show();
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            ResetareParola resetare = new ResetareParola();
+            resetare.Show();
+        }
     }
 }
 
