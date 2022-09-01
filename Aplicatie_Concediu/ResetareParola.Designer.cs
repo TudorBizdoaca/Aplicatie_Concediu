@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResetareParola));
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.lEmailInreg = new System.Windows.Forms.Label();
             this.btnTrimiteCodVerificare = new System.Windows.Forms.Button();
@@ -113,7 +112,6 @@
             this.btnResetareParola.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnResetareParola.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResetareParola.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnResetareParola.Image = ((System.Drawing.Image)(resources.GetObject("btnResetareParola.Image")));
             this.btnResetareParola.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnResetareParola.Location = new System.Drawing.Point(299, 361);
             this.btnResetareParola.Name = "btnResetareParola";

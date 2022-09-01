@@ -119,6 +119,9 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IstoricConcedii.resx">
+      <DependentUpon>IstoricConcedii.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PaginaMea.resx">
       <DependentUpon>PaginaMea.cs</DependentUpon>
     </EmbeddedResource>
