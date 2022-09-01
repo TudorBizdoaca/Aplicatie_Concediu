@@ -41,7 +41,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cbInlocuitor = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtfComentarii = new System.Windows.Forms.RichTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblCharCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.breakingBreadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipConcediuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipConcediuBindingSource1)).BeginInit();
@@ -137,20 +139,44 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // richTextBox1
+            // rtfComentarii
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(33, 158);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(186, 96);
-            this.richTextBox1.TabIndex = 9;
-            this.richTextBox1.Text = "";
+            this.rtfComentarii.Location = new System.Drawing.Point(15, 154);
+            this.rtfComentarii.MaxLength = 500;
+            this.rtfComentarii.Name = "rtfComentarii";
+            this.rtfComentarii.Size = new System.Drawing.Size(225, 100);
+            this.rtfComentarii.TabIndex = 9;
+            this.rtfComentarii.Text = "";
+            this.rtfComentarii.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rtfComentarii_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 121);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Comentarii:";
+            // 
+            // lblCharCount
+            // 
+            this.lblCharCount.AutoSize = true;
+            this.lblCharCount.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblCharCount.ForeColor = System.Drawing.Color.Black;
+            this.lblCharCount.Location = new System.Drawing.Point(117, 257);
+            this.lblCharCount.Name = "lblCharCount";
+            this.lblCharCount.Size = new System.Drawing.Size(114, 13);
+            this.lblCharCount.TabIndex = 11;
+            this.lblCharCount.Text = "Caractere ramase: 500";
             // 
             // InserareConcediu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.lblCharCount);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.rtfComentarii);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cbInlocuitor);
             this.Controls.Add(this.label3);
@@ -183,6 +209,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbInlocuitor;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtfComentarii;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblCharCount;
     }
 }

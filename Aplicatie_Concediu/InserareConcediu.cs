@@ -8,11 +8,11 @@ namespace Aplicatie_Concediu
 {
     public partial class InserareConcediu : Form
     {
-        int id;
+        
         DateTime StartDate;
         DateTime EndDate;
         SqlConnection connection = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
-
+       
         List<int> ListaIduriInConcediu = new List<int>();
         public void cbTipConcediuLoad()
         {
@@ -70,9 +70,11 @@ namespace Aplicatie_Concediu
             connection.Open();
 
             cbTipConcediuLoad();
-            id = AngajatId;
+            dtpFinalConcediu.MinDate = dtpInceputConcediu.Value;
+            
+            
         }
-
+       
         private void InserareConcediu_Load(object sender, EventArgs e)
         {
 
@@ -86,6 +88,8 @@ namespace Aplicatie_Concediu
             StartDate = dtpInceputConcediu.Value;
             EndDate = dtpFinalConcediu.Value;
             cbInlocuitorLoad();
+            dtpFinalConcediu.MinDate = dtpInceputConcediu.Value;
+           
 
         }
 
@@ -95,31 +99,56 @@ namespace Aplicatie_Concediu
             EndDate = dtpFinalConcediu.Value;
             
             cbInlocuitorLoad();
+            dtpFinalConcediu.MinDate = dtpInceputConcediu.Value;
+           
         }
         public void insertConcediu()
         {
-            string query = "INSERT INTO Concediu(tipConcediuId, dataInceput, dataSfarsit, inlocuitorId, comentarii, stareConcediuId,angajatId)";
-            SqlCommand command;
+            string query = "INSERT INTO Concediu(tipConcediuId, dataInceput, dataSfarsit, inlocuitorId, comentarii, stareConcediuId,angajatId)" +
+                "VALUES(@tipConcediuId,@dataInceput,@dataSfarsit,@inlocuitorId,@comentarii,@stareConcediuId,@angajatId)";
+            SqlCommand command = new SqlCommand(query,connection);
+           
+            command.Parameters.Add(new SqlParameter("tipConcediuId", cbTipConcediu.SelectedValue));
+            command.Parameters.Add(new SqlParameter("dataInceput", StartDate));
+            command.Parameters.Add(new SqlParameter("dataSfarsit", EndDate));
+            command.Parameters.Add(new SqlParameter("inlocuitorId", cbInlocuitor.SelectedValue));
+            command.Parameters.Add(new SqlParameter("comentarii", rtfComentarii.Text));
+            command.Parameters.Add(new SqlParameter("stareConcediuId", cbTipConcediu.SelectedValue));
+            command.Parameters.Add(new SqlParameter("angajatId", Program.UserId));
+            command.ExecuteNonQuery();
+
+            MessageBox.Show("Concediu inserat cu succes");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (cbTipConcediu.SelectedItem == null)
+            {
                 MessageBox.Show("Alege tipul de concediu!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (dtpFinalConcediu.Value < dtpInceputConcediu.Value)
+                return;
+            }//Int32.Parse(dtpFinalConcediu.Value.Date.AddDays(-dtpInceputConcediu.Value.Date.Day).Day.ToString()) < 0
+            if (dtpFinalConcediu.Value.Date < dtpInceputConcediu.Value.Date)
+            {
                 MessageBox.Show("Format data incorect, data de final nu poate sa fie mai mica decat data de inceput", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                return;
+            }
+            if(ListaIduriInConcediu.Count != 0)
             if (ListaIduriInConcediu.Contains(int.Parse(cbInlocuitor.SelectedValue.ToString())))
                 if (MessageBox.Show("Inlocuitorul selectat este in concediu pe perioada selectata, esti sigur ca doresti sa il adaugi?", "Eroare", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    insertConcediu();
+                   
                 }
                 else
                 {
-
+                    return;
                 }
-
+            insertConcediu();
             
+        }
+
+        private void rtfComentarii_KeyPress(object sender, KeyPressEventArgs e)
+        { 
+            lblCharCount.Text = "Caractere ramase: "+ (500 - (rtfComentarii.Text.Length)).ToString();          
         }
     }
 }
