@@ -40,6 +40,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbInlocuitor = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.breakingBreadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipConcediuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipConcediuBindingSource1)).BeginInit();
@@ -106,7 +108,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Start concediu:";
+            this.label2.Text = "Final concediu:";
             // 
             // label3
             // 
@@ -125,11 +127,31 @@
             this.cbInlocuitor.Size = new System.Drawing.Size(121, 21);
             this.cbInlocuitor.TabIndex = 7;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(627, 231);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "InsereazaConcediu";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(33, 158);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(186, 96);
+            this.richTextBox1.TabIndex = 9;
+            this.richTextBox1.Text = "";
+            // 
             // InserareConcediu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.cbInlocuitor);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -160,5 +182,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbInlocuitor;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
