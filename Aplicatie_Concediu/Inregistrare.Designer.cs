@@ -77,7 +77,6 @@
             this.lCodVerificare = new System.Windows.Forms.Label();
             this.btnTrimiteCodVerificare = new System.Windows.Forms.Button();
             this.errorProviderCodVerificare = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoInreg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmailIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbParolaIcon)).BeginInit();
@@ -100,7 +99,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNrTelefon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderParola)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCodVerificare)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pbLogoInreg
@@ -167,6 +165,7 @@
             this.dtpDataNastere.Name = "dtpDataNastere";
             this.dtpDataNastere.Size = new System.Drawing.Size(235, 20);
             this.dtpDataNastere.TabIndex = 6;
+            this.dtpDataNastere.ValueChanged += new System.EventHandler(this.dtpDataNastere_ValueChanged);
             this.dtpDataNastere.Validating += new System.ComponentModel.CancelEventHandler(this.dtpDataNastere_Validating);
             this.dtpDataNastere.Validated += new System.EventHandler(this.dtpDataNastere_Validated);
             // 
@@ -176,6 +175,7 @@
             this.tbCnp.Name = "tbCnp";
             this.tbCnp.Size = new System.Drawing.Size(235, 20);
             this.tbCnp.TabIndex = 7;
+            this.tbCnp.TextChanged += new System.EventHandler(this.tbCnp_TextChanged);
             this.tbCnp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCnp_KeyPress);
             this.tbCnp.Validating += new System.ComponentModel.CancelEventHandler(this.tbCnp_Validating);
             this.tbCnp.Validated += new System.EventHandler(this.tbCnp_Validated);
@@ -511,10 +511,6 @@
             // 
             this.errorProviderCodVerificare.ContainerControl = this;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // Inregistrare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -582,7 +578,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNrTelefon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderParola)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCodVerificare)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -637,6 +632,5 @@
         private System.Windows.Forms.TextBox tbCodVerificare;
         private System.Windows.Forms.Button btnTrimiteCodVerificare;
         private System.Windows.Forms.ErrorProvider errorProviderCodVerificare;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
