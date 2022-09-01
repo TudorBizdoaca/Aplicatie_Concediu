@@ -76,11 +76,10 @@ namespace Aplicatie_Concediu
             this.Close();
         }
 
-        private void buttonCereriConcediu_Click(object sender, EventArgs e)
+        private void buttonCerereConcediu_Click(object sender, EventArgs e)
         {
-            Tabel_Concedii formTabelaConcedii = new Tabel_Concedii();
-            formTabelaConcedii.Show();
-            this.Close();
+            InserareConcediu formInserareConcediu = new InserareConcediu(Program.UserId);
+            formInserareConcediu.Show();
         }
 
         private void buttonIstoricConcedii_Click(object sender, EventArgs e)
