@@ -5,11 +5,13 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Aplicatie_Concediu
@@ -34,6 +36,7 @@ namespace Aplicatie_Concediu
             while(reader.Read())
             {
                 int id = Convert.ToInt32(reader["id"]);
+
                 string nume = Convert.ToString(reader["nume"]);
                 string prenume = Convert.ToString(reader["prenume"]);
                 string email = Convert.ToString(reader["email"]);
@@ -56,32 +59,11 @@ namespace Aplicatie_Concediu
                 dateTimePickerDataNasterii.Value = dataNasterii;
                 dateTimePickerDataAngajarii.Value = dataAngajare;
             }
+
+            connection.Close();
         }
 
-        private void buttonEditeazaProfil_Click(object sender, EventArgs e)
-        {
-            textBoxNume.ReadOnly = false;
-            textBoxPrenume.ReadOnly = false;
-            textBoxCnp.ReadOnly = false;
-            textBoxSerie.ReadOnly = false;
-            textBoxNr.ReadOnly = false;
-            textBoxTelefon.ReadOnly = false;
-            textBoxEmail.ReadOnly = false;
-            dateTimePickerDataNasterii.Enabled = true;
-            dateTimePickerDataAngajarii.Enabled = true;
-
-            buttonEditeazaProfil.Visible = false;
-            buttonAnuleaza.Visible = true;
-            buttonSalveaza.Visible = true;
-        }
-
-        private void buttonAnuleaza_Click(object sender, EventArgs e)
-        {
-            PaginaMea formPaginaMea = new PaginaMea();
-            formPaginaMea.Show();
-            this.Hide();
-        }
-
+        // Butoane Meniu
         private void buttonPaginaMea_Click(object sender, EventArgs e)
         {
             PaginaMea formPaginaMea = new PaginaMea();
@@ -115,6 +97,119 @@ namespace Aplicatie_Concediu
             PanouAdmin formPanouAdmin = new PanouAdmin();
             formPanouAdmin.Show();
             this.Hide();
+        }
+
+        // Butoane Pagina
+        private void buttonEditeazaProfil_Click(object sender, EventArgs e)
+        {
+            pictureBoxUtilizator.Enabled = true;
+            textBoxNume.ReadOnly = false;
+            textBoxPrenume.ReadOnly = false;
+            textBoxCnp.ReadOnly = false;
+            textBoxSerie.ReadOnly = false;
+            textBoxNr.ReadOnly = false;
+            textBoxTelefon.ReadOnly = false;
+            textBoxEmail.ReadOnly = false;
+            dateTimePickerDataNasterii.Enabled = true;
+            dateTimePickerDataAngajarii.Enabled = true;
+
+            buttonEditeazaProfil.Visible = false;
+            buttonAnuleaza.Visible = true;
+            buttonSalveaza.Visible = true;
+        }
+
+        private void buttonAnuleaza_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Hide();
+        }
+
+        private void buttonSalveaza_Click(object sender, EventArgs e)
+        {
+            // Validari
+
+
+            // Update Angajat
+            SqlParameter id = new SqlParameter("@id", System.Data.SqlDbType.Int);
+            id.Value = Program.UserId;
+            SqlParameter nume = new SqlParameter("@nume", System.Data.SqlDbType.NVarChar, 50);
+            nume.Value = textBoxNume.Text;
+            SqlParameter prenume = new SqlParameter("@prenume", System.Data.SqlDbType.NVarChar, 50);
+            prenume.Value = textBoxPrenume.Text;
+            SqlParameter email = new SqlParameter("@email", System.Data.SqlDbType.NVarChar, 50);
+            email.Value = textBoxEmail.Text;
+            SqlParameter dataAngajare = new SqlParameter("@dataAngajare", System.Data.SqlDbType.DateTime); ;
+            dataAngajare.Value = dateTimePickerDataAngajarii.Value;
+            SqlParameter dataNasterii = new SqlParameter("@dataNasterii", System.Data.SqlDbType.DateTime); ;
+            dataNasterii.Value = dateTimePickerDataNasterii.Value;
+            SqlParameter cnp = new SqlParameter("@cnp", System.Data.SqlDbType.NVarChar, 13);
+            cnp.Value = textBoxCnp.Text;
+            SqlParameter serie = new SqlParameter("@serie", System.Data.SqlDbType.NVarChar, 2); ;
+            serie.Value = textBoxSerie.Text;
+            SqlParameter no = new SqlParameter("@no", System.Data.SqlDbType.NVarChar, 6); ;
+            no.Value = textBoxNr.Text;
+            SqlParameter nrTelefon = new SqlParameter("@nrTelefon", System.Data.SqlDbType.NVarChar, 20);
+            nrTelefon.Value = textBoxTelefon.Text;
+
+            SqlConnection connection = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
+            connection.Open();
+
+            string query = "update Angajat set nume = @nume, prenume = @prenume, email = @email, dataAngajare = @dataAngajare, dataNasterii = @dataNasterii, cnp = @cnp, serie = @serie, no = @no, nrTelefon = @nrTelefon where id = @id";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add(id);
+            command.Parameters.Add(nume);
+            command.Parameters.Add(prenume);
+            command.Parameters.Add(email);
+            command.Parameters.Add(dataAngajare);
+            command.Parameters.Add(dataNasterii);
+            command.Parameters.Add(cnp);
+            command.Parameters.Add(serie);
+            command.Parameters.Add(no);
+            command.Parameters.Add(nrTelefon);
+            command.ExecuteNonQuery();
+
+            connection.Close();
+
+            // Refresh Form
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Hide();
+        }
+
+        // Upload Image
+        private void pictureBoxUtilizator_Click(object sender, EventArgs e)
+        {
+            // MessageBox.Show("asad","sadas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
+            //{
+            //    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            //    {
+            //        string fileName = openFileDialog1.FileName;
+            //        byte[] bytes = File.ReadAllBytes(fileName);
+            //        string contentType = "";
+            //        //Set the contenttype based on File Extension
+
+            //        switch (Path.GetExtension(fileName))
+            //        {
+            //            case ".jpg":
+            //                contentType = "image/jpeg";
+            //                break;
+            //            case ".png":
+            //                contentType = "image/png";
+            //                break;
+            //            case ".gif":
+            //                contentType = "image/gif";
+            //                break;
+            //            case ".bmp":
+            //                contentType = "image/bmp";
+            //                break;
+            //        }
+
+
+            //    }
+            //}
         }
     }
 }

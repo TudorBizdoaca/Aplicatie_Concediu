@@ -137,6 +137,7 @@
             this.buttonSalveaza.Text = "Salveaza";
             this.buttonSalveaza.UseVisualStyleBackColor = false;
             this.buttonSalveaza.Visible = false;
+            this.buttonSalveaza.Click += new System.EventHandler(this.buttonSalveaza_Click);
             // 
             // buttonAnuleaza
             // 
@@ -396,6 +397,7 @@
             // 
             // pictureBoxUtilizator
             // 
+            this.pictureBoxUtilizator.Enabled = false;
             this.pictureBoxUtilizator.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUtilizator.Image")));
             this.pictureBoxUtilizator.Location = new System.Drawing.Point(37, 32);
             this.pictureBoxUtilizator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -404,6 +406,7 @@
             this.pictureBoxUtilizator.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxUtilizator.TabIndex = 9;
             this.pictureBoxUtilizator.TabStop = false;
+            this.pictureBoxUtilizator.Click += new System.EventHandler(this.pictureBoxUtilizator_Click);
             // 
             // labelNumeUtilizator
             // 
