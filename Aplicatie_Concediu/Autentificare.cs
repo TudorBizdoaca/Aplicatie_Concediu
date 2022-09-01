@@ -59,7 +59,7 @@ namespace Aplicatie_Concediu
                     dr.Close();
                     MessageBox.Show("Email sau parola gresita");
                 }
-            
+
             }
             else
             {
@@ -81,6 +81,28 @@ namespace Aplicatie_Concediu
             ResetareParola resetare = new ResetareParola();
             resetare.Show();
         }
+
+        private void parola_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                button1_Click(sender, e);
+                e.Handled = true;
+            }
+
+
+        }
+
+        private void mail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                parola.Focus();
+                e.Handled = true;
+
+
+            }
+        }
     }
 }
-
