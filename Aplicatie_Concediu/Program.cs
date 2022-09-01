@@ -19,7 +19,7 @@ namespace Aplicatie_Concediu
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InserareConcediu(5));
+            Application.Run(new Autentificare());
         }
     }
 
