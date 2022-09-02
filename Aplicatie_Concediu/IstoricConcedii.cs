@@ -18,7 +18,7 @@ namespace Aplicatie_Concediu
             InitializeComponent();
             SqlConnection connection = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
             connection.Open();
-            string selectQuery = "select t.nume as [Tip Concediu], dataInceput, dataSfarsit, concat(a.nume,a.prenume) as Inlocuitor,sc.nume as [Stare Concediu]\r\nfrom Concediu c \r\njoin TipConcediu t on c.tipConcediuId = t.id\r\njoin StareConcediu sc on  c.stareConcediuId = sc.id\r\njoin Angajat a on c.inlocuitorId = a.id\r\nwhere angajatId = @id";
+            string selectQuery = "select t.nume as [Tip Concediu], dataInceput, dataSfarsit, concat(a.nume,'',a.prenume) as Inlocuitor,sc.nume as [Stare Concediu]\r\nfrom Concediu c \r\njoin TipConcediu t on c.tipConcediuId = t.id\r\njoin StareConcediu sc on  c.stareConcediuId = sc.id\r\njoin Angajat a on c.inlocuitorId = a.id\r\nwhere angajatId = @id";
             SqlCommand comm = new SqlCommand(selectQuery,connection);
             SqlParameter pId = new SqlParameter("@id",SqlDbType.Int);
             pId.Value = Program.UserId;
