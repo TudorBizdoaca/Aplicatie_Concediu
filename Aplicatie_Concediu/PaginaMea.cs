@@ -78,7 +78,7 @@ namespace Aplicatie_Concediu
 
         private void buttonCerereConcediu_Click(object sender, EventArgs e)
         {
-            InserareConcediu formInserareConcediu = new InserareConcediu(Program.UserId);
+            InserareConcediu formInserareConcediu = new InserareConcediu();
             formInserareConcediu.ShowDialog();
             formInserareConcediu.Focus();
         }
