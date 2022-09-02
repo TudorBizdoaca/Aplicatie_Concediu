@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -36,6 +37,7 @@ namespace Aplicatie_Concediu
             {
                 int id = Convert.ToInt32(reader["id"]);
 
+                byte[] imgBytes = (byte[])reader["poza"];
                 string nume = Convert.ToString(reader["nume"]);
                 string prenume = Convert.ToString(reader["prenume"]);
                 string email = Convert.ToString(reader["email"]);
@@ -47,6 +49,10 @@ namespace Aplicatie_Concediu
                 string no = Convert.ToString(reader["no"]);
                 string nrTelefon = Convert.ToString(reader["nrTelefon"]);
 
+                pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(imgBytes));
+                labelNumeUtilizatorLogat.Text = nume + " " + prenume;
+
+                pictureBoxUtilizator.Image = System.Drawing.Image.FromStream(new MemoryStream(imgBytes));
                 labelNumeUtilizator.Text = nume + " " + prenume;
                 textBoxNume.Text = nume;
                 textBoxPrenume.Text = prenume;
@@ -67,35 +73,35 @@ namespace Aplicatie_Concediu
         {
             PaginaMea formPaginaMea = new PaginaMea();
             formPaginaMea.Show();
-            this.Hide();
+            this.Close();
         }
 
-        private void buttonCereriConcediu_Click(object sender, EventArgs e)
+        private void buttonCerereConcediu_Click(object sender, EventArgs e)
         {
-            Tabel_Concedii formTabelaConcedii = new Tabel_Concedii();
-            formTabelaConcedii.Show();
-            this.Hide();
+            InserareConcediu formInserareConcediu = new InserareConcediu(Program.UserId);
+            formInserareConcediu.ShowDialog();
+            formInserareConcediu.Focus();
         }
 
         private void buttonIstoricConcedii_Click(object sender, EventArgs e)
         {
             IstoricConcedii formIstoricConcedii = new IstoricConcedii();
-            formIstoricConcedii.Show();
-            this.Hide();
+            formIstoricConcedii.ShowDialog();
+            formIstoricConcedii.Focus();
         }
 
         private void buttonDetaliiAngajati_Click(object sender, EventArgs e)
         {
             TabelaAngajati formTabelaAngajati = new TabelaAngajati();
-            formTabelaAngajati.Show();
-            this.Hide();
+            formTabelaAngajati.ShowDialog();
+            formTabelaAngajati.Focus();
         }
 
         private void buttonPanouAdmin_Click(object sender, EventArgs e)
         {
             PanouAdmin formPanouAdmin = new PanouAdmin();
-            formPanouAdmin.Show();
-            this.Hide();
+            formPanouAdmin.ShowDialog();
+            formPanouAdmin.Focus();
         }
 
         // Butoane Pagina
@@ -121,7 +127,7 @@ namespace Aplicatie_Concediu
         {
             PaginaMea formPaginaMea = new PaginaMea();
             formPaginaMea.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void buttonSalveaza_Click(object sender, EventArgs e)
@@ -151,10 +157,18 @@ namespace Aplicatie_Concediu
             SqlParameter nrTelefon = new SqlParameter("@nrTelefon", System.Data.SqlDbType.NVarChar, 20);
             nrTelefon.Value = textBoxTelefon.Text;
 
+            // Convert image to byte array
+            byte[] imgBytes = null;
+            ImageConverter imgConverter = new ImageConverter();
+            imgBytes = (System.Byte[])imgConverter.ConvertTo(pictureBoxUtilizator.Image, Type.GetType("System.Byte[]"));
+
+            SqlParameter poza = new SqlParameter("@poza", System.Data.SqlDbType.VarBinary);
+            poza.Value = imgBytes;
+
             SqlConnection connection = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
             connection.Open();
 
-            string query = "update Angajat set nume = @nume, prenume = @prenume, email = @email, dataAngajare = @dataAngajare, dataNasterii = @dataNasterii, cnp = @cnp, serie = @serie, no = @no, nrTelefon = @nrTelefon where id = @id";
+            string query = "update Angajat set nume = @nume, prenume = @prenume, email = @email, dataAngajare = @dataAngajare, dataNasterii = @dataNasterii, cnp = @cnp, serie = @serie, no = @no, nrTelefon = @nrTelefon, poza = @poza where id = @id";
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add(id);
@@ -167,6 +181,7 @@ namespace Aplicatie_Concediu
             command.Parameters.Add(serie);
             command.Parameters.Add(no);
             command.Parameters.Add(nrTelefon);
+            command.Parameters.Add(poza);
             command.ExecuteNonQuery();
 
             connection.Close();
@@ -174,20 +189,34 @@ namespace Aplicatie_Concediu
             // Refresh Form
             PaginaMea formPaginaMea = new PaginaMea();
             formPaginaMea.Show();
-            this.Hide();
+            this.Close();
         }
 
         // Upload Image
         private void pictureBoxUtilizator_Click(object sender, EventArgs e)
         {
-            // MessageBox.Show("asad","sadas", MessageBoxButtons.OK, MessageBoxIcon.Error);
             using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
             {
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
+                    string fileName = openFileDialog1.FileName;
+                    byte[] imgBytes = File.ReadAllBytes(fileName);
 
+                    pictureBoxUtilizator.Image = System.Drawing.Image.FromStream(new MemoryStream(imgBytes));
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Autentificare formAutentificare = new Autentificare();
+            formAutentificare.Show();
+            this.Close();
         }
     }
 }

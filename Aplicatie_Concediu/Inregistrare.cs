@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -87,13 +88,19 @@ namespace Aplicatie_Concediu
 
                 sqlConnection.Open();
                 int n = insertCommand.ExecuteNonQuery();
+                sqlConnection.Close();
                 if (n > 0)
                 {
                     MessageBox.Show("Angajat inserat cu succes!", "Succes Inserare", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                    Autentificare autentificare = new Autentificare();
+                    autentificare.Show();
                 } else
                 {
                     MessageBox.Show("Inserarea a esuat!", "Eroare Inserare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                ;
 
 
            } else
@@ -130,179 +137,21 @@ namespace Aplicatie_Concediu
 
         #endregion
 
-      
+
 
         #region Validare Campuri
-        private bool validareNume()
-        {
-            bool eValid = true;
-            if (String.IsNullOrEmpty(tbInregistrareNume.Text) || String.IsNullOrWhiteSpace(tbInregistrareNume.Text))
-            {
-                errorProviderNume.SetError(tbInregistrareNume, "Introduceti numele!");
-                eValid = false;
-            } else
-            {
-                errorProviderNume.SetError(tbInregistrareNume, "");
-            }
-            return eValid;
-        }
-        private bool validarePrenume()
-        {
-            bool eValid = true;
-            if (String.IsNullOrEmpty(tbPrenume.Text) || String.IsNullOrWhiteSpace(tbPrenume.Text))
-            {
-                errorProviderPrenume.SetError(tbPrenume, "Introduceti prenumele!");
-                eValid = false;
-
-            }
-            else
-            {
-                errorProviderPrenume.SetError(tbPrenume, "");
-            }
-            return eValid;
-        }
-        private bool validareEmail()
-        {
-            bool eValid = true;
-            string emailRegex = @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$";
-            Regex emailRegexp = new Regex(emailRegex);
-            if (!emailRegexp.IsMatch(tbEmail.Text))
-            {
-                errorProviderEmail.SetError(tbEmail, "E-mailul nu este valid!");
-                eValid = false;
-               
-            } else
-            {
-                errorProviderEmail.SetError(tbEmail, "");
-            }
-            return eValid;
-        }
-        private bool validareDataNastere()
-        {
-            bool eValid = true;
-
-            if (dtpDataNastere.Value >= DateTime.Today)
-            {
-                errorProviderDataNastere.SetError(dtpDataNastere, "Data Nasterii nu poate fi in viitor");
-                eValid = false;
-               
-            }
-            else
-            {
-                errorProviderDataNastere.SetError(dtpDataNastere, "");
-            }
-
-            return eValid;
-        }
-
-        private bool validareDataAngajare()
-        {
-            bool esteValid = true;
-            if (dtpDataAngajare.Value >= DateTime.Today.AddDays(1))
-            {
-                errorProviderDataAngajare.SetError(dtpDataAngajare, "Data Angajarii nu poate fi in viitor");
-                esteValid = false;
-
-            }
-            else
-            {
-                errorProviderDataAngajare.SetError(dtpDataAngajare, "");
-            }
-
-            return esteValid;
-        }
-
-        private bool validareParola()
-        {
-            bool eValid = true;
-            string parolaRegex = @"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$";
-            Regex parolaRegexEpr = new Regex(parolaRegex);
-            if (!parolaRegexEpr.IsMatch(tbParola.Text))
-            {
-               
-                errorProviderParola.SetError(tbParola, "Parola Invalida!");
-                eValid = false;
-            }
-            else
-            {
-                errorProviderParola.SetError(tbParola, "");
-            }
-            return eValid;
-        }
-
-        private bool validareCnp()
-        {
-            bool eValid = true;
-            string cnpRegex = @"^[1-9]\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])(0[1-9]|[1-4]\d|5[0-2]|99)(00[1-9]|0[1-9]\d|[1-9]\d\d)\d$";
-            Regex cnpRegexExp = new Regex(cnpRegex);
-            if (String.IsNullOrEmpty(tbCnp.Text))
-            {
-                errorProviderCnp.SetError(tbCnp, "Introduceti CNP!");
-                eValid = false;
-              
-            } else if (!cnpRegexExp.IsMatch(tbCnp.Text))
-                 {
-                errorProviderCnp.SetError(tbCnp, "CNP Invalid!");
-                eValid = false;
-            } else
-            {
-                errorProviderCnp.SetError(tbCnp, "");
-            }
-
-            return eValid;
-        }
-
-        private bool validareSerie()
-        {
-            bool eValid = true;
-            if (String.IsNullOrEmpty(tbSerieBuletin.Text) || tbSerieBuletin.Text.Length != 2)
-            {
-                 errorProviderSerieBuletin.SetError(tbSerieBuletin, "Introduceti o serie de buletin valida!");
-                 eValid= false;
-              
-            } else
-            {
-                errorProviderSerieBuletin.SetError(tbSerieBuletin, "");
-            }
-
-             return eValid;
-
-        }
-
-        private bool validareNrBuletin()
-        {
-            bool eValid = true;
-            if (String.IsNullOrEmpty(tbNrBuletin.Text) || tbNrBuletin.Text.Length != 6)
-            {
-                errorProviderNrBuletin.SetError(tbNrBuletin, "Introduceti un nr de buletin valid!");
-                eValid = false;
-            
-            } else
-            {
-                errorProviderNrBuletin.SetError(tbNrBuletin, "");
-            }
-
-            return eValid;
-        }
-
-        private bool validareNrTelefon()
-        {
-            bool eValid = true;
-            string nrTelefonRegex = @"^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$";
-            Regex nrTelefonRegexp = new Regex(nrTelefonRegex);
 
 
-            if (!nrTelefonRegexp.IsMatch(tbNrTelefon.Text))
-            {
-                errorProviderNrTelefon.SetError(tbNrTelefon, "Nr de telefon invalid!");
-                eValid = false;
-               
-            } else
-            {
-                errorProviderNrTelefon.SetError(tbNrTelefon, "");
-            }
-            return eValid;
-        }
+      
+       
+       
+     
+      
+
+    
+    
+   
+
         private bool validareCodVerificare()
         {
             bool eValid = true;
@@ -322,16 +171,16 @@ namespace Aplicatie_Concediu
         {
             bool eValid = false;
 
-            bool numeValid = validareNume();
-            bool prenumeValid = validarePrenume();
-            bool emailValid = validareEmail();
-            bool dataNastereValida = validareDataNastere();
-            bool dataAngajariiValida = validareDataAngajare();
-            bool cnpValid = validareCnp();
-            bool serieValida = validareSerie();
-            bool nrvalid = validareNrBuletin();
-            bool nrTelefonValid = validareNrTelefon();
-            bool parolaValida = validareParola();
+            bool numeValid = Program.validareNume(errorProviderNume,tbInregistrareNume);
+            bool prenumeValid = Program.validarePrenume(errorProviderPrenume,tbPrenume);
+            bool emailValid = Program.validareEmail(errorProviderEmail,tbEmail);
+            bool dataNastereValida = Program.validareDataNastere(errorProviderDataNastere,dtpDataNastere,tbCnp);
+            bool dataAngajariiValida = Program.validareDataAngajare(errorProviderDataAngajare,dtpDataAngajare);
+            bool cnpValid = Program.verificareCifreCnp(tbCnp.Text,errorProviderCnp,tbCnp);
+            bool serieValida = Program.validareSerie(errorProviderSerieBuletin,tbSerieBuletin);
+            bool nrvalid = Program.validareNrBuletin(errorProviderNrBuletin,tbNrBuletin);
+            bool nrTelefonValid = Program.validareNrTelefon(errorProviderNrTelefon,tbNrTelefon);
+            bool parolaValida = Program.validareParola(errorProviderParola,tbParola);
             bool codVerificareValid = validareCodVerificare();
 
             if(numeValid && prenumeValid && emailValid && dataNastereValida && dataAngajariiValida && cnpValid 
@@ -348,7 +197,7 @@ namespace Aplicatie_Concediu
         private void tbInregistrareNume_Validating(object sender, CancelEventArgs e)
         {
 
-            validareNume();
+            Program.validareNume(errorProviderNume,tbInregistrareNume);
 
         } 
         private void tbInregistrareNume_Validated(object sender, EventArgs e)
@@ -360,7 +209,7 @@ namespace Aplicatie_Concediu
         private void tbPrenume_Validating(object sender, CancelEventArgs e)
         {
 
-            validarePrenume();
+            Program.validarePrenume(errorProviderPrenume,tbPrenume);
         }
 
         private void tbPrenume_Validated(object sender, EventArgs e)
@@ -371,7 +220,7 @@ namespace Aplicatie_Concediu
 
         private void tbEmail_Validating(object sender, CancelEventArgs e)
         {
-            validareEmail();
+            Program.validareEmail(errorProviderEmail,tbEmail);
         }
 
         private void tbEmail_Validated(object sender, EventArgs e)
@@ -382,7 +231,7 @@ namespace Aplicatie_Concediu
 
         private void tbParola_Validating(object sender, CancelEventArgs e)
         {
-            validareParola();
+            Program.validareParola(errorProviderParola,tbParola);
         }
 
         private void tbParola_Validated(object sender, EventArgs e)
@@ -392,18 +241,19 @@ namespace Aplicatie_Concediu
 
         private void dtpDataNastere_Validating(object sender, CancelEventArgs e)
         {
-            validareDataNastere();
+            Program.validareDataNastere(errorProviderDataNastere,dtpDataNastere,tbCnp);
         }
 
         private void dtpDataNastere_Validated(object sender, EventArgs e)
         {
             errorProviderDataNastere.Clear();
+            
          
         }
 
         private void dtpDataAngajare_Validating(object sender, CancelEventArgs e)
         {
-            validareDataAngajare();
+            Program.validareDataAngajare(errorProviderDataAngajare,dtpDataAngajare);
         }
 
         private void dtpDataAngajare_Validated(object sender, EventArgs e)
@@ -414,7 +264,7 @@ namespace Aplicatie_Concediu
 
         private void tbCnp_Validating(object sender, CancelEventArgs e)
         {
-            validareCnp();
+            Program.verificareCifreCnp(tbCnp.Text,errorProviderCnp,tbCnp);
         }
 
         private void tbCnp_Validated(object sender, EventArgs e)
@@ -425,7 +275,7 @@ namespace Aplicatie_Concediu
 
         private void tbSerieBuletin_Validating(object sender, CancelEventArgs e)
         {
-            validareSerie();
+            Program.validareSerie(errorProviderSerieBuletin,tbSerieBuletin);
         }
 
         private void tbSerieBuletin_Validated(object sender, EventArgs e)
@@ -436,7 +286,7 @@ namespace Aplicatie_Concediu
 
         private void tbNrBuletin_Validating(object sender, CancelEventArgs e)
         {
-            validareNrBuletin();
+            Program.validareNrBuletin(errorProviderNrBuletin,tbNrBuletin);
         }
 
         private void tbNrBuletin_Validated(object sender, EventArgs e)
@@ -447,7 +297,7 @@ namespace Aplicatie_Concediu
 
         private void tbNrTelefon_Validating(object sender, CancelEventArgs e)
         {
-            validareNrTelefon();
+            Program.validareNrTelefon(errorProviderNrTelefon,tbNrTelefon);
         }
 
         private void tbNrTelefon_Validated(object sender, EventArgs e)
@@ -498,9 +348,18 @@ namespace Aplicatie_Concediu
            
         }
 
+
         #endregion
 
+        private void dtpDataNastere_ValueChanged(object sender, EventArgs e)
+        {
+            Program.validareDataNastere(errorProviderDataNastere,dtpDataNastere,tbCnp);
+        }
 
+        private void tbCnp_TextChanged(object sender, EventArgs e)
+        {
+         Program.verificareCifreCnp(tbCnp.Text,errorProviderCnp,tbCnp);
+        }
     }
 
 }

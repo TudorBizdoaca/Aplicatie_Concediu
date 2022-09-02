@@ -40,17 +40,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.pbCaps = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCaps)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(169, 127);
+            this.pictureBox1.Size = new System.Drawing.Size(127, 103);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -59,9 +62,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(432, 42);
+            this.label1.Location = new System.Drawing.Point(324, 34);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 38);
+            this.label1.Size = new System.Drawing.Size(179, 31);
             this.label1.TabIndex = 2;
             this.label1.Text = "Autentificare";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -70,28 +74,33 @@
             // mail
             // 
             this.mail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mail.Location = new System.Drawing.Point(365, 204);
+            this.mail.Location = new System.Drawing.Point(274, 166);
+            this.mail.Margin = new System.Windows.Forms.Padding(2);
             this.mail.Multiline = true;
             this.mail.Name = "mail";
-            this.mail.Size = new System.Drawing.Size(284, 34);
+            this.mail.Size = new System.Drawing.Size(214, 28);
             this.mail.TabIndex = 5;
+            this.mail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mail_KeyPress);
             // 
             // parola
             // 
             this.parola.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.parola.Location = new System.Drawing.Point(365, 335);
+            this.parola.Location = new System.Drawing.Point(274, 272);
+            this.parola.Margin = new System.Windows.Forms.Padding(2);
             this.parola.Multiline = true;
             this.parola.Name = "parola";
             this.parola.PasswordChar = '*';
-            this.parola.Size = new System.Drawing.Size(284, 34);
+            this.parola.Size = new System.Drawing.Size(214, 28);
             this.parola.TabIndex = 6;
+            this.parola.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.parola_KeyPress);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(415, 465);
+            this.button1.Location = new System.Drawing.Point(311, 378);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 39);
+            this.button1.Size = new System.Drawing.Size(135, 32);
             this.button1.TabIndex = 7;
             this.button1.Text = "Autentificare";
             this.button1.UseVisualStyleBackColor = true;
@@ -100,9 +109,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(365, 153);
+            this.pictureBox2.Location = new System.Drawing.Point(274, 124);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(39, 34);
+            this.pictureBox2.Size = new System.Drawing.Size(29, 28);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
@@ -110,9 +120,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(365, 286);
+            this.pictureBox3.Location = new System.Drawing.Point(274, 232);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(39, 34);
+            this.pictureBox3.Size = new System.Drawing.Size(29, 28);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
@@ -125,19 +136,22 @@
             this.linkLabel1.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.linkLabel1.Location = new System.Drawing.Point(361, 404);
+            this.linkLabel1.Location = new System.Drawing.Point(271, 328);
+            this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(122, 20);
+            this.linkLabel1.Size = new System.Drawing.Size(103, 17);
             this.linkLabel1.TabIndex = 10;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Am uitat parola";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(410, 153);
+            this.label2.Location = new System.Drawing.Point(308, 124);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 34);
+            this.label2.Size = new System.Drawing.Size(75, 28);
             this.label2.TabIndex = 11;
             this.label2.Text = "E-Mail";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -145,9 +159,10 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(410, 286);
+            this.label3.Location = new System.Drawing.Point(308, 232);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 34);
+            this.label3.Size = new System.Drawing.Size(75, 28);
             this.label3.TabIndex = 12;
             this.label3.Text = "Parola";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -160,20 +175,33 @@
             this.linkLabel2.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.linkLabel2.Location = new System.Drawing.Point(573, 404);
+            this.linkLabel2.Location = new System.Drawing.Point(430, 328);
+            this.linkLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(76, 20);
+            this.linkLabel2.Size = new System.Drawing.Size(65, 17);
             this.linkLabel2.TabIndex = 13;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Cont nou";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
+            // pbCaps
+            // 
+            this.pbCaps.Image = ((System.Drawing.Image)(resources.GetObject("pbCaps.Image")));
+            this.pbCaps.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbCaps.InitialImage")));
+            this.pbCaps.Location = new System.Drawing.Point(493, 272);
+            this.pbCaps.Name = "pbCaps";
+            this.pbCaps.Size = new System.Drawing.Size(38, 28);
+            this.pbCaps.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCaps.TabIndex = 14;
+            this.pbCaps.TabStop = false;
+            // 
             // Autentificare
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1047, 663);
+            this.ClientSize = new System.Drawing.Size(785, 539);
+            this.Controls.Add(this.pbCaps);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -185,11 +213,13 @@
             this.Controls.Add(this.mail);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Autentificare";
             this.Text = "Autentificare";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCaps)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,6 +238,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.PictureBox pbCaps;
     }
 }
 
