@@ -36,22 +36,22 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.labelNume = new System.Windows.Forms.Label();
             this.textBoxNume = new System.Windows.Forms.TextBox();
-            this.labelPrenume = new System.Windows.Forms.Label();
-            this.dateTimePickerDataAngajarii = new System.Windows.Forms.DateTimePicker();
-            this.textBoxPrenume = new System.Windows.Forms.TextBox();
-            this.labelDataAngajarii = new System.Windows.Forms.Label();
             this.dateTimePickerDataNasterii = new System.Windows.Forms.DateTimePicker();
             this.textBoxCnp = new System.Windows.Forms.TextBox();
             this.labelDataNasterii = new System.Windows.Forms.Label();
-            this.textBoxTelefon = new System.Windows.Forms.TextBox();
-            this.textBoxSerie = new System.Windows.Forms.TextBox();
-            this.labelTelefon = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.labelNr = new System.Windows.Forms.Label();
-            this.textBoxNr = new System.Windows.Forms.TextBox();
             this.labelEmail = new System.Windows.Forms.Label();
             this.labelCnp = new System.Windows.Forms.Label();
+            this.textBoxPrenume = new System.Windows.Forms.TextBox();
+            this.labelPrenume = new System.Windows.Forms.Label();
+            this.textBoxNr = new System.Windows.Forms.TextBox();
+            this.labelNr = new System.Windows.Forms.Label();
+            this.textBoxSerie = new System.Windows.Forms.TextBox();
             this.labelSerie = new System.Windows.Forms.Label();
+            this.textBoxTelefon = new System.Windows.Forms.TextBox();
+            this.labelTelefon = new System.Windows.Forms.Label();
+            this.dateTimePickerDataAngajarii = new System.Windows.Forms.DateTimePicker();
+            this.labelDataAngajarii = new System.Windows.Forms.Label();
             this.buttonSalveaza = new System.Windows.Forms.Button();
             this.buttonAnuleaza = new System.Windows.Forms.Button();
             this.buttonEditeazaProfil = new System.Windows.Forms.Button();
@@ -117,31 +117,33 @@
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 6;
+            this.tableLayoutPanel2.ColumnCount = 8;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
             this.tableLayoutPanel2.Controls.Add(this.labelNume, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBoxNume, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.labelPrenume, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dateTimePickerDataAngajarii, 3, 3);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxPrenume, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.labelDataAngajarii, 2, 3);
             this.tableLayoutPanel2.Controls.Add(this.dateTimePickerDataNasterii, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.textBoxCnp, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.labelDataNasterii, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxTelefon, 3, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxSerie, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.labelTelefon, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.textBoxEmail, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.labelNr, 4, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxNr, 5, 1);
             this.tableLayoutPanel2.Controls.Add(this.labelEmail, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.labelCnp, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.labelSerie, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxPrenume, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.labelPrenume, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxNr, 6, 1);
+            this.tableLayoutPanel2.Controls.Add(this.labelNr, 5, 1);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxSerie, 4, 1);
+            this.tableLayoutPanel2.Controls.Add(this.labelSerie, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxTelefon, 4, 2);
+            this.tableLayoutPanel2.Controls.Add(this.labelTelefon, 3, 2);
+            this.tableLayoutPanel2.Controls.Add(this.dateTimePickerDataAngajarii, 4, 3);
+            this.tableLayoutPanel2.Controls.Add(this.labelDataAngajarii, 3, 3);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(39, 280);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -150,7 +152,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1120, 236);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1120, 220);
             this.tableLayoutPanel2.TabIndex = 36;
             // 
             // labelNume
@@ -182,69 +184,6 @@
             this.textBoxNume.ReadOnly = true;
             this.textBoxNume.Size = new System.Drawing.Size(328, 30);
             this.textBoxNume.TabIndex = 13;
-            // 
-            // labelPrenume
-            // 
-            this.labelPrenume.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelPrenume.AutoSize = true;
-            this.labelPrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPrenume.ForeColor = System.Drawing.Color.Peru;
-            this.labelPrenume.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.labelPrenume.Location = new System.Drawing.Point(474, 0);
-            this.labelPrenume.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelPrenume.Name = "labelPrenume";
-            this.labelPrenume.Size = new System.Drawing.Size(126, 100);
-            this.labelPrenume.TabIndex = 15;
-            this.labelPrenume.Text = "Prenume:";
-            this.labelPrenume.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // dateTimePickerDataAngajarii
-            // 
-            this.dateTimePickerDataAngajarii.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePickerDataAngajarii.CalendarForeColor = System.Drawing.SystemColors.Control;
-            this.dateTimePickerDataAngajarii.CalendarMonthBackground = System.Drawing.SystemColors.Control;
-            this.tableLayoutPanel2.SetColumnSpan(this.dateTimePickerDataAngajarii, 3);
-            this.dateTimePickerDataAngajarii.Enabled = false;
-            this.dateTimePickerDataAngajarii.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerDataAngajarii.Location = new System.Drawing.Point(607, 302);
-            this.dateTimePickerDataAngajarii.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePickerDataAngajarii.Name = "dateTimePickerDataAngajarii";
-            this.dateTimePickerDataAngajarii.Size = new System.Drawing.Size(510, 30);
-            this.dateTimePickerDataAngajarii.TabIndex = 33;
-            // 
-            // textBoxPrenume
-            // 
-            this.textBoxPrenume.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.SetColumnSpan(this.textBoxPrenume, 3);
-            this.textBoxPrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPrenume.Location = new System.Drawing.Point(608, 4);
-            this.textBoxPrenume.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxPrenume.Name = "textBoxPrenume";
-            this.textBoxPrenume.ReadOnly = true;
-            this.textBoxPrenume.Size = new System.Drawing.Size(508, 30);
-            this.textBoxPrenume.TabIndex = 16;
-            // 
-            // labelDataAngajarii
-            // 
-            this.labelDataAngajarii.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelDataAngajarii.AutoSize = true;
-            this.labelDataAngajarii.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDataAngajarii.ForeColor = System.Drawing.Color.Peru;
-            this.labelDataAngajarii.Location = new System.Drawing.Point(474, 300);
-            this.labelDataAngajarii.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelDataAngajarii.Name = "labelDataAngajarii";
-            this.labelDataAngajarii.Size = new System.Drawing.Size(126, 100);
-            this.labelDataAngajarii.TabIndex = 30;
-            this.labelDataAngajarii.Text = "Data Angajarii:";
-            this.labelDataAngajarii.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // dateTimePickerDataNasterii
             // 
@@ -290,49 +229,6 @@
             this.labelDataNasterii.Text = "Data Nasterii:";
             this.labelDataNasterii.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // textBoxTelefon
-            // 
-            this.textBoxTelefon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.SetColumnSpan(this.textBoxTelefon, 3);
-            this.textBoxTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTelefon.Location = new System.Drawing.Point(608, 204);
-            this.textBoxTelefon.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxTelefon.Name = "textBoxTelefon";
-            this.textBoxTelefon.ReadOnly = true;
-            this.textBoxTelefon.Size = new System.Drawing.Size(508, 30);
-            this.textBoxTelefon.TabIndex = 27;
-            // 
-            // textBoxSerie
-            // 
-            this.textBoxSerie.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSerie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSerie.Location = new System.Drawing.Point(608, 104);
-            this.textBoxSerie.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxSerie.Name = "textBoxSerie";
-            this.textBoxSerie.ReadOnly = true;
-            this.textBoxSerie.Size = new System.Drawing.Size(182, 30);
-            this.textBoxSerie.TabIndex = 20;
-            // 
-            // labelTelefon
-            // 
-            this.labelTelefon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelTelefon.AutoSize = true;
-            this.labelTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTelefon.ForeColor = System.Drawing.Color.Peru;
-            this.labelTelefon.Location = new System.Drawing.Point(474, 200);
-            this.labelTelefon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelTelefon.Name = "labelTelefon";
-            this.labelTelefon.Size = new System.Drawing.Size(126, 100);
-            this.labelTelefon.TabIndex = 25;
-            this.labelTelefon.Text = "Telefon:";
-            this.labelTelefon.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // textBoxEmail
             // 
             this.textBoxEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -345,35 +241,6 @@
             this.textBoxEmail.ReadOnly = true;
             this.textBoxEmail.Size = new System.Drawing.Size(328, 30);
             this.textBoxEmail.TabIndex = 26;
-            // 
-            // labelNr
-            // 
-            this.labelNr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelNr.AutoSize = true;
-            this.labelNr.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNr.ForeColor = System.Drawing.Color.Peru;
-            this.labelNr.Location = new System.Drawing.Point(798, 100);
-            this.labelNr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelNr.Name = "labelNr";
-            this.labelNr.Size = new System.Drawing.Size(126, 100);
-            this.labelNr.TabIndex = 21;
-            this.labelNr.Text = "Nr:";
-            this.labelNr.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // textBoxNr
-            // 
-            this.textBoxNr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxNr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNr.Location = new System.Drawing.Point(932, 104);
-            this.textBoxNr.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxNr.Name = "textBoxNr";
-            this.textBoxNr.ReadOnly = true;
-            this.textBoxNr.Size = new System.Drawing.Size(184, 30);
-            this.textBoxNr.TabIndex = 22;
             // 
             // labelEmail
             // 
@@ -408,6 +275,79 @@
             this.labelCnp.Text = "CNP:";
             this.labelCnp.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // textBoxPrenume
+            // 
+            this.textBoxPrenume.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.SetColumnSpan(this.textBoxPrenume, 3);
+            this.textBoxPrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPrenume.Location = new System.Drawing.Point(641, 4);
+            this.textBoxPrenume.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxPrenume.Name = "textBoxPrenume";
+            this.textBoxPrenume.ReadOnly = true;
+            this.textBoxPrenume.Size = new System.Drawing.Size(440, 30);
+            this.textBoxPrenume.TabIndex = 16;
+            // 
+            // labelPrenume
+            // 
+            this.labelPrenume.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPrenume.AutoSize = true;
+            this.labelPrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPrenume.ForeColor = System.Drawing.Color.Peru;
+            this.labelPrenume.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelPrenume.Location = new System.Drawing.Point(507, 0);
+            this.labelPrenume.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPrenume.Name = "labelPrenume";
+            this.labelPrenume.Size = new System.Drawing.Size(126, 100);
+            this.labelPrenume.TabIndex = 15;
+            this.labelPrenume.Text = "Prenume:";
+            this.labelPrenume.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // textBoxNr
+            // 
+            this.textBoxNr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxNr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNr.Location = new System.Drawing.Point(921, 104);
+            this.textBoxNr.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNr.Name = "textBoxNr";
+            this.textBoxNr.ReadOnly = true;
+            this.textBoxNr.Size = new System.Drawing.Size(160, 30);
+            this.textBoxNr.TabIndex = 22;
+            // 
+            // labelNr
+            // 
+            this.labelNr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelNr.AutoSize = true;
+            this.labelNr.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNr.ForeColor = System.Drawing.Color.Peru;
+            this.labelNr.Location = new System.Drawing.Point(809, 100);
+            this.labelNr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNr.Name = "labelNr";
+            this.labelNr.Size = new System.Drawing.Size(104, 100);
+            this.labelNr.TabIndex = 21;
+            this.labelNr.Text = "Nr:";
+            this.labelNr.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // textBoxSerie
+            // 
+            this.textBoxSerie.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSerie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSerie.Location = new System.Drawing.Point(641, 104);
+            this.textBoxSerie.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxSerie.Name = "textBoxSerie";
+            this.textBoxSerie.ReadOnly = true;
+            this.textBoxSerie.Size = new System.Drawing.Size(160, 30);
+            this.textBoxSerie.TabIndex = 20;
+            // 
             // labelSerie
             // 
             this.labelSerie.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -417,13 +357,75 @@
             this.labelSerie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSerie.ForeColor = System.Drawing.Color.Peru;
             this.labelSerie.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.labelSerie.Location = new System.Drawing.Point(474, 100);
+            this.labelSerie.Location = new System.Drawing.Point(507, 100);
             this.labelSerie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSerie.Name = "labelSerie";
             this.labelSerie.Size = new System.Drawing.Size(126, 100);
             this.labelSerie.TabIndex = 19;
             this.labelSerie.Text = "Serie:";
             this.labelSerie.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // textBoxTelefon
+            // 
+            this.textBoxTelefon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.SetColumnSpan(this.textBoxTelefon, 3);
+            this.textBoxTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTelefon.Location = new System.Drawing.Point(641, 204);
+            this.textBoxTelefon.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxTelefon.Name = "textBoxTelefon";
+            this.textBoxTelefon.ReadOnly = true;
+            this.textBoxTelefon.Size = new System.Drawing.Size(440, 30);
+            this.textBoxTelefon.TabIndex = 27;
+            // 
+            // labelTelefon
+            // 
+            this.labelTelefon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTelefon.AutoSize = true;
+            this.labelTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTelefon.ForeColor = System.Drawing.Color.Peru;
+            this.labelTelefon.Location = new System.Drawing.Point(507, 200);
+            this.labelTelefon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTelefon.Name = "labelTelefon";
+            this.labelTelefon.Size = new System.Drawing.Size(126, 100);
+            this.labelTelefon.TabIndex = 25;
+            this.labelTelefon.Text = "Telefon:";
+            this.labelTelefon.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // dateTimePickerDataAngajarii
+            // 
+            this.dateTimePickerDataAngajarii.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePickerDataAngajarii.CalendarForeColor = System.Drawing.SystemColors.Control;
+            this.dateTimePickerDataAngajarii.CalendarMonthBackground = System.Drawing.SystemColors.Control;
+            this.tableLayoutPanel2.SetColumnSpan(this.dateTimePickerDataAngajarii, 3);
+            this.dateTimePickerDataAngajarii.Enabled = false;
+            this.dateTimePickerDataAngajarii.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerDataAngajarii.Location = new System.Drawing.Point(640, 302);
+            this.dateTimePickerDataAngajarii.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePickerDataAngajarii.Name = "dateTimePickerDataAngajarii";
+            this.dateTimePickerDataAngajarii.Size = new System.Drawing.Size(442, 30);
+            this.dateTimePickerDataAngajarii.TabIndex = 33;
+            // 
+            // labelDataAngajarii
+            // 
+            this.labelDataAngajarii.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelDataAngajarii.AutoSize = true;
+            this.labelDataAngajarii.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDataAngajarii.ForeColor = System.Drawing.Color.Peru;
+            this.labelDataAngajarii.Location = new System.Drawing.Point(507, 300);
+            this.labelDataAngajarii.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDataAngajarii.Name = "labelDataAngajarii";
+            this.labelDataAngajarii.Size = new System.Drawing.Size(126, 100);
+            this.labelDataAngajarii.TabIndex = 30;
+            this.labelDataAngajarii.Text = "Data Angajarii:";
+            this.labelDataAngajarii.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // buttonSalveaza
             // 
@@ -641,9 +643,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(361, 0);
+            this.label1.Location = new System.Drawing.Point(358, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 76);
+            this.label1.Size = new System.Drawing.Size(210, 76);
             this.label1.TabIndex = 36;
             this.label1.Text = "Deconectare";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -656,7 +658,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.22946F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.77054F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
             this.tableLayoutPanel1.Controls.Add(this.labelSeparator, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelNumeUtilizatorLogat, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBoxUtilizatorLogat, 0, 0);
@@ -678,7 +680,7 @@
             this.labelSeparator.AutoSize = true;
             this.labelSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSeparator.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelSeparator.Location = new System.Drawing.Point(329, 0);
+            this.labelSeparator.Location = new System.Drawing.Point(326, 0);
             this.labelSeparator.Name = "labelSeparator";
             this.labelSeparator.Size = new System.Drawing.Size(26, 76);
             this.labelSeparator.TabIndex = 38;
@@ -695,7 +697,7 @@
             this.labelNumeUtilizatorLogat.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelNumeUtilizatorLogat.Location = new System.Drawing.Point(78, 0);
             this.labelNumeUtilizatorLogat.Name = "labelNumeUtilizatorLogat";
-            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(245, 76);
+            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(242, 76);
             this.labelNumeUtilizatorLogat.TabIndex = 37;
             this.labelNumeUtilizatorLogat.Text = "Nume Utilizator";
             this.labelNumeUtilizatorLogat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -771,7 +773,6 @@
         private System.Windows.Forms.TextBox textBoxCnp;
         private System.Windows.Forms.Label labelCnp;
         private System.Windows.Forms.TextBox textBoxPrenume;
-        private System.Windows.Forms.Label labelPrenume;
         private System.Windows.Forms.Button buttonPaginaMea;
         private System.Windows.Forms.Button buttonCerereConcediu;
         private System.Windows.Forms.Button buttonDetaliiAngajati;
@@ -794,5 +795,6 @@
         private System.Windows.Forms.Label labelNumeUtilizatorLogat;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelPrenume;
     }
 }

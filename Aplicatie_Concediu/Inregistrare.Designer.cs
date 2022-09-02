@@ -77,6 +77,7 @@
             this.lCodVerificare = new System.Windows.Forms.Label();
             this.btnTrimiteCodVerificare = new System.Windows.Forms.Button();
             this.errorProviderCodVerificare = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoInreg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmailIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbParolaIcon)).BeginInit();
@@ -99,23 +100,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNrTelefon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderParola)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCodVerificare)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbLogoInreg
             // 
             this.pbLogoInreg.Image = ((System.Drawing.Image)(resources.GetObject("pbLogoInreg.Image")));
-            this.pbLogoInreg.Location = new System.Drawing.Point(-2, 1);
+            this.pbLogoInreg.Location = new System.Drawing.Point(555, 59);
+            this.pbLogoInreg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbLogoInreg.Name = "pbLogoInreg";
-            this.pbLogoInreg.Size = new System.Drawing.Size(103, 81);
+            this.pbLogoInreg.Size = new System.Drawing.Size(137, 100);
             this.pbLogoInreg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogoInreg.TabIndex = 0;
             this.pbLogoInreg.TabStop = false;
             // 
             // tbInregistrareNume
             // 
-            this.tbInregistrareNume.Location = new System.Drawing.Point(144, 52);
+            this.tbInregistrareNume.Location = new System.Drawing.Point(239, 296);
+            this.tbInregistrareNume.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbInregistrareNume.Name = "tbInregistrareNume";
-            this.tbInregistrareNume.Size = new System.Drawing.Size(235, 20);
+            this.tbInregistrareNume.Size = new System.Drawing.Size(312, 22);
             this.tbInregistrareNume.TabIndex = 1;
             this.tbInregistrareNume.Validating += new System.ComponentModel.CancelEventHandler(this.tbInregistrareNume_Validating);
             this.tbInregistrareNume.Validated += new System.EventHandler(this.tbInregistrareNume_Validated);
@@ -124,36 +128,40 @@
             // 
             this.lInregistrareTitlu.AutoSize = true;
             this.lInregistrareTitlu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lInregistrareTitlu.Location = new System.Drawing.Point(386, 1);
+            this.lInregistrareTitlu.Location = new System.Drawing.Point(562, 233);
+            this.lInregistrareTitlu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lInregistrareTitlu.Name = "lInregistrareTitlu";
-            this.lInregistrareTitlu.Size = new System.Drawing.Size(121, 26);
+            this.lInregistrareTitlu.Size = new System.Drawing.Size(152, 31);
             this.lInregistrareTitlu.TabIndex = 2;
             this.lInregistrareTitlu.Text = "Inregistrare";
             // 
             // tbPrenume
             // 
-            this.tbPrenume.Location = new System.Drawing.Point(552, 53);
+            this.tbPrenume.Location = new System.Drawing.Point(783, 297);
+            this.tbPrenume.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPrenume.Name = "tbPrenume";
-            this.tbPrenume.Size = new System.Drawing.Size(235, 20);
+            this.tbPrenume.Size = new System.Drawing.Size(312, 22);
             this.tbPrenume.TabIndex = 3;
             this.tbPrenume.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrenume_Validating);
             this.tbPrenume.Validated += new System.EventHandler(this.tbPrenume_Validated);
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(144, 113);
+            this.tbEmail.Location = new System.Drawing.Point(239, 371);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(235, 20);
+            this.tbEmail.Size = new System.Drawing.Size(312, 22);
             this.tbEmail.TabIndex = 4;
             this.tbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEmail_Validating);
             this.tbEmail.Validated += new System.EventHandler(this.tbEmail_Validated);
             // 
             // tbParola
             // 
-            this.tbParola.Location = new System.Drawing.Point(144, 175);
+            this.tbParola.Location = new System.Drawing.Point(239, 447);
+            this.tbParola.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbParola.Name = "tbParola";
             this.tbParola.PasswordChar = '*';
-            this.tbParola.Size = new System.Drawing.Size(235, 20);
+            this.tbParola.Size = new System.Drawing.Size(312, 22);
             this.tbParola.TabIndex = 5;
             this.tbParola.Validating += new System.ComponentModel.CancelEventHandler(this.tbParola_Validating);
             this.tbParola.Validated += new System.EventHandler(this.tbParola_Validated);
@@ -161,9 +169,10 @@
             // dtpDataNastere
             // 
             this.dtpDataNastere.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDataNastere.Location = new System.Drawing.Point(146, 239);
+            this.dtpDataNastere.Location = new System.Drawing.Point(242, 526);
+            this.dtpDataNastere.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpDataNastere.Name = "dtpDataNastere";
-            this.dtpDataNastere.Size = new System.Drawing.Size(235, 20);
+            this.dtpDataNastere.Size = new System.Drawing.Size(312, 22);
             this.dtpDataNastere.TabIndex = 6;
             this.dtpDataNastere.ValueChanged += new System.EventHandler(this.dtpDataNastere_ValueChanged);
             this.dtpDataNastere.Validating += new System.ComponentModel.CancelEventHandler(this.dtpDataNastere_Validating);
@@ -171,9 +180,10 @@
             // 
             // tbCnp
             // 
-            this.tbCnp.Location = new System.Drawing.Point(146, 308);
+            this.tbCnp.Location = new System.Drawing.Point(242, 611);
+            this.tbCnp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbCnp.Name = "tbCnp";
-            this.tbCnp.Size = new System.Drawing.Size(235, 20);
+            this.tbCnp.Size = new System.Drawing.Size(312, 22);
             this.tbCnp.TabIndex = 7;
             this.tbCnp.TextChanged += new System.EventHandler(this.tbCnp_TextChanged);
             this.tbCnp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCnp_KeyPress);
@@ -182,18 +192,20 @@
             // 
             // tbSerieBuletin
             // 
-            this.tbSerieBuletin.Location = new System.Drawing.Point(552, 242);
+            this.tbSerieBuletin.Location = new System.Drawing.Point(783, 530);
+            this.tbSerieBuletin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbSerieBuletin.Name = "tbSerieBuletin";
-            this.tbSerieBuletin.Size = new System.Drawing.Size(235, 20);
+            this.tbSerieBuletin.Size = new System.Drawing.Size(312, 22);
             this.tbSerieBuletin.TabIndex = 8;
             this.tbSerieBuletin.Validating += new System.ComponentModel.CancelEventHandler(this.tbSerieBuletin_Validating);
             this.tbSerieBuletin.Validated += new System.EventHandler(this.tbSerieBuletin_Validated);
             // 
             // tbNrTelefon
             // 
-            this.tbNrTelefon.Location = new System.Drawing.Point(552, 309);
+            this.tbNrTelefon.Location = new System.Drawing.Point(783, 612);
+            this.tbNrTelefon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbNrTelefon.Name = "tbNrTelefon";
-            this.tbNrTelefon.Size = new System.Drawing.Size(235, 20);
+            this.tbNrTelefon.Size = new System.Drawing.Size(312, 22);
             this.tbNrTelefon.TabIndex = 9;
             this.tbNrTelefon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNrTelefon_KeyPress);
             this.tbNrTelefon.Validating += new System.ComponentModel.CancelEventHandler(this.tbNrTelefon_Validating);
@@ -203,18 +215,20 @@
             // 
             this.lNumeInreg.AutoSize = true;
             this.lNumeInreg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNumeInreg.Location = new System.Drawing.Point(141, 36);
+            this.lNumeInreg.Location = new System.Drawing.Point(235, 276);
+            this.lNumeInreg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lNumeInreg.Name = "lNumeInreg";
-            this.lNumeInreg.Size = new System.Drawing.Size(41, 15);
+            this.lNumeInreg.Size = new System.Drawing.Size(48, 18);
             this.lNumeInreg.TabIndex = 10;
             this.lNumeInreg.Text = "Nume";
             // 
             // lPrenumeInreg
             // 
             this.lPrenumeInreg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lPrenumeInreg.Location = new System.Drawing.Point(549, 37);
+            this.lPrenumeInreg.Location = new System.Drawing.Point(779, 278);
+            this.lPrenumeInreg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lPrenumeInreg.Name = "lPrenumeInreg";
-            this.lPrenumeInreg.Size = new System.Drawing.Size(80, 13);
+            this.lPrenumeInreg.Size = new System.Drawing.Size(107, 16);
             this.lPrenumeInreg.TabIndex = 11;
             this.lPrenumeInreg.Text = "Prenume";
             // 
@@ -222,9 +236,10 @@
             // 
             this.lEmailInreg.AutoSize = true;
             this.lEmailInreg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lEmailInreg.Location = new System.Drawing.Point(143, 95);
+            this.lEmailInreg.Location = new System.Drawing.Point(238, 349);
+            this.lEmailInreg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lEmailInreg.Name = "lEmailInreg";
-            this.lEmailInreg.Size = new System.Drawing.Size(39, 15);
+            this.lEmailInreg.Size = new System.Drawing.Size(45, 18);
             this.lEmailInreg.TabIndex = 12;
             this.lEmailInreg.Text = "Email";
             // 
@@ -232,9 +247,10 @@
             // 
             this.lParolaInreg.AutoSize = true;
             this.lParolaInreg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lParolaInreg.Location = new System.Drawing.Point(143, 157);
+            this.lParolaInreg.Location = new System.Drawing.Point(238, 425);
+            this.lParolaInreg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lParolaInreg.Name = "lParolaInreg";
-            this.lParolaInreg.Size = new System.Drawing.Size(43, 15);
+            this.lParolaInreg.Size = new System.Drawing.Size(51, 18);
             this.lParolaInreg.TabIndex = 13;
             this.lParolaInreg.Text = "Parola";
             // 
@@ -242,9 +258,10 @@
             // 
             this.lDataNastereInreg.AutoSize = true;
             this.lDataNastereInreg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lDataNastereInreg.Location = new System.Drawing.Point(143, 216);
+            this.lDataNastereInreg.Location = new System.Drawing.Point(238, 498);
+            this.lDataNastereInreg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lDataNastereInreg.Name = "lDataNastereInreg";
-            this.lDataNastereInreg.Size = new System.Drawing.Size(79, 15);
+            this.lDataNastereInreg.Size = new System.Drawing.Size(95, 18);
             this.lDataNastereInreg.TabIndex = 14;
             this.lDataNastereInreg.Text = "Data Nastere";
             // 
@@ -252,9 +269,10 @@
             // 
             this.lCnpInreg.AutoSize = true;
             this.lCnpInreg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lCnpInreg.Location = new System.Drawing.Point(141, 290);
+            this.lCnpInreg.Location = new System.Drawing.Point(235, 589);
+            this.lCnpInreg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lCnpInreg.Name = "lCnpInreg";
-            this.lCnpInreg.Size = new System.Drawing.Size(32, 15);
+            this.lCnpInreg.Size = new System.Drawing.Size(40, 18);
             this.lCnpInreg.TabIndex = 15;
             this.lCnpInreg.Text = "CNP";
             // 
@@ -262,9 +280,10 @@
             // 
             this.lSerieBuletinInreg.AutoSize = true;
             this.lSerieBuletinInreg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSerieBuletinInreg.Location = new System.Drawing.Point(539, 216);
+            this.lSerieBuletinInreg.Location = new System.Drawing.Point(766, 498);
+            this.lSerieBuletinInreg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lSerieBuletinInreg.Name = "lSerieBuletinInreg";
-            this.lSerieBuletinInreg.Size = new System.Drawing.Size(77, 15);
+            this.lSerieBuletinInreg.Size = new System.Drawing.Size(90, 18);
             this.lSerieBuletinInreg.TabIndex = 16;
             this.lSerieBuletinInreg.Text = "Serie Buletin";
             // 
@@ -272,9 +291,10 @@
             // 
             this.lNrTelefonInreg.AutoSize = true;
             this.lNrTelefonInreg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNrTelefonInreg.Location = new System.Drawing.Point(549, 290);
+            this.lNrTelefonInreg.Location = new System.Drawing.Point(779, 589);
+            this.lNrTelefonInreg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lNrTelefonInreg.Name = "lNrTelefonInreg";
-            this.lNrTelefonInreg.Size = new System.Drawing.Size(67, 15);
+            this.lNrTelefonInreg.Size = new System.Drawing.Size(81, 18);
             this.lNrTelefonInreg.TabIndex = 17;
             this.lNrTelefonInreg.Text = "Nr. Telefon";
             // 
@@ -282,17 +302,19 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(549, 157);
+            this.label1.Location = new System.Drawing.Point(779, 425);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 15);
+            this.label1.Size = new System.Drawing.Size(100, 18);
             this.label1.TabIndex = 18;
             this.label1.Text = "Data Angajare";
             // 
             // dtpDataAngajare
             // 
-            this.dtpDataAngajare.Location = new System.Drawing.Point(552, 176);
+            this.dtpDataAngajare.Location = new System.Drawing.Point(783, 449);
+            this.dtpDataAngajare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpDataAngajare.Name = "dtpDataAngajare";
-            this.dtpDataAngajare.Size = new System.Drawing.Size(235, 20);
+            this.dtpDataAngajare.Size = new System.Drawing.Size(312, 22);
             this.dtpDataAngajare.TabIndex = 19;
             this.dtpDataAngajare.Validating += new System.ComponentModel.CancelEventHandler(this.dtpDataAngajare_Validating);
             this.dtpDataAngajare.Validated += new System.EventHandler(this.dtpDataAngajare_Validated);
@@ -305,9 +327,10 @@
             this.btnInregistrare.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnInregistrare.Image = ((System.Drawing.Image)(resources.GetObject("btnInregistrare.Image")));
             this.btnInregistrare.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnInregistrare.Location = new System.Drawing.Point(391, 421);
+            this.btnInregistrare.Location = new System.Drawing.Point(568, 750);
+            this.btnInregistrare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInregistrare.Name = "btnInregistrare";
-            this.btnInregistrare.Size = new System.Drawing.Size(183, 42);
+            this.btnInregistrare.Size = new System.Drawing.Size(244, 52);
             this.btnInregistrare.TabIndex = 20;
             this.btnInregistrare.Text = "Inregistrare";
             this.btnInregistrare.UseVisualStyleBackColor = false;
@@ -316,9 +339,10 @@
             // pbEmailIcon
             // 
             this.pbEmailIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbEmailIcon.Image")));
-            this.pbEmailIcon.Location = new System.Drawing.Point(118, 52);
+            this.pbEmailIcon.Location = new System.Drawing.Point(204, 296);
+            this.pbEmailIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbEmailIcon.Name = "pbEmailIcon";
-            this.pbEmailIcon.Size = new System.Drawing.Size(20, 19);
+            this.pbEmailIcon.Size = new System.Drawing.Size(27, 23);
             this.pbEmailIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEmailIcon.TabIndex = 21;
             this.pbEmailIcon.TabStop = false;
@@ -326,9 +350,10 @@
             // pbParolaIcon
             // 
             this.pbParolaIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbParolaIcon.Image")));
-            this.pbParolaIcon.Location = new System.Drawing.Point(118, 176);
+            this.pbParolaIcon.Location = new System.Drawing.Point(204, 449);
+            this.pbParolaIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbParolaIcon.Name = "pbParolaIcon";
-            this.pbParolaIcon.Size = new System.Drawing.Size(24, 19);
+            this.pbParolaIcon.Size = new System.Drawing.Size(32, 23);
             this.pbParolaIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbParolaIcon.TabIndex = 22;
             this.pbParolaIcon.TabStop = false;
@@ -336,9 +361,10 @@
             // pbPhoneIcon
             // 
             this.pbPhoneIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbPhoneIcon.Image")));
-            this.pbPhoneIcon.Location = new System.Drawing.Point(526, 309);
+            this.pbPhoneIcon.Location = new System.Drawing.Point(748, 612);
+            this.pbPhoneIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbPhoneIcon.Name = "pbPhoneIcon";
-            this.pbPhoneIcon.Size = new System.Drawing.Size(20, 19);
+            this.pbPhoneIcon.Size = new System.Drawing.Size(27, 23);
             this.pbPhoneIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPhoneIcon.TabIndex = 23;
             this.pbPhoneIcon.TabStop = false;
@@ -346,9 +372,10 @@
             // pbDataNastereIcon
             // 
             this.pbDataNastereIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbDataNastereIcon.Image")));
-            this.pbDataNastereIcon.Location = new System.Drawing.Point(118, 237);
+            this.pbDataNastereIcon.Location = new System.Drawing.Point(204, 524);
+            this.pbDataNastereIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbDataNastereIcon.Name = "pbDataNastereIcon";
-            this.pbDataNastereIcon.Size = new System.Drawing.Size(20, 22);
+            this.pbDataNastereIcon.Size = new System.Drawing.Size(27, 27);
             this.pbDataNastereIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDataNastereIcon.TabIndex = 24;
             this.pbDataNastereIcon.TabStop = false;
@@ -356,9 +383,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(526, 176);
+            this.pictureBox1.Location = new System.Drawing.Point(748, 449);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 22);
+            this.pictureBox1.Size = new System.Drawing.Size(27, 27);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
@@ -366,9 +394,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(526, 54);
+            this.pictureBox2.Location = new System.Drawing.Point(748, 298);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox2.Size = new System.Drawing.Size(27, 23);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 26;
             this.pictureBox2.TabStop = false;
@@ -376,9 +405,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(118, 113);
+            this.pictureBox3.Location = new System.Drawing.Point(204, 371);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox3.Size = new System.Drawing.Size(27, 25);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 27;
             this.pictureBox3.TabStop = false;
@@ -386,9 +416,10 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(523, 239);
+            this.pictureBox4.Location = new System.Drawing.Point(744, 526);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(23, 24);
+            this.pictureBox4.Size = new System.Drawing.Size(31, 30);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 28;
             this.pictureBox4.TabStop = false;
@@ -396,9 +427,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(115, 304);
+            this.pictureBox5.Location = new System.Drawing.Point(200, 606);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(23, 24);
+            this.pictureBox5.Size = new System.Drawing.Size(31, 30);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 29;
             this.pictureBox5.TabStop = false;
@@ -421,9 +453,10 @@
             // 
             // tbNrBuletin
             // 
-            this.tbNrBuletin.Location = new System.Drawing.Point(144, 382);
+            this.tbNrBuletin.Location = new System.Drawing.Point(239, 702);
+            this.tbNrBuletin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbNrBuletin.Name = "tbNrBuletin";
-            this.tbNrBuletin.Size = new System.Drawing.Size(235, 20);
+            this.tbNrBuletin.Size = new System.Drawing.Size(312, 22);
             this.tbNrBuletin.TabIndex = 30;
             this.tbNrBuletin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNrBuletin_KeyPress);
             this.tbNrBuletin.Validating += new System.ComponentModel.CancelEventHandler(this.tbNrBuletin_Validating);
@@ -432,9 +465,10 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(118, 378);
+            this.pictureBox6.Location = new System.Drawing.Point(204, 697);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(23, 24);
+            this.pictureBox6.Size = new System.Drawing.Size(31, 30);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 31;
             this.pictureBox6.TabStop = false;
@@ -443,9 +477,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(112, 360);
+            this.label2.Location = new System.Drawing.Point(196, 675);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 15);
+            this.label2.Size = new System.Drawing.Size(72, 18);
             this.label2.TabIndex = 32;
             this.label2.Text = "Nr Buletin";
             // 
@@ -475,9 +510,10 @@
             // 
             // tbCodVerificare
             // 
-            this.tbCodVerificare.Location = new System.Drawing.Point(552, 113);
+            this.tbCodVerificare.Location = new System.Drawing.Point(783, 371);
+            this.tbCodVerificare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbCodVerificare.Name = "tbCodVerificare";
-            this.tbCodVerificare.Size = new System.Drawing.Size(235, 20);
+            this.tbCodVerificare.Size = new System.Drawing.Size(312, 22);
             this.tbCodVerificare.TabIndex = 33;
             this.tbCodVerificare.Validating += new System.ComponentModel.CancelEventHandler(this.tbCodVerificare_Validating);
             this.tbCodVerificare.Validated += new System.EventHandler(this.tbCodVerificare_Validated);
@@ -486,9 +522,10 @@
             // 
             this.lCodVerificare.AutoSize = true;
             this.lCodVerificare.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lCodVerificare.Location = new System.Drawing.Point(549, 95);
+            this.lCodVerificare.Location = new System.Drawing.Point(779, 349);
+            this.lCodVerificare.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lCodVerificare.Name = "lCodVerificare";
-            this.lCodVerificare.Size = new System.Drawing.Size(83, 15);
+            this.lCodVerificare.Size = new System.Drawing.Size(101, 18);
             this.lCodVerificare.TabIndex = 34;
             this.lCodVerificare.Text = "Cod Verificare";
             // 
@@ -499,9 +536,10 @@
             this.btnTrimiteCodVerificare.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrimiteCodVerificare.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTrimiteCodVerificare.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTrimiteCodVerificare.Location = new System.Drawing.Point(403, 113);
+            this.btnTrimiteCodVerificare.Location = new System.Drawing.Point(584, 371);
+            this.btnTrimiteCodVerificare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTrimiteCodVerificare.Name = "btnTrimiteCodVerificare";
-            this.btnTrimiteCodVerificare.Size = new System.Drawing.Size(130, 23);
+            this.btnTrimiteCodVerificare.Size = new System.Drawing.Size(173, 28);
             this.btnTrimiteCodVerificare.TabIndex = 35;
             this.btnTrimiteCodVerificare.Text = "Trimite cod verificare";
             this.btnTrimiteCodVerificare.UseVisualStyleBackColor = false;
@@ -511,50 +549,65 @@
             // 
             this.errorProviderCodVerificare.ContainerControl = this;
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
+            this.panel1.Controls.Add(this.btnTrimiteCodVerificare);
+            this.panel1.Controls.Add(this.lCodVerificare);
+            this.panel1.Controls.Add(this.tbCodVerificare);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.pictureBox6);
+            this.panel1.Controls.Add(this.tbNrBuletin);
+            this.panel1.Controls.Add(this.pictureBox5);
+            this.panel1.Controls.Add(this.pictureBox4);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pbDataNastereIcon);
+            this.panel1.Controls.Add(this.pbPhoneIcon);
+            this.panel1.Controls.Add(this.pbEmailIcon);
+            this.panel1.Controls.Add(this.pbParolaIcon);
+            this.panel1.Controls.Add(this.btnInregistrare);
+            this.panel1.Controls.Add(this.dtpDataAngajare);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lNrTelefonInreg);
+            this.panel1.Controls.Add(this.lSerieBuletinInreg);
+            this.panel1.Controls.Add(this.lCnpInreg);
+            this.panel1.Controls.Add(this.lDataNastereInreg);
+            this.panel1.Controls.Add(this.lParolaInreg);
+            this.panel1.Controls.Add(this.lEmailInreg);
+            this.panel1.Controls.Add(this.lPrenumeInreg);
+            this.panel1.Controls.Add(this.lNumeInreg);
+            this.panel1.Controls.Add(this.tbNrTelefon);
+            this.panel1.Controls.Add(this.tbSerieBuletin);
+            this.panel1.Controls.Add(this.tbCnp);
+            this.panel1.Controls.Add(this.tbParola);
+            this.panel1.Controls.Add(this.dtpDataNastere);
+            this.panel1.Controls.Add(this.tbPrenume);
+            this.panel1.Controls.Add(this.tbEmail);
+            this.panel1.Controls.Add(this.tbInregistrareNume);
+            this.panel1.Controls.Add(this.lInregistrareTitlu);
+            this.panel1.Controls.Add(this.pbLogoInreg);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1261, 840);
+            this.panel1.TabIndex = 36;
+            // 
             // Inregistrare
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
-            this.ClientSize = new System.Drawing.Size(887, 475);
-            this.Controls.Add(this.btnTrimiteCodVerificare);
-            this.Controls.Add(this.lCodVerificare);
-            this.Controls.Add(this.tbCodVerificare);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.tbNrBuletin);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pbDataNastereIcon);
-            this.Controls.Add(this.pbPhoneIcon);
-            this.Controls.Add(this.pbEmailIcon);
-            this.Controls.Add(this.pbParolaIcon);
-            this.Controls.Add(this.btnInregistrare);
-            this.Controls.Add(this.dtpDataAngajare);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lNrTelefonInreg);
-            this.Controls.Add(this.lSerieBuletinInreg);
-            this.Controls.Add(this.lCnpInreg);
-            this.Controls.Add(this.lDataNastereInreg);
-            this.Controls.Add(this.lParolaInreg);
-            this.Controls.Add(this.lEmailInreg);
-            this.Controls.Add(this.lPrenumeInreg);
-            this.Controls.Add(this.lNumeInreg);
-            this.Controls.Add(this.tbNrTelefon);
-            this.Controls.Add(this.tbSerieBuletin);
-            this.Controls.Add(this.tbCnp);
-            this.Controls.Add(this.dtpDataNastere);
-            this.Controls.Add(this.tbParola);
-            this.Controls.Add(this.tbEmail);
-            this.Controls.Add(this.tbPrenume);
-            this.Controls.Add(this.lInregistrareTitlu);
-            this.Controls.Add(this.tbInregistrareNume);
-            this.Controls.Add(this.pbLogoInreg);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(239)))), ((int)(((byte)(198)))));
+            this.ClientSize = new System.Drawing.Size(1285, 864);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Inregistrare";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inregistrare";
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoInreg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmailIcon)).EndInit();
@@ -578,8 +631,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNrTelefon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderParola)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCodVerificare)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -632,5 +686,6 @@
         private System.Windows.Forms.TextBox tbCodVerificare;
         private System.Windows.Forms.Button btnTrimiteCodVerificare;
         private System.Windows.Forms.ErrorProvider errorProviderCodVerificare;
+        private System.Windows.Forms.Panel panel1;
     }
 }
