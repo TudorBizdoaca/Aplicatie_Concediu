@@ -349,6 +349,11 @@ namespace Aplicatie_Concediu
         {
          Program.verificareCifreCnp(tbCnp.Text,errorProviderCnp,tbCnp);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }
