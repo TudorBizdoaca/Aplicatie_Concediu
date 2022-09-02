@@ -16,14 +16,12 @@ namespace Aplicatie_Concediu
 {
     public partial class Autentificare : Form
     {
-        public static bool NumlockActive()
-        {
-            return Control.IsKeyLocked(Keys.NumLock);
-        }
         
+       
         public Autentificare()
         {
             InitializeComponent();
+            pbCaps.Hide();
         }
 
 
@@ -31,14 +29,14 @@ namespace Aplicatie_Concediu
         {
             SqlConnection cn = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
             cn.Open();
-            if (parola.Text != String.Empty && mail.Text != String.Empty)
+            if (tbParola.Text != String.Empty && mail.Text != String.Empty)
             {
 
 
                 //se decomenteaza in momentul in care pagina register este gata si se inlocuieste la *
                 SHA256 sHA256 = SHA256.Create();
                 string compara = null;
-                compara = parola.Text;
+                compara = tbParola.Text;
                 byte[] inputBytes = System.Text.Encoding.UTF8.GetBytes(compara);
                 byte[] inputHashedBytes = sHA256.ComputeHash(inputBytes);
                 String inputHash = Convert.ToBase64String(inputHashedBytes);
@@ -88,19 +86,11 @@ namespace Aplicatie_Concediu
             ResetareParola resetare = new ResetareParola();
             resetare.Show();
         }
-        
+
         private void parola_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
 
 
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                parola.Focus();
-                e.Handled = true;
-
-
-            }
 
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
@@ -115,15 +105,27 @@ namespace Aplicatie_Concediu
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                parola.Focus();
+                tbParola.Focus();
                 e.Handled = true;
-
-
             }
 
-            
+
+        }
+        
+        private void tbParola_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Control.IsKeyLocked(Keys.CapsLock))
+                pbCaps.Show();
+            else
+                pbCaps.Hide();
         }
 
-       
+        private void tbParola_Click(object sender, EventArgs e)
+        {
+            if (Control.IsKeyLocked(Keys.CapsLock))
+                pbCaps.Show();
+            else
+                pbCaps.Hide();
+        }
     }
 }
