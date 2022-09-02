@@ -708,9 +708,9 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(239)))), ((int)(((byte)(198)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Peru;
-            this.button1.Location = new System.Drawing.Point(1437, 27);
+            this.button1.Location = new System.Drawing.Point(1463, 27);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 36);
+            this.button1.Size = new System.Drawing.Size(48, 40);
             this.button1.TabIndex = 37;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = false;
