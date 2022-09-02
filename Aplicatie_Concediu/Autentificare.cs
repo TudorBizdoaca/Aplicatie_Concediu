@@ -88,11 +88,20 @@ namespace Aplicatie_Concediu
             ResetareParola resetare = new ResetareParola();
             resetare.Show();
         }
-
+        
         private void parola_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
            
+
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                parola.Focus();
+                e.Handled = true;
+
+
+            }
+
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 button1_Click(sender, e);
@@ -104,16 +113,6 @@ namespace Aplicatie_Concediu
 
         private void mail_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-             if (Control.IsKeyLocked(Keys.CapsLock) == true)
-                pbCaps.Show();
-            if (Control.IsKeyLocked(Keys.CapsLock) == false)
-            {
-                pbCaps.Visible = false;
-                pbCaps.Hide();
-            }
-                
-
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 parola.Focus();
@@ -121,6 +120,10 @@ namespace Aplicatie_Concediu
 
 
             }
+
+            
         }
+
+       
     }
 }
