@@ -30,11 +30,9 @@ namespace Aplicatie_Concediu
             connection.Close();
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            PaginaMea paginaMea = new PaginaMea();
-            paginaMea.Show();
+            this.Close();
         }
     }
 }

@@ -93,15 +93,15 @@ namespace Aplicatie_Concediu
         private void buttonDetaliiAngajati_Click(object sender, EventArgs e)
         {
             TabelaAngajati formTabelaAngajati = new TabelaAngajati();
-            formTabelaAngajati.Show();
-            this.Close();
+            formTabelaAngajati.ShowDialog();
+            formTabelaAngajati.Focus();
         }
 
         private void buttonPanouAdmin_Click(object sender, EventArgs e)
         {
             PanouAdmin formPanouAdmin = new PanouAdmin();
-            formPanouAdmin.Show();
-            this.Close();
+            formPanouAdmin.ShowDialog();
+            formPanouAdmin.Focus();
         }
 
         // Butoane Pagina

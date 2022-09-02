@@ -150,5 +150,10 @@ namespace Aplicatie_Concediu
         { 
             lblCharCount.Text = "Caractere ramase: "+ (500 - (rtfComentarii.Text.Length)).ToString();          
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
