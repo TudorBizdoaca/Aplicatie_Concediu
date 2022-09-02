@@ -83,7 +83,7 @@
             this.cbTipConcediu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTipConcediu.FormattingEnabled = true;
             this.cbTipConcediu.Location = new System.Drawing.Point(282, 5);
-            this.cbTipConcediu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbTipConcediu.Margin = new System.Windows.Forms.Padding(5);
             this.cbTipConcediu.Name = "cbTipConcediu";
             this.cbTipConcediu.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cbTipConcediu.Size = new System.Drawing.Size(406, 33);
@@ -97,7 +97,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpInceputConcediu.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpInceputConcediu.Location = new System.Drawing.Point(282, 128);
-            this.dtpInceputConcediu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dtpInceputConcediu.Margin = new System.Windows.Forms.Padding(5);
             this.dtpInceputConcediu.Name = "dtpInceputConcediu";
             this.dtpInceputConcediu.Size = new System.Drawing.Size(406, 22);
             this.dtpInceputConcediu.TabIndex = 2;
@@ -110,7 +110,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpFinalConcediu.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFinalConcediu.Location = new System.Drawing.Point(975, 128);
-            this.dtpFinalConcediu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dtpFinalConcediu.Margin = new System.Windows.Forms.Padding(5);
             this.dtpFinalConcediu.Name = "dtpFinalConcediu";
             this.dtpFinalConcediu.Size = new System.Drawing.Size(409, 22);
             this.dtpFinalConcediu.TabIndex = 3;
@@ -124,7 +124,7 @@
             this.cbInlocuitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbInlocuitor.FormattingEnabled = true;
             this.cbInlocuitor.Location = new System.Drawing.Point(975, 5);
-            this.cbInlocuitor.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbInlocuitor.Margin = new System.Windows.Forms.Padding(5);
             this.cbInlocuitor.Name = "cbInlocuitor";
             this.cbInlocuitor.Size = new System.Drawing.Size(409, 33);
             this.cbInlocuitor.TabIndex = 7;
@@ -135,7 +135,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button1.Location = new System.Drawing.Point(1087, 746);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(255, 58);
             this.button1.TabIndex = 8;
@@ -151,7 +151,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.rtfComentarii, 3);
             this.rtfComentarii.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtfComentarii.Location = new System.Drawing.Point(282, 251);
-            this.rtfComentarii.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.rtfComentarii.Margin = new System.Windows.Forms.Padding(5);
             this.rtfComentarii.MaxLength = 500;
             this.rtfComentarii.Name = "rtfComentarii";
             this.rtfComentarii.Size = new System.Drawing.Size(1102, 216);
@@ -310,7 +310,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button2.Location = new System.Drawing.Point(1373, 28);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(53, 44);
             this.button2.TabIndex = 38;
@@ -326,7 +326,7 @@
             this.panel1.Controls.Add(this.labelCerereConcediu);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Location = new System.Drawing.Point(16, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1465, 842);
             this.panel1.TabIndex = 39;
@@ -339,7 +339,7 @@
             this.ClientSize = new System.Drawing.Size(1497, 871);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "InserareConcediu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InserareConcediu";
