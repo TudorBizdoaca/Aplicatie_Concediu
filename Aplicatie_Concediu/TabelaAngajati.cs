@@ -26,6 +26,7 @@ namespace Aplicatie_Concediu
             SqlDataReader reader = command.ExecuteReader();
             dtAngajati.Load(reader);
             dgvAngajati.DataSource = dtAngajati;
+           
             connection.Close();
         }
 
