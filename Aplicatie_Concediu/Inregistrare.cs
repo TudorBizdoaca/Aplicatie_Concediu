@@ -141,17 +141,6 @@ namespace Aplicatie_Concediu
 
         #region Validare Campuri
 
-
-      
-       
-       
-     
-      
-
-    
-    
-   
-
         private bool validareCodVerificare()
         {
             bool eValid = true;

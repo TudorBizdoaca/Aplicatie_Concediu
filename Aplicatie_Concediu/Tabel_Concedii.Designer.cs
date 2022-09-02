@@ -53,7 +53,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTabelConcedii.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTabelConcedii.Location = new System.Drawing.Point(-1, -2);
+            this.dgvTabelConcedii.Location = new System.Drawing.Point(-7, -2);
             this.dgvTabelConcedii.Name = "dgvTabelConcedii";
             this.dgvTabelConcedii.RowHeadersWidth = 51;
             this.dgvTabelConcedii.Size = new System.Drawing.Size(1047, 391);
