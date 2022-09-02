@@ -45,7 +45,11 @@
             // 
             // coloanaPoza
             // 
+            this.coloanaPoza.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.coloanaPoza.DataPropertyName = "poza";
             this.coloanaPoza.HeaderText = "poza:";
+            this.coloanaPoza.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.coloanaPoza.MinimumWidth = 50;
             this.coloanaPoza.Name = "coloanaPoza";
             // 
             // TabelaAngajati
