@@ -40,9 +40,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.pbCaps = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCaps)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -182,12 +184,24 @@
             this.linkLabel2.Text = "Cont nou";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
+            // pbCaps
+            // 
+            this.pbCaps.Image = ((System.Drawing.Image)(resources.GetObject("pbCaps.Image")));
+            this.pbCaps.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbCaps.InitialImage")));
+            this.pbCaps.Location = new System.Drawing.Point(493, 272);
+            this.pbCaps.Name = "pbCaps";
+            this.pbCaps.Size = new System.Drawing.Size(38, 28);
+            this.pbCaps.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCaps.TabIndex = 14;
+            this.pbCaps.TabStop = false;
+            // 
             // Autentificare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(785, 539);
+            this.Controls.Add(this.pbCaps);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -205,6 +219,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCaps)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,6 +238,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.PictureBox pbCaps;
     }
 }
 

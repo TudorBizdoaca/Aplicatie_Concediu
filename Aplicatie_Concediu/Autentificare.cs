@@ -16,6 +16,11 @@ namespace Aplicatie_Concediu
 {
     public partial class Autentificare : Form
     {
+        public static bool NumlockActive()
+        {
+            return Control.IsKeyLocked(Keys.NumLock);
+        }
+        
         public Autentificare()
         {
             InitializeComponent();
@@ -43,7 +48,9 @@ namespace Aplicatie_Concediu
 
 
                 //* se inlocuieste parola.Text cu result
-                SqlCommand cmd = new SqlCommand("select * from Angajat where  email='" + mail.Text + "' and parola= '" + result + "'", cn);
+                SqlCommand cmd = new SqlCommand("select * from Angajat where  email=@mail and parola=@result", cn);
+                cmd.Parameters.Add("mail", mail.Text);
+                cmd.Parameters.Add("result", result);
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 if (dr.Read())
@@ -84,6 +91,8 @@ namespace Aplicatie_Concediu
 
         private void parola_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
+           
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 button1_Click(sender, e);
@@ -95,6 +104,15 @@ namespace Aplicatie_Concediu
 
         private void mail_KeyPress(object sender, KeyPressEventArgs e)
         {
+
+             if (Control.IsKeyLocked(Keys.CapsLock) == true)
+                pbCaps.Show();
+            if (Control.IsKeyLocked(Keys.CapsLock) == false)
+            {
+                pbCaps.Visible = false;
+                pbCaps.Hide();
+            }
+                
 
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
