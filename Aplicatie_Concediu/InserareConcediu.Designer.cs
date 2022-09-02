@@ -137,7 +137,7 @@
             this.button1.Location = new System.Drawing.Point(815, 606);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(255, 58);
+            this.button1.Size = new System.Drawing.Size(191, 47);
             this.button1.TabIndex = 8;
             this.button1.Text = "InsereazaConcediu";
             this.button1.UseVisualStyleBackColor = false;
@@ -195,7 +195,8 @@
             this.tableLayoutPanel1.Controls.Add(this.rtfComentarii, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.dtpFinalConcediu, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.dtpInceputConcediu, 1, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(28, 119);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(21, 97);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
@@ -248,8 +249,7 @@
             this.labelStartConcediu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStartConcediu.ForeColor = System.Drawing.Color.Peru;
             this.labelStartConcediu.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.labelStartConcediu.Location = new System.Drawing.Point(4, 100);
-            this.labelStartConcediu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelStartConcediu.Location = new System.Drawing.Point(3, 81);
             this.labelStartConcediu.Name = "labelStartConcediu";
             this.labelStartConcediu.Size = new System.Drawing.Size(200, 100);
             this.labelStartConcediu.TabIndex = 15;
@@ -329,13 +329,14 @@
             // 
             // InserareConcediu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
             this.ClientSize = new System.Drawing.Size(1123, 708);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "InserareConcediu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InserareConcediu";

@@ -8,7 +8,7 @@ namespace Aplicatie_Concediu
 {
     public partial class InserareConcediu : Form
     {
-        
+        const int CONCEDIU_IN_ASTEPTARE = 2;
         DateTime StartDate;
         DateTime EndDate;
         SqlConnection connection = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
@@ -63,7 +63,7 @@ namespace Aplicatie_Concediu
             dataReader2.Close();
 
         }
-        public InserareConcediu(int AngajatId)
+        public InserareConcediu()
         {
             InitializeComponent();
 
@@ -113,7 +113,7 @@ namespace Aplicatie_Concediu
             command.Parameters.Add(new SqlParameter("dataSfarsit", EndDate));
             command.Parameters.Add(new SqlParameter("inlocuitorId", cbInlocuitor.SelectedValue));
             command.Parameters.Add(new SqlParameter("comentarii", rtfComentarii.Text));
-            command.Parameters.Add(new SqlParameter("stareConcediuId", cbTipConcediu.SelectedValue));
+            command.Parameters.Add(new SqlParameter("stareConcediuId", CONCEDIU_IN_ASTEPTARE));
             command.Parameters.Add(new SqlParameter("angajatId", Program.UserId));
             command.ExecuteNonQuery();
 
