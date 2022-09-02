@@ -29,16 +29,24 @@
         private void InitializeComponent()
         {
             this.dgvAngajati = new System.Windows.Forms.DataGridView();
+            this.coloanaPoza = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAngajati)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvAngajati
             // 
             this.dgvAngajati.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAngajati.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.coloanaPoza});
             this.dgvAngajati.Location = new System.Drawing.Point(12, 12);
             this.dgvAngajati.Name = "dgvAngajati";
             this.dgvAngajati.Size = new System.Drawing.Size(648, 362);
             this.dgvAngajati.TabIndex = 0;
+            // 
+            // coloanaPoza
+            // 
+            this.coloanaPoza.HeaderText = "poza:";
+            this.coloanaPoza.Name = "coloanaPoza";
             // 
             // TabelaAngajati
             // 
@@ -56,5 +64,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvAngajati;
+        private System.Windows.Forms.DataGridViewImageColumn coloanaPoza;
     }
 }
