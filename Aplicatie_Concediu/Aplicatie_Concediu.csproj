@@ -57,6 +57,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BreakingBreadDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\Angajat.cs" />
     <Compile Include="PaginaDetalii.cs">
       <SubType>Form</SubType>
     </Compile>
