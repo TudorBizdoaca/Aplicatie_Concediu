@@ -79,7 +79,8 @@ namespace Aplicatie_Concediu
             else if (dtp.Value != dataNastereCnp)
             {
                 ep.SetError(dtp, "Data Nasterii trebuie sa corespunda cu cea din CNP");
-               // MessageBox.Show(dtp.Value.ToString(), "");
+           //     MessageBox.Show(dtp.Value.ToString(), "");
+               // MessageBox.Show(dataNastereCnp.ToString(), "");
                 eValid = false;
 
             }
@@ -205,7 +206,8 @@ namespace Aplicatie_Concediu
 
                         break;
                 }
-
+            MessageBox.Show("datan string" + dataNastere, "");
+            
                 CultureInfo provider = CultureInfo.InvariantCulture;
                 try
                 {
@@ -215,6 +217,7 @@ namespace Aplicatie_Concediu
                 {
                     Console.WriteLine(ex.Message);
                 }
+            MessageBox.Show("dataExtrasa " + dataNasterii.ToString(), "");
                 if (dataNasterii != dtp.Value)
                 {
                     ep.SetError(tb, "CNP Invalid! Data nasterii e invalida!");
@@ -226,7 +229,7 @@ namespace Aplicatie_Concediu
         public static bool verificareCifreCnp(string cnp,ErrorProvider ep,TextBox tb, DateTimePicker dtp)
         {
             bool eValid = true;
-            DateTime dataNasterii = cnp.Length > 7 ? extragereDataNastereDinCnp(cnp,ep,tb,dtp) : new DateTime();
+            DateTime dataNasterii = cnp.Length ==13 ? extragereDataNastereDinCnp(cnp,ep,tb,dtp) : new DateTime();
             int codJudet = 0;
             if (cnp.Length > 9)
             {
