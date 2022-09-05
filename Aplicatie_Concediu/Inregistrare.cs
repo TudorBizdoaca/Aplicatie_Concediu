@@ -141,17 +141,6 @@ namespace Aplicatie_Concediu
 
         #region Validare Campuri
 
-
-      
-       
-       
-     
-      
-
-    
-    
-   
-
         private bool validareCodVerificare()
         {
             bool eValid = true;
@@ -176,7 +165,7 @@ namespace Aplicatie_Concediu
             bool emailValid = Program.validareEmail(errorProviderEmail,tbEmail);
             bool dataNastereValida = Program.validareDataNastere(errorProviderDataNastere,dtpDataNastere,tbCnp);
             bool dataAngajariiValida = Program.validareDataAngajare(errorProviderDataAngajare,dtpDataAngajare);
-            bool cnpValid = Program.verificareCifreCnp(tbCnp.Text,errorProviderCnp,tbCnp);
+            bool cnpValid = Program.verificareCifreCnp(tbCnp.Text,errorProviderCnp,tbCnp,dtpDataNastere);
             bool serieValida = Program.validareSerie(errorProviderSerieBuletin,tbSerieBuletin);
             bool nrvalid = Program.validareNrBuletin(errorProviderNrBuletin,tbNrBuletin);
             bool nrTelefonValid = Program.validareNrTelefon(errorProviderNrTelefon,tbNrTelefon);
@@ -264,7 +253,7 @@ namespace Aplicatie_Concediu
 
         private void tbCnp_Validating(object sender, CancelEventArgs e)
         {
-            Program.verificareCifreCnp(tbCnp.Text,errorProviderCnp,tbCnp);
+            Program.verificareCifreCnp(tbCnp.Text,errorProviderCnp,tbCnp,dtpDataNastere);
         }
 
         private void tbCnp_Validated(object sender, EventArgs e)
@@ -354,11 +343,18 @@ namespace Aplicatie_Concediu
         private void dtpDataNastere_ValueChanged(object sender, EventArgs e)
         {
             Program.validareDataNastere(errorProviderDataNastere,dtpDataNastere,tbCnp);
+            Program.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere);
         }
 
         private void tbCnp_TextChanged(object sender, EventArgs e)
         {
-         Program.verificareCifreCnp(tbCnp.Text,errorProviderCnp,tbCnp);
+            Program.validareDataNastere(errorProviderDataNastere, dtpDataNastere, tbCnp);
+            Program.verificareCifreCnp(tbCnp.Text,errorProviderCnp,tbCnp, dtpDataNastere);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

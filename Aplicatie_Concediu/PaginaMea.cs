@@ -99,9 +99,9 @@ namespace Aplicatie_Concediu
 
         private void buttonPanouAdmin_Click(object sender, EventArgs e)
         {
-            PanouAdmin formPanouAdmin = new PanouAdmin();
-            formPanouAdmin.ShowDialog();
-            formPanouAdmin.Focus();
+            Tabel_Concedii formTabelConcedii = new Tabel_Concedii();
+            formTabelConcedii.ShowDialog();
+            formTabelConcedii.Focus();
         }
 
         // Butoane Pagina

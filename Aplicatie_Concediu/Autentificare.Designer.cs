@@ -32,7 +32,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.mail = new System.Windows.Forms.TextBox();
-            this.parola = new System.Windows.Forms.TextBox();
+            this.tbParola = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -82,17 +82,19 @@
             this.mail.TabIndex = 5;
             this.mail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mail_KeyPress);
             // 
-            // parola
+            // tbParola
             // 
-            this.parola.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.parola.Location = new System.Drawing.Point(274, 272);
-            this.parola.Margin = new System.Windows.Forms.Padding(2);
-            this.parola.Multiline = true;
-            this.parola.Name = "parola";
-            this.parola.PasswordChar = '*';
-            this.parola.Size = new System.Drawing.Size(214, 28);
-            this.parola.TabIndex = 6;
-            this.parola.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.parola_KeyPress);
+            this.tbParola.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbParola.Location = new System.Drawing.Point(274, 272);
+            this.tbParola.Margin = new System.Windows.Forms.Padding(2);
+            this.tbParola.Multiline = true;
+            this.tbParola.Name = "tbParola";
+            this.tbParola.PasswordChar = '*';
+            this.tbParola.Size = new System.Drawing.Size(214, 28);
+            this.tbParola.TabIndex = 6;
+            this.tbParola.Click += new System.EventHandler(this.tbParola_Click);
+            this.tbParola.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbParola_KeyDown);
+            this.tbParola.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.parola_KeyPress);
             // 
             // button1
             // 
@@ -186,11 +188,11 @@
             // 
             // pbCaps
             // 
+            this.pbCaps.BackColor = System.Drawing.Color.AliceBlue;
             this.pbCaps.Image = ((System.Drawing.Image)(resources.GetObject("pbCaps.Image")));
-            this.pbCaps.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbCaps.InitialImage")));
             this.pbCaps.Location = new System.Drawing.Point(493, 272);
             this.pbCaps.Name = "pbCaps";
-            this.pbCaps.Size = new System.Drawing.Size(38, 28);
+            this.pbCaps.Size = new System.Drawing.Size(33, 28);
             this.pbCaps.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCaps.TabIndex = 14;
             this.pbCaps.TabStop = false;
@@ -209,7 +211,7 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.parola);
+            this.Controls.Add(this.tbParola);
             this.Controls.Add(this.mail);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -230,7 +232,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox mail;
-        private System.Windows.Forms.TextBox parola;
+        private System.Windows.Forms.TextBox tbParola;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;

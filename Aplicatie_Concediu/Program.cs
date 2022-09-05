@@ -70,7 +70,7 @@ namespace Aplicatie_Concediu
         public static bool validareDataNastere(ErrorProvider ep, DateTimePicker dtp,TextBox tb)
         {
             bool eValid = true;
-            DateTime dataNastereCnp = extragereDataNastereDinCnp(dtp.Text,ep,tb);
+            DateTime dataNastereCnp = extragereDataNastereDinCnp(dtp.Text, ep, tb, dtp);
             if (dtp.Value >= DateTime.Today)
             {
                 ep.SetError(dtp, "Data Nasterii trebuie sa fie in trecut!");
@@ -81,7 +81,7 @@ namespace Aplicatie_Concediu
             else if (dtp.Value != dataNastereCnp)
             {
                 ep.SetError(dtp, "Data Nasterii trebuie sa corespunda cu cea din CNP");
-                MessageBox.Show(dtp.Value.ToString(), "");
+               // MessageBox.Show(dtp.Value.ToString(), "");
                 eValid = false;
 
             }
@@ -187,11 +187,9 @@ namespace Aplicatie_Concediu
             return eValid;
         }
 
-        public static DateTime extragereDataNastereDinCnp(string cnp,ErrorProvider ep,TextBox tb)
+        public static DateTime extragereDataNastereDinCnp(string cnp,ErrorProvider ep,TextBox tb, DateTimePicker dtp)
         {
             DateTime dataNasterii = DateTime.Today;
-            if (!String.IsNullOrEmpty(cnp) && (cnp.Substring(0, 1) == "5" || cnp.Substring(0, 1) == "6"))
-            {
                 string dataNastere = "";
                 switch (cnp.Substring(0, 1))
                 {
@@ -219,18 +217,18 @@ namespace Aplicatie_Concediu
                 {
                     Console.WriteLine(ex.Message);
                 }
-                if (dataNasterii == DateTime.Today)
+                if (dataNasterii != dtp.Value)
                 {
                     ep.SetError(tb, "CNP Invalid! Data nasterii e invalida!");
                 }
-            }
+            
             return dataNasterii;
         }
 
-        public static bool verificareCifreCnp(string cnp,ErrorProvider ep,TextBox tb)
+        public static bool verificareCifreCnp(string cnp,ErrorProvider ep,TextBox tb, DateTimePicker dtp)
         {
             bool eValid = true;
-            DateTime dataNasterii = cnp.Length > 7 ? extragereDataNastereDinCnp(cnp,ep,tb) : new DateTime();
+            DateTime dataNasterii = cnp.Length > 7 ? extragereDataNastereDinCnp(cnp,ep,tb,dtp) : new DateTime();
             int codJudet = 0;
             if (cnp.Length > 9)
             {
