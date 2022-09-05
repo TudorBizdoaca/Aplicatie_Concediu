@@ -277,7 +277,7 @@ namespace Aplicatie_Concediu
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Tabel_Concedii());
+            Application.Run(new Autentificare());
         }
     }
 

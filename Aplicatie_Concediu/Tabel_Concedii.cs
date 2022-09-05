@@ -25,7 +25,7 @@ namespace Aplicatie_Concediu
             SqlConnection cn = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
             cn.Open();
             
-            SqlCommand cmdd = new SqlCommand("select esteAdmin from Angajat where id = 20", cn);
+            SqlCommand cmdd = new SqlCommand("select esteAdmin from Angajat where id = "+@Program.UserId, cn);
             SqlDataReader dr = cmdd.ExecuteReader();
             DataTable idAdmin = new DataTable();
             idAdmin.Load(dr);
@@ -49,7 +49,7 @@ namespace Aplicatie_Concediu
                 }
                 else
                 {
-                    MessageBox.Show("Nu merge");
+                    MessageBox.Show("Doar Administratorii pot accesa acest camp");
                 }
 
             
