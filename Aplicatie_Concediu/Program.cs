@@ -14,6 +14,8 @@ namespace Aplicatie_Concediu
        
         public static string IdConcediu { get; set; }
 
+        public static int EsteAdmin { get; set; }  
+
         #region Metode Validare date angajat
 
         public static bool validareNume(ErrorProvider ep,TextBox tb)
