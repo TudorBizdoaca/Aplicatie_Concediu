@@ -266,10 +266,10 @@
             this.labelInlocuitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInlocuitor.ForeColor = System.Drawing.Color.Peru;
             this.labelInlocuitor.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.labelInlocuitor.Location = new System.Drawing.Point(524, 0);
-            this.labelInlocuitor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelInlocuitor.Location = new System.Drawing.Point(698, 0);
+            this.labelInlocuitor.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelInlocuitor.Name = "labelInlocuitor";
-            this.labelInlocuitor.Size = new System.Drawing.Size(200, 100);
+            this.labelInlocuitor.Size = new System.Drawing.Size(267, 123);
             this.labelInlocuitor.TabIndex = 14;
             this.labelInlocuitor.Text = "Inlocuitor:";
             this.labelInlocuitor.TextAlign = System.Drawing.ContentAlignment.TopCenter;
