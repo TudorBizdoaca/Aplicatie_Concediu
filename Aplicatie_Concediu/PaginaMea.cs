@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aplicatie_Concediu.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Data.SqlTypes;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,10 +27,18 @@ namespace Aplicatie_Concediu
 
         private void PaginaMea_Load(object sender, EventArgs e)
         {
+            //HttpClient httpClient = new HttpClient();
+            //var response = await httpClient.GetAsync("http://localhost:5107/");
+            //response.EnsureSuccessStatusCode();
+
+            //HttpContent content = response.Content;
+            //Task<string> result = content.ReadAsStringAsync();
+            //string res = result.Result;
+
             SqlConnection connection = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
             connection.Open();
 
-            string query = "select * from Angajat where id = '" + Program.UserId + "'";
+            string query = "select * from Angajat where id = '" + SesiuneLogIn.angajatLogat.Id + "'";
 
             SqlCommand command = new SqlCommand(query, connection);
             SqlDataReader reader = command.ExecuteReader();
@@ -48,17 +58,17 @@ namespace Aplicatie_Concediu
                 string serie = Convert.ToString(reader["serie"]);
                 string no = Convert.ToString(reader["no"]);
                 string nrTelefon = Convert.ToString(reader["nrTelefon"]);
-                //int managerId = reader["managerId"] == DBNull.Value ? Convert.ToInt32 : ;
+                int managerId = reader["managerId"] == DBNull.Value ? Convert.ToInt32(reader["managerId"]) : 0;
                 int esteAdmin = Convert.ToInt32(reader["esteAdmin"]);
 
                 pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(imgBytes));
                 labelNumeUtilizatorLogat.Text = nume + " " + prenume;
 
                 // Validari Butoane Manager
-                //if (managerId)
-                //{
-                //    buttonDetaliiAngajati.Visible = true;
-                //}
+                if (managerId == 0 || esteAdmin == 1)
+                {
+                    buttonDetaliiAngajati.Visible = true;
+                }
 
                 // Validari Butoane Admini
                 if (esteAdmin == 1)
@@ -85,6 +95,7 @@ namespace Aplicatie_Concediu
         // Buton Iesire
         private void buttonIesire_Click(object sender, EventArgs e)
         {
+            SesiuneLogIn.angajatLogat = null;
             this.Close();
         }
 
