@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Aplicatie_Concediu.Utils;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Aplicatie_Concediu
@@ -77,8 +79,22 @@ namespace Aplicatie_Concediu
        
         private void InserareConcediu_Load(object sender, EventArgs e)
         {
+            // Date Utilizator Logat
+            pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(SesiuneLogIn.angajatLogat.Poza));
+            labelNumeUtilizatorLogat.Text = SesiuneLogIn.angajatLogat.Nume + " " + SesiuneLogIn.angajatLogat.Prenume;
 
+            // Validari Butoane Manager
+            if (SesiuneLogIn.angajatLogat.ManagerId == null)
+            {
+                buttonDetaliiAngajati.Visible = true;
+            }
 
+            // Validari Butoane Admini
+            if (SesiuneLogIn.angajatLogat.EsteAdmin == true)
+            {
+                buttonDetaliiAngajati.Visible = true;
+                buttonPanouAdmin.Visible = true;
+            }
         }
 
 

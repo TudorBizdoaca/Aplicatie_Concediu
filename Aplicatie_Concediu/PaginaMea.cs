@@ -228,12 +228,7 @@ namespace Aplicatie_Concediu
 
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    //string fileName = openFileDialog1.FileName;
-                    //byte[] imgBytes = File.ReadAllBytes(fileName);
-
-                    //pictureBoxUtilizator.Image = System.Drawing.Image.FromStream(new MemoryStream(imgBytes));
                     pictureBoxUtilizator.Image = new Bitmap(openFileDialog1.FileName);
-
                 }
             }
         }
