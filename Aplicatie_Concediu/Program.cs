@@ -11,6 +11,7 @@ namespace Aplicatie_Concediu
 {
     internal static class Program
     {
+        
         public static int UserId  { get; set;  }
        
         public static string IdConcediu { get; set; }
@@ -309,7 +310,7 @@ namespace Aplicatie_Concediu
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        //[STAThread]
+        [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();

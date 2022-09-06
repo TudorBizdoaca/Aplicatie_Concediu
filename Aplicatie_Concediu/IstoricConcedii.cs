@@ -1,29 +1,38 @@
-﻿using System;
+﻿using Aplicatie_Concediu.Models;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Aplicatie_Concediu
 {
     public partial class IstoricConcedii : Form
     {
+        public  List<CardConcediu> CarduriConcediu = new List<CardConcediu>();
+        static readonly HttpClient client = new HttpClient();
+        List<Concediu> concedii = new List<Concediu>();
         public IstoricConcedii()
         {
             InitializeComponent();
-            SqlConnection connection = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
-            connection.Open();
-            string selectQuery = "select t.nume as [Tip Concediu], dataInceput, dataSfarsit, concat(a.nume,'',a.prenume) as Inlocuitor,sc.nume as [Stare Concediu]\r\nfrom Concediu c \r\njoin TipConcediu t on c.tipConcediuId = t.id\r\njoin StareConcediu sc on  c.stareConcediuId = sc.id\r\njoin Angajat a on c.inlocuitorId = a.id\r\nwhere angajatId = @id";
-            SqlCommand comm = new SqlCommand(selectQuery,connection);
-            SqlParameter pId = new SqlParameter("@id",SqlDbType.Int);
-            pId.Value = Program.UserId;
-            comm.Parameters.Add(pId);
-            DataTable dtIstoricConcedii = new DataTable();
-            SqlDataReader dr = comm.ExecuteReader();
-            dtIstoricConcedii.Load(dr);
-            dgvIstoricConcedii.DataSource = dtIstoricConcedii;
-            connection.Close();
+           
         }
+        public async Task getConcediiAsync()
+        {
+            HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/IstoricConcedii/GetConcediiAngajat?Id={0}", Utils.SesiuneLogIn.angajatLogat.Id));
+            string responseBody = await response.Content.ReadAsStringAsync();
+            concedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
+            foreach (Concediu c in concedii)
+            {
+              CarduriConcediu.Add(new CardConcediu(c));
+            }
 
+        }
+     
+     
         // Buton Iesire
         private void buttonIesire_Click(object sender, EventArgs e)
         {
@@ -37,7 +46,7 @@ namespace Aplicatie_Concediu
             formPaginaMea.Show();
             this.Close();
         }
-
+        
         private void labelNumeUtilizatorLogat_Click(object sender, EventArgs e)
         {
             PaginaMea formPaginaMea = new PaginaMea();
@@ -86,6 +95,29 @@ namespace Aplicatie_Concediu
             Tabel_Concedii formTabelConcedii = new Tabel_Concedii();
             formTabelConcedii.Show();
             this.Close();
+        }
+
+        private async void IstoricConcedii_Load(object sender, EventArgs e)
+        {
+            int counter = 0;
+            int position = 0;
+           
+            await getConcediiAsync();
+            foreach(CardConcediu c in CarduriConcediu)
+            {
+                c.Parent = pnlCarduri;
+                c.Anchor = AnchorStyles.Left | AnchorStyles.Top;
+                if (counter == 0)
+                {
+                    position = c.Location.Y;
+                }
+                else
+                {
+                    position += 400;
+                    c.Location = new System.Drawing.Point(c.Location.X, position);
+                }
+                counter++;
+            }
         }
     }
 }

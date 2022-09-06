@@ -35,6 +35,9 @@
             // 
             // dgvAngajati
             // 
+            this.dgvAngajati.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAngajati.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAngajati.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.coloanaPoza});
@@ -59,7 +62,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvAngajati);
             this.Name = "TabelaAngajati";
-            this.Text = "Angajati";
+            this.Text = "6";
+            this.Load += new System.EventHandler(this.TabelaAngajati_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAngajati)).EndInit();
             this.ResumeLayout(false);
 

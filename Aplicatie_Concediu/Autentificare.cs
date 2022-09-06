@@ -24,14 +24,11 @@ namespace Aplicatie_Concediu
 {
     public partial class Autentificare : Form
     {
-        
-       
         public Autentificare()
         {
             InitializeComponent();
             pbCaps.Hide();
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -80,7 +77,6 @@ namespace Aplicatie_Concediu
                 MessageBox.Show("Email sau parola gresita");
             }
         }
-
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
