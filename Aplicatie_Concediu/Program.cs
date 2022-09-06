@@ -10,6 +10,7 @@ namespace Aplicatie_Concediu
 {
     internal static class Program
     {
+        
         public static int UserId  { get; set;  }
        
         public static string IdConcediu { get; set; }

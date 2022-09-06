@@ -57,7 +57,7 @@ namespace Aplicatie_Concediu
                 // Validari Butoane Manager
                 //if (managerId)
                 //{
-                //    buttonDetaliiAngajati.Visible = true;
+                buttonDetaliiAngajati.Visible = true;
                 //}
 
                 // Validari Butoane Admini
