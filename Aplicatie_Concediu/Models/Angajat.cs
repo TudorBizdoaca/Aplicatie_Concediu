@@ -26,12 +26,14 @@ namespace Aplicatie_Concediu.Models
         public string Serie { get; set; } 
         public string No { get; set; }
         public string NrTelefon { get; set; }
+
         public byte[] Poza { get; set; }
         public bool? EsteAdmin { get; set; }
         public int? ManagerId { get; set; }
         public int? ZileConcediu { get; set; }
-
+        
         public virtual Angajat Manager { get; set; }
+        
         public virtual ICollection<Concediu> ConcediuAngajats { get; set; }
         public virtual ICollection<Concediu> ConcediuInlocuitors { get; set; }
         public virtual ICollection<Angajat> InverseManager { get; set; }
