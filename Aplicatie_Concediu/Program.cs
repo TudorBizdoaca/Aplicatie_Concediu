@@ -70,7 +70,7 @@ namespace Aplicatie_Concediu
         public static bool validareDataNastere(ErrorProvider ep, DateTimePicker dtp, TextBox tb)
         {
             bool eValid = true;
-            DateTime dataNastereCnp = extragereDataNastereDinCnp(dtp.Text, ep, tb, dtp);
+            DateTime dataNastereCnp = extragereDataNastereDinCnp(tb.Text, ep, tb, dtp);
             if (dtp.Value >= DateTime.Today)
             {
                 ep.SetError(dtp, "Data Nasterii trebuie sa fie in trecut!");

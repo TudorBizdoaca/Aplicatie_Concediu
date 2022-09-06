@@ -261,12 +261,12 @@ namespace Aplicatie_Concediu
 
         private void dtpDataNastere_Validating(object sender, CancelEventArgs e)
         {
-           // Program.validareDataNastere(errorProviderDataNastere,dtpDataNastere,tbCnp);
+            Program.validareDataNastere(errorProviderDataNastere,dtpDataNastere,tbCnp);
         }
 
         private void dtpDataNastere_Validated(object sender, EventArgs e)
         {
-          //  errorProviderDataNastere.Clear();
+            errorProviderDataNastere.Clear();
             
          
         }
@@ -284,7 +284,7 @@ namespace Aplicatie_Concediu
 
         private void tbCnp_Validating(object sender, CancelEventArgs e)
         {
-           // Program.verificareCifreCnp(tbCnp.Text,errorProviderCnp,tbCnp,dtpDataNastere);
+            Program.verificareCifreCnp(tbCnp.Text,errorProviderCnp,tbCnp,dtpDataNastere);
         }
 
         private void tbCnp_Validated(object sender, EventArgs e)
@@ -373,8 +373,8 @@ namespace Aplicatie_Concediu
 
         private void dtpDataNastere_ValueChanged(object sender, EventArgs e)
         {
-          //  Program.validareDataNastere(errorProviderDataNastere,dtpDataNastere,tbCnp);
-          //  Program.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere);
+           Program.validareDataNastere(errorProviderDataNastere,dtpDataNastere,tbCnp);
+           
         }
 
         private void tbCnp_TextChanged(object sender, EventArgs e)
@@ -382,8 +382,7 @@ namespace Aplicatie_Concediu
             
             if(tbCnp.Text.Length == 13)
             {
-              //  Program.validareDataNastere(errorProviderDataNastere, dtpDataNastere, tbCnp);
-              //  Program.verificareCifreCnp(tbCnp.Text,errorProviderCnp,tbCnp, dtpDataNastere);
+              Program.verificareCifreCnp(tbCnp.Text,errorProviderCnp,tbCnp, dtpDataNastere);
             }
           
         }
