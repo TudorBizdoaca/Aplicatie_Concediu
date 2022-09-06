@@ -1,13 +1,17 @@
-﻿using System;
+﻿using Aplicatie_Concediu.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Net.Mime;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -25,7 +29,27 @@ namespace Aplicatie_Concediu
             InitializeComponent();
             
         }
+        public bool IrengistrareAngajatAPI (Angajat ang)
+        {
+            var requestBody = JsonConvert.SerializeObject(ang);
+            var requestData = Encoding.UTF8.GetBytes(requestBody);
+            string URL = "http://localhost:5085/PaginaInregistrare/InsertAngajat";
+            HttpWebRequest httpWebRequest =(HttpWebRequest) HttpWebRequest.Create(new Uri(URL));
+            httpWebRequest.Method = "POST";
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.ContentLength = requestData.Length;
+            using (Stream requestStream = httpWebRequest.GetRequestStream())
+            {
+                requestStream.Write(requestData, 0, requestData.Length);
+            }
+            var response = (HttpWebResponse)httpWebRequest.GetResponse();
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
 
+            }
+            else return false;
+        }   
         private string criptareParola(string parola)
         {
             SHA256 sHA256 = SHA256.Create();
@@ -42,54 +66,64 @@ namespace Aplicatie_Concediu
         private void btnInregistrare_Click(object sender, EventArgs e)
         {
             string codVerificareIntrodus = tbCodVerificare.Text;
-          
+            Angajat ang = new Angajat();
             if (validareFormular() && codVerificareIntrodus == codVerificareTrimis)
             {
                      
-                string connectionString = "Data Source=ts2112\\SQLEXPRESS;Initial Catalog=BreakingBread;User ID=internship2022;Password=int";
-                SqlParameter pNume = new SqlParameter("@nume",System.Data.SqlDbType.NVarChar, 50);
-                pNume.Value = tbInregistrareNume.Text;
-                SqlParameter pPrenume = new SqlParameter("@prenume",System.Data.SqlDbType.NVarChar, 50);
-                pPrenume.Value = tbPrenume.Text;
-                SqlParameter pEmail = new SqlParameter("@email", System.Data.SqlDbType.NVarChar,50);
-                pEmail.Value = tbEmail.Text;
-                SqlParameter pParola = new SqlParameter("@parola", System.Data.SqlDbType.NVarChar,100);
-                pParola.Value = criptareParola(tbParola.Text);
-                SqlParameter pDataNastere = new SqlParameter("@dataNasterii", System.Data.SqlDbType.DateTime); ;
-                pDataNastere.Value = dtpDataNastere.Value;
-                SqlParameter pDataAngajare = new SqlParameter("@dataAngajare", System.Data.SqlDbType.DateTime); ;
-                pDataAngajare.Value = dtpDataAngajare.Value;
-                SqlParameter pCnp = new SqlParameter("@cnp", System.Data.SqlDbType.NVarChar, 13);
-                pCnp.Value = tbCnp.Text;
-                SqlParameter pSerieBuletin = new SqlParameter("@serie", System.Data.SqlDbType.NVarChar, 2); ;
-                pSerieBuletin.Value = tbSerieBuletin.Text;
-                SqlParameter pNrBuletin = new SqlParameter("@no", System.Data.SqlDbType.NVarChar,6); ;
-                pNrBuletin.Value = tbNrBuletin.Text;
-                SqlParameter pNrTelefon = new SqlParameter("@nrTelefon", System.Data.SqlDbType.NVarChar,20);
-                pNrTelefon.Value = tbNrTelefon.Text;
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                string insertQuery = "INSERT INTO [Angajat] ([nume], [prenume], [email], " +
-                    "[parola],[dataAngajare],[dataNasterii],[cnp],[serie],[no],[nrTelefon])" +
-                    "" +
-                    " VALUES (@nume, @prenume, @email, @parola, @dataAngajare, @dataNasterii, @cnp, @serie, @no, @nrTelefon" +
-                    ")";
+                //string connectionString = "Data Source=ts2112\\SQLEXPRESS;Initial Catalog=BreakingBread;User ID=internship2022;Password=int";
+                ang.Nume = tbInregistrareNume.Text;
+                ang.Prenume = tbPrenume.Text;
+                ang.Email = tbEmail.Text;
+                ang.Parola = criptareParola(tbParola.Text);
+                ang.DataNasterii = dtpDataNastere.Value;
+                ang.DataAngajare = dtpDataAngajare.Value;
+                ang.Cnp = tbCnp.Text;
+                ang.Serie = tbSerieBuletin.Text;
+                ang.No = tbNrBuletin.Text;
+                ang.NrTelefon = tbNrTelefon.Text;
+                //SqlParameter pNume = new SqlParameter("@nume",System.Data.SqlDbType.NVarChar, 50);
+                //pNume.Value = tbInregistrareNume.Text;
+                //SqlParameter pPrenume = new SqlParameter("@prenume",System.Data.SqlDbType.NVarChar, 50);
+                //pPrenume.Value = tbPrenume.Text;
+                //SqlParameter pEmail = new SqlParameter("@email", System.Data.SqlDbType.NVarChar,50);
+                //pEmail.Value = tbEmail.Text;
+                //SqlParameter pParola = new SqlParameter("@parola", System.Data.SqlDbType.NVarChar,100);
+                //pParola.Value = criptareParola(tbParola.Text);
+                //SqlParameter pDataNastere = new SqlParameter("@dataNasterii", System.Data.SqlDbType.DateTime); ;
+                //pDataNastere.Value = dtpDataNastere.Value;
+                //SqlParameter pDataAngajare = new SqlParameter("@dataAngajare", System.Data.SqlDbType.DateTime); ;
+                //pDataAngajare.Value = dtpDataAngajare.Value;
+                //SqlParameter pCnp = new SqlParameter("@cnp", System.Data.SqlDbType.NVarChar, 13);
+                //pCnp.Value = tbCnp.Text;
+                //SqlParameter pSerieBuletin = new SqlParameter("@serie", System.Data.SqlDbType.NVarChar, 2); ;
+                //pSerieBuletin.Value = tbSerieBuletin.Text;
+                //SqlParameter pNrBuletin = new SqlParameter("@no", System.Data.SqlDbType.NVarChar,6); ;
+                //pNrBuletin.Value = tbNrBuletin.Text;
+                //SqlParameter pNrTelefon = new SqlParameter("@nrTelefon", System.Data.SqlDbType.NVarChar,20);
+                //pNrTelefon.Value = tbNrTelefon.Text;
+                //SqlConnection sqlConnection = new SqlConnection(connectionString);
+                //string insertQuery = "INSERT INTO [Angajat] ([nume], [prenume], [email], " +
+                //    "[parola],[dataAngajare],[dataNasterii],[cnp],[serie],[no],[nrTelefon])" +
+                //    "" +
+                //    " VALUES (@nume, @prenume, @email, @parola, @dataAngajare, @dataNasterii, @cnp, @serie, @no, @nrTelefon" +
+                //    ")";
 
-                SqlCommand insertCommand = new SqlCommand(insertQuery, sqlConnection);
-                insertCommand.Parameters.Add(pNume);
-                insertCommand.Parameters.Add(pPrenume);
-                insertCommand.Parameters.Add(pEmail);
-                insertCommand.Parameters.Add(pParola);
-                insertCommand.Parameters.Add(pDataAngajare);
-                insertCommand.Parameters.Add(pDataNastere);
-                insertCommand.Parameters.Add(pCnp);
-                insertCommand.Parameters.Add(pSerieBuletin);
-                insertCommand.Parameters.Add(pNrBuletin);
-                insertCommand.Parameters.Add(pNrTelefon);
+                //SqlCommand insertCommand = new SqlCommand(insertQuery, sqlConnection);
+                //insertCommand.Parameters.Add(pNume);
+                //insertCommand.Parameters.Add(pPrenume);
+                //insertCommand.Parameters.Add(pEmail);
+                //insertCommand.Parameters.Add(pParola);
+                //insertCommand.Parameters.Add(pDataAngajare);
+                //insertCommand.Parameters.Add(pDataNastere);
+                //insertCommand.Parameters.Add(pCnp);
+                //insertCommand.Parameters.Add(pSerieBuletin);
+                //insertCommand.Parameters.Add(pNrBuletin);
+                //insertCommand.Parameters.Add(pNrTelefon);
 
-                sqlConnection.Open();
-                int n = insertCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-                if (n > 0)
+                //sqlConnection.Open();
+                
+                //sqlConnection.Close();
+                if ( 1 == 1)
                 {
                     MessageBox.Show("Angajat inserat cu succes!", "Succes Inserare", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
@@ -160,19 +194,19 @@ namespace Aplicatie_Concediu
         {
             bool eValid = false;
 
-            bool numeValid = Program.validareNume(errorProviderNume,tbInregistrareNume);
-            bool prenumeValid = Program.validarePrenume(errorProviderPrenume,tbPrenume);
-            bool emailValid = Program.validareEmail(errorProviderEmail,tbEmail);
-            bool dataNastereValida = Program.validareDataNastere(errorProviderDataNastere,dtpDataNastere,tbCnp);
-            bool dataAngajariiValida = Program.validareDataAngajare(errorProviderDataAngajare,dtpDataAngajare);
-            bool cnpValid = Program.verificareCifreCnp(tbCnp.Text,errorProviderCnp,tbCnp,dtpDataNastere);
-            bool serieValida = Program.validareSerie(errorProviderSerieBuletin,tbSerieBuletin);
-            bool nrvalid = Program.validareNrBuletin(errorProviderNrBuletin,tbNrBuletin);
-            bool nrTelefonValid = Program.validareNrTelefon(errorProviderNrTelefon,tbNrTelefon);
-            bool parolaValida = Program.validareParola(errorProviderParola,tbParola);
+            bool numeValid = Program.validareNume(errorProviderNume, tbInregistrareNume);
+            bool prenumeValid = Program.validarePrenume(errorProviderPrenume, tbPrenume);
+            bool emailValid = Program.validareEmail(errorProviderEmail, tbEmail);
+            bool dataNastereValida = Program.validareDataNastere(errorProviderDataNastere, dtpDataNastere, tbCnp);
+            bool dataAngajariiValida = Program.validareDataAngajare(errorProviderDataAngajare, dtpDataAngajare);
+            bool cnpValid = Program.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere);
+            bool serieValida = Program.validareSerie(errorProviderSerieBuletin, tbSerieBuletin);
+            bool nrvalid = Program.validareNrBuletin(errorProviderNrBuletin, tbNrBuletin);
+            bool nrTelefonValid = Program.validareNrTelefon(errorProviderNrTelefon, tbNrTelefon);
+            bool parolaValida = Program.validareParola(errorProviderParola, tbParola);
             bool codVerificareValid = validareCodVerificare();
 
-            if(numeValid && prenumeValid && emailValid && dataNastereValida && dataAngajariiValida && cnpValid 
+            if (numeValid && prenumeValid && emailValid && dataNastereValida && dataAngajariiValida && cnpValid 
                 && serieValida && nrvalid && nrTelefonValid && parolaValida && codVerificareValid)
             {
                 eValid = true;
