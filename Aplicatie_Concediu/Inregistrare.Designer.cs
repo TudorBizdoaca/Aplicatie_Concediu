@@ -84,6 +84,7 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.lParolaConfirmareInreg = new System.Windows.Forms.Label();
             this.tbParolaConfirmare = new System.Windows.Forms.TextBox();
+            this.errorProviderConfirmaParola = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoInreg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmailIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbParolaIcon)).BeginInit();
@@ -110,6 +111,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirmaParola)).BeginInit();
             this.SuspendLayout();
             // 
             // pbLogoInreg
@@ -134,6 +136,7 @@
             this.tbInregistrareNume.Name = "tbInregistrareNume";
             this.tbInregistrareNume.Size = new System.Drawing.Size(298, 26);
             this.tbInregistrareNume.TabIndex = 1;
+            this.tbInregistrareNume.TextChanged += new System.EventHandler(this.tbInregistrareNume_TextChanged);
             this.tbInregistrareNume.Validating += new System.ComponentModel.CancelEventHandler(this.tbInregistrareNume_Validating);
             this.tbInregistrareNume.Validated += new System.EventHandler(this.tbInregistrareNume_Validated);
             // 
@@ -157,6 +160,7 @@
             this.tbPrenume.Name = "tbPrenume";
             this.tbPrenume.Size = new System.Drawing.Size(298, 26);
             this.tbPrenume.TabIndex = 3;
+            this.tbPrenume.TextChanged += new System.EventHandler(this.tbPrenume_TextChanged);
             this.tbPrenume.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrenume_Validating);
             this.tbPrenume.Validated += new System.EventHandler(this.tbPrenume_Validated);
             // 
@@ -170,6 +174,7 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(298, 26);
             this.tbEmail.TabIndex = 4;
+            this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             this.tbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEmail_Validating);
             this.tbEmail.Validated += new System.EventHandler(this.tbEmail_Validated);
             // 
@@ -184,6 +189,7 @@
             this.tbParola.PasswordChar = '*';
             this.tbParola.Size = new System.Drawing.Size(298, 26);
             this.tbParola.TabIndex = 5;
+            this.tbParola.TextChanged += new System.EventHandler(this.tbParola_TextChanged);
             this.tbParola.Validating += new System.ComponentModel.CancelEventHandler(this.tbParola_Validating);
             this.tbParola.Validated += new System.EventHandler(this.tbParola_Validated);
             // 
@@ -227,6 +233,7 @@
             this.tbSerieBuletin.Name = "tbSerieBuletin";
             this.tbSerieBuletin.Size = new System.Drawing.Size(298, 26);
             this.tbSerieBuletin.TabIndex = 8;
+            this.tbSerieBuletin.TextChanged += new System.EventHandler(this.tbSerieBuletin_TextChanged);
             this.tbSerieBuletin.Validating += new System.ComponentModel.CancelEventHandler(this.tbSerieBuletin_Validating);
             this.tbSerieBuletin.Validated += new System.EventHandler(this.tbSerieBuletin_Validated);
             // 
@@ -240,6 +247,7 @@
             this.tbNrTelefon.Name = "tbNrTelefon";
             this.tbNrTelefon.Size = new System.Drawing.Size(298, 26);
             this.tbNrTelefon.TabIndex = 9;
+            this.tbNrTelefon.TextChanged += new System.EventHandler(this.tbNrTelefon_TextChanged);
             this.tbNrTelefon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNrTelefon_KeyPress);
             this.tbNrTelefon.Validating += new System.ComponentModel.CancelEventHandler(this.tbNrTelefon_Validating);
             this.tbNrTelefon.Validated += new System.EventHandler(this.tbNrTelefon_Validated);
@@ -343,6 +351,7 @@
             this.dtpDataAngajare.Name = "dtpDataAngajare";
             this.dtpDataAngajare.Size = new System.Drawing.Size(298, 26);
             this.dtpDataAngajare.TabIndex = 19;
+            this.dtpDataAngajare.ValueChanged += new System.EventHandler(this.dtpDataAngajare_ValueChanged);
             this.dtpDataAngajare.Validating += new System.ComponentModel.CancelEventHandler(this.dtpDataAngajare_Validating);
             this.dtpDataAngajare.Validated += new System.EventHandler(this.dtpDataAngajare_Validated);
             // 
@@ -481,6 +490,7 @@
             this.tbNrBuletin.Name = "tbNrBuletin";
             this.tbNrBuletin.Size = new System.Drawing.Size(298, 26);
             this.tbNrBuletin.TabIndex = 30;
+            this.tbNrBuletin.TextChanged += new System.EventHandler(this.tbNrBuletin_TextChanged);
             this.tbNrBuletin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNrBuletin_KeyPress);
             this.tbNrBuletin.Validating += new System.ComponentModel.CancelEventHandler(this.tbNrBuletin_Validating);
             this.tbNrBuletin.Validated += new System.EventHandler(this.tbNrBuletin_Validated);
@@ -578,6 +588,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.btnInregistrare);
@@ -585,7 +596,7 @@
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.pbLogoInreg);
             this.panel1.Location = new System.Drawing.Point(9, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(954, 700);
             this.panel1.TabIndex = 36;
@@ -597,7 +608,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button2.Location = new System.Drawing.Point(907, 17);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(30, 29);
             this.button2.TabIndex = 39;
@@ -655,7 +666,7 @@
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 3, 11);
             this.tableLayoutPanel1.Controls.Add(this.dtpDataAngajare, 4, 11);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(44, 202);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 12;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
@@ -714,11 +725,18 @@
             this.tbParolaConfirmare.PasswordChar = '*';
             this.tbParolaConfirmare.Size = new System.Drawing.Size(298, 26);
             this.tbParolaConfirmare.TabIndex = 41;
+            this.tbParolaConfirmare.TextChanged += new System.EventHandler(this.tbParolaConfirmare_TextChanged);
+            this.tbParolaConfirmare.Validated += new System.EventHandler(this.tbParolaConfirmare_Validated);
+            // 
+            // errorProviderConfirmaParola
+            // 
+            this.errorProviderConfirmaParola.ContainerControl = this;
             // 
             // Inregistrare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
             this.ClientSize = new System.Drawing.Size(972, 640);
@@ -727,6 +745,7 @@
             this.Name = "Inregistrare";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inregistrare";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoInreg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmailIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbParolaIcon)).EndInit();
@@ -755,6 +774,7 @@
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirmaParola)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -815,5 +835,6 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label lParolaConfirmareInreg;
         private System.Windows.Forms.TextBox tbParolaConfirmare;
+        private System.Windows.Forms.ErrorProvider errorProviderConfirmaParola;
     }
 }

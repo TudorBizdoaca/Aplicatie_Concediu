@@ -49,20 +49,7 @@ namespace Aplicatie_Concediu
             return random.Next(100000, 999999).ToString();
 
         }
-        private string criptareParola(string parola)
-        {
-            SHA256 sHA256 = SHA256.Create();
-            string compara = null;
-            compara = parola;
-            byte[] inputBytes = System.Text.Encoding.UTF8.GetBytes(compara);
-            byte[] inputHashedBytes = sHA256.ComputeHash(inputBytes);
-            String inputHash = Convert.ToBase64String(inputHashedBytes);
-            string result = BitConverter.ToString(inputHashedBytes)
-            .Replace("-", string.Empty)
-            .ToLower();
-            return result;
-        }
-
+    
         private string trimiteCodVerificare()
         {
             string codVerificare = generareCodVerificare();
@@ -109,7 +96,7 @@ namespace Aplicatie_Concediu
            
             if (parolaIntrodusa == confirmaParola)
             {
-                parolaIntrodusa = criptareParola(parolaIntrodusa);
+                parolaIntrodusa = Program.criptareParola(parolaIntrodusa);
                 ReseteazaParola(tbEmail.Text, parolaIntrodusa);
 
             }
