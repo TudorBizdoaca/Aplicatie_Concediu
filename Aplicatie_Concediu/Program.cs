@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +20,19 @@ namespace Aplicatie_Concediu
 
         #region Metode Validare date angajat
 
+        public static bool validareConfirmaParola(ErrorProvider ep, TextBox tb, string parola)
+        {
+            bool eValid = true;
+            if (!String.Equals(tb.Text, parola) || String.IsNullOrEmpty(tb.Text))
+            {
+                ep.SetError(tb, "Parolele nu se potrivesc!");
+                eValid = false;
+            } else
+            {
+                ep.SetError(tb, "");
+            }
+            return eValid;
+        }
         public static bool validareNume(ErrorProvider ep, TextBox tb)
         {
             bool eValid = true;
@@ -68,28 +82,26 @@ namespace Aplicatie_Concediu
             return eValid;
         }
 
-        public static bool validareDataNastere(ErrorProvider ep, DateTimePicker dtp, TextBox tb)
+        public static bool validareDataNastere(ErrorProvider epCnp, DateTimePicker dtp, TextBox tb,ErrorProvider epData)
         {
             bool eValid = true;
-            DateTime dataNastereCnp = extragereDataNastereDinCnp(dtp.Text, ep, tb, dtp);
+            DateTime dataNastereCnp = tb.Text.Length==13?extragereDataNastereDinCnp(tb.Text, epCnp, tb, dtp,epData):DateTime.Today;
             if (dtp.Value >= DateTime.Today)
             {
-                ep.SetError(dtp, "Data Nasterii trebuie sa fie in trecut!");
+                epData.SetError(dtp, "Data Nasterii trebuie sa fie in trecut!");
                 eValid = false;
 
 
             }
             else if (dtp.Value != dataNastereCnp)
             {
-                ep.SetError(dtp, "Data Nasterii trebuie sa corespunda cu cea din CNP");
-           //     MessageBox.Show(dtp.Value.ToString(), "");
-               // MessageBox.Show(dataNastereCnp.ToString(), "");
+                epData.SetError(dtp, "Data Nasterii trebuie sa corespunda cu cea din CNP");
                 eValid = false;
 
             }
             else
             {
-                ep.SetError(dtp, "");
+                epData.SetError(dtp, "");
 
             }
 
@@ -189,7 +201,7 @@ namespace Aplicatie_Concediu
             return eValid;
         }
 
-        public static DateTime extragereDataNastereDinCnp(string cnp, ErrorProvider ep, TextBox tb, DateTimePicker dtp)
+        public static DateTime extragereDataNastereDinCnp(string cnp, ErrorProvider epCnp, TextBox tb, DateTimePicker dtp,ErrorProvider epDataN)
         {
             DateTime dataNasterii = DateTime.Today;
             string dataNastere = "";
@@ -209,30 +221,35 @@ namespace Aplicatie_Concediu
 
                         break;
                 }
-            MessageBox.Show("datan string" + dataNastere, "");
-            
+  //        MessageBox.Show("datanstring " + dataNastere);
                 CultureInfo provider = CultureInfo.InvariantCulture;
                 try
                 {
-                    dataNasterii = DateTime.ParseExact(dataNastere, "yyyymmdd", provider);
+                    dataNasterii = DateTime.ParseExact(dataNastere, "yyyyMMdd", provider);
+                
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
-            MessageBox.Show("dataExtrasa " + dataNasterii.ToString(), "");
-                if (dataNasterii != dtp.Value)
+      // MessageBox.Show("data extrasa " + dataNasterii.ToString());
+    //   MessageBox.Show("data din dtp " + dtp.Value.ToString());
+            if (dataNasterii.Date != dtp.Value.Date)
                 {
-                    ep.SetError(tb, "CNP Invalid! Data nasterii e invalida!");
-                }
+                epCnp.SetError(tb, "CNP Invalid! Data nasterii e invalida!");
+                } else
+            {
+                epCnp.SetError(tb, "");
+                epDataN.SetError(dtp, "");
+            }
             
             return dataNasterii;
         }
 
-        public static bool verificareCifreCnp(string cnp, ErrorProvider ep, TextBox tb, DateTimePicker dtp)
+        public static bool verificareCifreCnp(string cnp, ErrorProvider ep, TextBox tb, DateTimePicker dtp,ErrorProvider epData)
         {
             bool eValid = true;
-            DateTime dataNasterii = cnp.Length ==13 ? extragereDataNastereDinCnp(cnp,ep,tb,dtp) : new DateTime();
+            DateTime dataNasterii = cnp.Length ==13 ? extragereDataNastereDinCnp(cnp,ep,tb,dtp,epData) : new DateTime();
             int codJudet = 0;
             if (cnp.Length > 9)
             {
@@ -270,6 +287,23 @@ namespace Aplicatie_Concediu
             }
 
             return eValid;
+        }
+
+        #endregion
+
+        #region Criptare Parola
+        public static string criptareParola(string parola)
+        {
+            SHA256 sHA256 = SHA256.Create();
+            string compara = null;
+            compara = parola;
+            byte[] inputBytes = System.Text.Encoding.UTF8.GetBytes(compara);
+            byte[] inputHashedBytes = sHA256.ComputeHash(inputBytes);
+            String inputHash = Convert.ToBase64String(inputHashedBytes);
+            string result = BitConverter.ToString(inputHashedBytes)
+            .Replace("-", string.Empty)
+            .ToLower();
+            return result;
         }
 
         #endregion
