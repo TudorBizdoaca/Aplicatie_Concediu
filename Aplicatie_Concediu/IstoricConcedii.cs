@@ -22,7 +22,7 @@ namespace Aplicatie_Concediu
         }
         public async Task getConcediiAsync()
         {
-            HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/IstoricConcedii/GetConcediiAngajat?Id={0}", Program.UserId));
+            HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/IstoricConcedii/GetConcediiAngajat?Id={0}", Utils.SesiuneLogIn.angajatLogat.Id));
             string responseBody = await response.Content.ReadAsStringAsync();
             concedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
             foreach (Concediu c in concedii)
