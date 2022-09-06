@@ -573,7 +573,7 @@
             this.tbCodVerificare.Name = "tbCodVerificare";
             this.tbCodVerificare.Size = new System.Drawing.Size(397, 30);
             this.tbCodVerificare.TabIndex = 33;
-            this.tbCodVerificare.Validating += new System.ComponentModel.CancelEventHandler(this.tbCodVerificare_Validating);
+            //this.tbCodVerificare.Validating += new System.ComponentModel.CancelEventHandler(this.tbCodVerificare_Validating);
             this.tbCodVerificare.Validated += new System.EventHandler(this.tbCodVerificare_Validated);
             // 
             // lCodVerificare

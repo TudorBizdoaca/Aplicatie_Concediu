@@ -14,11 +14,11 @@ namespace Aplicatie_Concediu
        
         public static string IdConcediu { get; set; }
 
-        public static int EsteAdmin { get; set; }  
+        public static int EsteAdmin { get; set; }
 
         #region Metode Validare date angajat
 
-        public static bool validareNume(ErrorProvider ep,TextBox tb)
+        public static bool validareNume(ErrorProvider ep, TextBox tb)
         {
             bool eValid = true;
             if (String.IsNullOrEmpty(tb.Text) || String.IsNullOrWhiteSpace(tb.Text))
@@ -67,7 +67,7 @@ namespace Aplicatie_Concediu
             return eValid;
         }
 
-        public static bool validareDataNastere(ErrorProvider ep, DateTimePicker dtp,TextBox tb)
+        public static bool validareDataNastere(ErrorProvider ep, DateTimePicker dtp, TextBox tb)
         {
             bool eValid = true;
             DateTime dataNastereCnp = extragereDataNastereDinCnp(dtp.Text, ep, tb, dtp);
@@ -81,7 +81,8 @@ namespace Aplicatie_Concediu
             else if (dtp.Value != dataNastereCnp)
             {
                 ep.SetError(dtp, "Data Nasterii trebuie sa corespunda cu cea din CNP");
-               // MessageBox.Show(dtp.Value.ToString(), "");
+           //     MessageBox.Show(dtp.Value.ToString(), "");
+               // MessageBox.Show(dataNastereCnp.ToString(), "");
                 eValid = false;
 
             }
@@ -187,27 +188,28 @@ namespace Aplicatie_Concediu
             return eValid;
         }
 
-        public static DateTime extragereDataNastereDinCnp(string cnp,ErrorProvider ep,TextBox tb, DateTimePicker dtp)
+        public static DateTime extragereDataNastereDinCnp(string cnp, ErrorProvider ep, TextBox tb, DateTimePicker dtp)
         {
             DateTime dataNasterii = DateTime.Today;
-                string dataNastere = "";
-                switch (cnp.Substring(0, 1))
-                {
-                    case "1":
-                        dataNastere = "19" + cnp.Substring(1, 6);
-                        break;
-                    case "2":
-                        dataNastere = "19" + cnp.Substring(1, 6);
-                        break;
-                    case "5":
-                        dataNastere = "20" + cnp.Substring(1, 6);
-                        break;
-                    case "6":
-                        dataNastere = "20" + cnp.Substring(1, 6);
+            string dataNastere = "";
+            switch (cnp.Substring(0, 1))
+            {
+                case "1":
+                    dataNastere = "19" + cnp.Substring(1, 6);
+                    break;
+                case "2":
+                    dataNastere = "19" + cnp.Substring(1, 6);
+                    break;
+                case "5":
+                    dataNastere = "20" + cnp.Substring(1, 6);
+                    break;
+                case "6":
+                    dataNastere = "20" + cnp.Substring(1, 6);
 
                         break;
                 }
-
+            MessageBox.Show("datan string" + dataNastere, "");
+            
                 CultureInfo provider = CultureInfo.InvariantCulture;
                 try
                 {
@@ -217,6 +219,7 @@ namespace Aplicatie_Concediu
                 {
                     Console.WriteLine(ex.Message);
                 }
+            MessageBox.Show("dataExtrasa " + dataNasterii.ToString(), "");
                 if (dataNasterii != dtp.Value)
                 {
                     ep.SetError(tb, "CNP Invalid! Data nasterii e invalida!");
@@ -225,10 +228,10 @@ namespace Aplicatie_Concediu
             return dataNasterii;
         }
 
-        public static bool verificareCifreCnp(string cnp,ErrorProvider ep,TextBox tb, DateTimePicker dtp)
+        public static bool verificareCifreCnp(string cnp, ErrorProvider ep, TextBox tb, DateTimePicker dtp)
         {
             bool eValid = true;
-            DateTime dataNasterii = cnp.Length > 7 ? extragereDataNastereDinCnp(cnp,ep,tb,dtp) : new DateTime();
+            DateTime dataNasterii = cnp.Length ==13 ? extragereDataNastereDinCnp(cnp,ep,tb,dtp) : new DateTime();
             int codJudet = 0;
             if (cnp.Length > 9)
             {
@@ -272,7 +275,7 @@ namespace Aplicatie_Concediu
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        [STAThread]
+        //[STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();

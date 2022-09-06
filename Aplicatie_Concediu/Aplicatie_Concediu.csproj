@@ -91,6 +91,9 @@
       <DependentUpon>BreakingBreadDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Models\Angajat.cs" />
+    <Compile Include="Models\Concediu.cs" />
+    <Compile Include="Models\StareConcediu.cs" />
+    <Compile Include="Models\TipConcediu.cs" />
     <Compile Include="PaginaDetalii.cs">
       <SubType>Form</SubType>
     </Compile>
