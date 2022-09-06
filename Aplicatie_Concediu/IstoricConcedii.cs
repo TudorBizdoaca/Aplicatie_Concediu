@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Aplicatie_Concediu
@@ -30,8 +24,67 @@ namespace Aplicatie_Concediu
             connection.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        // Buton Iesire
+        private void buttonIesire_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        // Utilizator Logat
+        private void pictureBoxUtilizatorLogat_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Close();
+        }
+
+        private void labelNumeUtilizatorLogat_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Close();
+        }
+
+        private void labelDeconectare_Click(object sender, EventArgs e)
+        {
+            Autentificare formAutentificare = new Autentificare();
+            formAutentificare.Show();
+            this.Close();
+        }
+
+        // Butoane Meniu
+        private void buttonPaginaMea_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Close();
+        }
+
+        private void buttonCerereConcediu_Click(object sender, EventArgs e)
+        {
+            InserareConcediu formInserareConcediu = new InserareConcediu();
+            formInserareConcediu.Show();
+            this.Close();
+        }
+
+        private void buttonIstoricConcedii_Click(object sender, EventArgs e)
+        {
+            IstoricConcedii formIstoricConcedii = new IstoricConcedii();
+            formIstoricConcedii.Show();
+            this.Close();
+        }
+
+        private void buttonDetaliiAngajati_Click(object sender, EventArgs e)
+        {
+            TabelaAngajati formTabelaAngajati = new TabelaAngajati();
+            formTabelaAngajati.Show();
+            this.Close();
+        }
+
+        private void buttonPanouAdmin_Click(object sender, EventArgs e)
+        {
+            Tabel_Concedii formTabelConcedii = new Tabel_Concedii();
+            formTabelConcedii.Show();
             this.Close();
         }
     }
