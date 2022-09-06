@@ -120,6 +120,70 @@ namespace Aplicatie_Concediu
             MessageBox.Show("Concediu inserat cu succes");
         }
 
+        // Buton Iesire
+        private void buttonIesire_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        // Utilizator Logat
+        private void pictureBoxUtilizatorLogat_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Close();
+        }
+
+        private void labelNumeUtilizatorLogat_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Close();
+        }
+
+        private void labelDeconectare_Click(object sender, EventArgs e)
+        {
+            Autentificare formAutentificare = new Autentificare();
+            formAutentificare.Show();
+            this.Close();
+        }
+
+        // Butoane Meniu
+        private void buttonPaginaMea_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Close();
+        }
+
+        private void buttonCerereConcediu_Click(object sender, EventArgs e)
+        {
+            InserareConcediu formInserareConcediu = new InserareConcediu();
+            formInserareConcediu.Show();
+            this.Close();
+        }
+
+        private void buttonIstoricConcedii_Click(object sender, EventArgs e)
+        {
+            IstoricConcedii formIstoricConcedii = new IstoricConcedii();
+            formIstoricConcedii.Show();
+            this.Close();
+        }
+
+        private void buttonDetaliiAngajati_Click(object sender, EventArgs e)
+        {
+            TabelaAngajati formTabelaAngajati = new TabelaAngajati();
+            formTabelaAngajati.Show();
+            this.Close();
+        }
+
+        private void buttonPanouAdmin_Click(object sender, EventArgs e)
+        {
+            Tabel_Concedii formTabelConcedii = new Tabel_Concedii();
+            formTabelConcedii.Show();
+            this.Close();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (cbTipConcediu.SelectedItem == null)
@@ -153,7 +217,7 @@ namespace Aplicatie_Concediu
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+
         }
     }
 }
