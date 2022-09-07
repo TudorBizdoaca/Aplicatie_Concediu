@@ -121,7 +121,7 @@
             this.pbLogoInreg.Image = ((System.Drawing.Image)(resources.GetObject("pbLogoInreg.Image")));
             this.pbLogoInreg.Location = new System.Drawing.Point(372, 3);
             this.pbLogoInreg.Name = "pbLogoInreg";
-            this.pbLogoInreg.Size = new System.Drawing.Size(224, 184);
+            this.pbLogoInreg.Size = new System.Drawing.Size(225, 184);
             this.pbLogoInreg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogoInreg.TabIndex = 0;
             this.pbLogoInreg.TabStop = false;
@@ -368,7 +368,7 @@
             this.btnInregistrare.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInregistrare.Location = new System.Drawing.Point(400, 635);
             this.btnInregistrare.Name = "btnInregistrare";
-            this.btnInregistrare.Size = new System.Drawing.Size(183, 42);
+            this.btnInregistrare.Size = new System.Drawing.Size(184, 42);
             this.btnInregistrare.TabIndex = 20;
             this.btnInregistrare.Text = "Inregistrare";
             this.btnInregistrare.UseVisualStyleBackColor = false;
@@ -573,7 +573,7 @@
             this.btnTrimiteCodVerificare.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTrimiteCodVerificare.Location = new System.Drawing.Point(773, 92);
             this.btnTrimiteCodVerificare.Name = "btnTrimiteCodVerificare";
-            this.btnTrimiteCodVerificare.Size = new System.Drawing.Size(108, 35);
+            this.btnTrimiteCodVerificare.Size = new System.Drawing.Size(109, 35);
             this.btnTrimiteCodVerificare.TabIndex = 35;
             this.btnTrimiteCodVerificare.Text = "Trimite cod";
             this.btnTrimiteCodVerificare.UseVisualStyleBackColor = false;
@@ -585,9 +585,6 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
             this.panel1.Controls.Add(this.button2);
@@ -595,10 +592,11 @@
             this.panel1.Controls.Add(this.lInregistrareTitlu);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.pbLogoInreg);
-            this.panel1.Location = new System.Drawing.Point(9, 10);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(954, 700);
+            this.panel1.Size = new System.Drawing.Size(972, 640);
             this.panel1.TabIndex = 36;
             // 
             // button2
@@ -607,7 +605,7 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(907, 17);
+            this.button2.Location = new System.Drawing.Point(908, 17);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(30, 29);
@@ -681,7 +679,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 398);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(885, 398);
             this.tableLayoutPanel1.TabIndex = 40;
             // 
             // pictureBox7
