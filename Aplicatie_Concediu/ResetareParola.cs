@@ -99,7 +99,7 @@ namespace Aplicatie_Concediu
         private void btnResetareParola_Click(object sender, EventArgs e)
         {
             string parolaIntrodusa = tbParola.Text;
-            string confirmaParola = tbParola.Text;
+            string confirmaParola = tbConfirmaParola.Text;
            
             if (parolaIntrodusa == confirmaParola)
             {
