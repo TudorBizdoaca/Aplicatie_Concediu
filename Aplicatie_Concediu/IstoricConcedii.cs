@@ -128,14 +128,16 @@ namespace Aplicatie_Concediu
             foreach(CardConcediu c in CarduriConcediu)
             {
                 c.Parent = pnlCarduri;
+                c.Width = pnlCarduri.Width - 50;
                 c.Anchor = AnchorStyles.Left | AnchorStyles.Top;
+                
                 if (counter == 0)
                 {
                     position = c.Location.Y;
                 }
                 else
                 {
-                    position += 400;
+                    position += 470;
                     c.Location = new System.Drawing.Point(c.Location.X, position);
                 }
                 counter++;
