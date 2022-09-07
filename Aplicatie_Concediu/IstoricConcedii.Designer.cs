@@ -54,6 +54,9 @@
             // 
             // panelBackground
             // 
+            this.panelBackground.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelBackground.AutoSize = true;
             this.panelBackground.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelBackground.Controls.Add(this.pictureBoxLogo);
@@ -75,7 +78,8 @@
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(31, 22);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(41, 27);
+            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
             this.pictureBoxLogo.Size = new System.Drawing.Size(158, 150);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -103,13 +107,14 @@
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.22946F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.77054F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 230F));
             this.tableLayoutPanel1.Controls.Add(this.labelSeparator, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelNumeUtilizatorLogat, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBoxUtilizatorLogat, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelDeconectare, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(596, 68);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(940, 84);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -125,8 +130,7 @@
             this.labelSeparator.AutoSize = true;
             this.labelSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSeparator.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelSeparator.Location = new System.Drawing.Point(229, 0);
-            this.labelSeparator.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSeparator.Location = new System.Drawing.Point(308, 0);
             this.labelSeparator.Name = "labelSeparator";
             this.labelSeparator.Size = new System.Drawing.Size(20, 62);
             this.labelSeparator.TabIndex = 38;
@@ -141,8 +145,7 @@
             this.labelNumeUtilizatorLogat.AutoSize = true;
             this.labelNumeUtilizatorLogat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNumeUtilizatorLogat.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelNumeUtilizatorLogat.Location = new System.Drawing.Point(54, 0);
-            this.labelNumeUtilizatorLogat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelNumeUtilizatorLogat.Location = new System.Drawing.Point(74, 0);
             this.labelNumeUtilizatorLogat.Name = "labelNumeUtilizatorLogat";
             this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(171, 62);
             this.labelNumeUtilizatorLogat.TabIndex = 37;
@@ -160,7 +163,7 @@
             this.pictureBoxUtilizatorLogat.Location = new System.Drawing.Point(2, 2);
             this.pictureBoxUtilizatorLogat.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxUtilizatorLogat.Name = "pictureBoxUtilizatorLogat";
-            this.pictureBoxUtilizatorLogat.Size = new System.Drawing.Size(48, 58);
+            this.pictureBoxUtilizatorLogat.Size = new System.Drawing.Size(65, 72);
             this.pictureBoxUtilizatorLogat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxUtilizatorLogat.TabIndex = 36;
             this.pictureBoxUtilizatorLogat.TabStop = false;
@@ -174,10 +177,9 @@
             this.labelDeconectare.AutoSize = true;
             this.labelDeconectare.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDeconectare.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelDeconectare.Location = new System.Drawing.Point(253, 0);
-            this.labelDeconectare.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelDeconectare.Location = new System.Drawing.Point(340, 0);
             this.labelDeconectare.Name = "labelDeconectare";
-            this.labelDeconectare.Size = new System.Drawing.Size(171, 62);
+            this.labelDeconectare.Size = new System.Drawing.Size(225, 76);
             this.labelDeconectare.TabIndex = 36;
             this.labelDeconectare.Text = "Deconectare";
             this.labelDeconectare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -189,7 +191,8 @@
             this.buttonIstoricConcedii.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonIstoricConcedii.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonIstoricConcedii.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonIstoricConcedii.Location = new System.Drawing.Point(31, 354);
+            this.buttonIstoricConcedii.Location = new System.Drawing.Point(41, 436);
+            this.buttonIstoricConcedii.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonIstoricConcedii.Name = "buttonIstoricConcedii";
             this.buttonIstoricConcedii.Size = new System.Drawing.Size(158, 55);
             this.buttonIstoricConcedii.TabIndex = 19;
@@ -203,7 +206,8 @@
             this.buttonPanouAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPanouAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPanouAdmin.ForeColor = System.Drawing.Color.Peru;
-            this.buttonPanouAdmin.Location = new System.Drawing.Point(31, 517);
+            this.buttonPanouAdmin.Location = new System.Drawing.Point(41, 636);
+            this.buttonPanouAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonPanouAdmin.Name = "buttonPanouAdmin";
             this.buttonPanouAdmin.Size = new System.Drawing.Size(158, 57);
             this.buttonPanouAdmin.TabIndex = 18;
@@ -218,7 +222,8 @@
             this.buttonDetaliiAngajati.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDetaliiAngajati.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDetaliiAngajati.ForeColor = System.Drawing.Color.Peru;
-            this.buttonDetaliiAngajati.Location = new System.Drawing.Point(31, 438);
+            this.buttonDetaliiAngajati.Location = new System.Drawing.Point(41, 539);
+            this.buttonDetaliiAngajati.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDetaliiAngajati.Name = "buttonDetaliiAngajati";
             this.buttonDetaliiAngajati.Size = new System.Drawing.Size(158, 57);
             this.buttonDetaliiAngajati.TabIndex = 17;
@@ -233,7 +238,8 @@
             this.buttonCerereConcediu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCerereConcediu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCerereConcediu.ForeColor = System.Drawing.Color.Peru;
-            this.buttonCerereConcediu.Location = new System.Drawing.Point(31, 272);
+            this.buttonCerereConcediu.Location = new System.Drawing.Point(41, 335);
+            this.buttonCerereConcediu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCerereConcediu.Name = "buttonCerereConcediu";
             this.buttonCerereConcediu.Size = new System.Drawing.Size(158, 57);
             this.buttonCerereConcediu.TabIndex = 16;
@@ -247,7 +253,8 @@
             this.buttonPaginaMea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPaginaMea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPaginaMea.ForeColor = System.Drawing.Color.Peru;
-            this.buttonPaginaMea.Location = new System.Drawing.Point(31, 196);
+            this.buttonPaginaMea.Location = new System.Drawing.Point(41, 241);
+            this.buttonPaginaMea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonPaginaMea.Name = "buttonPaginaMea";
             this.buttonPaginaMea.Size = new System.Drawing.Size(158, 57);
             this.buttonPaginaMea.TabIndex = 15;
@@ -272,7 +279,8 @@
             // pnlCarduri
             // 
             this.pnlCarduri.AutoScroll = true;
-            this.pnlCarduri.Location = new System.Drawing.Point(23, 97);
+            this.pnlCarduri.Location = new System.Drawing.Point(31, 119);
+            this.pnlCarduri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlCarduri.Name = "pnlCarduri";
             this.pnlCarduri.Size = new System.Drawing.Size(379, 381);
             this.pnlCarduri.TabIndex = 44;
@@ -298,6 +306,7 @@
             this.ClientSize = new System.Drawing.Size(1040, 640);
             this.Controls.Add(this.panelBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "IstoricConcedii";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IstoricConcedii";
