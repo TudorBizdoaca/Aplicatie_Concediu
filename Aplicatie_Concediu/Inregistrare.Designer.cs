@@ -175,6 +175,7 @@
             this.tbEmail.Size = new System.Drawing.Size(298, 26);
             this.tbEmail.TabIndex = 4;
             this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
+            this.tbEmail.Leave += new System.EventHandler(this.tbEmail_Leave);
             this.tbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEmail_Validating);
             this.tbEmail.Validated += new System.EventHandler(this.tbEmail_Validated);
             // 

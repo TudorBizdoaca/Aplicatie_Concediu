@@ -1,4 +1,5 @@
 ﻿using Aplicatie_Concediu.Models;
+using Aplicatie_Concediu.Utils;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -125,52 +126,52 @@ namespace Aplicatie_Concediu
 
         private void tbInregistrareNume_TextChanged(object sender, EventArgs e)
         {
-            Program.validareNume(errorProviderNume, tbInregistrareNume);
+            ValidariFormular.validareNume(errorProviderNume, tbInregistrareNume);
         }
 
         private void tbPrenume_TextChanged(object sender, EventArgs e)
         {
-            Program.validarePrenume(errorProviderPrenume, tbPrenume);
+            ValidariFormular.validarePrenume(errorProviderPrenume, tbPrenume);
         }
 
         private void tbEmail_TextChanged(object sender, EventArgs e)
         {
-            Program.validareEmail(errorProviderEmail, tbEmail);
+            ValidariFormular.validareEmail(errorProviderEmail, tbEmail);
         }
 
         private void tbParola_TextChanged(object sender, EventArgs e)
         {
-            Program.validareParola(errorProviderParola, tbParola);
+            ValidariFormular.validareParola(errorProviderParola, tbParola);
         }
 
         private void tbParolaConfirmare_TextChanged(object sender, EventArgs e)
         {
-            Program.validareConfirmaParola(errorProviderConfirmaParola, tbParolaConfirmare, tbParola.Text);
+            ValidariFormular.validareConfirmaParola(errorProviderConfirmaParola, tbParolaConfirmare, tbParola.Text);
         }
 
         private void tbSerieBuletin_TextChanged(object sender, EventArgs e)
         {
-            Program.validareSerie(errorProviderSerieBuletin, tbSerieBuletin);
+            ValidariFormular.validareSerie(errorProviderSerieBuletin, tbSerieBuletin);
         }
 
         private void tbNrBuletin_TextChanged(object sender, EventArgs e)
         {
-            Program.validareNrBuletin(errorProviderNrBuletin, tbNrBuletin);
+            ValidariFormular.validareNrBuletin(errorProviderNrBuletin, tbNrBuletin);
         }
 
         private void tbNrTelefon_TextChanged(object sender, EventArgs e)
         {
-            Program.validareNrTelefon(errorProviderNrTelefon, tbNrTelefon);
+            ValidariFormular.validareNrTelefon(errorProviderNrTelefon, tbNrTelefon);
         }
 
         private void dtpDataAngajare_ValueChanged(object sender, EventArgs e)
         {
-            Program.validareDataAngajare(errorProviderDataAngajare, dtpDataAngajare);
+            ValidariFormular.validareDataAngajare(errorProviderDataAngajare, dtpDataAngajare);
         }
 
         private void dtpDataNastere_ValueChanged(object sender, EventArgs e)
         {
-           if(Program.validareDataNastere(errorProviderCnp, dtpDataNastere, tbCnp,errorProviderDataNastere) &&  Program.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere,errorProviderDataNastere))
+           if(ValidariFormular.validareDataNastere(errorProviderCnp, dtpDataNastere, tbCnp,errorProviderDataNastere) && ValidariFormular.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere,errorProviderDataNastere))
             {
                 errorProviderDataNastere.SetError(dtpDataNastere, "");
                 errorProviderCnp.SetError(tbCnp, "");
@@ -182,8 +183,8 @@ namespace Aplicatie_Concediu
         {
            if( tbCnp.Text.Length == 13)
             {
-            Program.validareDataNastere(errorProviderCnp, dtpDataNastere, tbCnp, errorProviderDataNastere);
-            Program.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere, errorProviderDataNastere) ;
+                ValidariFormular.validareDataNastere(errorProviderCnp, dtpDataNastere, tbCnp, errorProviderDataNastere);
+                ValidariFormular.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere, errorProviderDataNastere) ;
             }
           
 
@@ -208,18 +209,18 @@ namespace Aplicatie_Concediu
         {
             bool eValid = false;
 
-            bool numeValid = Program.validareNume(errorProviderNume, tbInregistrareNume);
-            bool prenumeValid = Program.validarePrenume(errorProviderPrenume, tbPrenume);
-            bool emailValid = Program.validareEmail(errorProviderEmail, tbEmail);
-            bool dataNastereValida = Program.validareDataNastere(errorProviderCnp, dtpDataNastere, tbCnp,errorProviderDataNastere);
-            bool dataAngajariiValida = Program.validareDataAngajare(errorProviderDataAngajare, dtpDataAngajare);
-            bool cnpValid = Program.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere, errorProviderDataNastere);
-            bool serieValida = Program.validareSerie(errorProviderSerieBuletin, tbSerieBuletin);
-            bool nrvalid = Program.validareNrBuletin(errorProviderNrBuletin, tbNrBuletin);
-            bool nrTelefonValid = Program.validareNrTelefon(errorProviderNrTelefon, tbNrTelefon);
-            bool parolaValida = Program.validareParola(errorProviderParola, tbParola);
+            bool numeValid = ValidariFormular.validareNume(errorProviderNume, tbInregistrareNume);
+            bool prenumeValid = ValidariFormular.validarePrenume(errorProviderPrenume, tbPrenume);
+            bool emailValid = ValidariFormular.validareEmail(errorProviderEmail, tbEmail);
+            bool dataNastereValida = ValidariFormular.validareDataNastere(errorProviderCnp, dtpDataNastere, tbCnp,errorProviderDataNastere);
+            bool dataAngajariiValida = ValidariFormular.validareDataAngajare(errorProviderDataAngajare, dtpDataAngajare);
+            bool cnpValid = ValidariFormular.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere, errorProviderDataNastere);
+            bool serieValida = ValidariFormular.validareSerie(errorProviderSerieBuletin, tbSerieBuletin);
+            bool nrvalid = ValidariFormular.validareNrBuletin(errorProviderNrBuletin, tbNrBuletin);
+            bool nrTelefonValid = ValidariFormular.validareNrTelefon(errorProviderNrTelefon, tbNrTelefon);
+            bool parolaValida = ValidariFormular.validareParola(errorProviderParola, tbParola);
             bool codVerificareValid = validareCodVerificare();
-            bool confirmaParolaValid = Program.validareConfirmaParola(errorProviderConfirmaParola, tbParolaConfirmare, tbParola.Text);
+            bool confirmaParolaValid = ValidariFormular.validareConfirmaParola(errorProviderConfirmaParola, tbParolaConfirmare, tbParola.Text);
            
             if (cnpValid && dataNastereValida)
             {
@@ -242,7 +243,7 @@ namespace Aplicatie_Concediu
         private void tbInregistrareNume_Validating(object sender, CancelEventArgs e)
         {
 
-            Program.validareNume(errorProviderNume,tbInregistrareNume);
+            ValidariFormular.validareNume(errorProviderNume,tbInregistrareNume);
 
         } 
         private void tbInregistrareNume_Validated(object sender, EventArgs e)
@@ -254,7 +255,7 @@ namespace Aplicatie_Concediu
         private void tbPrenume_Validating(object sender, CancelEventArgs e)
         {
 
-            Program.validarePrenume(errorProviderPrenume,tbPrenume);
+            ValidariFormular.validarePrenume(errorProviderPrenume,tbPrenume);
         }
 
         private void tbPrenume_Validated(object sender, EventArgs e)
@@ -265,7 +266,7 @@ namespace Aplicatie_Concediu
 
         private void tbEmail_Validating(object sender, CancelEventArgs e)
         {
-            Program.validareEmail(errorProviderEmail,tbEmail);
+            ValidariFormular.validareEmail(errorProviderEmail,tbEmail);
         }
 
         private void tbEmail_Validated(object sender, EventArgs e)
@@ -276,7 +277,7 @@ namespace Aplicatie_Concediu
 
         private void tbParola_Validating(object sender, CancelEventArgs e)
         {
-            Program.validareParola(errorProviderParola,tbParola);
+            ValidariFormular.validareParola(errorProviderParola,tbParola);
         }
 
         private void tbParola_Validated(object sender, EventArgs e)
@@ -288,8 +289,8 @@ namespace Aplicatie_Concediu
         {
             if(tbCnp.Text.Length == 13)
             {
-                Program.validareDataNastere(errorProviderCnp,dtpDataNastere,tbCnp,errorProviderDataNastere);
-                Program.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere, errorProviderDataNastere);
+                ValidariFormular.validareDataNastere(errorProviderCnp,dtpDataNastere,tbCnp,errorProviderDataNastere);
+                ValidariFormular.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere, errorProviderDataNastere);
             }
             
         }
@@ -304,7 +305,7 @@ namespace Aplicatie_Concediu
 
         private void dtpDataAngajare_Validating(object sender, CancelEventArgs e)
         {
-            Program.validareDataAngajare(errorProviderDataAngajare,dtpDataAngajare);
+            ValidariFormular.validareDataAngajare(errorProviderDataAngajare,dtpDataAngajare);
         }
 
         private void dtpDataAngajare_Validated(object sender, EventArgs e)
@@ -317,8 +318,8 @@ namespace Aplicatie_Concediu
         {
             if (tbCnp.Text.Length == 13)
             {
-                Program.validareDataNastere(errorProviderCnp, dtpDataNastere, tbCnp, errorProviderDataNastere);
-                Program.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere, errorProviderDataNastere);
+                ValidariFormular.validareDataNastere(errorProviderCnp, dtpDataNastere, tbCnp, errorProviderDataNastere);
+                ValidariFormular.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere, errorProviderDataNastere);
             }
         }
 
@@ -331,7 +332,7 @@ namespace Aplicatie_Concediu
 
         private void tbSerieBuletin_Validating(object sender, CancelEventArgs e)
         {
-            Program.validareSerie(errorProviderSerieBuletin,tbSerieBuletin);
+            ValidariFormular.validareSerie(errorProviderSerieBuletin,tbSerieBuletin);
         }
 
         private void tbSerieBuletin_Validated(object sender, EventArgs e)
@@ -342,7 +343,7 @@ namespace Aplicatie_Concediu
 
         private void tbNrBuletin_Validating(object sender, CancelEventArgs e)
         {
-            Program.validareNrBuletin(errorProviderNrBuletin,tbNrBuletin);
+            ValidariFormular.validareNrBuletin(errorProviderNrBuletin,tbNrBuletin);
         }
 
         private void tbNrBuletin_Validated(object sender, EventArgs e)
@@ -353,7 +354,7 @@ namespace Aplicatie_Concediu
 
         private void tbNrTelefon_Validating(object sender, CancelEventArgs e)
         {
-            Program.validareNrTelefon(errorProviderNrTelefon,tbNrTelefon);
+            ValidariFormular.validareNrTelefon(errorProviderNrTelefon,tbNrTelefon);
         }
 
         private void tbNrTelefon_Validated(object sender, EventArgs e)
@@ -400,13 +401,29 @@ namespace Aplicatie_Concediu
             smtpClient.EnableSsl = true;
             smtpClient.UseDefaultCredentials = false;
             smtpClient.Credentials = new NetworkCredential("madalina.mireag@totalsoft.ro", "Skillet19");
-            smtpClient.Send(mail);
+            try
+            {
+                smtpClient.Send(mail);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Trimitere esuata!!", "Esec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
             MessageBox.Show("Cod de verificare trimis pe e-mail","Cod de verificare", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return codVerificare;
         }
         private void btnTrimiteCodVerificare_Click(object sender, EventArgs e)
         {
-            codVerificareTrimis = trimiteCodVerificare();
+
+            if(String.IsNullOrEmpty(tbEmail.Text) || String.IsNullOrWhiteSpace(tbEmail.Text))
+            {
+                MessageBox.Show("Introdu un e-mail!", "E-mail lipsa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } else
+            {
+                    codVerificareTrimis = trimiteCodVerificare();
+            }
+           
            
         }
 
@@ -419,6 +436,10 @@ namespace Aplicatie_Concediu
             this.Close();
         }
 
+        private void tbEmail_Leave(object sender, EventArgs e)
+        {
+            ValidariFormular.verificareExistentaEmail(errorProviderEmail, tbEmail,tbEmail.Text);
+        }
     }
 
 }
