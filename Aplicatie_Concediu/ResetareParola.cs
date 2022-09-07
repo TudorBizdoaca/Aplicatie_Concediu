@@ -83,7 +83,10 @@ namespace Aplicatie_Concediu
             }
             catch (Exception)
             {
-                MessageBox.Show("Adresa de email invalida");
+                if (tbEmail.Text == String.Empty || tbEmail.Text == null)
+                    MessageBox.Show("Introdu adresa de email!");
+                else
+                    MessageBox.Show("Adresa de email invalida");
             }
         }
 
