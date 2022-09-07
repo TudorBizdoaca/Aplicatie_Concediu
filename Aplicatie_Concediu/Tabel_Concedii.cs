@@ -1,4 +1,5 @@
 ﻿using Aplicatie_Concediu.Models;
+using Aplicatie_Concediu.Utils;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -57,34 +58,21 @@ namespace Aplicatie_Concediu
         private void Tabel_Concedii_Load(object sender, EventArgs e)
         {
             
-            SqlConnection cn = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
-            cn.Open();
-            
-            SqlCommand cmdd = new SqlCommand("select esteAdmin from Angajat where id = "+@Program.UserId, cn);
-            SqlDataReader dr = cmdd.ExecuteReader();
-            DataTable idAdmin = new DataTable();
-            idAdmin.Load(dr);
-            foreach (DataRow row in idAdmin.Rows)
-            {
-                Program.EsteAdmin = Convert.ToInt32(row["esteAdmin"]);
-            }
-            dr.Close();
-            
+            Program.EsteAdmin = Convert.ToInt32(SesiuneLogIn.angajatLogat.EsteAdmin);
 
 
                 if (Program.EsteAdmin == 1)
                 {
 
-                GetConcedii();
+                      GetConcedii();
                
-            }
+                }
                 else
                 {
                     MessageBox.Show("Doar Administratorii pot accesa acest camp");
                 }
 
-            
-            cn.Close();
+   
 
         }
         

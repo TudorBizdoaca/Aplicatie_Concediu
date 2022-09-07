@@ -77,7 +77,17 @@ namespace Aplicatie_Concediu
      
         private void btnTrimiteCodVerificare_Click(object sender, EventArgs e)
         {
-            codVerificareTrimis = trimiteCodVerificare();
+            try
+            {
+                codVerificareTrimis = trimiteCodVerificare();
+            }
+            catch (Exception)
+            {
+                if (tbEmail.Text == String.Empty || tbEmail.Text == null)
+                    MessageBox.Show("Introdu adresa de email!");
+                else
+                    MessageBox.Show("Adresa de email invalida");
+            }
         }
 
         private void tbCodVerificare_TextChanged(object sender, EventArgs e)
@@ -92,7 +102,7 @@ namespace Aplicatie_Concediu
         private void btnResetareParola_Click(object sender, EventArgs e)
         {
             string parolaIntrodusa = tbParola.Text;
-            string confirmaParola = tbParola.Text;
+            string confirmaParola = tbConfirmaParola.Text;
            
             if (parolaIntrodusa == confirmaParola)
             {
