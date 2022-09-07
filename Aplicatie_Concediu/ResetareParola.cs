@@ -77,7 +77,14 @@ namespace Aplicatie_Concediu
      
         private void btnTrimiteCodVerificare_Click(object sender, EventArgs e)
         {
-            codVerificareTrimis = trimiteCodVerificare();
+            try
+            {
+                codVerificareTrimis = trimiteCodVerificare();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Adresa de email invalida");
+            }
         }
 
         private void tbCodVerificare_TextChanged(object sender, EventArgs e)
