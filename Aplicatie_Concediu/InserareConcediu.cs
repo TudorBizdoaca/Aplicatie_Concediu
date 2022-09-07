@@ -130,7 +130,7 @@ namespace Aplicatie_Concediu
             command.Parameters.Add(new SqlParameter("inlocuitorId", cbInlocuitor.SelectedValue));
             command.Parameters.Add(new SqlParameter("comentarii", rtfComentarii.Text));
             command.Parameters.Add(new SqlParameter("stareConcediuId", CONCEDIU_IN_ASTEPTARE));
-            command.Parameters.Add(new SqlParameter("angajatId", Program.UserId));
+            command.Parameters.Add(new SqlParameter("angajatId", SesiuneLogIn.angajatLogat.Id));
             command.ExecuteNonQuery();
 
             MessageBox.Show("Concediu inserat cu succes");
