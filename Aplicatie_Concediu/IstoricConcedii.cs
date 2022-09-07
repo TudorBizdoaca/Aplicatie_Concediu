@@ -1,9 +1,11 @@
 ﻿using Aplicatie_Concediu.Models;
+using Aplicatie_Concediu.Utils;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,22 +33,23 @@ namespace Aplicatie_Concediu
             }
 
         }
-     
-     
+
+
         // Buton Iesire
         private void buttonIesire_Click(object sender, EventArgs e)
         {
+            SesiuneLogIn.angajatLogat = null;
             this.Close();
         }
 
-        // Utilizator Logat
+        // Click Utilizator Logat
         private void pictureBoxUtilizatorLogat_Click(object sender, EventArgs e)
         {
             PaginaMea formPaginaMea = new PaginaMea();
             formPaginaMea.Show();
             this.Close();
         }
-        
+
         private void labelNumeUtilizatorLogat_Click(object sender, EventArgs e)
         {
             PaginaMea formPaginaMea = new PaginaMea();
@@ -54,8 +57,10 @@ namespace Aplicatie_Concediu
             this.Close();
         }
 
+        // Buton Deconectare
         private void labelDeconectare_Click(object sender, EventArgs e)
         {
+            SesiuneLogIn.angajatLogat = null;
             Autentificare formAutentificare = new Autentificare();
             formAutentificare.Show();
             this.Close();
@@ -99,6 +104,23 @@ namespace Aplicatie_Concediu
 
         private async void IstoricConcedii_Load(object sender, EventArgs e)
         {
+            // Date Utilizator Logat
+            pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(SesiuneLogIn.angajatLogat.Poza));
+            labelNumeUtilizatorLogat.Text = SesiuneLogIn.angajatLogat.Nume + " " + SesiuneLogIn.angajatLogat.Prenume;
+
+            // Validari Butoane Manager
+            if (SesiuneLogIn.angajatLogat.ManagerId == null)
+            {
+                buttonDetaliiAngajati.Visible = true;
+            }
+
+            // Validari Butoane Admini
+            if (SesiuneLogIn.angajatLogat.EsteAdmin == true)
+            {
+                buttonDetaliiAngajati.Visible = true;
+                buttonPanouAdmin.Visible = true;
+            }
+
             int counter = 0;
             int position = 0;
            

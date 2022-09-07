@@ -130,7 +130,7 @@ namespace Aplicatie_Concediu
             command.Parameters.Add(new SqlParameter("inlocuitorId", cbInlocuitor.SelectedValue));
             command.Parameters.Add(new SqlParameter("comentarii", rtfComentarii.Text));
             command.Parameters.Add(new SqlParameter("stareConcediuId", CONCEDIU_IN_ASTEPTARE));
-            command.Parameters.Add(new SqlParameter("angajatId", Program.UserId));
+            command.Parameters.Add(new SqlParameter("angajatId", SesiuneLogIn.angajatLogat.Id));
             command.ExecuteNonQuery();
 
             MessageBox.Show("Concediu inserat cu succes");
@@ -139,10 +139,11 @@ namespace Aplicatie_Concediu
         // Buton Iesire
         private void buttonIesire_Click(object sender, EventArgs e)
         {
+            SesiuneLogIn.angajatLogat = null;
             this.Close();
         }
 
-        // Utilizator Logat
+        // Click Utilizator Logat
         private void pictureBoxUtilizatorLogat_Click(object sender, EventArgs e)
         {
             PaginaMea formPaginaMea = new PaginaMea();
@@ -157,8 +158,10 @@ namespace Aplicatie_Concediu
             this.Close();
         }
 
+        // Buton Deconectare
         private void labelDeconectare_Click(object sender, EventArgs e)
         {
+            SesiuneLogIn.angajatLogat = null;
             Autentificare formAutentificare = new Autentificare();
             formAutentificare.Show();
             this.Close();
@@ -200,6 +203,7 @@ namespace Aplicatie_Concediu
             this.Close();
         }
 
+        // Butoane Pagina
         private void button1_Click(object sender, EventArgs e)
         {
             if (cbTipConcediu.SelectedItem == null)

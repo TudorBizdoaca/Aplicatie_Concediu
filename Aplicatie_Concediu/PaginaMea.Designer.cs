@@ -96,6 +96,7 @@
             this.panelContinut.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelContinut.AutoScroll = true;
             this.panelContinut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(239)))), ((int)(((byte)(198)))));
             this.panelContinut.Controls.Add(this.tableLayoutPanel2);
             this.panelContinut.Controls.Add(this.buttonSalveaza);
@@ -116,6 +117,7 @@
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.AutoScroll = true;
             this.tableLayoutPanel2.ColumnCount = 8;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
@@ -125,7 +127,6 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
-            this.tableLayoutPanel2.Controls.Add(this.labelNume, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBoxNume, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.dateTimePickerDataNasterii, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.textBoxCnp, 1, 1);
@@ -134,7 +135,6 @@
             this.tableLayoutPanel2.Controls.Add(this.labelEmail, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.labelCnp, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.textBoxPrenume, 4, 0);
-            this.tableLayoutPanel2.Controls.Add(this.labelPrenume, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBoxNr, 6, 1);
             this.tableLayoutPanel2.Controls.Add(this.labelNr, 5, 1);
             this.tableLayoutPanel2.Controls.Add(this.textBoxSerie, 4, 1);
@@ -143,14 +143,16 @@
             this.tableLayoutPanel2.Controls.Add(this.labelTelefon, 3, 2);
             this.tableLayoutPanel2.Controls.Add(this.dateTimePickerDataAngajarii, 4, 3);
             this.tableLayoutPanel2.Controls.Add(this.labelDataAngajarii, 3, 3);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(29, 228);
+            this.tableLayoutPanel2.Controls.Add(this.labelNume, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.labelPrenume, 3, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(29, 216);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 81F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 81F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 81F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 81F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(836, 171);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(836, 189);
             this.tableLayoutPanel2.TabIndex = 36;
             // 
             // labelNume
@@ -692,6 +694,8 @@
             this.panelBackground.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelBackground.AutoSize = true;
+            this.panelBackground.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelBackground.Controls.Add(this.pictureBoxLogo);
             this.panelBackground.Controls.Add(this.buttonIesire);
             this.panelBackground.Controls.Add(this.tableLayoutPanel1);
@@ -732,6 +736,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panelBackground.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
