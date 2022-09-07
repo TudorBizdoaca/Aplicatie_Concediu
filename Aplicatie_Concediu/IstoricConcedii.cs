@@ -128,7 +128,7 @@ namespace Aplicatie_Concediu
             foreach(CardConcediu c in CarduriConcediu)
             {
                 c.Parent = pnlCarduri;
-                c.Width = pnlCarduri.Width - 50;
+                c.Width = pnlCarduri.Width - 20;
                 c.Anchor = AnchorStyles.Left | AnchorStyles.Top;
                 
                 if (counter == 0)
