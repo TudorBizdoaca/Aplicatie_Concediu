@@ -64,9 +64,9 @@ namespace Aplicatie_Concediu
                 if (Program.EsteAdmin == 1)
                 {
 
-                GetConcedii();
+                      GetConcedii();
                
-            }
+                }
                 else
                 {
                     MessageBox.Show("Doar Administratorii pot accesa acest camp");
