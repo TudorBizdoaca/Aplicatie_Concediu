@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -91,20 +92,34 @@ namespace Aplicatie_Concediu
         }
         private async void Tabel_Concedii_Load(object sender, EventArgs e)
         {
+            // Date Utilizator Logat
+            pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(SesiuneLogIn.angajatLogat.Poza));
+            labelNumeUtilizatorLogat.Text = SesiuneLogIn.angajatLogat.Nume + " " + SesiuneLogIn.angajatLogat.Prenume;
+
+            // Validari Butoane Manager
+            if (SesiuneLogIn.angajatLogat.ManagerId == null)
+            {
+                buttonDetaliiAngajati.Visible = true;
+            }
+
+            // Validari Butoane Admini
+            if (SesiuneLogIn.angajatLogat.EsteAdmin == true)
+            {
+                buttonDetaliiAngajati.Visible = true;
+                buttonPanouAdmin.Visible = true;
+            }
 
             populareComboBox();
             Program.EsteAdmin = Convert.ToInt32(SesiuneLogIn.angajatLogat.EsteAdmin);
          
             if (Program.EsteAdmin == 1 && cbStariConcedii.SelectedIndex == cbStariConcedii.Items.Count - 1)
-                {
-                      await GetConcedii("http://localhost:5085/api/TabelConcedii/GetConcedii");
-                }else
-                {
-                    MessageBox.Show("Doar Administratorii pot accesa acest camp");
-                }
-
-   
-
+            {
+                await GetConcedii("http://localhost:5085/api/TabelConcedii/GetConcedii");
+            }
+            else
+            {
+                MessageBox.Show("Doar Administratorii pot accesa acest camp");
+            }
         }
         
 
@@ -140,6 +155,73 @@ namespace Aplicatie_Concediu
                 listaConcedii.Clear();
                 populareGridView(listaConcedii);
             }
+        }
+
+        // Buton Iesire
+        private void buttonIesire_Click(object sender, EventArgs e)
+        {
+            SesiuneLogIn.angajatLogat = null;
+            Application.Exit();
+        }
+
+        // Click Utilizator Logat
+        private void pictureBoxUtilizatorLogat_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Close();
+        }
+
+        private void labelNumeUtilizatorLogat_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Close();
+        }
+
+        // Buton Deconectare
+        private void labelDeconectare_Click(object sender, EventArgs e)
+        {
+            SesiuneLogIn.angajatLogat = null;
+            Autentificare formAutentificare = new Autentificare();
+            formAutentificare.Show();
+            this.Close();
+        }
+
+        // Butoane Meniu
+        private void buttonPaginaMea_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Close();
+        }
+
+        private void buttonCerereConcediu_Click(object sender, EventArgs e)
+        {
+            InserareConcediu formInserareConcediu = new InserareConcediu();
+            formInserareConcediu.Show();
+            this.Close();
+        }
+
+        private void buttonIstoricConcedii_Click(object sender, EventArgs e)
+        {
+            IstoricConcedii formIstoricConcedii = new IstoricConcedii();
+            formIstoricConcedii.Show();
+            this.Close();
+        }
+
+        private void buttonDetaliiAngajati_Click(object sender, EventArgs e)
+        {
+            TabelaAngajati formTabelaAngajati = new TabelaAngajati();
+            formTabelaAngajati.Show();
+            this.Close();
+        }
+
+        private void buttonPanouAdmin_Click(object sender, EventArgs e)
+        {
+            Tabel_Concedii formTabelConcedii = new Tabel_Concedii();
+            formTabelConcedii.Show();
+            this.Close();
         }
     }
 }
