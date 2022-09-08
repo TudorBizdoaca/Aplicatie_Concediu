@@ -405,7 +405,7 @@ namespace Aplicatie_Concediu
             {
                 smtpClient.Send(mail);
             }
-            catch(Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Trimitere esuata!!", "Esec", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
