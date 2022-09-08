@@ -1,9 +1,14 @@
-﻿using Aplicatie_Concediu.Utils;
+﻿using Aplicatie_Concediu.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Aplicatie_Concediu
@@ -14,19 +19,38 @@ namespace Aplicatie_Concediu
         DateTime StartDate;
         DateTime EndDate;
         SqlConnection connection = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
-       
+
         List<int> ListaIduriInConcediu = new List<int>();
+        public List<TipConcediu> getTipConcediu()
+        {
+            var url = "http://localhost:5085/api/InserareConcediu/GetTipConcediu";
+
+            var request = WebRequest.Create(url);
+            request.Method = "GET";
+
+            var webResponse = request.GetResponse();
+            var webStream = webResponse.GetResponseStream();
+
+            var reader = new StreamReader(webStream);
+            var data = reader.ReadToEnd();
+            List<TipConcediu> lista = new List<TipConcediu>();
+            lista =JsonConvert.DeserializeObject<List<TipConcediu>>(data);
+            return lista;
+
+
+
+        }
         public void cbTipConcediuLoad()
         {
-            string query = "select id,nume from TipConcediu";
-            SqlCommand command = new SqlCommand(query, connection);
-            SqlDataReader dataReader = command.ExecuteReader();
-            DataTable dtTipConcediu = new DataTable();
-            dtTipConcediu.Load(dataReader);
-            cbTipConcediu.DataSource = dtTipConcediu;
-            cbTipConcediu.DisplayMember = "nume";
-            cbTipConcediu.ValueMember = "id";
-            dataReader.Close();
+            //string query = "select id,nume from TipConcediu";
+            //SqlCommand command = new SqlCommand(query, connection);
+            //SqlDataReader dataReader = command.ExecuteReader();
+            //DataTable dtTipConcediu = new DataTable();
+            //dtTipConcediu.Load(dataReader);
+            cbTipConcediu.DataSource = getTipConcediu();
+            cbTipConcediu.DisplayMember = "Nume";
+            cbTipConcediu.ValueMember = "Id";
+            //dataReader.Close();
         }
         public void cbInlocuitorLoad()
         {
@@ -39,6 +63,7 @@ namespace Aplicatie_Concediu
             SqlDataReader dataReader = command.ExecuteReader();
             DataTable dtAngajati = new DataTable();
             dtAngajati.Load(dataReader);
+
 
 
 
@@ -60,7 +85,7 @@ namespace Aplicatie_Concediu
             {
                 ListaIduriInConcediu.Add(int.Parse(dataReader2[0].ToString()));
             }
-            
+
             dataReader.Close();
             dataReader2.Close();
 
