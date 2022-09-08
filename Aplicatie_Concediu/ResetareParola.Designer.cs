@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.lEmailInreg = new System.Windows.Forms.Label();
             this.btnTrimiteCodVerificare = new System.Windows.Forms.Button();
@@ -38,6 +39,10 @@
             this.btnResetareParola = new System.Windows.Forms.Button();
             this.lParolaInreg = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.errorProviderParola = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderConfirmaParola = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderParola)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirmaParola)).BeginInit();
             this.SuspendLayout();
             // 
             // tbEmail
@@ -97,6 +102,8 @@
             this.tbParola.PasswordChar = '*';
             this.tbParola.Size = new System.Drawing.Size(235, 20);
             this.tbParola.TabIndex = 39;
+            this.tbParola.TextChanged += new System.EventHandler(this.tbParola_TextChanged);
+            this.tbParola.Validated += new System.EventHandler(this.tbParola_Validated);
             // 
             // tbConfirmaParola
             // 
@@ -105,6 +112,8 @@
             this.tbConfirmaParola.PasswordChar = '*';
             this.tbConfirmaParola.Size = new System.Drawing.Size(235, 20);
             this.tbConfirmaParola.TabIndex = 40;
+            this.tbConfirmaParola.TextChanged += new System.EventHandler(this.tbConfirmaParola_TextChanged);
+            this.tbConfirmaParola.Validated += new System.EventHandler(this.tbConfirmaParola_Validated);
             // 
             // btnResetareParola
             // 
@@ -141,6 +150,14 @@
             this.label1.TabIndex = 43;
             this.label1.Text = "Confirma Parola ";
             // 
+            // errorProviderParola
+            // 
+            this.errorProviderParola.ContainerControl = this;
+            // 
+            // errorProviderConfirmaParola
+            // 
+            this.errorProviderConfirmaParola.ContainerControl = this;
+            // 
             // ResetareParola
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,6 +176,8 @@
             this.Controls.Add(this.tbEmail);
             this.Name = "ResetareParola";
             this.Text = "ResetareParola";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderParola)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirmaParola)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,5 +195,7 @@
         private System.Windows.Forms.Button btnResetareParola;
         private System.Windows.Forms.Label lParolaInreg;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProviderParola;
+        private System.Windows.Forms.ErrorProvider errorProviderConfirmaParola;
     }
 }

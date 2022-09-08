@@ -1,4 +1,6 @@
-﻿using Aplicatie_Concediu.Utils;
+﻿using Aplicatie_Concediu.Models;
+using Aplicatie_Concediu.Utils;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +10,7 @@ using System.Data.SqlTypes;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -27,69 +30,35 @@ namespace Aplicatie_Concediu
 
         private void PaginaMea_Load(object sender, EventArgs e)
         {
-            //HttpClient httpClient = new HttpClient();
-            //var response = await httpClient.GetAsync("http://localhost:5107/");
-            //response.EnsureSuccessStatusCode();
+            // Date Utilizator Logat
+            pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(SesiuneLogIn.angajatLogat.Poza));
+            labelNumeUtilizatorLogat.Text = SesiuneLogIn.angajatLogat.Nume + " " + SesiuneLogIn.angajatLogat.Prenume;
 
-            //HttpContent content = response.Content;
-            //Task<string> result = content.ReadAsStringAsync();
-            //string res = result.Result;
-
-            SqlConnection connection = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
-            connection.Open();
-
-            string query = "select * from Angajat where id = '" + SesiuneLogIn.angajatLogat.Id + "'";
-
-            SqlCommand command = new SqlCommand(query, connection);
-            SqlDataReader reader = command.ExecuteReader();
-
-            while(reader.Read())
+            // Validari Butoane Manager
+            if (SesiuneLogIn.angajatLogat.ManagerId == null)
             {
-                int id = Convert.ToInt32(reader["id"]);
-
-                byte[] imgBytes = (byte[])reader["poza"];
-                string nume = Convert.ToString(reader["nume"]);
-                string prenume = Convert.ToString(reader["prenume"]);
-                string email = Convert.ToString(reader["email"]);
-                string parola = Convert.ToString(reader["parola"]);
-                DateTime dataAngajare = Convert.ToDateTime(reader["dataAngajare"]);
-                DateTime dataNasterii = Convert.ToDateTime(reader["dataNasterii"]);
-                string cnp = Convert.ToString(reader["cnp"]);
-                string serie = Convert.ToString(reader["serie"]);
-                string no = Convert.ToString(reader["no"]);
-                string nrTelefon = Convert.ToString(reader["nrTelefon"]);
-                int managerId = reader["managerId"] == DBNull.Value ? Convert.ToInt32(reader["managerId"]) : 0;
-                int esteAdmin = Convert.ToInt32(reader["esteAdmin"]);
-
-                pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(imgBytes));
-                labelNumeUtilizatorLogat.Text = nume + " " + prenume;
-
-                // Validari Butoane Manager
-                if (managerId == 0 || esteAdmin == 1)
-                {
-                    buttonDetaliiAngajati.Visible = true;
-                }
-
-                // Validari Butoane Admini
-                if (esteAdmin == 1)
-                {
-                    buttonPanouAdmin.Visible = true;
-                }
-
-                pictureBoxUtilizator.Image = System.Drawing.Image.FromStream(new MemoryStream(imgBytes));
-                labelNumeUtilizator.Text = nume + " " + prenume;
-                textBoxNume.Text = nume;
-                textBoxPrenume.Text = prenume;
-                textBoxCnp.Text = cnp;
-                textBoxSerie.Text = serie;
-                textBoxNr.Text = no;
-                textBoxTelefon.Text = nrTelefon;
-                textBoxEmail.Text = email;
-                dateTimePickerDataNasterii.Value = dataNasterii;
-                dateTimePickerDataAngajarii.Value = dataAngajare;
+                buttonDetaliiAngajati.Visible = true;
             }
 
-            connection.Close();
+            // Validari Butoane Admini
+            if (SesiuneLogIn.angajatLogat.EsteAdmin == true)
+            {
+                buttonDetaliiAngajati.Visible = true;
+                buttonPanouAdmin.Visible = true;
+            }
+
+            // Date PaginaMea
+            pictureBoxUtilizator.Image = System.Drawing.Image.FromStream(new MemoryStream(SesiuneLogIn.angajatLogat.Poza));
+            labelNumeUtilizator.Text = SesiuneLogIn.angajatLogat.Nume + " " + SesiuneLogIn.angajatLogat.Prenume;
+            textBoxNume.Text = SesiuneLogIn.angajatLogat.Nume;
+            textBoxPrenume.Text = SesiuneLogIn.angajatLogat.Prenume;
+            textBoxCnp.Text = SesiuneLogIn.angajatLogat.Cnp;
+            textBoxSerie.Text = SesiuneLogIn.angajatLogat.Serie;
+            textBoxNr.Text = SesiuneLogIn.angajatLogat.No;
+            textBoxTelefon.Text = SesiuneLogIn.angajatLogat.NrTelefon;
+            textBoxEmail.Text = SesiuneLogIn.angajatLogat.Email;
+            dateTimePickerDataNasterii.Value = SesiuneLogIn.angajatLogat.DataNasterii;
+            dateTimePickerDataAngajarii.Value = SesiuneLogIn.angajatLogat.DataAngajare;
         }
 
         // Buton Iesire
@@ -99,7 +68,7 @@ namespace Aplicatie_Concediu
             this.Close();
         }
 
-        // Utilizator Logat
+        // Click Utilizator Logat
         private void pictureBoxUtilizatorLogat_Click(object sender, EventArgs e)
         {
             PaginaMea formPaginaMea = new PaginaMea();
@@ -114,8 +83,10 @@ namespace Aplicatie_Concediu
             this.Close();
         }
 
+        // Buton Deconectare
         private void labelDeconectare_Click(object sender, EventArgs e)
         {
+            SesiuneLogIn.angajatLogat = null;
             Autentificare formAutentificare = new Autentificare();
             formAutentificare.Show();
             this.Close();
@@ -189,60 +160,63 @@ namespace Aplicatie_Concediu
 
 
             // Update Angajat
-            SqlParameter id = new SqlParameter("@id", System.Data.SqlDbType.Int);
-            id.Value = Program.UserId;
-            SqlParameter nume = new SqlParameter("@nume", System.Data.SqlDbType.NVarChar, 50);
-            nume.Value = textBoxNume.Text;
-            SqlParameter prenume = new SqlParameter("@prenume", System.Data.SqlDbType.NVarChar, 50);
-            prenume.Value = textBoxPrenume.Text;
-            SqlParameter email = new SqlParameter("@email", System.Data.SqlDbType.NVarChar, 50);
-            email.Value = textBoxEmail.Text;
-            SqlParameter dataAngajare = new SqlParameter("@dataAngajare", System.Data.SqlDbType.DateTime); ;
-            dataAngajare.Value = dateTimePickerDataAngajarii.Value;
-            SqlParameter dataNasterii = new SqlParameter("@dataNasterii", System.Data.SqlDbType.DateTime); ;
-            dataNasterii.Value = dateTimePickerDataNasterii.Value;
-            SqlParameter cnp = new SqlParameter("@cnp", System.Data.SqlDbType.NVarChar, 13);
-            cnp.Value = textBoxCnp.Text;
-            SqlParameter serie = new SqlParameter("@serie", System.Data.SqlDbType.NVarChar, 2); ;
-            serie.Value = textBoxSerie.Text;
-            SqlParameter no = new SqlParameter("@no", System.Data.SqlDbType.NVarChar, 6); ;
-            no.Value = textBoxNr.Text;
-            SqlParameter nrTelefon = new SqlParameter("@nrTelefon", System.Data.SqlDbType.NVarChar, 20);
-            nrTelefon.Value = textBoxTelefon.Text;
+            Angajat angajat = new Angajat();
+            angajat = SesiuneLogIn.angajatLogat;
+            angajat.Nume = textBoxNume.Text;
+            angajat.Prenume = textBoxPrenume.Text;
+            angajat.Email = textBoxEmail.Text;
+            angajat.DataNasterii = dateTimePickerDataNasterii.Value;
+            angajat.DataAngajare = dateTimePickerDataAngajarii.Value;
+            angajat.Cnp = textBoxCnp.Text;
+            angajat.Serie = textBoxSerie.Text;
+            angajat.No = textBoxNr.Text;
+            angajat.NrTelefon = textBoxTelefon.Text;
 
             // Convert image to byte array
             byte[] imgBytes = null;
             ImageConverter imgConverter = new ImageConverter();
             imgBytes = (System.Byte[])imgConverter.ConvertTo(pictureBoxUtilizator.Image, Type.GetType("System.Byte[]"));
 
-            SqlParameter poza = new SqlParameter("@poza", System.Data.SqlDbType.VarBinary);
-            poza.Value = imgBytes;
+            angajat.Poza = imgBytes;
 
-            SqlConnection connection = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
-            connection.Open();
+            if (UpdateUtilizator(angajat))
+            {
+                SesiuneLogIn.angajatLogat = angajat;
 
-            string query = "update Angajat set nume = @nume, prenume = @prenume, email = @email, dataAngajare = @dataAngajare, dataNasterii = @dataNasterii, cnp = @cnp, serie = @serie, no = @no, nrTelefon = @nrTelefon, poza = @poza where id = @id";
+                // Refresh Form
+                PaginaMea formPaginaMea = new PaginaMea();
+                formPaginaMea.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Nu a functionat!");
+            }
+        }
 
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.Add(id);
-            command.Parameters.Add(nume);
-            command.Parameters.Add(prenume);
-            command.Parameters.Add(email);
-            command.Parameters.Add(dataAngajare);
-            command.Parameters.Add(dataNasterii);
-            command.Parameters.Add(cnp);
-            command.Parameters.Add(serie);
-            command.Parameters.Add(no);
-            command.Parameters.Add(nrTelefon);
-            command.Parameters.Add(poza);
-            command.ExecuteNonQuery();
+        private bool UpdateUtilizator(Angajat angajat)
+        {
+            var requestBody = JsonConvert.SerializeObject(angajat);
+            var requestData = Encoding.UTF8.GetBytes(requestBody);
+            string url = "http://localhost:5085/api/PaginaMea/UpdateAngajat";
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
+            request.Method = "POST";
+            request.ContentType = "application/json";
+            request.ContentLength = requestData.Length;
+            using (Stream requestStream = request.GetRequestStream())
+            {
+                requestStream.Write(requestData, 0, requestData.Length);
+            }
+            var response = (HttpWebResponse)request.GetResponse();
 
-            connection.Close();
-
-            // Refresh Form
-            PaginaMea formPaginaMea = new PaginaMea();
-            formPaginaMea.Show();
-            this.Close();
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         // Upload Image
@@ -250,12 +224,11 @@ namespace Aplicatie_Concediu
         {
             using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
             {
+                openFileDialog1.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    string fileName = openFileDialog1.FileName;
-                    byte[] imgBytes = File.ReadAllBytes(fileName);
-
-                    pictureBoxUtilizator.Image = System.Drawing.Image.FromStream(new MemoryStream(imgBytes));
+                    pictureBoxUtilizator.Image = new Bitmap(openFileDialog1.FileName);
                 }
             }
         }
