@@ -1,9 +1,17 @@
-﻿using Aplicatie_Concediu.Utils;
+﻿using Aplicatie_Concediu.Models;
+using Aplicatie_Concediu.Utils;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Net;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Aplicatie_Concediu
@@ -14,55 +22,44 @@ namespace Aplicatie_Concediu
         DateTime StartDate;
         DateTime EndDate;
         SqlConnection connection = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
-       
+        static readonly HttpClient client = new HttpClient();
+        public List<TipConcediu> TipuriConcediu = new List<TipConcediu>();
+        public List<Concediu> Concedii = new List<Concediu>();
+        public List<Angajat> Angajati = new List<Angajat>();
         List<int> ListaIduriInConcediu = new List<int>();
-        public void cbTipConcediuLoad()
+        List<int> zileConcediu = new List<int>();
+        public async Task getAngajati()
         {
-            string query = "select id,nume from TipConcediu";
-            SqlCommand command = new SqlCommand(query, connection);
-            SqlDataReader dataReader = command.ExecuteReader();
-            DataTable dtTipConcediu = new DataTable();
-            dtTipConcediu.Load(dataReader);
-            cbTipConcediu.DataSource = dtTipConcediu;
-            cbTipConcediu.DisplayMember = "nume";
-            cbTipConcediu.ValueMember = "id";
-            dataReader.Close();
+            HttpResponseMessage response = await client.GetAsync("");
+            string responseBody = await response.Content.ReadAsStringAsync();
+            Angajati = JsonConvert.DeserializeObject<List<Angajat>>(responseBody);        
         }
-        public void cbInlocuitorLoad()
+        public async Task getTipuriConcediu()
         {
+            HttpResponseMessage response = await client.GetAsync("");
+            string responseBody = await response.Content.ReadAsStringAsync();
+            TipuriConcediu = JsonConvert.DeserializeObject<List<TipConcediu>>(responseBody);
 
-            ListaIduriInConcediu.Clear();
-
-            //SQL STUFF
-            string query = "select id, CONCAT(nume,' ', prenume) as Nume from angajat";
-            SqlCommand command = new SqlCommand(query, connection);
-            SqlDataReader dataReader = command.ExecuteReader();
-            DataTable dtAngajati = new DataTable();
-            dtAngajati.Load(dataReader);
-
-
-
-            string query2 = "SELECT angajatId FROM Concediu\r\nWHERE  (dataInceput <= @EndDate ) AND (dataSfarsit >=@StartDate)";
-            SqlCommand command2 = new SqlCommand(query2, connection);
-            SqlParameter param = new SqlParameter("EndDate", EndDate);
-            command2.Parameters.Add(param);
-            param = new SqlParameter("StartDate", StartDate);
-            command2.Parameters.Add(param);
-           
-            cbInlocuitor.DataSource = dtAngajati;
+        }
+        public async Task cbTipConcediuLoadAsync()
+        {
+            
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5085/api/InserareConcediu/getTipuriConcediu");
+            string responseBody = await response.Content.ReadAsStringAsync();
+            TipuriConcediu = JsonConvert.DeserializeObject<List<TipConcediu>>(responseBody);
+            cbTipConcediu.DataSource = TipuriConcediu;
+            cbTipConcediu.DisplayMember = "Nume";
+            cbTipConcediu.ValueMember = "Id";
+        }
+        public async void cbInlocuitorLoad()
+        {
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5085/api/InserareConcediu/getAngajati?Id=" + SesiuneLogIn.angajatLogat.Id.ToString());
+            string responseBody = await response.Content.ReadAsStringAsync();
+            Angajati = JsonConvert.DeserializeObject<List<Angajat>>(responseBody);
+            cbInlocuitor.DataSource = Angajati;
             cbInlocuitor.DisplayMember = "Nume";
-            cbInlocuitor.ValueMember = "id";
+            cbInlocuitor.ValueMember = "Id";
 
-            SqlDataReader dataReader2 = command2.ExecuteReader();
-           
-            
-            while (dataReader2.Read())
-            {
-                ListaIduriInConcediu.Add(int.Parse(dataReader2[0].ToString()));
-            }
-            
-            dataReader.Close();
-            dataReader2.Close();
 
         }
         public InserareConcediu()
@@ -71,18 +68,24 @@ namespace Aplicatie_Concediu
 
             connection.Open();
 
-            cbTipConcediuLoad();
+            cbTipConcediuLoadAsync();
             dtpFinalConcediu.MinDate = dtpInceputConcediu.Value;
             
             
         }
        
-        private void InserareConcediu_Load(object sender, EventArgs e)
+        private async void InserareConcediu_LoadAsync(object sender, EventArgs e)
         {
+            cbInlocuitorLoad();
+            await cbTipConcediuLoadAsync();
+
             // Date Utilizator Logat
             pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(SesiuneLogIn.angajatLogat.Poza));
             labelNumeUtilizatorLogat.Text = SesiuneLogIn.angajatLogat.Nume + " " + SesiuneLogIn.angajatLogat.Prenume;
-
+            var response =await client.GetAsync("http://localhost:5085/api/InserareConcediu/getZileConcediu?idAngajat=" + SesiuneLogIn.angajatLogat.Id.ToString());
+            string responseBody = await response.Content.ReadAsStringAsync();
+            zileConcediu = JsonConvert.DeserializeObject <List<int>> (responseBody);
+            lblZileConcediu.Text = zileConcediu[0].ToString();
             // Validari Butoane Manager
             if (SesiuneLogIn.angajatLogat.ManagerId == null)
             {
@@ -92,8 +95,8 @@ namespace Aplicatie_Concediu
             // Validari Butoane Admini
             if (SesiuneLogIn.angajatLogat.EsteAdmin == true)
             {
-                buttonDetaliiAngajati.Visible = true;
-                buttonPanouAdmin.Visible = true;
+                    buttonDetaliiAngajati.Visible = true;
+                    buttonPanouAdmin.Visible = true;
             }
         }
 
@@ -101,8 +104,7 @@ namespace Aplicatie_Concediu
 
         private void dtpInceputConcediu_ValueChanged(object sender, EventArgs e)
         {
-            StartDate = dtpInceputConcediu.Value;
-            EndDate = dtpFinalConcediu.Value;
+         
             cbInlocuitorLoad();
             dtpFinalConcediu.MinDate = dtpInceputConcediu.Value;
            
@@ -118,23 +120,37 @@ namespace Aplicatie_Concediu
             dtpFinalConcediu.MinDate = dtpInceputConcediu.Value;
            
         }
-        public void insertConcediu()
-        {
-            string query = "INSERT INTO Concediu(tipConcediuId, dataInceput, dataSfarsit, inlocuitorId, comentarii, stareConcediuId,angajatId)" +
-                "VALUES(@tipConcediuId,@dataInceput,@dataSfarsit,@inlocuitorId,@comentarii,@stareConcediuId,@angajatId)";
-            SqlCommand command = new SqlCommand(query,connection);
+        public async Task insertConcediuAsync()
+        {           
            
-            command.Parameters.Add(new SqlParameter("tipConcediuId", cbTipConcediu.SelectedValue));
-            command.Parameters.Add(new SqlParameter("dataInceput", StartDate));
-            command.Parameters.Add(new SqlParameter("dataSfarsit", EndDate));
-            command.Parameters.Add(new SqlParameter("inlocuitorId", cbInlocuitor.SelectedValue));
-            command.Parameters.Add(new SqlParameter("comentarii", rtfComentarii.Text));
-            command.Parameters.Add(new SqlParameter("stareConcediuId", CONCEDIU_IN_ASTEPTARE));
-            command.Parameters.Add(new SqlParameter("angajatId", SesiuneLogIn.angajatLogat.Id));
-            command.ExecuteNonQuery();
-
+            //fa check inainte de inlocuitor id
+          
+            Concediu c = new Concediu();
+            c.TipConcediuId = int.Parse(cbTipConcediu.SelectedValue.ToString());
+            c.DataInceput = StartDate;
+            c.DataSfarsit = EndDate;
+            c.AngajatId = SesiuneLogIn.angajatLogat.Id;
+            c.Comentarii = rtfComentarii.Text;
+            c.InlocuitorId =int.Parse(cbInlocuitor.SelectedValue.ToString());
+            c.StareConcediuId = CONCEDIU_IN_ASTEPTARE;
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5085/api/InserareConcediu/esteAngajatInConcediu?id=" + int.Parse(cbInlocuitor.SelectedValue.ToString()) + "&dataInceput=" + StartDate.ToString() + "&dataFinal=" + EndDate.ToString());
+            string responseBody = await response.Content.ReadAsStringAsync();
+            bool esteInlocuitorulInConcediu = bool.Parse(responseBody);
+            if (esteInlocuitorulInConcediu == true)
+            {
+                DialogResult dr = MessageBox.Show("Inlocuitorul este in concediu pe perioada selectata,\n " +
+                    "esti sigura ca doresti sa faci asta?", "Avertisment",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr.Equals(DialogResult.No)) {
+                    return;
+                        }
+            }
+            
+            var content = new StringContent(JsonConvert.SerializeObject(c), Encoding.UTF8, "application/json");
+            client.PostAsync("http://localhost:5085/api/InserareConcediu/insertConcediu", content);
             MessageBox.Show("Concediu inserat cu succes");
-        }
+            
+        } 
 
         // Buton Iesire
         private void buttonIesire_Click(object sender, EventArgs e)
@@ -204,29 +220,25 @@ namespace Aplicatie_Concediu
         }
 
         // Butoane Pagina
-        private void button1_Click(object sender, EventArgs e)
-        {
+        private async void button1_Click(object sender, EventArgs e)
+        {   
+            StartDate = dtpInceputConcediu.Value;
+            EndDate = dtpFinalConcediu.Value;
             if (cbTipConcediu.SelectedItem == null)
             {
                 MessageBox.Show("Alege tipul de concediu!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }//Int32.Parse(dtpFinalConcediu.Value.Date.AddDays(-dtpInceputConcediu.Value.Date.Day).Day.ToString()) < 0
-            if (dtpFinalConcediu.Value.Date < dtpInceputConcediu.Value.Date)
+            }
+            if(DateCalculator.bussinessDaysBetween(StartDate,EndDate) >int.Parse(lblZileConcediu.Text))
             {
-                MessageBox.Show("Format data incorect, data de final nu poate sa fie mai mica decat data de inceput", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Actiune imposibila, concediul cerut este prea lung","Concediu Prea Lung",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if(ListaIduriInConcediu.Count != 0)
-            if (ListaIduriInConcediu.Contains(int.Parse(cbInlocuitor.SelectedValue.ToString())))
-                if (MessageBox.Show("Inlocuitorul selectat este in concediu pe perioada selectata, esti sigur ca doresti sa il adaugi?", "Eroare", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                {
-                   
-                }
-                else
-                {
-                    return;
-                }
-            insertConcediu();
+            var response = await client.GetAsync("http://localhost:5085/api/InserareConcediu/getZileConcediu?idAngajat=" + SesiuneLogIn.angajatLogat.Id.ToString());
+            string responseBody = await response.Content.ReadAsStringAsync();
+            zileConcediu = JsonConvert.DeserializeObject<List<int>>(responseBody);
+            await insertConcediuAsync();
+
             
         }
 
@@ -238,6 +250,13 @@ namespace Aplicatie_Concediu
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbTipConcediu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+            int index = int.Parse(cbTipConcediu.SelectedValue.ToString()) - 1;
+            lblZileConcediu.Text = zileConcediu[index].ToString();
         }
     }
 }

@@ -27,6 +27,7 @@ namespace Aplicatie_Concediu
             HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/IstoricConcedii/GetConcediiAngajat?Id={0}", Utils.SesiuneLogIn.angajatLogat.Id));
             string responseBody = await response.Content.ReadAsStringAsync();
             concedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
+            bool t = Convert.ToBoolean(responseBody);
             foreach (Concediu c in concedii)
             {
               CarduriConcediu.Add(new CardConcediu(c));
@@ -40,6 +41,8 @@ namespace Aplicatie_Concediu
         {
             SesiuneLogIn.angajatLogat = null;
             this.Close();
+            Application.Exit();
+
         }
 
         // Click Utilizator Logat
@@ -138,6 +141,8 @@ namespace Aplicatie_Concediu
                     position += 400;
                     c.Location = new System.Drawing.Point(c.Location.X, position);
                 }
+               
+                
                 counter++;
             }
         }

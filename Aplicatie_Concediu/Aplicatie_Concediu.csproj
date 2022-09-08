@@ -156,9 +156,11 @@
     <Compile Include="Tabel_Concedii.Designer.cs">
       <DependentUpon>Tabel_Concedii.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\DateCalculator.cs" />
     <Compile Include="Utils\SesiuneLogIn.cs" />
     <EmbeddedResource Include="Autentificare.resx">
       <DependentUpon>Autentificare.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="CardConcediu.resx">
       <DependentUpon>CardConcediu.cs</DependentUpon>
