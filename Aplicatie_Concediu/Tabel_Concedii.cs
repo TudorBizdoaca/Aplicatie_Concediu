@@ -22,6 +22,7 @@ namespace Aplicatie_Concediu
         static readonly HttpClient client = new HttpClient();
         List<Concediu> listaConcedii = new List<Concediu>();
         List<StareConcediu> listaStariConcedii = new List<StareConcediu>();
+        List<string[]> randGv = new List<string[]>();
         public Tabel_Concedii()
         {
             InitializeComponent();
@@ -40,16 +41,26 @@ namespace Aplicatie_Concediu
             dgvTabelConcedii.Columns[6].Name = "Data Final";
             dgvTabelConcedii.Columns[7].Name = "Stare cerere concediu";
 
+            int i = 0;
+            string[] row = new string[] {};
+            Dictionary<string, string> dictionarConcedii = new Dictionary<string, string>();
             foreach (Concediu c in concedii)
             {
-                string[] row = new string[] {c.Angajat.Nume,c.Angajat.Prenume,
+                if(c != null) { 
+                  row = new string[] {c.Angajat.Nume,c.Angajat.Prenume,
                   c.Angajat.Manager.Nume!=null?c.Angajat.Manager.Nume + " "+c.Angajat.Manager.Prenume:"Nu are manager"
                   ,c.TipConcediu.Nume,c.Inlocuitor.Nume+" "+c.Inlocuitor.Prenume,c.DataInceput.ToString("dd/MM/yyyy"),c.DataSfarsit.ToString("dd/MM/yyyy"),c.StareConcediu.Nume};
+                }
+                int rowIndex = 0;  
+                rowIndex  = dgvTabelConcedii.Rows.Add(row);
+                if(dgvTabelConcedii.Rows.Count > 0)
+                {
+     
+                      dgvTabelConcedii.Rows[rowIndex].Tag = c.Id;
+                }
 
-                int rowIndex = dgvTabelConcedii.Rows.Add(row);
-                dgvTabelConcedii.Rows[rowIndex].Tag = c.Id;
+                
             }
-
         }
        
         private async Task GetConcedii(string requestUrl)
@@ -60,10 +71,22 @@ namespace Aplicatie_Concediu
 
             listaConcedii.Clear();
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
+            dgvTabelConcedii.Rows.Clear();
             populareGridView(listaConcedii);
          
         }
 
+        private async Task GetConcediiDupaNumeAngajat(string numeAngajat)
+        {
+            HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/TabelConcedii/GetConcediiDupaNumeAngajat?nume={0}",numeAngajat));
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+            listaConcedii.Clear();
+            listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
+            dgvTabelConcedii.Rows.Clear();
+            populareGridView(listaConcedii);
+        }
         private async Task GetStariConcediu()
         {
             HttpResponseMessage response = await client.GetAsync("http://localhost:5085/api/TabelConcedii/GetStariConcedii");
@@ -97,6 +120,7 @@ namespace Aplicatie_Concediu
          
             if (Program.EsteAdmin == 1 && cbStariConcedii.SelectedIndex == cbStariConcedii.Items.Count - 1)
                 {
+              
                       await GetConcedii("http://localhost:5085/api/TabelConcedii/GetConcedii");
                 }else
                 {
@@ -106,8 +130,7 @@ namespace Aplicatie_Concediu
    
 
         }
-        
-
+       
         private void dgvTabelConcedii_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Program.IdConcediu = this.dgvTabelConcedii.CurrentRow.Tag.ToString();
@@ -140,6 +163,22 @@ namespace Aplicatie_Concediu
                 listaConcedii.Clear();
                 populareGridView(listaConcedii);
             }
+        }
+
+        private void tbFiltrareNume_TextChanged(object sender, EventArgs e)
+        {
+            if (tbFiltrareNume.Text.Length >= 5)
+            {
+               //  await GetConcediiDupaNumeAngajat(tbFiltrareNume.Text);
+            }
+          
+        }
+
+        private async void tbFiltrareNume_Leave(object sender, EventArgs e)
+        {
+            dgvTabelConcedii.Rows.Clear();
+            await GetConcediiDupaNumeAngajat(tbFiltrareNume.Text);
+            
         }
     }
 }

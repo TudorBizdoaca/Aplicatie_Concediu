@@ -37,6 +37,7 @@
             this.stareConcediuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stareConcediuTableAdapter = new Aplicatie_Concediu.BreakingBreadDataSetTableAdapters.StareConcediuTableAdapter();
             this.lStareConcediu = new System.Windows.Forms.Label();
+            this.tbFiltrareNume = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.breakingBreadDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breakingBreadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabelConcedii)).BeginInit();
@@ -79,7 +80,6 @@
             this.cbStariConcedii.Name = "cbStariConcedii";
             this.cbStariConcedii.Size = new System.Drawing.Size(121, 21);
             this.cbStariConcedii.TabIndex = 6;
-            
             this.cbStariConcedii.SelectionChangeCommitted += new System.EventHandler(this.cbStariConcedii_SelectionChangeCommitted);
             // 
             // stareConcediuBindingSource
@@ -100,11 +100,21 @@
             this.lStareConcediu.TabIndex = 7;
             this.lStareConcediu.Text = "Stare Concediu";
             // 
+            // tbFiltrareNume
+            // 
+            this.tbFiltrareNume.Location = new System.Drawing.Point(13, 60);
+            this.tbFiltrareNume.Name = "tbFiltrareNume";
+            this.tbFiltrareNume.Size = new System.Drawing.Size(100, 20);
+            this.tbFiltrareNume.TabIndex = 8;
+            this.tbFiltrareNume.TextChanged += new System.EventHandler(this.tbFiltrareNume_TextChanged);
+            this.tbFiltrareNume.Leave += new System.EventHandler(this.tbFiltrareNume_Leave);
+            // 
             // Tabel_Concedii
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1122, 534);
+            this.Controls.Add(this.tbFiltrareNume);
             this.Controls.Add(this.lStareConcediu);
             this.Controls.Add(this.cbStariConcedii);
             this.Controls.Add(this.dgvTabelConcedii);
@@ -131,5 +141,6 @@
         private System.Windows.Forms.BindingSource stareConcediuBindingSource;
         private BreakingBreadDataSetTableAdapters.StareConcediuTableAdapter stareConcediuTableAdapter;
         private System.Windows.Forms.Label lStareConcediu;
+        private System.Windows.Forms.TextBox tbFiltrareNume;
     }
 }
