@@ -77,14 +77,15 @@
             this.btnTrimiteCodVerificare = new System.Windows.Forms.Button();
             this.errorProviderCodVerificare = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonInapoi = new System.Windows.Forms.Button();
+            this.buttonIesire = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.tbParolaConfirmare = new System.Windows.Forms.TextBox();
             this.lParolaConfirmareInreg = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.errorProviderConfirmaParola = new System.Windows.Forms.ErrorProvider(this.components);
-            this.buttonIesire = new System.Windows.Forms.Button();
             this.pbLogoInreg = new System.Windows.Forms.PictureBox();
+            this.errorProviderConfirmaParola = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbEmailIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbParolaIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoneIcon)).BeginInit();
@@ -110,8 +111,8 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirmaParola)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoInreg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirmaParola)).BeginInit();
             this.SuspendLayout();
             // 
             // tbInregistrareNume
@@ -121,7 +122,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbInregistrareNume.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbInregistrareNume.Location = new System.Drawing.Point(70, 34);
-            this.tbInregistrareNume.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbInregistrareNume.Margin = new System.Windows.Forms.Padding(4);
             this.tbInregistrareNume.Name = "tbInregistrareNume";
             this.tbInregistrareNume.Size = new System.Drawing.Size(389, 30);
             this.tbInregistrareNume.TabIndex = 1;
@@ -147,7 +148,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbPrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPrenume.Location = new System.Drawing.Point(758, 34);
-            this.tbPrenume.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPrenume.Margin = new System.Windows.Forms.Padding(4);
             this.tbPrenume.Name = "tbPrenume";
             this.tbPrenume.Size = new System.Drawing.Size(393, 30);
             this.tbPrenume.TabIndex = 3;
@@ -162,7 +163,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEmail.Location = new System.Drawing.Point(70, 114);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(389, 30);
             this.tbEmail.TabIndex = 4;
@@ -178,7 +179,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbParola.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbParola.Location = new System.Drawing.Point(70, 194);
-            this.tbParola.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbParola.Margin = new System.Windows.Forms.Padding(4);
             this.tbParola.Name = "tbParola";
             this.tbParola.PasswordChar = '*';
             this.tbParola.Size = new System.Drawing.Size(389, 30);
@@ -195,7 +196,7 @@
             this.dtpDataNastere.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDataNastere.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDataNastere.Location = new System.Drawing.Point(70, 434);
-            this.dtpDataNastere.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDataNastere.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDataNastere.Name = "dtpDataNastere";
             this.dtpDataNastere.Size = new System.Drawing.Size(389, 30);
             this.dtpDataNastere.TabIndex = 6;
@@ -210,7 +211,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbCnp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCnp.Location = new System.Drawing.Point(70, 274);
-            this.tbCnp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCnp.Margin = new System.Windows.Forms.Padding(4);
             this.tbCnp.Name = "tbCnp";
             this.tbCnp.Size = new System.Drawing.Size(389, 30);
             this.tbCnp.TabIndex = 7;
@@ -226,7 +227,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbSerieBuletin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSerieBuletin.Location = new System.Drawing.Point(758, 274);
-            this.tbSerieBuletin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSerieBuletin.Margin = new System.Windows.Forms.Padding(4);
             this.tbSerieBuletin.Name = "tbSerieBuletin";
             this.tbSerieBuletin.Size = new System.Drawing.Size(393, 30);
             this.tbSerieBuletin.TabIndex = 8;
@@ -241,7 +242,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbNrTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNrTelefon.Location = new System.Drawing.Point(758, 354);
-            this.tbNrTelefon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNrTelefon.Margin = new System.Windows.Forms.Padding(4);
             this.tbNrTelefon.Name = "tbNrTelefon";
             this.tbNrTelefon.Size = new System.Drawing.Size(393, 30);
             this.tbNrTelefon.TabIndex = 9;
@@ -355,7 +356,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDataAngajare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDataAngajare.Location = new System.Drawing.Point(758, 434);
-            this.dtpDataAngajare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDataAngajare.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDataAngajare.Name = "dtpDataAngajare";
             this.dtpDataAngajare.Size = new System.Drawing.Size(393, 30);
             this.dtpDataAngajare.TabIndex = 19;
@@ -374,11 +375,11 @@
             this.btnInregistrare.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnInregistrare.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInregistrare.Location = new System.Drawing.Point(435, 919);
-            this.btnInregistrare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInregistrare.Margin = new System.Windows.Forms.Padding(4);
             this.btnInregistrare.Name = "btnInregistrare";
             this.btnInregistrare.Size = new System.Drawing.Size(420, 69);
             this.btnInregistrare.TabIndex = 20;
-            this.btnInregistrare.Text = "Inregistrare";
+            this.btnInregistrare.Text = "Inregistreaza-te";
             this.btnInregistrare.UseVisualStyleBackColor = false;
             this.btnInregistrare.Click += new System.EventHandler(this.btnInregistrare_Click);
             // 
@@ -386,7 +387,7 @@
             // 
             this.pbEmailIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbEmailIcon.Image")));
             this.pbEmailIcon.Location = new System.Drawing.Point(4, 34);
-            this.pbEmailIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbEmailIcon.Margin = new System.Windows.Forms.Padding(4);
             this.pbEmailIcon.Name = "pbEmailIcon";
             this.pbEmailIcon.Size = new System.Drawing.Size(58, 30);
             this.pbEmailIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -397,7 +398,7 @@
             // 
             this.pbParolaIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbParolaIcon.Image")));
             this.pbParolaIcon.Location = new System.Drawing.Point(4, 194);
-            this.pbParolaIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbParolaIcon.Margin = new System.Windows.Forms.Padding(4);
             this.pbParolaIcon.Name = "pbParolaIcon";
             this.pbParolaIcon.Size = new System.Drawing.Size(58, 30);
             this.pbParolaIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -408,7 +409,7 @@
             // 
             this.pbPhoneIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbPhoneIcon.Image")));
             this.pbPhoneIcon.Location = new System.Drawing.Point(692, 354);
-            this.pbPhoneIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbPhoneIcon.Margin = new System.Windows.Forms.Padding(4);
             this.pbPhoneIcon.Name = "pbPhoneIcon";
             this.pbPhoneIcon.Size = new System.Drawing.Size(58, 30);
             this.pbPhoneIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -419,7 +420,7 @@
             // 
             this.pbDataNastereIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbDataNastereIcon.Image")));
             this.pbDataNastereIcon.Location = new System.Drawing.Point(4, 434);
-            this.pbDataNastereIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbDataNastereIcon.Margin = new System.Windows.Forms.Padding(4);
             this.pbDataNastereIcon.Name = "pbDataNastereIcon";
             this.pbDataNastereIcon.Size = new System.Drawing.Size(58, 30);
             this.pbDataNastereIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -430,7 +431,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(692, 434);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(58, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -441,7 +442,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(692, 34);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(58, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -452,7 +453,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(4, 114);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(58, 30);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -463,7 +464,7 @@
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(692, 274);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(58, 30);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -474,7 +475,7 @@
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(4, 274);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(58, 30);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -504,7 +505,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbNrBuletin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNrBuletin.Location = new System.Drawing.Point(70, 354);
-            this.tbNrBuletin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNrBuletin.Margin = new System.Windows.Forms.Padding(4);
             this.tbNrBuletin.Name = "tbNrBuletin";
             this.tbNrBuletin.Size = new System.Drawing.Size(389, 30);
             this.tbNrBuletin.TabIndex = 30;
@@ -517,7 +518,7 @@
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(4, 354);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(58, 30);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -566,7 +567,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbCodVerificare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCodVerificare.Location = new System.Drawing.Point(758, 114);
-            this.tbCodVerificare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCodVerificare.Margin = new System.Windows.Forms.Padding(4);
             this.tbCodVerificare.Name = "tbCodVerificare";
             this.tbCodVerificare.Size = new System.Drawing.Size(393, 30);
             this.tbCodVerificare.TabIndex = 33;
@@ -594,7 +595,7 @@
             this.btnTrimiteCodVerificare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrimiteCodVerificare.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTrimiteCodVerificare.Location = new System.Drawing.Point(506, 114);
-            this.btnTrimiteCodVerificare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTrimiteCodVerificare.Margin = new System.Windows.Forms.Padding(4);
             this.btnTrimiteCodVerificare.Name = "btnTrimiteCodVerificare";
             this.btnTrimiteCodVerificare.Size = new System.Drawing.Size(139, 42);
             this.btnTrimiteCodVerificare.TabIndex = 35;
@@ -612,17 +613,47 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
+            this.panel1.Controls.Add(this.buttonInapoi);
             this.panel1.Controls.Add(this.buttonIesire);
             this.panel1.Controls.Add(this.btnInregistrare);
             this.panel1.Controls.Add(this.lInregistrareTitlu);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.pbLogoInreg);
             this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(50);
             this.panel1.Size = new System.Drawing.Size(1276, 1042);
             this.panel1.TabIndex = 36;
+            // 
+            // buttonInapoi
+            // 
+            this.buttonInapoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
+            this.buttonInapoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInapoi.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonInapoi.Location = new System.Drawing.Point(50, 50);
+            this.buttonInapoi.Margin = new System.Windows.Forms.Padding(0, 0, 0, 25);
+            this.buttonInapoi.Name = "buttonInapoi";
+            this.buttonInapoi.Size = new System.Drawing.Size(45, 39);
+            this.buttonInapoi.TabIndex = 43;
+            this.buttonInapoi.Text = "<";
+            this.buttonInapoi.UseVisualStyleBackColor = false;
+            this.buttonInapoi.Click += new System.EventHandler(this.buttonInapoi_Click);
+            // 
+            // buttonIesire
+            // 
+            this.buttonIesire.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonIesire.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
+            this.buttonIesire.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIesire.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonIesire.Location = new System.Drawing.Point(1160, 50);
+            this.buttonIesire.Margin = new System.Windows.Forms.Padding(0, 0, 0, 25);
+            this.buttonIesire.Name = "buttonIesire";
+            this.buttonIesire.Size = new System.Drawing.Size(45, 39);
+            this.buttonIesire.TabIndex = 41;
+            this.buttonIesire.Text = "X";
+            this.buttonIesire.UseVisualStyleBackColor = false;
+            this.buttonIesire.Click += new System.EventHandler(this.buttonIesire_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -697,7 +728,7 @@
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(692, 114);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(58, 30);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -711,7 +742,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbParolaConfirmare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbParolaConfirmare.Location = new System.Drawing.Point(758, 194);
-            this.tbParolaConfirmare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbParolaConfirmare.Margin = new System.Windows.Forms.Padding(4);
             this.tbParolaConfirmare.Name = "tbParolaConfirmare";
             this.tbParolaConfirmare.PasswordChar = '*';
             this.tbParolaConfirmare.Size = new System.Drawing.Size(393, 30);
@@ -734,31 +765,12 @@
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(692, 194);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(58, 30);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 41;
             this.pictureBox8.TabStop = false;
-            // 
-            // errorProviderConfirmaParola
-            // 
-            this.errorProviderConfirmaParola.ContainerControl = this;
-            // 
-            // buttonIesire
-            // 
-            this.buttonIesire.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonIesire.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
-            this.buttonIesire.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonIesire.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonIesire.Location = new System.Drawing.Point(1160, 50);
-            this.buttonIesire.Margin = new System.Windows.Forms.Padding(0, 0, 0, 25);
-            this.buttonIesire.Name = "buttonIesire";
-            this.buttonIesire.Size = new System.Drawing.Size(45, 39);
-            this.buttonIesire.TabIndex = 41;
-            this.buttonIesire.Text = "X";
-            this.buttonIesire.UseVisualStyleBackColor = false;
-            this.buttonIesire.Click += new System.EventHandler(this.buttonIesire_Click);
             // 
             // pbLogoInreg
             // 
@@ -774,6 +786,10 @@
             this.pbLogoInreg.TabIndex = 42;
             this.pbLogoInreg.TabStop = false;
             // 
+            // errorProviderConfirmaParola
+            // 
+            this.errorProviderConfirmaParola.ContainerControl = this;
+            // 
             // Inregistrare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -784,7 +800,7 @@
             this.ClientSize = new System.Drawing.Size(1296, 1062);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Inregistrare";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -817,8 +833,8 @@
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirmaParola)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoInreg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirmaParola)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -879,5 +895,6 @@
         private System.Windows.Forms.ErrorProvider errorProviderConfirmaParola;
         private System.Windows.Forms.Button buttonIesire;
         private System.Windows.Forms.PictureBox pbLogoInreg;
+        private System.Windows.Forms.Button buttonInapoi;
     }
 }

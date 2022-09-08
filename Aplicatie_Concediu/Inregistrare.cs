@@ -432,12 +432,20 @@ namespace Aplicatie_Concediu
 
         private void buttonIesire_Click(object sender, EventArgs e)
         {
-            this.Close();
+            SesiuneLogIn.angajatLogat = null;
+            Application.Exit();
         }
 
         private void tbEmail_Leave(object sender, EventArgs e)
         {
             ValidariFormular.verificareExistentaEmail(errorProviderEmail, tbEmail,tbEmail.Text);
+        }
+
+        private void buttonInapoi_Click(object sender, EventArgs e)
+        {
+            Autentificare formAutentificare = new Autentificare();
+            formAutentificare.Show();
+            this.Close();
         }
     }
 

@@ -136,5 +136,18 @@ namespace Aplicatie_Concediu
         {
             errorProviderConfirmaParola.Clear();
         }
+
+        private void buttonIesire_Click(object sender, EventArgs e)
+        {
+            SesiuneLogIn.angajatLogat = null;
+            Application.Exit();
+        }
+
+        private void buttonInapoi_Click(object sender, EventArgs e)
+        {
+            Autentificare formAutentificare = new Autentificare();
+            formAutentificare.Show();
+            this.Close();
+        }
     }
 }

@@ -166,7 +166,7 @@ namespace Aplicatie_Concediu
         private void buttonIesire_Click(object sender, EventArgs e)
         {
             SesiuneLogIn.angajatLogat = null;
-            this.Close();
+            Application.Exit();
         }
 
         // Click Utilizator Logat
