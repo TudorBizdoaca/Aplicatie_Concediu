@@ -54,10 +54,12 @@
             // 
             // panelBackground
             // 
+            this.panelBackground.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelBackground.AutoSize = true;
             this.panelBackground.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelBackground.Controls.Add(this.pictureBoxLogo);
-            this.panelBackground.Controls.Add(this.labelIstoricConcedii);
             this.panelBackground.Controls.Add(this.buttonIesire);
             this.panelBackground.Controls.Add(this.tableLayoutPanel1);
             this.panelBackground.Controls.Add(this.buttonIstoricConcedii);
@@ -120,7 +122,7 @@
             this.labelSeparator.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelSeparator.Location = new System.Drawing.Point(300, 0);
             this.labelSeparator.Name = "labelSeparator";
-            this.labelSeparator.Size = new System.Drawing.Size(26, 62);
+            this.labelSeparator.Size = new System.Drawing.Size(20, 62);
             this.labelSeparator.TabIndex = 38;
             this.labelSeparator.Text = "|";
             this.labelSeparator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -273,18 +275,20 @@
             this.pnlCarduri.AutoScroll = true;
             this.pnlCarduri.Location = new System.Drawing.Point(50, 181);
             this.pnlCarduri.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlCarduri.Name = "pnlCarduri";
+            this.pnlCarduri.Margin = new System.Windows.Forms.Padding(15);
             this.pnlCarduri.Size = new System.Drawing.Size(926, 267);
+            this.pnlCarduri.Padding = new System.Windows.Forms.Padding(10);
+            this.pnlCarduri.Size = new System.Drawing.Size(792, 466);
             this.pnlCarduri.TabIndex = 44;
             // 
             // labelIstoricConcedii
             // 
             this.labelIstoricConcedii.AutoSize = true;
             this.labelIstoricConcedii.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(239)))), ((int)(((byte)(198)))));
-            this.labelIstoricConcedii.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIstoricConcedii.ForeColor = System.Drawing.Color.Peru;
             this.labelIstoricConcedii.Location = new System.Drawing.Point(50, 75);
             this.labelIstoricConcedii.Margin = new System.Windows.Forms.Padding(0, 0, 0, 75);
+            this.labelIstoricConcedii.Location = new System.Drawing.Point(255, 120);
+            this.labelIstoricConcedii.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelIstoricConcedii.Name = "labelIstoricConcedii";
             this.labelIstoricConcedii.Size = new System.Drawing.Size(217, 31);
             this.labelIstoricConcedii.TabIndex = 43;
@@ -309,19 +313,20 @@
             this.ClientSize = new System.Drawing.Size(1040, 640);
             this.Controls.Add(this.panelBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "IstoricConcedii";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IstoricConcedii";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.IstoricConcedii_Load);
             this.panelBackground.ResumeLayout(false);
+            this.panelBackground.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUtilizatorLogat)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

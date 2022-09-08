@@ -49,8 +49,6 @@
             this.labelTipConcediu = new System.Windows.Forms.Label();
             this.labelCerereConcediu = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblZileConcediu = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panelBackground = new System.Windows.Forms.Panel();
             this.buttonIesire = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -108,7 +106,6 @@
             this.cbTipConcediu.Size = new System.Drawing.Size(322, 33);
             this.cbTipConcediu.TabIndex = 0;
             this.cbTipConcediu.Text = "TipConcediu:";
-            this.cbTipConcediu.SelectedIndexChanged += new System.EventHandler(this.cbTipConcediu_SelectedIndexChanged);
             // 
             // dtpInceputConcediu
             // 
@@ -320,7 +317,8 @@
             this.labelCerereConcediu.AutoSize = true;
             this.labelCerereConcediu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCerereConcediu.ForeColor = System.Drawing.Color.Peru;
-            this.labelCerereConcediu.Location = new System.Drawing.Point(23, 41);
+            this.labelCerereConcediu.Location = new System.Drawing.Point(17, 33);
+            this.labelCerereConcediu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCerereConcediu.Name = "labelCerereConcediu";
             this.labelCerereConcediu.Size = new System.Drawing.Size(212, 29);
             this.labelCerereConcediu.TabIndex = 13;
@@ -332,8 +330,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(239)))), ((int)(((byte)(198)))));
-            this.panel1.Controls.Add(this.lblZileConcediu);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.labelCerereConcediu);
@@ -341,28 +337,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1177, 618);
             this.panel1.TabIndex = 39;
-            // 
-            // lblZileConcediu
-            // 
-            this.lblZileConcediu.AutoSize = true;
-            this.lblZileConcediu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblZileConcediu.ForeColor = System.Drawing.Color.Peru;
-            this.lblZileConcediu.Location = new System.Drawing.Point(233, 65);
-            this.lblZileConcediu.Name = "lblZileConcediu";
-            this.lblZileConcediu.Size = new System.Drawing.Size(57, 20);
-            this.lblZileConcediu.TabIndex = 40;
-            this.lblZileConcediu.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Peru;
-            this.label2.Location = new System.Drawing.Point(17, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 20);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "ZileConcediu ramase:";
             // 
             // panelBackground
             // 
@@ -415,8 +389,8 @@
             this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.22946F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.77054F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 222F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
             this.tableLayoutPanel2.Controls.Add(this.labelSeparator, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.labelNumeUtilizatorLogat, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.pictureBoxUtilizatorLogat, 0, 0);
@@ -438,7 +412,8 @@
             this.labelSeparator.AutoSize = true;
             this.labelSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSeparator.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelSeparator.Location = new System.Drawing.Point(313, 0);
+            this.labelSeparator.Location = new System.Drawing.Point(233, 0);
+            this.labelSeparator.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSeparator.Name = "labelSeparator";
             this.labelSeparator.Size = new System.Drawing.Size(20, 62);
             this.labelSeparator.TabIndex = 38;
@@ -453,9 +428,10 @@
             this.labelNumeUtilizatorLogat.AutoSize = true;
             this.labelNumeUtilizatorLogat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNumeUtilizatorLogat.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelNumeUtilizatorLogat.Location = new System.Drawing.Point(75, 0);
+            this.labelNumeUtilizatorLogat.Location = new System.Drawing.Point(55, 0);
+            this.labelNumeUtilizatorLogat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNumeUtilizatorLogat.Name = "labelNumeUtilizatorLogat";
-            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(232, 76);
+            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(174, 62);
             this.labelNumeUtilizatorLogat.TabIndex = 37;
             this.labelNumeUtilizatorLogat.Text = "Nume Utilizator";
             this.labelNumeUtilizatorLogat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -471,7 +447,7 @@
             this.pictureBoxUtilizatorLogat.Location = new System.Drawing.Point(2, 2);
             this.pictureBoxUtilizatorLogat.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxUtilizatorLogat.Name = "pictureBoxUtilizatorLogat";
-            this.pictureBoxUtilizatorLogat.Size = new System.Drawing.Size(66, 72);
+            this.pictureBoxUtilizatorLogat.Size = new System.Drawing.Size(49, 58);
             this.pictureBoxUtilizatorLogat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxUtilizatorLogat.TabIndex = 36;
             this.pictureBoxUtilizatorLogat.TabStop = false;
@@ -485,9 +461,10 @@
             this.labelDeconectare.AutoSize = true;
             this.labelDeconectare.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDeconectare.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelDeconectare.Location = new System.Drawing.Point(345, 0);
+            this.labelDeconectare.Location = new System.Drawing.Point(257, 0);
+            this.labelDeconectare.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDeconectare.Name = "labelDeconectare";
-            this.labelDeconectare.Size = new System.Drawing.Size(217, 76);
+            this.labelDeconectare.Size = new System.Drawing.Size(165, 62);
             this.labelDeconectare.TabIndex = 36;
             this.labelDeconectare.Text = "Deconectare";
             this.labelDeconectare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -595,7 +572,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InserareConcediu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.InserareConcediu_LoadAsync);
+            this.Load += new System.EventHandler(this.InserareConcediu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.breakingBreadDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipConcediuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipConcediuBindingSource1)).EndInit();
