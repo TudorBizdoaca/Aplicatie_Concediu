@@ -130,7 +130,8 @@ namespace Aplicatie_Concediu
 
         private void buttonIesire_Click(object sender, EventArgs e)
         {
-            this.Close();
+            SesiuneLogIn.angajatLogat = null;
+            Application.Exit();
         }
     }
 }
