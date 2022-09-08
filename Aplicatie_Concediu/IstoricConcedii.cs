@@ -14,13 +14,13 @@ namespace Aplicatie_Concediu
 {
     public partial class IstoricConcedii : Form
     {
-        public  List<CardConcediu> CarduriConcediu = new List<CardConcediu>();
+        public List<CardConcediu> CarduriConcediu = new List<CardConcediu>();
         static readonly HttpClient client = new HttpClient();
         List<Concediu> concedii = new List<Concediu>();
         public IstoricConcedii()
         {
             InitializeComponent();
-           
+
         }
         public async Task getConcediiAsync()
         {
@@ -29,7 +29,7 @@ namespace Aplicatie_Concediu
             concedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
             foreach (Concediu c in concedii)
             {
-              CarduriConcediu.Add(new CardConcediu(c));
+                CarduriConcediu.Add(new CardConcediu(c));
             }
 
         }
@@ -40,10 +40,6 @@ namespace Aplicatie_Concediu
         {
             SesiuneLogIn.angajatLogat = null;
             Application.Exit();
-            Application.Exit();
-
-            Application.Exit();
-
         }
 
         // Click Utilizator Logat
@@ -127,14 +123,14 @@ namespace Aplicatie_Concediu
 
             int counter = 0;
             int position = 0;
-           
+
             await getConcediiAsync();
-            foreach(CardConcediu c in CarduriConcediu)
+            foreach (CardConcediu c in CarduriConcediu)
             {
                 c.Parent = pnlCarduri;
                 c.Width = pnlCarduri.Width - 20;
                 c.Anchor = AnchorStyles.Left | AnchorStyles.Top;
-                
+
                 if (counter == 0)
                 {
                     position = c.Location.Y;
