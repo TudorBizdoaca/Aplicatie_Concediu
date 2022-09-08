@@ -79,8 +79,8 @@
             this.cbStariConcedii.Name = "cbStariConcedii";
             this.cbStariConcedii.Size = new System.Drawing.Size(121, 21);
             this.cbStariConcedii.TabIndex = 6;
-            this.cbStariConcedii.SelectedIndexChanged += new System.EventHandler(this.cbStariConcedii_SelectedIndexChanged);
             
+            this.cbStariConcedii.SelectionChangeCommitted += new System.EventHandler(this.cbStariConcedii_SelectionChangeCommitted);
             // 
             // stareConcediuBindingSource
             // 
