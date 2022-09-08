@@ -57,7 +57,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(185, 0);
+            this.label1.Location = new System.Drawing.Point(184, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(179, 31);
@@ -71,11 +71,11 @@
             this.mail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mail.Location = new System.Drawing.Point(185, 125);
+            this.mail.Location = new System.Drawing.Point(184, 125);
             this.mail.Margin = new System.Windows.Forms.Padding(0, 0, 50, 0);
             this.mail.Multiline = true;
             this.mail.Name = "mail";
-            this.mail.Size = new System.Drawing.Size(413, 50);
+            this.mail.Size = new System.Drawing.Size(411, 30);
             this.mail.TabIndex = 5;
             this.mail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mail_KeyPress);
             // 
@@ -101,7 +101,7 @@
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(123, 127);
+            this.pictureBox2.Location = new System.Drawing.Point(122, 127);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(59, 30);
@@ -114,7 +114,7 @@
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(123, 227);
+            this.pictureBox3.Location = new System.Drawing.Point(122, 227);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(59, 30);
@@ -144,7 +144,7 @@
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(188, 75);
+            this.label2.Location = new System.Drawing.Point(187, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 50);
             this.label2.TabIndex = 11;
@@ -155,7 +155,7 @@
             // 
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(185, 175);
+            this.label3.Location = new System.Drawing.Point(184, 175);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 50);
@@ -185,7 +185,7 @@
             // 
             this.pbCaps.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
             this.pbCaps.Image = ((System.Drawing.Image)(resources.GetObject("pbCaps.Image")));
-            this.pbCaps.Location = new System.Drawing.Point(652, 229);
+            this.pbCaps.Location = new System.Drawing.Point(649, 229);
             this.pbCaps.Margin = new System.Windows.Forms.Padding(4);
             this.pbCaps.Name = "pbCaps";
             this.pbCaps.Size = new System.Drawing.Size(59, 30);
@@ -266,7 +266,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(788, 275);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(785, 275);
             this.tableLayoutPanel1.TabIndex = 16;
             // 
             // tbParola
@@ -274,12 +274,12 @@
             this.tbParola.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbParola.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbParola.Location = new System.Drawing.Point(185, 225);
+            this.tbParola.Location = new System.Drawing.Point(184, 225);
             this.tbParola.Margin = new System.Windows.Forms.Padding(0, 0, 50, 0);
             this.tbParola.Multiline = true;
             this.tbParola.Name = "tbParola";
             this.tbParola.PasswordChar = '*';
-            this.tbParola.Size = new System.Drawing.Size(413, 50);
+            this.tbParola.Size = new System.Drawing.Size(411, 30);
             this.tbParola.TabIndex = 6;
             this.tbParola.Click += new System.EventHandler(this.tbParola_Click);
             this.tbParola.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbParola_KeyDown);
