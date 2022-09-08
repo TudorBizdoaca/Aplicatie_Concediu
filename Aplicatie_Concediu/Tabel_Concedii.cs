@@ -12,6 +12,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Aplicatie_Concediu
@@ -51,17 +52,16 @@ namespace Aplicatie_Concediu
 
         }
        
-        private async void  GetConcedii()
+        private async Task GetConcedii(string requestUrl)
         {
-            HttpResponseMessage response = await client.GetAsync("http://localhost:5085/api/TabelConcedii/GetConcedii");
+            HttpResponseMessage response = await client.GetAsync(requestUrl);
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
 
             listaConcedii.Clear();
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
             populareGridView(listaConcedii);
-            
-
+         
         }
 
         private async Task GetStariConcediu()
@@ -74,29 +74,31 @@ namespace Aplicatie_Concediu
             listaStariConcedii = JsonConvert.DeserializeObject<List<StareConcediu>>(responseBody);
         }
         private async void populareComboBox()
-        {
+        { 
+            StareConcediu sToate = new StareConcediu();
+           
             await GetStariConcediu();
-            cbStariConcedii.Items.Add("Selectati");
-                    
+         
             cbStariConcedii.ValueMember ="Id";
             cbStariConcedii.DisplayMember = "Nume";
+            sToate.Id = 0;
+            sToate.Nume = "Toate";
+            listaStariConcedii.Add(sToate);
+            cbStariConcedii.SelectedValue = sToate.Id.ToString();
             cbStariConcedii.DataSource = listaStariConcedii;
-            
+        
+            cbStariConcedii.SelectedIndex = cbStariConcedii.Items.Count-1;
         }
-        private void Tabel_Concedii_Load(object sender, EventArgs e)
+        private async void Tabel_Concedii_Load(object sender, EventArgs e)
         {
 
-
             populareComboBox();
-            cbStariConcedii.SelectedValue = -1;
             Program.EsteAdmin = Convert.ToInt32(SesiuneLogIn.angajatLogat.EsteAdmin);
-           
-
-                if (Program.EsteAdmin == 1)
+         
+            if (Program.EsteAdmin == 1 && cbStariConcedii.SelectedIndex == cbStariConcedii.Items.Count - 1)
                 {
-                      GetConcedii();
-                }
-                else
+                      await GetConcedii("http://localhost:5085/api/TabelConcedii/GetConcedii");
+                }else
                 {
                     MessageBox.Show("Doar Administratorii pot accesa acest camp");
                 }
@@ -127,11 +129,17 @@ namespace Aplicatie_Concediu
             await GetConcediiByStare((int)cbStariConcedii.SelectedValue);
             populareGridView(listaConcedii);
         }
-        private void cbStariConcedii_SelectedIndexChanged(object sender, EventArgs e)
+       
+        private async void cbStariConcedii_SelectionChangeCommitted(object sender, EventArgs e)
         {
-             repopulareGV();
-
+            if(cbStariConcedii.SelectedValue.ToString() !="0")
+                 repopulareGV();
+            else
+            {
+                await GetConcedii("http://localhost:5085/api/TabelConcedii/GetConcedii");
+                listaConcedii.Clear();
+                populareGridView(listaConcedii);
+            }
         }
-
     }
 }
