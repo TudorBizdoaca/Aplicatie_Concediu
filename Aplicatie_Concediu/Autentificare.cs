@@ -127,5 +127,11 @@ namespace Aplicatie_Concediu
             else
                 pbCaps.Hide();
         }
+
+        private void buttonIesire_Click(object sender, EventArgs e)
+        {
+            SesiuneLogIn.angajatLogat = null;
+            Application.Exit();
+        }
     }
 }

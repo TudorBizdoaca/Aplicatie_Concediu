@@ -158,6 +158,7 @@
     </Compile>
     <Compile Include="Utils\DateCalculator.cs" />
     <Compile Include="Utils\SesiuneLogIn.cs" />
+    <Compile Include="Utils\ValidariFormular.cs" />
     <EmbeddedResource Include="Autentificare.resx">
       <DependentUpon>Autentificare.cs</DependentUpon>
       <SubType>Designer</SubType>

@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Net.Http;
 using Newtonsoft.Json;
+using Aplicatie_Concediu.Utils;
 
 namespace Aplicatie_Concediu
 {
@@ -118,12 +119,12 @@ namespace Aplicatie_Concediu
 
         private void tbParola_TextChanged(object sender, EventArgs e)
         {
-            Program.validareParola(errorProviderParola, tbParola);
+            ValidariFormular.validareParola(errorProviderParola, tbParola);
         }
 
         private void tbConfirmaParola_TextChanged(object sender, EventArgs e)
         {
-            Program.validareParola(errorProviderConfirmaParola, tbConfirmaParola);
+            ValidariFormular.validareParola(errorProviderConfirmaParola, tbConfirmaParola);
         }
 
         private void tbParola_Validated(object sender, EventArgs e)
@@ -134,6 +135,19 @@ namespace Aplicatie_Concediu
         private void tbConfirmaParola_Validated(object sender, EventArgs e)
         {
             errorProviderConfirmaParola.Clear();
+        }
+
+        private void buttonIesire_Click(object sender, EventArgs e)
+        {
+            SesiuneLogIn.angajatLogat = null;
+            Application.Exit();
+        }
+
+        private void buttonInapoi_Click(object sender, EventArgs e)
+        {
+            Autentificare formAutentificare = new Autentificare();
+            formAutentificare.Show();
+            this.Close();
         }
     }
 }

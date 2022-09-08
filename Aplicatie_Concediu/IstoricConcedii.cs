@@ -40,9 +40,7 @@ namespace Aplicatie_Concediu
         private void buttonIesire_Click(object sender, EventArgs e)
         {
             SesiuneLogIn.angajatLogat = null;
-            this.Close();
             Application.Exit();
-
         }
 
         // Click Utilizator Logat
@@ -131,14 +129,16 @@ namespace Aplicatie_Concediu
             foreach(CardConcediu c in CarduriConcediu)
             {
                 c.Parent = pnlCarduri;
+                c.Width = pnlCarduri.Width - 20;
                 c.Anchor = AnchorStyles.Left | AnchorStyles.Top;
+                
                 if (counter == 0)
                 {
                     position = c.Location.Y;
                 }
                 else
                 {
-                    position += 400;
+                    position += 470;
                     c.Location = new System.Drawing.Point(c.Location.X, position);
                 }
                
