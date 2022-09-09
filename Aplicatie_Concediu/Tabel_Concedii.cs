@@ -22,7 +22,8 @@ namespace Aplicatie_Concediu
         static readonly HttpClient client = new HttpClient();
         List<Concediu> listaConcedii = new List<Concediu>();
         List<StareConcediu> listaStariConcedii = new List<StareConcediu>();
-        List<string[]> randGv = new List<string[]>();
+        List<TipConcediu> listaTipuriConcedii = new List<TipConcediu>();
+       
         public Tabel_Concedii()
         {
             InitializeComponent();
@@ -96,21 +97,42 @@ namespace Aplicatie_Concediu
             
             listaStariConcedii = JsonConvert.DeserializeObject<List<StareConcediu>>(responseBody);
         }
+
+        private async Task getTipuriConcediu()
+        {
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5085/api/TabelConcedii/GetTipConcedii");
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+
+            listaTipuriConcedii = JsonConvert.DeserializeObject<List<TipConcediu>>(responseBody);
+        }
         private async void populareComboBox()
         { 
             StareConcediu sToate = new StareConcediu();
-           
+            TipConcediu tToate = new TipConcediu();
             await GetStariConcediu();
-         
-            cbStariConcedii.ValueMember ="Id";
-            cbStariConcedii.DisplayMember = "Nume";
+            await getTipuriConcediu();
+            tToate.Id = 0;
+            tToate.Nume = "Toate";
             sToate.Id = 0;
             sToate.Nume = "Toate";
+
+            cbStariConcedii.ValueMember ="Id";
+            cbStariConcedii.DisplayMember = "Nume";
+            
             listaStariConcedii.Add(sToate);
             cbStariConcedii.SelectedValue = sToate.Id.ToString();
             cbStariConcedii.DataSource = listaStariConcedii;
         
             cbStariConcedii.SelectedIndex = cbStariConcedii.Items.Count-1;
+
+            cbTipConcedii.ValueMember = "Id";
+            cbTipConcedii.DisplayMember = "Nume";
+            listaTipuriConcedii.Add(tToate);
+            cbTipConcedii.SelectedValue = tToate.Id.ToString();
+            cbTipConcedii.DataSource = listaTipuriConcedii;
+            cbTipConcedii.SelectedIndex = cbStariConcedii.Items.Count - 1;
         }
         private async void Tabel_Concedii_Load(object sender, EventArgs e)
         {
@@ -146,7 +168,16 @@ namespace Aplicatie_Concediu
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
         }
 
-        public async void repopulareGV()
+        private async Task GetConcediiByTip(int tipId)
+        {
+            listaConcedii.Clear();
+            HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/TabelConcedii/GetConcediiByTipConcediuId?tipConcediuId={0}", tipId));
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
+        }
+
+        public async void repopulareGvDupaSelectStare()
         {
             dgvTabelConcedii.Rows.Clear();
             await GetConcediiByStare((int)cbStariConcedii.SelectedValue);
@@ -156,7 +187,7 @@ namespace Aplicatie_Concediu
         private async void cbStariConcedii_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if(cbStariConcedii.SelectedValue.ToString() !="0")
-                 repopulareGV();
+                 repopulareGvDupaSelectStare();
             else
             {
                 await GetConcedii("http://localhost:5085/api/TabelConcedii/GetConcedii");
@@ -175,6 +206,22 @@ namespace Aplicatie_Concediu
             dgvTabelConcedii.Rows.Clear();
             await GetConcediiDupaNumeAngajat(tbFiltrareNume.Text);
             
+        }
+
+        private async void cbTipConcedii_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbTipConcedii.SelectedValue.ToString() != "0")
+            {
+                dgvTabelConcedii.Rows.Clear();
+                await GetConcediiByTip((int)cbTipConcedii.SelectedValue);
+                populareGridView(listaConcedii);
+            }
+            else
+            {
+                await GetConcedii("http://localhost:5085/api/TabelConcedii/GetConcedii");
+                listaConcedii.Clear();
+                populareGridView(listaConcedii);
+            }
         }
     }
 }
