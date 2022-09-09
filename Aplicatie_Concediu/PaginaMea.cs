@@ -116,7 +116,7 @@ namespace Aplicatie_Concediu
 
         private void buttonDetaliiAngajati_Click(object sender, EventArgs e)
         {
-            TabelaAngajati formTabelaAngajati = new TabelaAngajati();
+            TabelaAngajati formTabelaAngajati = new TabelaAngajati(1);
             formTabelaAngajati.Show();
             this.Close();
         }
@@ -198,8 +198,9 @@ namespace Aplicatie_Concediu
         {
             var requestBody = JsonConvert.SerializeObject(angajat);
             var requestData = Encoding.UTF8.GetBytes(requestBody);
-            string url = "http://localhost:5085/api/PaginaMea/UpdateAngajat";
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
+
+            string URL = String.Format("{0}/PaginaMea/UpdateAngajat", SesiuneLogIn.requestURL);
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(URL));
             request.Method = "POST";
             request.ContentType = "application/json";
             request.ContentLength = requestData.Length;

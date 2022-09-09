@@ -32,6 +32,7 @@
             this.dgvAngajati = new System.Windows.Forms.DataGridView();
             this.coloanaPoza = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelBackground = new System.Windows.Forms.Panel();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.buttonIesire = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelSeparator = new System.Windows.Forms.Label();
@@ -44,18 +45,23 @@
             this.buttonCerereConcediu = new System.Windows.Forms.Button();
             this.buttonPaginaMea = new System.Windows.Forms.Button();
             this.panelContinut = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelPageNumber = new System.Windows.Forms.Label();
+            this.buttonPaginaAnterioara = new System.Windows.Forms.Button();
+            this.buttonPaginaUrmatoare = new System.Windows.Forms.Button();
             this.labelDetaliiAngajati = new System.Windows.Forms.Label();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAngajati)).BeginInit();
             this.panelBackground.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUtilizatorLogat)).BeginInit();
             this.panelContinut.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvAngajati
             // 
+            this.dgvAngajati.AllowUserToAddRows = false;
             this.dgvAngajati.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -66,7 +72,7 @@
             this.dgvAngajati.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAngajati.Name = "dgvAngajati";
             this.dgvAngajati.RowHeadersWidth = 51;
-            this.dgvAngajati.Size = new System.Drawing.Size(1081, 351);
+            this.dgvAngajati.Size = new System.Drawing.Size(1081, 253);
             this.dgvAngajati.TabIndex = 0;
             // 
             // coloanaPoza
@@ -97,6 +103,17 @@
             this.panelBackground.Size = new System.Drawing.Size(1556, 884);
             this.panelBackground.TabIndex = 39;
             // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
+            this.pictureBoxLogo.Location = new System.Drawing.Point(50, 9);
+            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(211, 228);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLogo.TabIndex = 38;
+            this.pictureBoxLogo.TabStop = false;
+            // 
             // buttonIesire
             // 
             this.buttonIesire.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -119,7 +136,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.22946F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.77054F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 229F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 233F));
             this.tableLayoutPanel1.Controls.Add(this.labelSeparator, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelNumeUtilizatorLogat, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBoxUtilizatorLogat, 0, 0);
@@ -141,7 +158,7 @@
             this.labelSeparator.AutoSize = true;
             this.labelSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSeparator.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelSeparator.Location = new System.Drawing.Point(309, 0);
+            this.labelSeparator.Location = new System.Drawing.Point(305, 0);
             this.labelSeparator.Name = "labelSeparator";
             this.labelSeparator.Size = new System.Drawing.Size(26, 76);
             this.labelSeparator.TabIndex = 38;
@@ -156,9 +173,9 @@
             this.labelNumeUtilizatorLogat.AutoSize = true;
             this.labelNumeUtilizatorLogat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNumeUtilizatorLogat.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelNumeUtilizatorLogat.Location = new System.Drawing.Point(74, 0);
+            this.labelNumeUtilizatorLogat.Location = new System.Drawing.Point(73, 0);
             this.labelNumeUtilizatorLogat.Name = "labelNumeUtilizatorLogat";
-            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(229, 76);
+            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(226, 76);
             this.labelNumeUtilizatorLogat.TabIndex = 37;
             this.labelNumeUtilizatorLogat.Text = "Nume Utilizator";
             this.labelNumeUtilizatorLogat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -174,7 +191,7 @@
             this.pictureBoxUtilizatorLogat.Location = new System.Drawing.Point(3, 2);
             this.pictureBoxUtilizatorLogat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxUtilizatorLogat.Name = "pictureBoxUtilizatorLogat";
-            this.pictureBoxUtilizatorLogat.Size = new System.Drawing.Size(65, 72);
+            this.pictureBoxUtilizatorLogat.Size = new System.Drawing.Size(64, 72);
             this.pictureBoxUtilizatorLogat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxUtilizatorLogat.TabIndex = 36;
             this.pictureBoxUtilizatorLogat.TabStop = false;
@@ -188,9 +205,9 @@
             this.labelDeconectare.AutoSize = true;
             this.labelDeconectare.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDeconectare.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelDeconectare.Location = new System.Drawing.Point(341, 0);
+            this.labelDeconectare.Location = new System.Drawing.Point(337, 0);
             this.labelDeconectare.Name = "labelDeconectare";
-            this.labelDeconectare.Size = new System.Drawing.Size(224, 76);
+            this.labelDeconectare.Size = new System.Drawing.Size(228, 76);
             this.labelDeconectare.TabIndex = 36;
             this.labelDeconectare.Text = "Deconectare";
             this.labelDeconectare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -278,6 +295,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContinut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(239)))), ((int)(((byte)(198)))));
+            this.panelContinut.Controls.Add(this.tableLayoutPanel2);
             this.panelContinut.Controls.Add(this.labelDetaliiAngajati);
             this.panelContinut.Controls.Add(this.dgvAngajati);
             this.panelContinut.Location = new System.Drawing.Point(314, 242);
@@ -286,6 +304,71 @@
             this.panelContinut.Padding = new System.Windows.Forms.Padding(50, 75, 50, 50);
             this.panelContinut.Size = new System.Drawing.Size(1189, 590);
             this.panelContinut.TabIndex = 9;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.tableLayoutPanel2.Controls.Add(this.labelPageNumber, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonPaginaAnterioara, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonPaginaUrmatoare, 2, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(53, 492);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0, 50, 0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1083, 45);
+            this.tableLayoutPanel2.TabIndex = 45;
+            // 
+            // labelPageNumber
+            // 
+            this.labelPageNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPageNumber.AutoSize = true;
+            this.labelPageNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPageNumber.ForeColor = System.Drawing.Color.Peru;
+            this.labelPageNumber.Location = new System.Drawing.Point(490, 5);
+            this.labelPageNumber.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.labelPageNumber.Name = "labelPageNumber";
+            this.labelPageNumber.Size = new System.Drawing.Size(102, 29);
+            this.labelPageNumber.TabIndex = 46;
+            this.labelPageNumber.Text = "1";
+            this.labelPageNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonPaginaAnterioara
+            // 
+            this.buttonPaginaAnterioara.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPaginaAnterioara.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
+            this.buttonPaginaAnterioara.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPaginaAnterioara.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonPaginaAnterioara.Location = new System.Drawing.Point(442, 0);
+            this.buttonPaginaAnterioara.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonPaginaAnterioara.Name = "buttonPaginaAnterioara";
+            this.buttonPaginaAnterioara.Size = new System.Drawing.Size(45, 39);
+            this.buttonPaginaAnterioara.TabIndex = 43;
+            this.buttonPaginaAnterioara.Text = "<";
+            this.buttonPaginaAnterioara.UseVisualStyleBackColor = false;
+            this.buttonPaginaAnterioara.Visible = false;
+            this.buttonPaginaAnterioara.Click += new System.EventHandler(this.buttonPaginaAnterioara_Click);
+            // 
+            // buttonPaginaUrmatoare
+            // 
+            this.buttonPaginaUrmatoare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
+            this.buttonPaginaUrmatoare.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPaginaUrmatoare.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonPaginaUrmatoare.Location = new System.Drawing.Point(595, 0);
+            this.buttonPaginaUrmatoare.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonPaginaUrmatoare.Name = "buttonPaginaUrmatoare";
+            this.buttonPaginaUrmatoare.Size = new System.Drawing.Size(45, 39);
+            this.buttonPaginaUrmatoare.TabIndex = 44;
+            this.buttonPaginaUrmatoare.Text = ">";
+            this.buttonPaginaUrmatoare.UseVisualStyleBackColor = false;
+            this.buttonPaginaUrmatoare.Visible = false;
+            this.buttonPaginaUrmatoare.Click += new System.EventHandler(this.buttonPaginaUrmatoare_Click);
             // 
             // labelDetaliiAngajati
             // 
@@ -298,17 +381,6 @@
             this.labelDetaliiAngajati.Size = new System.Drawing.Size(211, 31);
             this.labelDetaliiAngajati.TabIndex = 12;
             this.labelDetaliiAngajati.Text = "Detalii Angajati";
-            // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(50, 9);
-            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(211, 228);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxLogo.TabIndex = 38;
-            this.pictureBoxLogo.TabStop = false;
             // 
             // TabelaAngajati
             // 
@@ -325,12 +397,14 @@
             this.Load += new System.EventHandler(this.TabelaAngajati_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAngajati)).EndInit();
             this.panelBackground.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUtilizatorLogat)).EndInit();
             this.panelContinut.ResumeLayout(false);
             this.panelContinut.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -354,5 +428,9 @@
         private System.Windows.Forms.Panel panelContinut;
         private System.Windows.Forms.Label labelDetaliiAngajati;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button buttonPaginaAnterioara;
+        private System.Windows.Forms.Button buttonPaginaUrmatoare;
+        private System.Windows.Forms.Label labelPageNumber;
     }
 }

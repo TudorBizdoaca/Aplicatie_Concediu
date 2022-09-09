@@ -24,7 +24,8 @@ namespace Aplicatie_Concediu
         }
         public async Task getConcediiAsync()
         {
-            HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/IstoricConcedii/GetConcediiAngajat?Id={0}", Utils.SesiuneLogIn.angajatLogat.Id));
+            string URL = String.Format("{0}/IstoricConcedii/GetConcediiAngajat?Id={1}", SesiuneLogIn.requestURL, Utils.SesiuneLogIn.angajatLogat.Id);
+            HttpResponseMessage response = await client.GetAsync(URL);
             string responseBody = await response.Content.ReadAsStringAsync();
             concedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
             foreach (Concediu c in concedii)
@@ -90,7 +91,7 @@ namespace Aplicatie_Concediu
 
         private void buttonDetaliiAngajati_Click(object sender, EventArgs e)
         {
-            TabelaAngajati formTabelaAngajati = new TabelaAngajati();
+            TabelaAngajati formTabelaAngajati = new TabelaAngajati(1);
             formTabelaAngajati.Show();
             this.Close();
         }
