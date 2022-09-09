@@ -1,6 +1,8 @@
 ﻿using Aplicatie_Concediu.Models;
+using Aplicatie_Concediu.Utils;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -40,6 +42,29 @@ namespace Aplicatie_Concediu
 
 
         }
+
+        ArrayList ListaIdNumeAng = new ArrayList();
+        public ArrayList getIdNumeAng()
+        {
+            var url = "http://localhost:5085/api/InserareConcediu/GetIdNumeAng";
+            var request = WebRequest.Create(url);
+            request.Method = "GET";
+
+            var webResponse = request.GetResponse();
+            var webStream = webResponse.GetResponseStream();
+
+            var reader = new StreamReader(webStream);
+            var data = reader.ReadToEnd();
+            ArrayList lista = new ArrayList();
+            lista = JsonConvert.DeserializeObject<ArrayList>(data);
+            return lista;
+        }
+
+
+
+
+
+
         public void cbTipConcediuLoad()
         {
             //string query = "select id,nume from TipConcediu";
@@ -58,11 +83,14 @@ namespace Aplicatie_Concediu
             ListaIduriInConcediu.Clear();
 
             //SQL STUFF
-            string query = "select id, CONCAT(nume,' ', prenume) as Nume from angajat";
-            SqlCommand command = new SqlCommand(query, connection);
-            SqlDataReader dataReader = command.ExecuteReader();
-            DataTable dtAngajati = new DataTable();
-            dtAngajati.Load(dataReader);
+            //string query = "select id, CONCAT(nume,' ', prenume) as Nume from angajat";
+            //SqlCommand command = new SqlCommand(query, connection);
+            //SqlDataReader dataReader = command.ExecuteReader();
+            //DataTable dtAngajati = new DataTable();
+            //dtAngajati.Load(dataReader);
+            cbInlocuitor.DataSource = getIdNumeAng();
+            
+
 
 
 
@@ -74,7 +102,7 @@ namespace Aplicatie_Concediu
             param = new SqlParameter("StartDate", StartDate);
             command2.Parameters.Add(param);
            
-            cbInlocuitor.DataSource = dtAngajati;
+            //cbInlocuitor.DataSource = dtAngajati;
             cbInlocuitor.DisplayMember = "Nume";
             cbInlocuitor.ValueMember = "id";
 
@@ -86,7 +114,7 @@ namespace Aplicatie_Concediu
                 ListaIduriInConcediu.Add(int.Parse(dataReader2[0].ToString()));
             }
 
-            dataReader.Close();
+            //dataReader.Close();
             dataReader2.Close();
 
         }

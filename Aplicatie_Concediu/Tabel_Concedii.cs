@@ -16,7 +16,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Aplicatie_Concediu
 {
-    public partial class Tabel_Concedii : Form
+    public  partial class Tabel_Concedii : Form
     {
         static readonly HttpClient client = new HttpClient();
         List<Concediu> listaConcedii = new List<Concediu>();
@@ -89,17 +89,17 @@ namespace Aplicatie_Concediu
 
             populareComboBox();
             cbStariConcedii.SelectedValue = -1;
-            Program.EsteAdmin = Convert.ToInt32(SesiuneLogIn.angajatLogat.EsteAdmin);
+            //Program.EsteAdmin = Convert.ToInt32(SesiuneLogIn.angajatLogat.EsteAdmin);
            
 
-                if (Program.EsteAdmin == 1)
-                {
-                      GetConcedii();
-                }
-                else
-                {
-                    MessageBox.Show("Doar Administratorii pot accesa acest camp");
-                }
+            //    if (Program.EsteAdmin == 1)
+            //    {
+            //          GetConcedii();
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Doar Administratorii pot accesa acest camp");
+            //    }
 
    
 
@@ -109,7 +109,7 @@ namespace Aplicatie_Concediu
         private void dgvTabelConcedii_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Program.IdConcediu = this.dgvTabelConcedii.CurrentRow.Tag.ToString();
-            PaginaDetalii paginaDetalii = new PaginaDetalii();
+            PaginaDetalii paginaDetalii = new PaginaDetalii(this);
             paginaDetalii.Show();
         }
         private async Task GetConcediiByStare(int stareId)
@@ -121,7 +121,7 @@ namespace Aplicatie_Concediu
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
         }
 
-        private async void repopulareGV()
+        public async void repopulareGV()
         {
             dgvTabelConcedii.Rows.Clear();
             await GetConcediiByStare((int)cbStariConcedii.SelectedValue);
