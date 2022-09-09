@@ -1,44 +1,40 @@
-﻿    using Aplicatie_Concediu.Models;
-    using Aplicatie_Concediu.Utils;
-    using Newtonsoft.Json;
-    using System;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Data.SqlClient;
-    using System.IO;
-    using System.Linq;
-    using System.Linq.Expressions;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Windows.Forms;
+﻿using Aplicatie_Concediu.Models;
+using Aplicatie_Concediu.Utils;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-    namespace Aplicatie_Concediu
+namespace Aplicatie_Concediu
+{
+    public partial class InserareConcediu : Form
     {
-        public partial class InserareConcediu : Form
+        const int CONCEDIU_IN_ASTEPTARE = 2;
+        DateTime StartDate;
+        DateTime EndDate;
+
+        static readonly HttpClient client = new HttpClient();
+        public List<TipConcediu> TipuriConcediu = new List<TipConcediu>();
+        public List<Concediu> Concedii = new List<Concediu>();
+        public List<Angajat> Angajati = new List<Angajat>();
+        List<int> ListaIduriInConcediu = new List<int>();
+
+        Dictionary<int, int> zileConcediuPerTip = new Dictionary<int, int>();
+        public async Task getAngajati()
         {
-            const int CONCEDIU_IN_ASTEPTARE = 2;
-            DateTime StartDate;
-            DateTime EndDate;
-            SqlConnection connection = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
-            static readonly HttpClient client = new HttpClient();
-            public List<TipConcediu> TipuriConcediu = new List<TipConcediu>();
-            public List<Concediu> Concedii = new List<Concediu>();
-            public List<Angajat> Angajati = new List<Angajat>();
-            List<int> ListaIduriInConcediu = new List<int>();
-            List<int> zileConcediu = new List<int>();
-            public async Task getAngajati()
-            {
-                HttpResponseMessage response = await client.GetAsync("");
-                string responseBody = await response.Content.ReadAsStringAsync();
-                Angajati = JsonConvert.DeserializeObject<List<Angajat>>(responseBody);
-            }
-            public async Task getTipuriConcediu()
-            {
-                HttpResponseMessage response = await client.GetAsync("");
-                string responseBody = await response.Content.ReadAsStringAsync();
-                TipuriConcediu = JsonConvert.DeserializeObject<List<TipConcediu>>(responseBody);
+            HttpResponseMessage response = await client.GetAsync("");
+            string responseBody = await response.Content.ReadAsStringAsync();
+            Angajati = JsonConvert.DeserializeObject<List<Angajat>>(responseBody);
+        }
+        public async Task getTipuriConcediu()
+        {
+            HttpResponseMessage response = await client.GetAsync("");
+            string responseBody = await response.Content.ReadAsStringAsync();
+            TipuriConcediu = JsonConvert.DeserializeObject<List<TipConcediu>>(responseBody);
 
             }
             public async Task cbTipConcediuLoadAsync()
@@ -62,23 +58,22 @@
                 cbInlocuitor.ValueMember = "Id";
 
 
-            }
-            public InserareConcediu()
-            {
-                InitializeComponent();
-
-                connection.Open();
-
-                cbTipConcediuLoadAsync();
-                dtpFinalConcediu.MinDate = dtpInceputConcediu.Value;
+        }
+        public InserareConcediu()
+        {
+            InitializeComponent();
 
 
-            }
+            cbTipConcediuLoadAsync();
+            dtpFinalConcediu.MinDate = dtpInceputConcediu.Value;
 
-            private async void InserareConcediu_LoadAsync(object sender, EventArgs e)
-            {
-                cbInlocuitorLoad();
-                await cbTipConcediuLoadAsync();
+
+        }
+
+        private async void InserareConcediu_LoadAsync(object sender, EventArgs e)
+        {
+            cbInlocuitorLoad();
+            await cbTipConcediuLoadAsync();
 
                 // Date Utilizator Logat
                 pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(SesiuneLogIn.angajatLogat.Poza));
@@ -95,38 +90,38 @@
                     buttonDetaliiAngajati.Visible = true;
                 }
 
-                // Validari Butoane Admini
-                if (SesiuneLogIn.angajatLogat.EsteAdmin == true)
-                {
-                    buttonDetaliiAngajati.Visible = true;
-                    buttonPanouAdmin.Visible = true;
-                }
-            }
-
-
-
-            private void dtpInceputConcediu_ValueChanged(object sender, EventArgs e)
+            // Validari Butoane Admini
+            if (SesiuneLogIn.angajatLogat.EsteAdmin == true)
             {
-
-                cbInlocuitorLoad();
-                dtpFinalConcediu.MinDate = dtpInceputConcediu.Value;
-
-
+                buttonDetaliiAngajati.Visible = true;
+                buttonPanouAdmin.Visible = true;
             }
+        }
 
-            private void dtpFinalConcediu_ValueChanged(object sender, EventArgs e)
-            {
-                StartDate = dtpInceputConcediu.Value;
-                EndDate = dtpFinalConcediu.Value;
 
-                cbInlocuitorLoad();
-                dtpFinalConcediu.MinDate = dtpInceputConcediu.Value;
 
-            }
-            public async Task insertConcediuAsync()
-            {
+        private void dtpInceputConcediu_ValueChanged(object sender, EventArgs e)
+        {
 
-                //fa check inainte de inlocuitor id
+            cbInlocuitorLoad();
+            dtpFinalConcediu.MinDate = dtpInceputConcediu.Value;
+
+
+        }
+
+        private void dtpFinalConcediu_ValueChanged(object sender, EventArgs e)
+        {
+            StartDate = dtpInceputConcediu.Value;
+            EndDate = dtpFinalConcediu.Value;
+
+            cbInlocuitorLoad();
+            dtpFinalConcediu.MinDate = dtpInceputConcediu.Value;
+
+        }
+        public async Task insertConcediuAsync()
+        {
+
+            //fa check inainte de inlocuitor id
 
                 Concediu c = new Concediu();
                 c.TipConcediuId = int.Parse(cbTipConcediu.SelectedValue.ToString());
@@ -160,60 +155,60 @@
                 client.PostAsync(URL, content);
                 MessageBox.Show("Concediu inserat cu succes");
 
-            }
+        }
 
-            // Buton Iesire
-            private void buttonIesire_Click(object sender, EventArgs e)
-            {
-                SesiuneLogIn.angajatLogat = null;
-                this.Close();
-            }
+        // Buton Iesire
+        private void buttonIesire_Click(object sender, EventArgs e)
+        {
+            SesiuneLogIn.angajatLogat = null;
+            this.Close();
+        }
 
-            // Click Utilizator Logat
-            private void pictureBoxUtilizatorLogat_Click(object sender, EventArgs e)
-            {
-                PaginaMea formPaginaMea = new PaginaMea();
-                formPaginaMea.Show();
-                this.Close();
-            }
+        // Click Utilizator Logat
+        private void pictureBoxUtilizatorLogat_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Close();
+        }
 
-            private void labelNumeUtilizatorLogat_Click(object sender, EventArgs e)
-            {
-                PaginaMea formPaginaMea = new PaginaMea();
-                formPaginaMea.Show();
-                this.Close();
-            }
+        private void labelNumeUtilizatorLogat_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Close();
+        }
 
-            // Buton Deconectare
-            private void labelDeconectare_Click(object sender, EventArgs e)
-            {
-                SesiuneLogIn.angajatLogat = null;
-                Autentificare formAutentificare = new Autentificare();
-                formAutentificare.Show();
-                this.Close();
-            }
+        // Buton Deconectare
+        private void labelDeconectare_Click(object sender, EventArgs e)
+        {
+            SesiuneLogIn.angajatLogat = null;
+            Autentificare formAutentificare = new Autentificare();
+            formAutentificare.Show();
+            this.Close();
+        }
 
-            // Butoane Meniu
-            private void buttonPaginaMea_Click(object sender, EventArgs e)
-            {
-                PaginaMea formPaginaMea = new PaginaMea();
-                formPaginaMea.Show();
-                this.Close();
-            }
+        // Butoane Meniu
+        private void buttonPaginaMea_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Close();
+        }
 
-            private void buttonCerereConcediu_Click(object sender, EventArgs e)
-            {
-                InserareConcediu formInserareConcediu = new InserareConcediu();
-                formInserareConcediu.Show();
-                this.Close();
-            }
+        private void buttonCerereConcediu_Click(object sender, EventArgs e)
+        {
+            InserareConcediu formInserareConcediu = new InserareConcediu();
+            formInserareConcediu.Show();
+            this.Close();
+        }
 
-            private void buttonIstoricConcedii_Click(object sender, EventArgs e)
-            {
-                IstoricConcedii formIstoricConcedii = new IstoricConcedii();
-                formIstoricConcedii.Show();
-                this.Close();
-            }
+        private void buttonIstoricConcedii_Click(object sender, EventArgs e)
+        {
+            IstoricConcedii formIstoricConcedii = new IstoricConcedii();
+            formIstoricConcedii.Show();
+            this.Close();
+        }
 
             private void buttonDetaliiAngajati_Click(object sender, EventArgs e)
             {
@@ -222,12 +217,12 @@
                 this.Close();
             }
 
-            private void buttonPanouAdmin_Click(object sender, EventArgs e)
-            {
-                Tabel_Concedii formTabelConcedii = new Tabel_Concedii();
-                formTabelConcedii.Show();
-                this.Close();
-            }
+        private void buttonPanouAdmin_Click(object sender, EventArgs e)
+        {
+            Tabel_Concedii formTabelConcedii = new Tabel_Concedii();
+            formTabelConcedii.Show();
+            this.Close();
+        }
 
             // Butoane Pagina
             private async void button1_Click(object sender, EventArgs e)
@@ -252,23 +247,36 @@
                 await insertConcediuAsync();
 
 
-            }
+        }
 
-            private void rtfComentarii_KeyPress(object sender, KeyPressEventArgs e)
-            {
-                lblCharCount.Text = "Caractere ramase: " + (500 - (rtfComentarii.Text.Length)).ToString();
-            }
+        private void rtfComentarii_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblCharCount.Text = "Caractere ramase: " + (500 - (rtfComentarii.Text.Length)).ToString();
+        }
 
-            private void button2_Click(object sender, EventArgs e)
-            {
+        private void button2_Click(object sender, EventArgs e)
+        {
 
-            }
+        }
 
-            private void cbTipConcediu_SelectedIndexChanged(object sender, EventArgs e)
-            {
+        private void cbTipConcediu_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-                int index = int.Parse(cbTipConcediu.SelectedValue.ToString()) - 1;
-                lblZileConcediu.Text = zileConcediu[index].ToString();
-            }
+            //int index = ((TipConcediu)cbTipConcediu.SelectedItem).Id - 1;
+            //lblZileConcediu.Text = zileConcediuPerTip[index].ToString();
+        }
+
+        private void cbTipConcediu_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+            //int index = ((TipConcediu)cbTipConcediu.SelectedItem).Id - 1;
+            //lblZileConcediu.Text = zileConcediuPerTip[index].ToString();
+        }
+
+        private void cbTipConcediu_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int index = ((TipConcediu)cbTipConcediu.SelectedItem).Id;
+            lblZileConcediu.Text = zileConcediuPerTip[index].ToString();
         }
     }
+}

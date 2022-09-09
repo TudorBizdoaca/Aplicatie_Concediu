@@ -157,6 +157,7 @@
       <DependentUpon>Tabel_Concedii.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\DateCalculator.cs" />
+    <Compile Include="Utils\ImgConvert.cs" />
     <Compile Include="Utils\SesiuneLogIn.cs" />
     <Compile Include="Utils\ValidariFormular.cs" />
     <EmbeddedResource Include="Autentificare.resx">

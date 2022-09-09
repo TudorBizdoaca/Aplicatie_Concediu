@@ -23,14 +23,15 @@ namespace Aplicatie_Concediu
         static readonly HttpClient client = new HttpClient();
         List<Concediu> listaConcedii = new List<Concediu>();
         List<StareConcediu> listaStariConcedii = new List<StareConcediu>();
-        List<string[]> randGv = new List<string[]>();
+        List<TipConcediu> listaTipuriConcedii = new List<TipConcediu>();
+       
         public Tabel_Concedii()
         {
             InitializeComponent();
         }
 
 
-        private void populareGridView(List<Concediu> concedii)
+        public void populareGridView(List<Concediu> concedii)
         {
             dgvTabelConcedii.ColumnCount = 8;
             dgvTabelConcedii.Columns[0].Name = "Nume";
@@ -42,29 +43,28 @@ namespace Aplicatie_Concediu
             dgvTabelConcedii.Columns[6].Name = "Data Final";
             dgvTabelConcedii.Columns[7].Name = "Stare cerere concediu";
 
-            int i = 0;
+    
             string[] row = new string[] { };
             Dictionary<string, string> dictionarConcedii = new Dictionary<string, string>();
             foreach (Concediu c in concedii)
             {
-                if (c != null)
-                {
-                    row = new string[] {c.Angajat.Nume,c.Angajat.Prenume,
+                if(c != null) { 
+                  row = new string[] {c.Angajat.Nume,c.Angajat.Prenume,
                   c.Angajat.Manager.Nume!=null?c.Angajat.Manager.Nume + " "+c.Angajat.Manager.Prenume:"Nu are manager"
                   ,c.TipConcediu.Nume,c.Inlocuitor.Nume+" "+c.Inlocuitor.Prenume,c.DataInceput.ToString("dd/MM/yyyy"),c.DataSfarsit.ToString("dd/MM/yyyy"),c.StareConcediu.Nume};
                 }
-                int rowIndex = 0;
-                rowIndex = dgvTabelConcedii.Rows.Add(row);
-                if (dgvTabelConcedii.Rows.Count > 0)
+                int rowIndex = 0;  
+                rowIndex  = dgvTabelConcedii.Rows.Add(row);
+                if(dgvTabelConcedii.Rows.Count > 0)
                 {
-
-                    dgvTabelConcedii.Rows[rowIndex].Tag = c.Id;
+     
+                      dgvTabelConcedii.Rows[rowIndex].Tag = c.Id;
                 }
 
-
+                
             }
         }
-
+       
         private async Task GetConcedii(string requestUrl)
         {
             HttpResponseMessage response = await client.GetAsync(requestUrl);
@@ -75,7 +75,7 @@ namespace Aplicatie_Concediu
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
             dgvTabelConcedii.Rows.Clear();
             populareGridView(listaConcedii);
-
+         
         }
 
         private async Task GetConcediiDupaNumeAngajat(string numeAngajat)
@@ -99,31 +99,52 @@ namespace Aplicatie_Concediu
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
 
-
+            
             listaStariConcedii = JsonConvert.DeserializeObject<List<StareConcediu>>(responseBody);
         }
-        private async void populareComboBox()
+
+        private async Task getTipuriConcediu()
         {
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5085/api/TabelConcedii/GetTipConcedii");
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+
+            listaTipuriConcedii = JsonConvert.DeserializeObject<List<TipConcediu>>(responseBody);
+        }
+        private async void populareComboBox()
+        { 
             StareConcediu sToate = new StareConcediu();
-
+            TipConcediu tToate = new TipConcediu();
             await GetStariConcediu();
-
-            cbStariConcedii.ValueMember = "Id";
-            cbStariConcedii.DisplayMember = "Nume";
+            await getTipuriConcediu();
+            tToate.Id = 0;
+            tToate.Nume = "Toate";
             sToate.Id = 0;
             sToate.Nume = "Toate";
+
+            cbStariConcedii.ValueMember ="Id";
+            cbStariConcedii.DisplayMember = "Nume";
+            
             listaStariConcedii.Add(sToate);
             cbStariConcedii.SelectedValue = sToate.Id.ToString();
             cbStariConcedii.DataSource = listaStariConcedii;
+        
+            cbStariConcedii.SelectedIndex = cbStariConcedii.Items.Count-1;
 
-            cbStariConcedii.SelectedIndex = cbStariConcedii.Items.Count - 1;
+            cbTipConcedii.ValueMember = "Id";
+            cbTipConcedii.DisplayMember = "Nume";
+            listaTipuriConcedii.Add(tToate);
+            cbTipConcedii.SelectedValue = tToate.Id.ToString();
+            cbTipConcedii.DataSource = listaTipuriConcedii;
+            cbTipConcedii.SelectedIndex = cbStariConcedii.Items.Count - 1;
         }
         private async void Tabel_Concedii_Load(object sender, EventArgs e)
         {
 
             populareComboBox();
             Program.EsteAdmin = Convert.ToInt32(SesiuneLogIn.angajatLogat.EsteAdmin);
-
+         
             if (Program.EsteAdmin == 1 && cbStariConcedii.SelectedIndex == cbStariConcedii.Items.Count - 1)
             {
                 string URL = String.Format("{0}/TabelConcedii/GetConcedii", SesiuneLogIn.requestURL);
@@ -135,14 +156,14 @@ namespace Aplicatie_Concediu
                 MessageBox.Show("Doar Administratorii pot accesa acest camp");
             }
 
-
+   
 
         }
-
+       
         private void dgvTabelConcedii_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Program.IdConcediu = this.dgvTabelConcedii.CurrentRow.Tag.ToString();
-            PaginaDetalii paginaDetalii = new PaginaDetalii();
+            PaginaDetalii paginaDetalii = new PaginaDetalii(this);
             paginaDetalii.Show();
         }
         private async Task GetConcediiByStare(int stareId)
@@ -157,17 +178,34 @@ namespace Aplicatie_Concediu
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
         }
 
-        private async void repopulareGV()
+        private async Task GetConcediiByTip(int tipId)
+        {
+            listaConcedii.Clear();
+            HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/TabelConcedii/GetConcediiByTipConcediuId?tipConcediuId={0}", tipId));
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
+        }
+
+        public async void repopulareGvDupaSelectStare()
         {
             dgvTabelConcedii.Rows.Clear();
             await GetConcediiByStare((int)cbStariConcedii.SelectedValue);
             populareGridView(listaConcedii);
         }
-
+       
+        private async Task GetConcediiByDataInceputSiDataSfarsit(DateTime dataInceput, DateTime dataSfarsit)
+        {
+            listaConcedii.Clear();
+            HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/TabelConcedii/GetConcediiIntreDataInceputSiDataFinal?dataInceput={0}&dataFinal={1}", dataInceput,dataSfarsit));
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
+        }
         private async void cbStariConcedii_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (cbStariConcedii.SelectedValue.ToString() != "0")
-                repopulareGV();
+            if(cbStariConcedii.SelectedValue.ToString() !="0")
+                 repopulareGvDupaSelectStare();
             else
             {
                 string URL = String.Format("{0}/TabelConcedii/GetConcedii", SesiuneLogIn.requestURL);
@@ -180,18 +218,37 @@ namespace Aplicatie_Concediu
 
         private void tbFiltrareNume_TextChanged(object sender, EventArgs e)
         {
-            if (tbFiltrareNume.Text.Length >= 5)
-            {
-                //  await GetConcediiDupaNumeAngajat(tbFiltrareNume.Text);
-            }
-
+           
         }
 
         private async void tbFiltrareNume_Leave(object sender, EventArgs e)
         {
             dgvTabelConcedii.Rows.Clear();
             await GetConcediiDupaNumeAngajat(tbFiltrareNume.Text);
+            
+        }
 
+        private async void cbTipConcedii_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbTipConcedii.SelectedValue.ToString() != "0")
+            {
+                dgvTabelConcedii.Rows.Clear();
+                await GetConcediiByTip((int)cbTipConcedii.SelectedValue);
+                populareGridView(listaConcedii);
+            }
+            else
+            {
+                await GetConcedii("http://localhost:5085/api/TabelConcedii/GetConcedii");
+                listaConcedii.Clear();
+                populareGridView(listaConcedii);
+            }
+        }
+
+        private async void btnAplicaFiltre_Click(object sender, EventArgs e)
+        {
+            await GetConcediiByDataInceputSiDataSfarsit(dtpDataInceput.Value, dtpDataFinal.Value);
+            dgvTabelConcedii.Rows.Clear();
+            populareGridView(listaConcedii);
         }
     }
 }
