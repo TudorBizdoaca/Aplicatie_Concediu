@@ -45,6 +45,7 @@
             this.lNume = new System.Windows.Forms.Label();
             this.cbTipConcedii = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnAplicaFiltre = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.breakingBreadDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breakingBreadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabelConcedii)).BeginInit();
@@ -83,7 +84,7 @@
             // cbStariConcedii
             // 
             this.cbStariConcedii.FormattingEnabled = true;
-            this.cbStariConcedii.Location = new System.Drawing.Point(681, 60);
+            this.cbStariConcedii.Location = new System.Drawing.Point(654, 60);
             this.cbStariConcedii.Name = "cbStariConcedii";
             this.cbStariConcedii.Size = new System.Drawing.Size(121, 21);
             this.cbStariConcedii.TabIndex = 6;
@@ -101,7 +102,7 @@
             // lStareConcediu
             // 
             this.lStareConcediu.AutoSize = true;
-            this.lStareConcediu.Location = new System.Drawing.Point(678, 44);
+            this.lStareConcediu.Location = new System.Drawing.Point(651, 44);
             this.lStareConcediu.Name = "lStareConcediu";
             this.lStareConcediu.Size = new System.Drawing.Size(80, 13);
             this.lStareConcediu.TabIndex = 7;
@@ -160,7 +161,7 @@
             // cbTipConcedii
             // 
             this.cbTipConcedii.FormattingEnabled = true;
-            this.cbTipConcedii.Location = new System.Drawing.Point(542, 59);
+            this.cbTipConcedii.Location = new System.Drawing.Point(524, 60);
             this.cbTipConcedii.Name = "cbTipConcedii";
             this.cbTipConcedii.Size = new System.Drawing.Size(121, 21);
             this.cbTipConcedii.TabIndex = 14;
@@ -169,17 +170,28 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(539, 43);
+            this.label1.Location = new System.Drawing.Point(521, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "Tip Concediu";
+            // 
+            // btnAplicaFiltre
+            // 
+            this.btnAplicaFiltre.Location = new System.Drawing.Point(811, 57);
+            this.btnAplicaFiltre.Name = "btnAplicaFiltre";
+            this.btnAplicaFiltre.Size = new System.Drawing.Size(75, 23);
+            this.btnAplicaFiltre.TabIndex = 16;
+            this.btnAplicaFiltre.Text = "Aplica Filtre";
+            this.btnAplicaFiltre.UseVisualStyleBackColor = true;
+            this.btnAplicaFiltre.Click += new System.EventHandler(this.btnAplicaFiltre_Click);
             // 
             // Tabel_Concedii
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1122, 534);
+            this.Controls.Add(this.btnAplicaFiltre);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbTipConcedii);
             this.Controls.Add(this.lNume);
@@ -222,5 +234,6 @@
         private System.Windows.Forms.ComboBox cbTipConcedii;
         private System.Windows.Forms.Label lNume;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAplicaFiltre;
     }
 }

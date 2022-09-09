@@ -184,6 +184,14 @@ namespace Aplicatie_Concediu
             populareGridView(listaConcedii);
         }
        
+        private async Task GetConcediiByDataInceputSiDataSfarsit(DateTime dataInceput, DateTime dataSfarsit)
+        {
+            listaConcedii.Clear();
+            HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/TabelConcedii/GetConcediiIntreDataInceputSiDataFinal?dataInceput={0}&dataFinal={1}", dataInceput,dataSfarsit));
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
+        }
         private async void cbStariConcedii_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if(cbStariConcedii.SelectedValue.ToString() !="0")
@@ -222,6 +230,13 @@ namespace Aplicatie_Concediu
                 listaConcedii.Clear();
                 populareGridView(listaConcedii);
             }
+        }
+
+        private async void btnAplicaFiltre_Click(object sender, EventArgs e)
+        {
+            await GetConcediiByDataInceputSiDataSfarsit(dtpDataInceput.Value, dtpDataFinal.Value);
+            dgvTabelConcedii.Rows.Clear();
+            populareGridView(listaConcedii);
         }
     }
 }
