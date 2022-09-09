@@ -29,7 +29,7 @@ namespace Aplicatie_Concediu
         }
 
 
-        private void populareGridView(List<Concediu> concedii)
+        public void populareGridView(List<Concediu> concedii)
         {
             dgvTabelConcedii.ColumnCount = 8;
             dgvTabelConcedii.Columns[0].Name = "Nume";
