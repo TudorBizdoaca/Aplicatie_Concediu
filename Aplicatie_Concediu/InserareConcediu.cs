@@ -21,13 +21,14 @@
             const int CONCEDIU_IN_ASTEPTARE = 2;
             DateTime StartDate;
             DateTime EndDate;
-            SqlConnection connection = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
+         
             static readonly HttpClient client = new HttpClient();
             public List<TipConcediu> TipuriConcediu = new List<TipConcediu>();
             public List<Concediu> Concedii = new List<Concediu>();
             public List<Angajat> Angajati = new List<Angajat>();
             List<int> ListaIduriInConcediu = new List<int>();
-            List<int> zileConcediu = new List<int>();
+            
+            Dictionary<int, int> zileConcediuPerTip = new Dictionary<int, int>();
             public async Task getAngajati()
             {
                 HttpResponseMessage response = await client.GetAsync("");
@@ -66,8 +67,7 @@
             {
                 InitializeComponent();
 
-                connection.Open();
-
+              
                 cbTipConcediuLoadAsync();
                 dtpFinalConcediu.MinDate = dtpInceputConcediu.Value;
 
@@ -84,8 +84,8 @@
                 labelNumeUtilizatorLogat.Text = SesiuneLogIn.angajatLogat.Nume + " " + SesiuneLogIn.angajatLogat.Prenume;
                 var response = await client.GetAsync("http://localhost:5085/api/InserareConcediu/getZileConcediu?idAngajat=" + SesiuneLogIn.angajatLogat.Id.ToString());
                 string responseBody = await response.Content.ReadAsStringAsync();
-                zileConcediu = JsonConvert.DeserializeObject<List<int>>(responseBody);
-                lblZileConcediu.Text = zileConcediu[0].ToString();
+                zileConcediuPerTip = JsonConvert.DeserializeObject<Dictionary<int,int>>(responseBody);
+                lblZileConcediu.Text = zileConcediuPerTip[(int)cbTipConcediu.SelectedValue].ToString();
                 // Validari Butoane Manager
                 if (SesiuneLogIn.angajatLogat.ManagerId == null)
                 {
@@ -237,7 +237,7 @@
                 }
                 var response = await client.GetAsync("http://localhost:5085/api/InserareConcediu/getZileConcediu?idAngajat=" + SesiuneLogIn.angajatLogat.Id.ToString());
                 string responseBody = await response.Content.ReadAsStringAsync();
-                zileConcediu = JsonConvert.DeserializeObject<List<int>>(responseBody);
+                zileConcediuPerTip = JsonConvert.DeserializeObject<Dictionary<int,int>>(responseBody);
                 await insertConcediuAsync();
 
 
@@ -255,9 +255,22 @@
 
             private void cbTipConcediu_SelectedIndexChanged(object sender, EventArgs e)
             {
+            
+            //int index = ((TipConcediu)cbTipConcediu.SelectedItem).Id - 1;
+            //lblZileConcediu.Text = zileConcediuPerTip[index].ToString();
+             }
 
-                int index = int.Parse(cbTipConcediu.SelectedValue.ToString()) - 1;
-                lblZileConcediu.Text = zileConcediu[index].ToString();
-            }
+        private void cbTipConcediu_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+            //int index = ((TipConcediu)cbTipConcediu.SelectedItem).Id - 1;
+            //lblZileConcediu.Text = zileConcediuPerTip[index].ToString();
         }
+
+        private void cbTipConcediu_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int index = ((TipConcediu)cbTipConcediu.SelectedItem).Id;
+            lblZileConcediu.Text = zileConcediuPerTip[index].ToString();
+        }
+    }
     }
