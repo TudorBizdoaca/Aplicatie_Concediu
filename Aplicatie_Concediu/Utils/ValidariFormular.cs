@@ -64,11 +64,17 @@ namespace Aplicatie_Concediu.Utils
 
         public async static Task getAngajatByEmail(string email)
         {
-            HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/PaginaInregistrare/GetAngajatByEmail?email={0}", email));
+            HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/PaginaInregistrare/GetAngajatByEmail?email={0}", email));
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
+            if(responseBody != "")
+                angajat = JsonConvert.DeserializeObject<Angajat>(responseBody);
+            else {
+                angajat = new Angajat();
+                angajat.Id = 0;
+            }
+               
 
-           angajat = JsonConvert.DeserializeObject<Angajat>(responseBody);
         }
         
         public static async void verificareExistentaEmail(ErrorProvider ep, TextBox tb,string email)
