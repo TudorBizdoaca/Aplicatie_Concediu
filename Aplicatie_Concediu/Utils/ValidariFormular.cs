@@ -228,7 +228,38 @@ namespace Aplicatie_Concediu.Utils
             }
             return eValid;
         }
+        public static DateTime extragereDataNastereDinCnp(string cnp) {
+            DateTime dataNasterii = new DateTime();
+            string dataNastere = "";
+            switch (cnp.Substring(0, 1))
+            {
+                case "1":
+                    dataNastere = "19" + cnp.Substring(1, 6);
+                    break;
+                case "2":
+                    dataNastere = "19" + cnp.Substring(1, 6);
+                    break;
+                case "5":
+                    dataNastere = "20" + cnp.Substring(1, 6);
+                    break;
+                case "6":
+                    dataNastere = "20" + cnp.Substring(1, 6);
 
+                    break;
+            }
+
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            try
+            {
+                dataNasterii = DateTime.ParseExact(dataNastere, "yyyyMMdd", provider);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return dataNasterii;
+        }
         public static DateTime extragereDataNastereDinCnp(string cnp, ErrorProvider epCnp, TextBox tb, DateTimePicker dtp, ErrorProvider epDataN)
         {
             DateTime dataNasterii = DateTime.Today;
@@ -253,7 +284,8 @@ namespace Aplicatie_Concediu.Utils
             CultureInfo provider = CultureInfo.InvariantCulture;
             try
             {
-                dataNasterii = DateTime.ParseExact(dataNastere, "yyyyMMdd", provider);
+                DateTime.TryParseExact(dataNastere, "yyyyMMdd", provider, DateTimeStyles.None, out dataNasterii);
+                    
 
             }
             catch (Exception ex)
@@ -277,9 +309,31 @@ namespace Aplicatie_Concediu.Utils
 
         public static bool verificareCifreCnp(string cnp, ErrorProvider ep, TextBox tb, DateTimePicker dtp, ErrorProvider epData)
         {
+            string dataNastere = "";
+            switch (cnp.Substring(0, 1))
+            {
+                case "1":
+                    dataNastere = "19" + cnp.Substring(1, 6);
+                    break;
+                case "2":
+                    dataNastere = "19" + cnp.Substring(1, 6);
+                    break;
+                case "5":
+                    dataNastere = "20" + cnp.Substring(1, 6);
+                    break;
+                case "6":
+                    dataNastere = "20" + cnp.Substring(1, 6);
+
+                    break;
+            }
             bool eValid = true;
+            if (!DateTime.TryParseExact(dataNastere, "yyyyMMdd", null, DateTimeStyles.None, out DateTime result))
+            {
+                return false;
+            }
             DateTime dataNasterii = cnp.Length == 13 ? extragereDataNastereDinCnp(cnp, ep, tb, dtp, epData) : new DateTime();
             int codJudet = 0;
+
             if (cnp.Length > 9)
             {
                 int.TryParse(cnp.Substring(7, 2), out codJudet);
@@ -314,7 +368,7 @@ namespace Aplicatie_Concediu.Utils
             {
                 ep.SetError(tb, "");
             }
-
+           
             return eValid;
         }
     }

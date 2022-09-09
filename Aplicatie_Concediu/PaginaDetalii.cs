@@ -84,12 +84,17 @@ namespace Aplicatie_Concediu
             Concediu con = GetConcediu(Convert.ToInt32(Program.IdConcediu));
             Nume.Text = con.Angajat.Nume;
             Manager.Text = con.Angajat.Manager.Nume;
-            TipConcediu.Text = con.TipConcediu.ToString();
-            Inlocuitor.Text =con.Inlocuitor.ToString();
+            TipConcediu.Text = con.TipConcediu.Nume;
+            Inlocuitor.Text = con.Inlocuitor.Nume;
             DataInceput.Text = con.DataInceput.ToString();
             DataFinal.Text = con.DataSfarsit.ToString();
-            StareCerereConcediu.Text = con.StareConcediu.ToString();
+            StareCerereConcediu.Text = con.StareConcediu.Nume;
             Comentariu.Text = con.Comentarii;
+            if(con.StareConcediu.Nume == "aprobat" || con.StareConcediu.Nume == "respins")
+            {
+                Aproba.Hide();
+                Respinge.Hide();
+            }
             //}
             //dr.Close();
             //cn.Close();
@@ -119,8 +124,8 @@ namespace Aplicatie_Concediu
             con.Id = Convert.ToInt32(Program.IdConcediu);
             con.StareConcediuId = 3;
             bool stare = UpdateStareConcediu(con);
+            refresh.repopulareGV();
             this.Close();
-            this.Refresh();
             
         }
     }
