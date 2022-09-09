@@ -58,12 +58,13 @@
             // 
             // lblStatus
             // 
+            this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblStatus.Location = new System.Drawing.Point(699, 78);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(70, 25);
+            this.lblStatus.Size = new System.Drawing.Size(57, 20);
             this.lblStatus.TabIndex = 3;
             this.lblStatus.Text = "label4";
             // 
@@ -183,14 +184,15 @@
             // 
             // lblInlocuitor
             // 
+            this.lblInlocuitor.AutoSize = true;
             this.lblInlocuitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInlocuitor.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblInlocuitor.Location = new System.Drawing.Point(204, 78);
-            this.lblInlocuitor.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblInlocuitor.Location = new System.Drawing.Point(198, 78);
+            this.lblInlocuitor.Margin = new System.Windows.Forms.Padding(0);
             this.lblInlocuitor.Name = "lblInlocuitor";
-            this.lblInlocuitor.Size = new System.Drawing.Size(24, 25);
+            this.lblInlocuitor.Size = new System.Drawing.Size(50, 20);
             this.lblInlocuitor.TabIndex = 10;
-            this.lblInlocuitor.Text = "a";
+            this.lblInlocuitor.Text = "afsaf";
             // 
             // label1
             // 
@@ -232,6 +234,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Size = new System.Drawing.Size(1077, 454);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

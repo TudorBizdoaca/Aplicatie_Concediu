@@ -72,7 +72,7 @@ namespace Aplicatie_Concediu
                 ang.Serie = tbSerieBuletin.Text;
                 ang.No = tbNrBuletin.Text;
                 ang.NrTelefon = tbNrTelefon.Text;
-              
+               // ang.Poza = ImgConvert.ConvertImageToByteArray("C:\\Aplicatie Concediu\\Aplicatie_Concediu\\Aplicatie_Concediu\\pozaDefault");
                 bool d = InrengistrareAngajatAPI(ang);
                 if (d == true)
                 {
@@ -430,15 +430,22 @@ namespace Aplicatie_Concediu
 
         #endregion
 
-
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonIesire_Click(object sender, EventArgs e)
         {
-            this.Close();
+            SesiuneLogIn.angajatLogat = null;
+            Application.Exit();
         }
 
         private void tbEmail_Leave(object sender, EventArgs e)
         {
             ValidariFormular.verificareExistentaEmail(errorProviderEmail, tbEmail,tbEmail.Text);
+        }
+
+        private void buttonInapoi_Click(object sender, EventArgs e)
+        {
+            Autentificare formAutentificare = new Autentificare();
+            formAutentificare.Show();
+            this.Close();
         }
     }
 
