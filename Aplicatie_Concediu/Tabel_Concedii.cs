@@ -136,7 +136,7 @@ namespace Aplicatie_Concediu
         private void dgvTabelConcedii_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Program.IdConcediu = this.dgvTabelConcedii.CurrentRow.Tag.ToString();
-            PaginaDetalii paginaDetalii = new PaginaDetalii();
+            PaginaDetalii paginaDetalii = new PaginaDetalii(this);
             paginaDetalii.Show();
         }
         private async Task GetConcediiByStare(int stareId)
