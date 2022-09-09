@@ -72,7 +72,7 @@ namespace Aplicatie_Concediu
                 ang.Serie = tbSerieBuletin.Text;
                 ang.No = tbNrBuletin.Text;
                 ang.NrTelefon = tbNrTelefon.Text;
-               // ang.Poza = ImgConvert.ConvertImageToByteArray("C:\\Aplicatie Concediu\\Aplicatie_Concediu\\Aplicatie_Concediu\\pozaDefault");
+                ang.Poza = ImgConvert.ConvertImageToByteArray("C:\\Aplicatie Concediu\\Aplicatie_Concediu\\Aplicatie_Concediu\\pozaDefault");
                 bool d = InrengistrareAngajatAPI(ang);
                 if (d == true)
                 {
@@ -405,7 +405,7 @@ namespace Aplicatie_Concediu
             {
                 smtpClient.Send(mail);
             }
-            catch(Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Trimitere esuata!!", "Esec", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
