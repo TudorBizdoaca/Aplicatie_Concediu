@@ -63,6 +63,10 @@
             this.panelContinut = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.labelCereriConcediu = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelPageNumber = new System.Windows.Forms.Label();
+            this.buttonPaginaAnterioara = new System.Windows.Forms.Button();
+            this.buttonPaginaUrmatoare = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.breakingBreadDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breakingBreadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabelConcedii)).BeginInit();
@@ -74,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUtilizatorLogat)).BeginInit();
             this.panelContinut.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // breakingBreadDataSetBindingSource
@@ -88,6 +93,7 @@
             // 
             // dgvTabelConcedii
             // 
+            this.dgvTabelConcedii.AllowUserToAddRows = false;
             this.dgvTabelConcedii.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -96,7 +102,7 @@
             this.dgvTabelConcedii.Margin = new System.Windows.Forms.Padding(0);
             this.dgvTabelConcedii.Name = "dgvTabelConcedii";
             this.dgvTabelConcedii.RowHeadersWidth = 51;
-            this.dgvTabelConcedii.Size = new System.Drawing.Size(925, 121);
+            this.dgvTabelConcedii.Size = new System.Drawing.Size(925, 47);
             this.dgvTabelConcedii.TabIndex = 5;
             this.dgvTabelConcedii.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTabelConcedii_CellDoubleClick);
             // 
@@ -473,6 +479,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContinut.AutoScroll = true;
             this.panelContinut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(239)))), ((int)(((byte)(198)))));
+            this.panelContinut.Controls.Add(this.tableLayoutPanel3);
             this.panelContinut.Controls.Add(this.tableLayoutPanel2);
             this.panelContinut.Controls.Add(this.labelCereriConcediu);
             this.panelContinut.Controls.Add(this.dgvTabelConcedii);
@@ -527,6 +534,71 @@
             this.labelCereriConcediu.TabIndex = 17;
             this.labelCereriConcediu.Text = "Cereri Concediu";
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.tableLayoutPanel3.Controls.Add(this.labelPageNumber, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.buttonPaginaAnterioara, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.buttonPaginaUrmatoare, 2, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(50, 397);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0, 50, 0, 0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(925, 45);
+            this.tableLayoutPanel3.TabIndex = 46;
+            // 
+            // labelPageNumber
+            // 
+            this.labelPageNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPageNumber.AutoSize = true;
+            this.labelPageNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPageNumber.ForeColor = System.Drawing.Color.Peru;
+            this.labelPageNumber.Location = new System.Drawing.Point(419, 5);
+            this.labelPageNumber.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.labelPageNumber.Name = "labelPageNumber";
+            this.labelPageNumber.Size = new System.Drawing.Size(86, 29);
+            this.labelPageNumber.TabIndex = 46;
+            this.labelPageNumber.Text = "1";
+            this.labelPageNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonPaginaAnterioara
+            // 
+            this.buttonPaginaAnterioara.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPaginaAnterioara.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
+            this.buttonPaginaAnterioara.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPaginaAnterioara.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonPaginaAnterioara.Location = new System.Drawing.Point(371, 0);
+            this.buttonPaginaAnterioara.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonPaginaAnterioara.Name = "buttonPaginaAnterioara";
+            this.buttonPaginaAnterioara.Size = new System.Drawing.Size(45, 39);
+            this.buttonPaginaAnterioara.TabIndex = 43;
+            this.buttonPaginaAnterioara.Text = "<";
+            this.buttonPaginaAnterioara.UseVisualStyleBackColor = false;
+            this.buttonPaginaAnterioara.Visible = false;
+            this.buttonPaginaAnterioara.Click += new System.EventHandler(this.buttonPaginaAnterioara_Click);
+            // 
+            // buttonPaginaUrmatoare
+            // 
+            this.buttonPaginaUrmatoare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(111)))));
+            this.buttonPaginaUrmatoare.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPaginaUrmatoare.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonPaginaUrmatoare.Location = new System.Drawing.Point(508, 0);
+            this.buttonPaginaUrmatoare.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonPaginaUrmatoare.Name = "buttonPaginaUrmatoare";
+            this.buttonPaginaUrmatoare.Size = new System.Drawing.Size(45, 39);
+            this.buttonPaginaUrmatoare.TabIndex = 44;
+            this.buttonPaginaUrmatoare.Text = ">";
+            this.buttonPaginaUrmatoare.UseVisualStyleBackColor = false;
+            this.buttonPaginaUrmatoare.Visible = false;
+            this.buttonPaginaUrmatoare.Click += new System.EventHandler(this.buttonPaginaUrmatoare_Click);
+            // 
             // Tabel_Concedii
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -554,6 +626,8 @@
             this.panelContinut.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -593,5 +667,9 @@
         private System.Windows.Forms.Panel panelContinut;
         private System.Windows.Forms.Label labelCereriConcediu;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label labelPageNumber;
+        private System.Windows.Forms.Button buttonPaginaAnterioara;
+        private System.Windows.Forms.Button buttonPaginaUrmatoare;
     }
 }

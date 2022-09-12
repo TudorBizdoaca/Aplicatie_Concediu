@@ -19,8 +19,8 @@ namespace Aplicatie_Concediu
     
     public partial class TabelaAngajati : Form
     {
-        int pagina;
-        int nrPagini;
+        private int pagina;
+        private int nrPagini;
 
         const string ImagePath = "C:\\Users\\gunal.sadic\\Downloads\\PozaDefaultAngajati";
         static readonly HttpClient client = new HttpClient();
@@ -173,7 +173,7 @@ namespace Aplicatie_Concediu
 
         private void buttonPanouAdmin_Click(object sender, EventArgs e)
         {
-            Tabel_Concedii formTabelConcedii = new Tabel_Concedii();
+            Tabel_Concedii formTabelConcedii = new Tabel_Concedii(1);
             formTabelConcedii.Show();
             this.Close();
         }
