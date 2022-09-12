@@ -98,8 +98,10 @@
     </Compile>
     <Compile Include="Models\Angajat.cs" />
     <Compile Include="Models\Concediu.cs" />
+    <Compile Include="Models\Date.cs" />
     <Compile Include="Models\StareConcediu.cs" />
     <Compile Include="Models\TipConcediu.cs" />
+    <Compile Include="Models\ZileLibereAnCurent.cs" />
     <Compile Include="PaginaDetalii.cs">
       <SubType>Form</SubType>
     </Compile>
