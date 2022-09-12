@@ -253,16 +253,14 @@ namespace Aplicatie_Concediu
             DateTime? dataFinal = null;
             if(dataInceputSelectata && dataFinalSelectata)
             {
-                dataInceput = dtpDataInceput.Value;
-            }
-            else
-            {
+                dataInceput = dtpDataInceput.Value; 
                 dataFinal = dtpDataFinal.Value;
             }
+      
 
             dgvTabelConcedii.Rows.Clear();
         
-            await GetConcediiCuFiltre(nume, stareId, tipId, dataInceput, dtpDataFinal.Value);
+            await GetConcediiCuFiltre(nume, stareId, tipId, dataInceput, dataFinal);
 
         
             populareGridView(listaConcedii);
