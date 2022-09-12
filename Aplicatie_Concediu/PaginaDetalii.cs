@@ -124,7 +124,7 @@ namespace Aplicatie_Concediu
             con.Id = Convert.ToInt32(Program.IdConcediu);
             con.StareConcediuId = 3;
             bool stare = UpdateStareConcediu(con);
-            refresh.repopulareGV();
+            refresh.repopulareGvDupaSelectStare();
             this.Close();
             
         }
