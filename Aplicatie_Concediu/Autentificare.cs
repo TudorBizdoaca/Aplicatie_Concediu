@@ -55,7 +55,7 @@ namespace Aplicatie_Concediu
 
         private async void LogInUtilizator(string email, string parola)
         {
-            string URL = "http://localhost:5085/api/Autentificare/LogInUtilizator?email=" + email + "&parola=" + parola;
+            string URL = String.Format("{0}/Autentificare/LogInUtilizator?email={1}&parola={2}", SesiuneLogIn.requestURL, email, parola);
 
             // Creare conexiune
             HttpClient httpClient = new HttpClient();
