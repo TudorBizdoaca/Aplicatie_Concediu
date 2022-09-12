@@ -156,6 +156,7 @@ namespace Aplicatie_Concediu
         private void buttonIesire_Click(object sender, EventArgs e)
         {
             SesiuneLogIn.angajatLogat = null;
+           
             Application.Exit();
         }
 
@@ -224,6 +225,12 @@ namespace Aplicatie_Concediu
         {
             StartDate = dtpInceputConcediu.Value;
             EndDate = dtpFinalConcediu.Value;
+            DateTime now = DateTime.Now;
+            if(StartDate < now)
+            {
+                MessageBox.Show("Actiune imposibila, concediul cerut este in trecut");
+                return;
+            }
             if (cbTipConcediu.SelectedItem == null)
             {
                 MessageBox.Show("Alege tipul de concediu!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -278,6 +285,11 @@ namespace Aplicatie_Concediu
         {
             int index = ((TipConcediu)cbTipConcediu.SelectedItem).Id;
             lblZileConcediu.Text = zileConcediuPerTip[index].ToString();
+        }
+
+        private void InserareConcediu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            client.Dispose();
         }
     }
 }

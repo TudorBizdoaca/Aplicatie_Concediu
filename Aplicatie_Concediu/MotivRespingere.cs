@@ -49,10 +49,7 @@ namespace Aplicatie_Concediu
             }
 
         }
-        private void Motiv_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            lblCharCount.Text = "Caractere ramase: " + (500 - (Motiv.Text.Length)).ToString();
-        }
+        
 
         private async void Salveaza_Click(object sender, EventArgs e)
         {
@@ -69,6 +66,11 @@ namespace Aplicatie_Concediu
         private void Anuleaza_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Motiv_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            lblCharCount.Text = "Caractere ramase: " + (500 - (Motiv.Text.Length)).ToString();
         }
     }
 }

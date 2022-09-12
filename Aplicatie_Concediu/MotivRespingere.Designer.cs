@@ -42,6 +42,7 @@
             this.Motiv.Name = "Motiv";
             this.Motiv.Size = new System.Drawing.Size(307, 128);
             this.Motiv.TabIndex = 1;
+            this.Motiv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Motiv_KeyPress_1);
             // 
             // label1
             // 
@@ -65,10 +66,13 @@
             // lblCharCount
             // 
             this.lblCharCount.AutoSize = true;
-            this.lblCharCount.Location = new System.Drawing.Point(411, 235);
+            this.lblCharCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCharCount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblCharCount.Location = new System.Drawing.Point(335, 230);
             this.lblCharCount.Name = "lblCharCount";
-            this.lblCharCount.Size = new System.Drawing.Size(0, 16);
+            this.lblCharCount.Size = new System.Drawing.Size(212, 25);
             this.lblCharCount.TabIndex = 6;
+            this.lblCharCount.Text = "Caractere ramase: 500";
             // 
             // Anuleaza
             // 
@@ -84,7 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 338);
+            this.ClientSize = new System.Drawing.Size(649, 345);
             this.Controls.Add(this.Anuleaza);
             this.Controls.Add(this.lblCharCount);
             this.Controls.Add(this.Salveaza);
@@ -101,7 +105,7 @@
         private System.Windows.Forms.TextBox Motiv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Salveaza;
-        private System.Windows.Forms.Label lblCharCount;
         private System.Windows.Forms.Button Anuleaza;
+        public System.Windows.Forms.Label lblCharCount;
     }
 }
