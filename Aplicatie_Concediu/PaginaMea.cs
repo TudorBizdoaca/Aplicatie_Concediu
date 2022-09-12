@@ -17,6 +17,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Aplicatie_Concediu
@@ -60,11 +61,14 @@ namespace Aplicatie_Concediu
             dateTimePickerDataNasterii.Value = SesiuneLogIn.angajatLogat.DataNasterii;
             dateTimePickerDataAngajarii.Value = SesiuneLogIn.angajatLogat.DataAngajare;
         }
+        // Event handler pentru Close
+
 
         // Buton Iesire
         private void buttonIesire_Click(object sender, EventArgs e)
         {
             SesiuneLogIn.angajatLogat = null;
+            
             Application.Exit();
         }
 
@@ -149,6 +153,12 @@ namespace Aplicatie_Concediu
 
         private void buttonAnuleaza_Click(object sender, EventArgs e)
         {
+            textBoxEmail_Validated( sender,  e);
+
+         
+          
+         
+
             PaginaMea formPaginaMea = new PaginaMea();
             formPaginaMea.Show();
             this.Close();
@@ -157,7 +167,7 @@ namespace Aplicatie_Concediu
         private void buttonSalveaza_Click(object sender, EventArgs e)
         {
             // Validari
-
+           
 
             // Update Angajat
             Angajat angajat = new Angajat();
@@ -234,6 +244,71 @@ namespace Aplicatie_Concediu
             }
         }
 
+        private void textBoxEmail_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+            if (!ValidEmailAddress(textBoxEmail.Text, out errorMsg))
+            {
+                // Cancel the event and select the text to be corrected by the user.
+                e.Cancel = true;
+                textBoxEmail.Select(0, textBoxEmail.Text.Length);
+
+                // Set the ErrorProvider error with the text to display. 
+                this.errorProvider1.SetError(textBoxEmail, errorMsg);
+            }
+        }
+
+        private void textBoxEmail_Validated(object sender, EventArgs e)
+        {
+            errorProvider1.SetError(textBoxEmail, "");
+        }
+        public bool ValidEmailAddress(string emailAddress, out string errorMessage)
+        {
+            // Confirm that the email address string is not empty.
+            if (emailAddress.Length == 0)
+            {
+                errorMessage = "email address is required.";
+                return false;
+            }
+
+            // Confirm that there is an "@" and a "." in the email address, and in the correct order.
+            if (emailAddress.IndexOf("@") > -1)
+            {
+                if (emailAddress.IndexOf(".", emailAddress.IndexOf("@")) > emailAddress.IndexOf("@"))
+                {
+                    errorMessage = "";
+                    return true;
+                }
+            }
+
+            errorMessage = "email address must be valid email address format.\n" +
+               "For example 'someone@example.com' ";
+            return false;
+        }
+
      
+
+        private void PaginaMea_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = false;
+            this.errorProvider1.Clear();
+            this.textBoxEmail_Validated(sender, e);
+            
+        }
+
+        private void textBoxSerie_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+            if (!(Utils.ValidariFormular.validareSerie(errorProvider2, textBoxSerie))) {
+                errorProvider2.SetError(textBoxSerie, "Selectai o serie de buletin Valida!");
+            }
+           
+               
+        }
+
+        private void textBoxSerie_Validated(object sender, EventArgs e)
+        {
+            errorProvider2.SetError(textBoxSerie, "");
+        }
     }
 }

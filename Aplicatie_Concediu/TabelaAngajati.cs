@@ -52,20 +52,25 @@ namespace Aplicatie_Concediu
 
         async Task GetAngajati()
         {
-            int position = (pagina - 1) * 10;
+          
+                int position = (pagina - 1) * 10;
 
-            string URL = String.Format("{0}/Angajat/GetAngajati?position={1}", SesiuneLogIn.requestURL, position);
+                string URL = String.Format("{0}/Angajat/GetAngajati?position={1}", SesiuneLogIn.requestURL, position);
 
-            HttpResponseMessage response =  await client.GetAsync(URL);
-            string responseBody = await response.Content.ReadAsStringAsync();
-            Angajati = JsonConvert.DeserializeObject<List<Angajat>>(responseBody);
-            var source = new BindingSource();
-            source.DataSource = Angajati;
-            dgvAngajati.DataSource = source;
-            dgvAngajati.Columns.Remove("Manager");
-            dgvAngajati.Columns.Remove("ConcediuAngajats");
-            dgvAngajati.Columns.Remove("ConcediuInlocuitors");
-            dgvAngajati.Columns.Remove("InverseManager");
+                HttpResponseMessage response = await client.GetAsync(URL);
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Angajati = JsonConvert.DeserializeObject<List<Angajat>>(responseBody);
+                var source = new BindingSource();
+                source.DataSource = Angajati;
+                dgvAngajati.DataSource = source;
+            if (dgvAngajati.Columns.Count != 0)
+            {
+                dgvAngajati.Columns.Remove("Manager");
+                dgvAngajati.Columns.Remove("ConcediuAngajats");
+                dgvAngajati.Columns.Remove("ConcediuInlocuitors");
+                dgvAngajati.Columns.Remove("InverseManager");
+            }
+          
         }
 
         private async void TabelaAngajati_Load(object sender, EventArgs e)
@@ -109,6 +114,7 @@ namespace Aplicatie_Concediu
         private void buttonIesire_Click(object sender, EventArgs e)
         {
             SesiuneLogIn.angajatLogat = null;
+            client.Dispose();
             Application.Exit();
         }
 

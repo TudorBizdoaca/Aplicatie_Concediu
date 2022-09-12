@@ -318,34 +318,37 @@ namespace Aplicatie_Concediu.Utils
         {   
 
             string dataNastere = "";
-            switch (cnp.Substring(0, 1))
-            {
-                case "1":
-                    dataNastere = "19" + cnp.Substring(1, 6);
-                    break;
-                case "2":
-                    dataNastere = "19" + cnp.Substring(1, 6);
-                    break;
-                case "5":
-                    dataNastere = "20" + cnp.Substring(1, 6);
-                    break;
-                case "6":
-                    dataNastere = "20" + cnp.Substring(1, 6);
 
-                    break;
-            }
             bool eValid = true;
             if (!DateTime.TryParseExact(dataNastere, "yyyyMMdd", null, DateTimeStyles.None, out DateTime result))
             {
-                return false;
+                eValid = false;
             }
-            DateTime dataNasterii = cnp.Length == 13 ? extragereDataNastereDinCnp(cnp, ep, tb, dtp, epData) : new DateTime();
+   
             int codJudet = 0;
 
             if (cnp.Length > 9)
             {
                 int.TryParse(cnp.Substring(7, 2), out codJudet);
+
+                switch (cnp.Substring(0, 1))
+                {
+                    case "1":
+                        dataNastere = "19" + cnp.Substring(1, 6);
+                        break;
+                    case "2":
+                        dataNastere = "19" + cnp.Substring(1, 6);
+                        break;
+                    case "5":
+                        dataNastere = "20" + cnp.Substring(1, 6);
+                        break;
+                    case "6":
+                        dataNastere = "20" + cnp.Substring(1, 6);
+                        break;
+                }
+
             }
+            DateTime dataNasterii = cnp.Length == 13 ? extragereDataNastereDinCnp(cnp, ep, tb, dtp, epData) : new DateTime();
 
             if (String.IsNullOrEmpty(cnp) || String.IsNullOrWhiteSpace(cnp))
             {
@@ -354,7 +357,6 @@ namespace Aplicatie_Concediu.Utils
             }
             else if (cnp.Length != 13)
             {
-
                 ep.SetError(tb, "CNP Invalid! Lungimea trebuie sa fie 13!");
                 eValid = false;
             }
@@ -375,6 +377,7 @@ namespace Aplicatie_Concediu.Utils
             else
             {
                 ep.SetError(tb, "");
+                eValid = true;
             }
            
             return eValid;
