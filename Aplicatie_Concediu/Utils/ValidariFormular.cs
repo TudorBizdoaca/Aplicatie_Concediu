@@ -63,32 +63,27 @@ namespace Aplicatie_Concediu.Utils
         }
 
         public async static Task getAngajatByEmail(string email)
-        {   if (email != String.Empty)
-            {
-                HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/PaginaInregistrare/GetAngajatByEmail?email={0}", email));
-                response.EnsureSuccessStatusCode();
-                string responseBody = await response.Content.ReadAsStringAsync();
-                if (responseBody != "")
-                    angajat = JsonConvert.DeserializeObject<Angajat>(responseBody);
-                else
-                {
-                    angajat = new Angajat();
-                    angajat.Id = 0;
-                }
-                
-            }
-            else
-            {
+        {
+            HttpResponseMessage response = await client.GetAsync(String.Format("{0}/PaginaInregistrare/GetAngajatByEmail?email={1}",SesiuneLogIn.requestURL, email));
+            response.EnsureSuccessStatusCode();
+            string responseBody="";
+            if (response.IsSuccessStatusCode)
+                responseBody = await response.Content.ReadAsStringAsync();
+            if(responseBody != "")
+                angajat = JsonConvert.DeserializeObject<Angajat>(responseBody);
+            else {
                 angajat = new Angajat();
                 angajat.Id = 0;
             }
+               
+
         }
         
         public static async void verificareExistentaEmail(ErrorProvider ep, TextBox tb,string email)
         {
-           
-           await getAngajatByEmail(email);
-            if (angajat.Id != 0)
+           if(!String.IsNullOrEmpty(email)|| !String.IsNullOrWhiteSpace(email))
+                 await getAngajatByEmail(email);
+            if ( angajat == null || angajat.Id != 0 )
             {
                 ep.SetError(tb, "E-mailul exista deja in baza de date!!!!!");
                 eValid = false;
@@ -104,7 +99,7 @@ namespace Aplicatie_Concediu.Utils
             Regex emailRegexp = new Regex(emailRegex);
            
            
-            if (!emailRegexp.IsMatch(tb.Text))
+            if (!emailRegexp.IsMatch(tb.Text) || tb.Text.Length < 4)
             {
                 ep.SetError(tb, "E-mailul nu este valid!");
                 eValid = false;

@@ -128,6 +128,7 @@ namespace Aplicatie_Concediu
 
 
             listaTipuriConcedii = JsonConvert.DeserializeObject<List<TipConcediu>>(responseBody);
+   
         }
         private async void populareComboBox()
         { 
@@ -214,6 +215,7 @@ namespace Aplicatie_Concediu
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
+        
         }
 
         private async Task GetConcediiByTip(int tipId)
@@ -223,6 +225,7 @@ namespace Aplicatie_Concediu
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
+
         }
 
         public async void repopulareGvDupaSelectStare()
@@ -230,6 +233,7 @@ namespace Aplicatie_Concediu
             dgvTabelConcedii.Rows.Clear();
             await GetConcediiByStare((int)cbStariConcedii.SelectedValue);
             populareGridView(listaConcedii);
+            
         }
        
         private async void cbStariConcedii_SelectionChangeCommitted(object sender, EventArgs e)
@@ -259,6 +263,7 @@ namespace Aplicatie_Concediu
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
+        
         }
 
         private async void cbTipConcedii_SelectionChangeCommitted(object sender, EventArgs e)

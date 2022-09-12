@@ -172,7 +172,6 @@ namespace Aplicatie_Concediu
         }
 
 
-
         private bool validareCodVerificare()
         {
             bool eValid = true;
@@ -252,22 +251,12 @@ namespace Aplicatie_Concediu
             ValidariFormular.validareEmail(errorProviderEmail, tbEmail);
         }
 
-        private void tbEmail_Validated(object sender, EventArgs e)
-        {
-            errorProviderEmail.Clear();
-
-        }
-
         private void tbParola_Validating(object sender, CancelEventArgs e)
         {
             ValidariFormular.validareParola(errorProviderParola, tbParola);
         }
 
-        private void tbParola_Validated(object sender, EventArgs e)
-        {
-            errorProviderParola.Clear();
-        }
-
+       
         private void dtpDataNastere_Validating(object sender, CancelEventArgs e)
         {
             if (tbCnp.Text.Length == 13)
@@ -277,24 +266,10 @@ namespace Aplicatie_Concediu
             }
 
         }
-
-        private void dtpDataNastere_Validated(object sender, EventArgs e)
-        {
-            errorProviderDataNastere.Clear();
-            errorProviderCnp.Clear();
-
-
-        }
-
+ 
         private void dtpDataAngajare_Validating(object sender, CancelEventArgs e)
         {
             ValidariFormular.validareDataAngajare(errorProviderDataAngajare, dtpDataAngajare);
-        }
-
-        private void dtpDataAngajare_Validated(object sender, EventArgs e)
-        {
-            errorProviderDataAngajare.Clear();
-
         }
 
         private void tbCnp_Validating(object sender, CancelEventArgs e)
@@ -312,21 +287,11 @@ namespace Aplicatie_Concediu
             ValidariFormular.validareSerie(errorProviderSerieBuletin, tbSerieBuletin);
         }
 
-        private void tbSerieBuletin_Validated(object sender, EventArgs e)
-        {
-            errorProviderSerieBuletin.Clear();
-
-        }
+        
 
         private void tbNrBuletin_Validating(object sender, CancelEventArgs e)
         {
             ValidariFormular.validareNrBuletin(errorProviderNrBuletin, tbNrBuletin);
-        }
-
-        private void tbNrBuletin_Validated(object sender, EventArgs e)
-        {
-            errorProviderNrBuletin.Clear();
-
         }
 
         private void tbNrTelefon_Validating(object sender, CancelEventArgs e)
@@ -334,29 +299,12 @@ namespace Aplicatie_Concediu
             ValidariFormular.validareNrTelefon(errorProviderNrTelefon, tbNrTelefon);
         }
 
-        private void tbNrTelefon_Validated(object sender, EventArgs e)
-        {
-            errorProviderNrTelefon.Clear();
-
-        }
-
         private void tbCodVerificare_Validating(object sender, CancelEventArgs e)
         {
             validareCodVerificare();
         }
 
-        private void tbCodVerificare_Validated(object sender, EventArgs e)
-        {
-            errorProviderCodVerificare.Clear();
-        }
-
-
-        private void tbParolaConfirmare_Validated(object sender, EventArgs e)
-        {
-            errorProviderConfirmaParola.Clear();
-        }
-
-        #endregion
+      #endregion
 
 
         #region Trimitere E-mail Cod Verificare
@@ -417,6 +365,7 @@ namespace Aplicatie_Concediu
         private void tbEmail_Leave(object sender, EventArgs e)
         {
             ValidariFormular.verificareExistentaEmail(errorProviderEmail, tbEmail, tbEmail.Text);
+            ValidariFormular.validareEmail(errorProviderEmail, tbEmail);
         }
 
         private void buttonInapoi_Click(object sender, EventArgs e)
