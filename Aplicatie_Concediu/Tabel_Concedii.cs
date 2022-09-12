@@ -3,6 +3,7 @@ using Aplicatie_Concediu.Utils;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -136,6 +137,22 @@ namespace Aplicatie_Concediu
         }
         private async void Tabel_Concedii_Load(object sender, EventArgs e)
         {
+            // Date Utilizator Logat
+            pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(SesiuneLogIn.angajatLogat.Poza));
+            labelNumeUtilizatorLogat.Text = SesiuneLogIn.angajatLogat.Nume + " " + SesiuneLogIn.angajatLogat.Prenume;
+
+            // Validari Butoane Manager
+            if (SesiuneLogIn.angajatLogat.ManagerId == null)
+            {
+                buttonDetaliiAngajati.Visible = true;
+            }
+
+            // Validari Butoane Admini
+            if (SesiuneLogIn.angajatLogat.EsteAdmin == true)
+            {
+                buttonDetaliiAngajati.Visible = true;
+                buttonPanouAdmin.Visible = true;
+            }
 
             populareComboBox();
             Program.EsteAdmin = Convert.ToInt32(SesiuneLogIn.angajatLogat.EsteAdmin);
@@ -278,6 +295,74 @@ namespace Aplicatie_Concediu
         private void dtpDataFinal_ValueChanged(object sender, EventArgs e)
         {
             dataFinalSelectata = true;
+        }
+
+        // Buton Iesire
+        private void buttonIesire_Click(object sender, EventArgs e)
+        {
+            SesiuneLogIn.angajatLogat = null;
+            client.Dispose();
+            Application.Exit();
+        }
+
+        // Click Utilizator Logat
+        private void pictureBoxUtilizatorLogat_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Close();
+        }
+
+        private void labelNumeUtilizatorLogat_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Close();
+        }
+
+        // Buton Deconectare
+        private void labelDeconectare_Click(object sender, EventArgs e)
+        {
+            SesiuneLogIn.angajatLogat = null;
+            Autentificare formAutentificare = new Autentificare();
+            formAutentificare.Show();
+            this.Close();
+        }
+
+        // Butoane Meniu
+        private void buttonPaginaMea_Click(object sender, EventArgs e)
+        {
+            PaginaMea formPaginaMea = new PaginaMea();
+            formPaginaMea.Show();
+            this.Close();
+        }
+
+        private void buttonCerereConcediu_Click(object sender, EventArgs e)
+        {
+            InserareConcediu formInserareConcediu = new InserareConcediu();
+            formInserareConcediu.Show();
+            this.Close();
+        }
+
+        private void buttonIstoricConcedii_Click(object sender, EventArgs e)
+        {
+            IstoricConcedii formIstoricConcedii = new IstoricConcedii();
+            formIstoricConcedii.Show();
+            this.Close();
+        }
+
+        private void buttonDetaliiAngajati_Click(object sender, EventArgs e)
+        {
+            TabelaAngajati formTabelaAngajati = new TabelaAngajati(1);
+            formTabelaAngajati.Show();
+            this.Close();
+        }
+
+        private void buttonPanouAdmin_Click(object sender, EventArgs e)
+        {
+            Tabel_Concedii formTabelConcedii = new Tabel_Concedii();
+            formTabelConcedii.Show();
+            this.Close();
         }
     }
 }
