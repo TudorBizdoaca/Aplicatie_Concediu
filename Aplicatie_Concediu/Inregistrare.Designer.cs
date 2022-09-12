@@ -267,7 +267,7 @@
             this.lPrenumeInreg.Location = new System.Drawing.Point(762, 0);
             this.lPrenumeInreg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lPrenumeInreg.Name = "lPrenumeInreg";
-            this.lPrenumeInreg.Size = new System.Drawing.Size(107, 30);
+            this.lPrenumeInreg.Size = new System.Drawing.Size(134, 30);
             this.lPrenumeInreg.TabIndex = 11;
             this.lPrenumeInreg.Text = "Prenume";
             // 
