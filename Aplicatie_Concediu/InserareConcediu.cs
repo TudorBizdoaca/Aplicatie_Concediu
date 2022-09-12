@@ -215,7 +215,7 @@ namespace Aplicatie_Concediu
 
         private void buttonPanouAdmin_Click(object sender, EventArgs e)
         {
-            Tabel_Concedii formTabelConcedii = new Tabel_Concedii();
+            Tabel_Concedii formTabelConcedii = new Tabel_Concedii(1);
             formTabelConcedii.Show();
             this.Close();
         }

@@ -12,6 +12,9 @@ namespace Aplicatie_Concediu
 {
     public partial class Tabel_Concedii : Form
     {
+        private int pagina;
+        private int nrPagini;
+
         static readonly HttpClient client = new HttpClient();
         List<Concediu> listaConcedii = new List<Concediu>();
         List<StareConcediu> listaStariConcedii = new List<StareConcediu>();
@@ -19,8 +22,9 @@ namespace Aplicatie_Concediu
         bool dataInceputSelectata = false;
         bool dataFinalSelectata = false;
        
-        public Tabel_Concedii()
+        public Tabel_Concedii(int pagina)
         {
+            this.pagina = pagina;
             InitializeComponent();
         }
 
@@ -58,7 +62,24 @@ namespace Aplicatie_Concediu
                 
             }
         }
-       
+
+        async Task GetNrConcedii(string requestUrl)
+        {
+            HttpResponseMessage response = await client.GetAsync(requestUrl);
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+            int nrConcedii = JsonConvert.DeserializeObject<int>(responseBody);
+
+            if (nrConcedii % 10 == 0)
+            {
+                nrPagini = nrConcedii / 10;
+            }
+            else
+            {
+                nrPagini = nrConcedii / 10 + 1;
+            }
+        }
+
         public async Task GetConcedii(string requestUrl)
         {
             HttpResponseMessage response = await client.GetAsync(requestUrl);
@@ -156,21 +177,26 @@ namespace Aplicatie_Concediu
             }
 
             populareComboBox();
-            Program.EsteAdmin = Convert.ToInt32(SesiuneLogIn.angajatLogat.EsteAdmin);
-         
-            if (Program.EsteAdmin == 1 && cbStariConcedii.SelectedIndex == cbStariConcedii.Items.Count - 1)
-            {
-                string URL = String.Format("{0}/TabelConcedii/GetConcedii", SesiuneLogIn.requestURL);
 
-                await GetConcedii(URL);
-            }
-            else
+            labelPageNumber.Text = Convert.ToString(pagina);
+
+            string URL = String.Format("{0}/TabelConcedii/GetNrConcedii", SesiuneLogIn.requestURL);
+            await GetNrConcedii(URL);
+
+            if (pagina != 1)
             {
-                MessageBox.Show("Doar Administratorii pot accesa acest camp");
+                buttonPaginaAnterioara.Visible = true;
             }
 
-   
+            if (pagina != nrPagini)
+            {
+                buttonPaginaUrmatoare.Visible = true;
+            }
 
+            int position = (pagina - 1) * 10;
+            URL = String.Format("{0}/TabelConcedii/GetConcedii?position={1}", SesiuneLogIn.requestURL, position);
+
+            await GetConcedii(URL);
         }
        
         private void dgvTabelConcedii_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -365,7 +391,23 @@ namespace Aplicatie_Concediu
 
         private void buttonPanouAdmin_Click(object sender, EventArgs e)
         {
-            Tabel_Concedii formTabelConcedii = new Tabel_Concedii();
+            Tabel_Concedii formTabelConcedii = new Tabel_Concedii(1);
+            formTabelConcedii.Show();
+            this.Close();
+        }
+
+        private void buttonPaginaAnterioara_Click(object sender, EventArgs e)
+        {
+            pagina--;
+            Tabel_Concedii formTabelConcedii = new Tabel_Concedii(pagina);
+            formTabelConcedii.Show();
+            this.Close();
+        }
+
+        private void buttonPaginaUrmatoare_Click(object sender, EventArgs e)
+        {
+            pagina++;
+            Tabel_Concedii formTabelConcedii = new Tabel_Concedii(pagina);
             formTabelConcedii.Show();
             this.Close();
         }
