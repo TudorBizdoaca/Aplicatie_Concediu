@@ -98,13 +98,13 @@ namespace Aplicatie_Concediu
             this.Close();
         }
 
-        private void Aproba_Click(object sender, EventArgs e)
+        private async void Aproba_Click(object sender, EventArgs e)
         {
             Concediu con = new Concediu();
             con.Id = Convert.ToInt32(Program.IdConcediu);
             con.StareConcediuId = 1;
             bool stare = UpdateStareConcediu(con);
-            refresh.repopulareGvDupaSelectStare();
+            await refresh.GetConcedii("http://localhost:5085/api/TabelConcedii/GetConcedii");
             this.Close();
          
         }
@@ -114,8 +114,8 @@ namespace Aplicatie_Concediu
             Concediu con = new Concediu();
             con.Id = Convert.ToInt32(Program.IdConcediu);
             con.StareConcediuId = 3;
-            bool stare = UpdateStareConcediu(con);
-            refresh.repopulareGvDupaSelectStare();
+            MotivRespingere motiv = new MotivRespingere(refresh);
+            motiv.Show();
             this.Close();
 
 
