@@ -476,7 +476,6 @@
             this.tbNrBuletin.TextChanged += new System.EventHandler(this.tbNrBuletin_TextChanged);
             this.tbNrBuletin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNrBuletin_KeyPress);
             this.tbNrBuletin.Validating += new System.ComponentModel.CancelEventHandler(this.tbNrBuletin_Validating);
-         
             // 
             // pictureBox6
             // 
@@ -532,7 +531,6 @@
             this.tbCodVerificare.Name = "tbCodVerificare";
             this.tbCodVerificare.Size = new System.Drawing.Size(287, 26);
             this.tbCodVerificare.TabIndex = 33;
-           
             // 
             // lCodVerificare
             // 
@@ -705,7 +703,6 @@
             this.tbParolaConfirmare.Size = new System.Drawing.Size(287, 26);
             this.tbParolaConfirmare.TabIndex = 41;
             this.tbParolaConfirmare.TextChanged += new System.EventHandler(this.tbParolaConfirmare_TextChanged);
-          
             // 
             // lParolaConfirmareInreg
             // 
