@@ -67,7 +67,7 @@ namespace Aplicatie_Concediu
             }
         }
        
-        private async Task GetConcedii(string requestUrl)
+        public async Task GetConcedii(string requestUrl)
         {
             HttpResponseMessage response = await client.GetAsync(requestUrl);
             response.EnsureSuccessStatusCode();

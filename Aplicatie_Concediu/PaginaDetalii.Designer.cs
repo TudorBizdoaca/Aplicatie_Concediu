@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,6 +50,9 @@
             this.Comentariu = new System.Windows.Forms.TextBox();
             this.Aproba = new System.Windows.Forms.Button();
             this.Respinge = new System.Windows.Forms.Button();
+            this.MotivRespingere = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lblMotivRespingere = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -244,11 +248,36 @@
             this.Respinge.UseVisualStyleBackColor = true;
             this.Respinge.Click += new System.EventHandler(this.Respinge_Click);
             // 
+            // MotivRespingere
+            // 
+            this.MotivRespingere.Location = new System.Drawing.Point(505, 159);
+            this.MotivRespingere.Name = "MotivRespingere";
+            this.MotivRespingere.ReadOnly = true;
+            this.MotivRespingere.Size = new System.Drawing.Size(227, 22);
+            this.MotivRespingere.TabIndex = 21;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // lblMotivRespingere
+            // 
+            this.lblMotivRespingere.AutoSize = true;
+            this.lblMotivRespingere.Location = new System.Drawing.Point(572, 126);
+            this.lblMotivRespingere.Name = "lblMotivRespingere";
+            this.lblMotivRespingere.Size = new System.Drawing.Size(113, 16);
+            this.lblMotivRespingere.TabIndex = 23;
+            this.lblMotivRespingere.Text = "Motiv Respingere";
+            // 
             // PaginaDetalii
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 462);
+            this.Controls.Add(this.lblMotivRespingere);
+            this.Controls.Add(this.MotivRespingere);
             this.Controls.Add(this.Respinge);
             this.Controls.Add(this.Aproba);
             this.Controls.Add(this.Comentariu);
@@ -302,5 +331,8 @@
         private System.Windows.Forms.TextBox Comentariu;
         private System.Windows.Forms.Button Aproba;
         private System.Windows.Forms.Button Respinge;
+        private System.Windows.Forms.TextBox MotivRespingere;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label lblMotivRespingere;
     }
 }
