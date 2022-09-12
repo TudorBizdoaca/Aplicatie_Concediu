@@ -76,8 +76,11 @@ namespace Aplicatie_Concediu
             string URL = String.Format("{0}/TabelConcedii/GetConcediiDupaNumeAngajat?nume={1}", SesiuneLogIn.requestURL, numeAngajat);
 
             HttpResponseMessage response = await client.GetAsync(URL);
-            response.EnsureSuccessStatusCode();
-            string responseBody = await response.Content.ReadAsStringAsync();
+            if (!String.IsNullOrEmpty(numeAngajat))
+                response.EnsureSuccessStatusCode();
+            string responseBody = "";
+            if (response.IsSuccessStatusCode)
+                responseBody = await response.Content.ReadAsStringAsync();
 
             listaConcedii.Clear();
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
