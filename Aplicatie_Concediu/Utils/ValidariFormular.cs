@@ -63,18 +63,25 @@ namespace Aplicatie_Concediu.Utils
         }
 
         public async static Task getAngajatByEmail(string email)
-        {
-            HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/PaginaInregistrare/GetAngajatByEmail?email={0}", email));
-            response.EnsureSuccessStatusCode();
-            string responseBody = await response.Content.ReadAsStringAsync();
-            if(responseBody != "")
-                angajat = JsonConvert.DeserializeObject<Angajat>(responseBody);
-            else {
+        {   if (email != String.Empty)
+            {
+                HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/PaginaInregistrare/GetAngajatByEmail?email={0}", email));
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                if (responseBody != "")
+                    angajat = JsonConvert.DeserializeObject<Angajat>(responseBody);
+                else
+                {
+                    angajat = new Angajat();
+                    angajat.Id = 0;
+                }
+                
+            }
+            else
+            {
                 angajat = new Angajat();
                 angajat.Id = 0;
             }
-               
-
         }
         
         public static async void verificareExistentaEmail(ErrorProvider ep, TextBox tb,string email)
@@ -308,7 +315,8 @@ namespace Aplicatie_Concediu.Utils
         }
 
         public static bool verificareCifreCnp(string cnp, ErrorProvider ep, TextBox tb, DateTimePicker dtp, ErrorProvider epData)
-        {
+        {   
+
             string dataNastere = "";
             switch (cnp.Substring(0, 1))
             {
