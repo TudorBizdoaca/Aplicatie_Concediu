@@ -224,6 +224,12 @@ namespace Aplicatie_Concediu
         {
             StartDate = dtpInceputConcediu.Value;
             EndDate = dtpFinalConcediu.Value;
+            DateTime now = DateTime.Now;
+            if(StartDate < now)
+            {
+                MessageBox.Show("Actiune imposibila, concediul cerut este in trecut");
+                return;
+            }
             if (cbTipConcediu.SelectedItem == null)
             {
                 MessageBox.Show("Alege tipul de concediu!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
