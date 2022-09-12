@@ -171,6 +171,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InserareConcediu.resx">
       <DependentUpon>InserareConcediu.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="IstoricConcedii.resx">
       <DependentUpon>IstoricConcedii.cs</DependentUpon>

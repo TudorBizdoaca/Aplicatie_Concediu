@@ -19,18 +19,44 @@ namespace Aplicatie_Concediu
     
     public partial class TabelaAngajati : Form
     {
+        int pagina;
+        int nrPagini;
+
         const string ImagePath = "C:\\Users\\gunal.sadic\\Downloads\\PozaDefaultAngajati";
         static readonly HttpClient client = new HttpClient();
-        public  TabelaAngajati()
+        public  TabelaAngajati(int pagina)
         {
-            
+            this.pagina = pagina;
             InitializeComponent();
         }
         List<Angajat> Angajati = new List<Angajat>();
+
+        async Task GetNrAngajati()
+        {
+            string URL = String.Format("{0}/Angajat/GetNrAngajati", SesiuneLogIn.requestURL);
+
+            HttpResponseMessage response = await client.GetAsync(URL);
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+            int nrAngajati = JsonConvert.DeserializeObject<int>(responseBody);
+
+            if (nrAngajati % 10 == 0)
+            {
+                nrPagini = nrAngajati / 10;
+            }
+            else
+            {
+                nrPagini = nrAngajati / 10 + 1;
+            }
+        }
+
         async Task GetAngajati()
         {
-        
-            HttpResponseMessage response =  await client.GetAsync("http://localhost:5085/api/Angajat/GetAngajati");
+            int position = (pagina - 1) * 10;
+
+            string URL = String.Format("{0}/Angajat/GetAngajati?position={1}", SesiuneLogIn.requestURL, position);
+
+            HttpResponseMessage response =  await client.GetAsync(URL);
             string responseBody = await response.Content.ReadAsStringAsync();
             Angajati = JsonConvert.DeserializeObject<List<Angajat>>(responseBody);
             var source = new BindingSource();
@@ -40,11 +66,9 @@ namespace Aplicatie_Concediu
             dgvAngajati.Columns.Remove("ConcediuAngajats");
             dgvAngajati.Columns.Remove("ConcediuInlocuitors");
             dgvAngajati.Columns.Remove("InverseManager");
-            
-           
         }
 
-        private void TabelaAngajati_Load(object sender, EventArgs e)
+        private async void TabelaAngajati_Load(object sender, EventArgs e)
         {
             // Date Utilizator Logat
             pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(SesiuneLogIn.angajatLogat.Poza));
@@ -63,7 +87,21 @@ namespace Aplicatie_Concediu
                 buttonPanouAdmin.Visible = true;
             }
 
-            GetAngajati();
+            labelPageNumber.Text = Convert.ToString(pagina);
+
+            await GetNrAngajati();
+
+            if (pagina != 1)
+            {
+                buttonPaginaAnterioara.Visible = true;
+            }
+
+            if (pagina != nrPagini)
+            {
+                buttonPaginaUrmatoare.Visible = true;
+            }
+
+            await GetAngajati();
            
         }
 
@@ -122,7 +160,7 @@ namespace Aplicatie_Concediu
 
         private void buttonDetaliiAngajati_Click(object sender, EventArgs e)
         {
-            TabelaAngajati formTabelaAngajati = new TabelaAngajati();
+            TabelaAngajati formTabelaAngajati = new TabelaAngajati(1);
             formTabelaAngajati.Show();
             this.Close();
         }
@@ -131,6 +169,22 @@ namespace Aplicatie_Concediu
         {
             Tabel_Concedii formTabelConcedii = new Tabel_Concedii();
             formTabelConcedii.Show();
+            this.Close();
+        }
+
+        private void buttonPaginaAnterioara_Click(object sender, EventArgs e)
+        {
+            pagina--;
+            TabelaAngajati formTabelaAngajati = new TabelaAngajati(pagina);
+            formTabelaAngajati.Show();
+            this.Close();
+        }
+
+        private void buttonPaginaUrmatoare_Click(object sender, EventArgs e)
+        {
+            pagina++;
+            TabelaAngajati formTabelaAngajati = new TabelaAngajati(pagina);
+            formTabelaAngajati.Show();
             this.Close();
         }
     }

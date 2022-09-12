@@ -39,8 +39,8 @@ namespace Aplicatie_Concediu
         }
         public async Task cbTipConcediuLoadAsync()
         {
-
-            HttpResponseMessage response = await client.GetAsync("http://localhost:5085/api/InserareConcediu/getTipuriConcediu");
+            string URL = String.Format("{0}/InserareConcediu/getTipuriConcediu", SesiuneLogIn.requestURL);
+            HttpResponseMessage response = await client.GetAsync(URL);
             string responseBody = await response.Content.ReadAsStringAsync();
             TipuriConcediu = JsonConvert.DeserializeObject<List<TipConcediu>>(responseBody);
             cbTipConcediu.DataSource = TipuriConcediu;
@@ -49,7 +49,8 @@ namespace Aplicatie_Concediu
         }
         public async void cbInlocuitorLoad()
         {
-            HttpResponseMessage response = await client.GetAsync("http://localhost:5085/api/InserareConcediu/getAngajati?Id=" + SesiuneLogIn.angajatLogat.Id.ToString());
+            string URL = String.Format("{0}/InserareConcediu/getAngajati?Id={1}", SesiuneLogIn.requestURL, SesiuneLogIn.angajatLogat.Id.ToString());
+            HttpResponseMessage response = await client.GetAsync(URL);
             string responseBody = await response.Content.ReadAsStringAsync();
             Angajati = JsonConvert.DeserializeObject<List<Angajat>>(responseBody);
             cbInlocuitor.DataSource = Angajati;
@@ -77,7 +78,8 @@ namespace Aplicatie_Concediu
             // Date Utilizator Logat
             pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(SesiuneLogIn.angajatLogat.Poza));
             labelNumeUtilizatorLogat.Text = SesiuneLogIn.angajatLogat.Nume + " " + SesiuneLogIn.angajatLogat.Prenume;
-            var response = await client.GetAsync("http://localhost:5085/api/InserareConcediu/getZileConcediu?idAngajat=" + SesiuneLogIn.angajatLogat.Id.ToString());
+            string URL = String.Format("{0}/InserareConcediu/getZileConcediu?idAngajat={1}", SesiuneLogIn.requestURL, SesiuneLogIn.angajatLogat.Id.ToString());
+            var response = await client.GetAsync(URL);
             string responseBody = await response.Content.ReadAsStringAsync();
             zileConcediuPerTip = JsonConvert.DeserializeObject<Dictionary<int, int>>(responseBody);
             lblZileConcediu.Text = zileConcediuPerTip[(int)cbTipConcediu.SelectedValue].ToString();
@@ -128,7 +130,8 @@ namespace Aplicatie_Concediu
             c.Comentarii = rtfComentarii.Text;
             c.InlocuitorId = int.Parse(cbInlocuitor.SelectedValue.ToString());
             c.StareConcediuId = CONCEDIU_IN_ASTEPTARE;
-            HttpResponseMessage response = await client.GetAsync("http://localhost:5085/api/InserareConcediu/esteAngajatInConcediu?id=" + int.Parse(cbInlocuitor.SelectedValue.ToString()) + "&dataInceput=" + StartDate.ToString() + "&dataFinal=" + EndDate.ToString());
+            string URL = String.Format("{0}/InserareConcediu/esteAngajatInConcediu?id={1}&dataInceput={2}&dataFinal={3}", SesiuneLogIn.requestURL, int.Parse(cbInlocuitor.SelectedValue.ToString()), StartDate.ToString(), EndDate.ToString());
+            HttpResponseMessage response = await client.GetAsync(URL);
             string responseBody = await response.Content.ReadAsStringAsync();
             bool esteInlocuitorulInConcediu = bool.Parse(responseBody);
             if (esteInlocuitorulInConcediu == true)
@@ -143,7 +146,8 @@ namespace Aplicatie_Concediu
             }
 
             var content = new StringContent(JsonConvert.SerializeObject(c), Encoding.UTF8, "application/json");
-            client.PostAsync("http://localhost:5085/api/InserareConcediu/insertConcediu", content);
+            URL = String.Format("{0}/InserareConcediu/insertConcediu", SesiuneLogIn.requestURL);
+            client.PostAsync(URL, content);
             MessageBox.Show("Concediu inserat cu succes");
 
         }
@@ -203,7 +207,7 @@ namespace Aplicatie_Concediu
 
         private void buttonDetaliiAngajati_Click(object sender, EventArgs e)
         {
-            TabelaAngajati formTabelaAngajati = new TabelaAngajati();
+            TabelaAngajati formTabelaAngajati = new TabelaAngajati(1);
             formTabelaAngajati.Show();
             this.Close();
         }

@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.AxHost;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Aplicatie_Concediu
 {
@@ -81,12 +82,11 @@ namespace Aplicatie_Concediu
 
         private async Task GetConcediiDupaNumeAngajat(string numeAngajat)
         {
-            HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/TabelConcedii/GetConcediiDupaNumeAngajat?nume={0}",numeAngajat));
-            if(!String.IsNullOrEmpty(numeAngajat))
-                     response.EnsureSuccessStatusCode();
-            string responseBody="";
-            if(response.IsSuccessStatusCode)
-                 responseBody  = await response.Content.ReadAsStringAsync();
+            string URL = String.Format("{0}/TabelConcedii/GetConcediiDupaNumeAngajat?nume={1}", SesiuneLogIn.requestURL, numeAngajat);
+
+            HttpResponseMessage response = await client.GetAsync(URL);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
 
             listaConcedii.Clear();
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
@@ -94,7 +94,9 @@ namespace Aplicatie_Concediu
         }
         private async Task GetStariConcediu()
         {
-            HttpResponseMessage response = await client.GetAsync("http://localhost:5085/api/TabelConcedii/GetStariConcedii");
+            string URL = String.Format("{0}/TabelConcedii/GetStariConcedii", SesiuneLogIn.requestURL);
+
+            HttpResponseMessage response = await client.GetAsync(URL);
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
 
@@ -144,14 +146,16 @@ namespace Aplicatie_Concediu
             populareComboBox();
             Program.EsteAdmin = Convert.ToInt32(SesiuneLogIn.angajatLogat.EsteAdmin);
          
-            if (Program.EsteAdmin == 1 && cbStariConcedii.SelectedIndex == cbStariConcedii.Items.Count - 1 && cbTipConcedii.SelectedIndex == cbTipConcedii.Items.Count - 1)
-                {
-              
-                      await GetConcedii("http://localhost:5085/api/TabelConcedii/GetConcedii");
-                }else
-                {
-                    MessageBox.Show("Doar Administratorii pot accesa acest camp");
-                }
+            if (Program.EsteAdmin == 1 && cbStariConcedii.SelectedIndex == cbStariConcedii.Items.Count - 1)
+            {
+                string URL = String.Format("{0}/TabelConcedii/GetConcedii", SesiuneLogIn.requestURL);
+
+                await GetConcedii(URL);
+            }
+            else
+            {
+                MessageBox.Show("Doar Administratorii pot accesa acest camp");
+            }
 
    
 
@@ -166,7 +170,10 @@ namespace Aplicatie_Concediu
         private async Task GetConcediiByStare(int stareId)
         {
             listaConcedii.Clear();
-            HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/TabelConcedii/GetConcediiByStareId?stareId={0}",stareId));
+
+            string URL = String.Format("{0}/TabelConcedii/GetConcediiByStareId?stareId={1}", SesiuneLogIn.requestURL, stareId);
+
+            HttpResponseMessage response = await client.GetAsync(URL);
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
@@ -202,7 +209,9 @@ namespace Aplicatie_Concediu
                  repopulareGvDupaSelectStare();
             else
             {
-                await GetConcedii("http://localhost:5085/api/TabelConcedii/GetConcedii");
+                string URL = String.Format("{0}/TabelConcedii/GetConcedii", SesiuneLogIn.requestURL);
+
+                await GetConcedii(URL);
                 listaConcedii.Clear();
                 populareGridView(listaConcedii);
             }
