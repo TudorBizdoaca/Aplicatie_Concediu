@@ -207,6 +207,7 @@ namespace Aplicatie_Concediu
             using (Stream requestStream = request.GetRequestStream())
             {
                 requestStream.Write(requestData, 0, requestData.Length);
+             
             }
             var response = (HttpWebResponse)request.GetResponse();
 
@@ -218,6 +219,7 @@ namespace Aplicatie_Concediu
             {
                 return false;
             }
+           
         }
 
         // Upload Image
