@@ -111,9 +111,11 @@ namespace Aplicatie_Concediu
 
         private void Respinge_Click(object sender, EventArgs e)
         {
-           
-            MotivRespingere pagina = new MotivRespingere(refresh);
-            pagina.Show();
+            Concediu con = new Concediu();
+            con.Id = Convert.ToInt32(Program.IdConcediu);
+            con.StareConcediuId = 3;
+            bool stare = UpdateStareConcediu(con);
+            refresh.repopulareGvDupaSelectStare();
             this.Close();
 
 

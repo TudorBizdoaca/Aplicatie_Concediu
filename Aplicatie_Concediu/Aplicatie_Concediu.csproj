@@ -98,6 +98,7 @@
     </Compile>
     <Compile Include="Models\Angajat.cs" />
     <Compile Include="Models\Concediu.cs" />
+    <Compile Include="Models\Date.cs" />
     <Compile Include="Models\StareConcediu.cs" />
     <Compile Include="Models\TipConcediu.cs" />
     <Compile Include="MotivRespingere.cs">
@@ -106,6 +107,7 @@
     <Compile Include="MotivRespingere.Designer.cs">
       <DependentUpon>MotivRespingere.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ZileLibereAnCurent.cs" />
     <Compile Include="PaginaDetalii.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +182,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InserareConcediu.resx">
       <DependentUpon>InserareConcediu.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="IstoricConcedii.resx">
       <DependentUpon>IstoricConcedii.cs</DependentUpon>

@@ -30,8 +30,9 @@ namespace Aplicatie_Concediu
 
         private async void ReseteazaParola(string email, string parola)
         {
-     
-            HttpResponseMessage response = await client.PostAsync(String.Format("http://localhost:5085/api/ResetareParola?email={0}&parola={1}",email,parola),new FormUrlEncodedContent(new[] { new KeyValuePair<string, string>("", "") }));
+            string URL = String.Format("{0}/ResetareParola?email={1}&parola={2}", SesiuneLogIn.requestURL, email, parola);
+
+            HttpResponseMessage response = await client.PostAsync(URL, new FormUrlEncodedContent(new[] { new KeyValuePair<string, string>("", "") }));
             if (response.IsSuccessStatusCode)
             {
                 MessageBox.Show("Parola resetata cu succes!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
