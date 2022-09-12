@@ -26,14 +26,15 @@ namespace Aplicatie_Concediu
             lblStatus.Text = concediu.StareConcediu.Nume;
           
             
-            if (concediu.StareConcediu.Nume == "respins" && concediu.Comentarii != string.Empty && concediu.Comentarii != null)
+            if (concediu.StareConcediu.Nume == "respins" && concediu.MotivRespingere != string.Empty && concediu.MotivRespingere != null)
             {
                 lblMotivRespingere.Show();
-                rtbMotivRespingere.Text = concediu.Comentarii;
+                rtbMotivRespingere.Text = concediu.MotivRespingere;
                 rtbMotivRespingere.Show();
             }
         }
+        
 
-      
+
     }
 }
