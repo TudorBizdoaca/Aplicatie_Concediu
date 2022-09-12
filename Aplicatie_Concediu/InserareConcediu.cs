@@ -156,6 +156,7 @@ namespace Aplicatie_Concediu
         private void buttonIesire_Click(object sender, EventArgs e)
         {
             SesiuneLogIn.angajatLogat = null;
+           
             Application.Exit();
         }
 
@@ -284,6 +285,11 @@ namespace Aplicatie_Concediu
         {
             int index = ((TipConcediu)cbTipConcediu.SelectedItem).Id;
             lblZileConcediu.Text = zileConcediuPerTip[index].ToString();
+        }
+
+        private void InserareConcediu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            client.Dispose();
         }
     }
 }

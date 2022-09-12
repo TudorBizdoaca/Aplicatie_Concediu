@@ -51,6 +51,7 @@ namespace Aplicatie_Concediu
             {
                 MessageBox.Show("Inserati valori in ambele campuri");
             }
+            
         }
 
         private async void LogInUtilizator(string email, string parola)
@@ -76,6 +77,7 @@ namespace Aplicatie_Concediu
                 SesiuneLogIn.angajatLogat = null;
                 MessageBox.Show("Email sau parola gresita");
             }
+            httpClient.Dispose();
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

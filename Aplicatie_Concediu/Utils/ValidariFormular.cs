@@ -310,7 +310,8 @@ namespace Aplicatie_Concediu.Utils
         }
 
         public static bool verificareCifreCnp(string cnp, ErrorProvider ep, TextBox tb, DateTimePicker dtp, ErrorProvider epData)
-        {
+        {   
+
             string dataNastere = "";
 
             bool eValid = true;
