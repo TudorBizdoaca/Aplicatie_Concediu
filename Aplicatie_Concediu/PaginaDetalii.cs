@@ -70,17 +70,8 @@ namespace Aplicatie_Concediu
 
         private void PaginaDetalii_Load(object sender, EventArgs e)
         {
-            //SqlConnection cn = new SqlConnection(@"Data Source = ts2112\SQLEXPRESS; Initial Catalog = BreakingBread; Persist Security Info = True; User ID = internship2022; Password = int ");
-            //cn.Open();
+            
             IdConcediu.Text = Program.IdConcediu;
-            //SqlCommand cmd = new SqlCommand("select c.id as [Id Concediu], concat(a.Nume,' ', a.Prenume) as Nume, concat(a2.Nume,' ', a2.Prenume) as Manager,t.nume as \"Tip Concediu\",concat(a3.Nume,' ', a3.Prenume) as Inlocuitor,  c.dataInceput as [Data Inceput], c.dataSfarsit as [Data Final]  , s.nume as \"Stare Cerere Concediu\", c.comentarii as [Comentariu]\r\nfrom Angajat a\r\njoin Concediu c on c.angajatId = a.id\r\njoin StareConcediu s on s.id = c.stareConcediuId\r\njoin TipConcediu t on t.id = c.tipConcediuId\r\njoin Angajat a2 on a2.Id = a.ManagerId\r\njoin Angajat a3 on a3.Id = c.InlocuitorId\r\nwhere c.id = @IdConcediu",cn);
-            //cmd.Connection = cn;
-            //cmd.Parameters.Add("IdConcediu", Program.IdConcediu);
-            //SqlDataReader dr = cmd.ExecuteReader();
-            //while(dr.Read())
-            //{
-
-           
             Concediu con = GetConcediu(Convert.ToInt32(Program.IdConcediu));
             Nume.Text = con.Angajat.Nume;
             Manager.Text = con.Angajat.Manager.Nume;
@@ -90,14 +81,14 @@ namespace Aplicatie_Concediu
             DataFinal.Text = con.DataSfarsit.ToString();
             StareCerereConcediu.Text = con.StareConcediu.Nume;
             Comentariu.Text = con.Comentarii;
-            if(con.StareConcediu.Nume == "aprobat" || con.StareConcediu.Nume == "respins")
+            MotivRespingere.Text = con.MotivRespingere;
+
+            if (con.StareConcediu.Nume == "aprobat" || con.StareConcediu.Nume == "respins")
             {
                 Aproba.Hide();
                 Respinge.Hide();
             }
-            //}
-            //dr.Close();
-            //cn.Close();
+           
 
 
         }
@@ -126,7 +117,8 @@ namespace Aplicatie_Concediu
             bool stare = UpdateStareConcediu(con);
             refresh.repopulareGvDupaSelectStare();
             this.Close();
-            
+
+
         }
     }
 }
