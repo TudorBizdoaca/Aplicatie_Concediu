@@ -212,7 +212,6 @@
             this.tbCnp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCnp_KeyPress);
             this.tbCnp.Leave += new System.EventHandler(this.tbCnp_Leave_1);
             this.tbCnp.Validating += new System.ComponentModel.CancelEventHandler(this.tbCnp_Validating);
-          
             // 
             // tbSerieBuletin
             // 
