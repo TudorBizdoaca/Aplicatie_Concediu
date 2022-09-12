@@ -24,6 +24,8 @@ namespace Aplicatie_Concediu
         List<Concediu> listaConcedii = new List<Concediu>();
         List<StareConcediu> listaStariConcedii = new List<StareConcediu>();
         List<TipConcediu> listaTipuriConcedii = new List<TipConcediu>();
+        bool dataInceputSelectata = false;
+        bool dataFinalSelectata = false;
        
         public Tabel_Concedii()
         {
@@ -88,7 +90,6 @@ namespace Aplicatie_Concediu
 
             listaConcedii.Clear();
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
-            dgvTabelConcedii.Rows.Clear();
             populareGridView(listaConcedii);
         }
         private async Task GetStariConcediu()
@@ -216,16 +217,19 @@ namespace Aplicatie_Concediu
             }
         }
 
-        private void tbFiltrareNume_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
         private async void tbFiltrareNume_Leave(object sender, EventArgs e)
         {
             dgvTabelConcedii.Rows.Clear();
             await GetConcediiDupaNumeAngajat(tbFiltrareNume.Text);
             
+        }
+        private async Task GetConcediiCuFiltre(string nume,int? stareId, int? tipId, DateTime? dataInceput, DateTime? dataFinal)
+        {
+            listaConcedii.Clear();
+            HttpResponseMessage response = await client.GetAsync(String.Format("http://localhost:5085/api/TabelConcedii/GetConcediiDupaFiltre?nume={0}&stareId={1}&tipId={2}&dataInceput={3}&dataFinal={4}", nume, stareId,tipId,dataInceput,dataFinal));
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
         }
 
         private async void cbTipConcedii_SelectionChangeCommitted(object sender, EventArgs e)
@@ -246,9 +250,50 @@ namespace Aplicatie_Concediu
 
         private async void btnAplicaFiltre_Click(object sender, EventArgs e)
         {
-            await GetConcediiByDataInceputSiDataSfarsit(dtpDataInceput.Value, dtpDataFinal.Value);
+            string nume;
+            if (!String.IsNullOrEmpty(tbFiltrareNume.Text) || !String.IsNullOrWhiteSpace(tbFiltrareNume.Text))
+            {
+                nume = tbFiltrareNume.Text;
+            } else
+            {
+                nume = null;
+            }
+
+            int? stareId;
+            stareId = Convert.ToInt32(cbStariConcedii.SelectedValue);
+    
+                    
+            int? tipId;
+            tipId = Convert.ToInt32(cbTipConcedii.SelectedValue);
+
+            DateTime? dataInceput = null;
+            DateTime? dataFinal = null;
+            if(dataInceputSelectata && dataFinalSelectata)
+            {
+                dataInceput = dtpDataInceput.Value;
+            }
+            else
+            {
+                dataFinal = dtpDataFinal.Value;
+            }
+
             dgvTabelConcedii.Rows.Clear();
+        
+            await GetConcediiCuFiltre(nume, stareId, tipId, dataInceput, dtpDataFinal.Value);
+
+        
             populareGridView(listaConcedii);
+
+        }
+
+        private void dtpDataInceput_ValueChanged(object sender, EventArgs e)
+        {
+            dataInceputSelectata = true;
+        }
+
+        private void dtpDataFinal_ValueChanged(object sender, EventArgs e)
+        {
+            dataFinalSelectata = true;
         }
     }
 }

@@ -114,7 +114,6 @@
             this.tbFiltrareNume.Name = "tbFiltrareNume";
             this.tbFiltrareNume.Size = new System.Drawing.Size(123, 20);
             this.tbFiltrareNume.TabIndex = 8;
-            this.tbFiltrareNume.TextChanged += new System.EventHandler(this.tbFiltrareNume_TextChanged);
             this.tbFiltrareNume.Leave += new System.EventHandler(this.tbFiltrareNume_Leave);
             // 
             // dtpDataInceput
@@ -123,6 +122,7 @@
             this.dtpDataInceput.Name = "dtpDataInceput";
             this.dtpDataInceput.Size = new System.Drawing.Size(172, 20);
             this.dtpDataInceput.TabIndex = 9;
+            this.dtpDataInceput.ValueChanged += new System.EventHandler(this.dtpDataInceput_ValueChanged);
             // 
             // lDataInceput
             // 
@@ -139,6 +139,7 @@
             this.dtpDataFinal.Name = "dtpDataFinal";
             this.dtpDataFinal.Size = new System.Drawing.Size(172, 20);
             this.dtpDataFinal.TabIndex = 11;
+            this.dtpDataFinal.ValueChanged += new System.EventHandler(this.dtpDataFinal_ValueChanged);
             // 
             // lDataFinal
             // 
