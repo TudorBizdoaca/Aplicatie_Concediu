@@ -101,6 +101,12 @@
     <Compile Include="Models\Date.cs" />
     <Compile Include="Models\StareConcediu.cs" />
     <Compile Include="Models\TipConcediu.cs" />
+    <Compile Include="MotivRespingere.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotivRespingere.Designer.cs">
+      <DependentUpon>MotivRespingere.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ZileLibereAnCurent.cs" />
     <Compile Include="PaginaDetalii.cs">
       <SubType>Form</SubType>
@@ -167,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CardConcediu.resx">
       <DependentUpon>CardConcediu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotivRespingere.resx">
+      <DependentUpon>MotivRespingere.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaginaDetalii.resx">
       <DependentUpon>PaginaDetalii.cs</DependentUpon>
