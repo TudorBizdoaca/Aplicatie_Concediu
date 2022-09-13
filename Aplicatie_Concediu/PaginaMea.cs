@@ -127,7 +127,7 @@ namespace Aplicatie_Concediu
 
         private void buttonPanouAdmin_Click(object sender, EventArgs e)
         {
-            Tabel_Concedii formTabelConcedii = new Tabel_Concedii(1);
+            Tabel_Concedii formTabelConcedii = new Tabel_Concedii();
             formTabelConcedii.Show();
             this.Close();
         }
@@ -302,6 +302,8 @@ namespace Aplicatie_Concediu
         {
             string errorMsg;
             if (!(Utils.ValidariFormular.validareSerie(errorProvider2, textBoxSerie))) {
+                e.Cancel = true;
+                textBoxSerie.Select(0, textBoxEmail.Text.Length);
                 errorProvider2.SetError(textBoxSerie, "Selectai o serie de buletin Valida!");
             }
            
@@ -311,6 +313,16 @@ namespace Aplicatie_Concediu
         private void textBoxSerie_Validated(object sender, EventArgs e)
         {
             errorProvider2.SetError(textBoxSerie, "");
+        }
+
+        private void textBoxCnp_Validated(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxCnp_Validating(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }
