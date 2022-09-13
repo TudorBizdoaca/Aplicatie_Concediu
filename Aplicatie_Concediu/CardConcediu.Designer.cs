@@ -64,7 +64,7 @@
             this.lblStatus.Location = new System.Drawing.Point(699, 78);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(70, 25);
+            this.lblStatus.Size = new System.Drawing.Size(57, 20);
             this.lblStatus.TabIndex = 3;
             this.lblStatus.Text = "label4";
             // 
@@ -99,7 +99,7 @@
             this.lblMotivRespingere.Name = "lblMotivRespingere";
             this.lblMotivRespingere.Size = new System.Drawing.Size(180, 25);
             this.lblMotivRespingere.TabIndex = 9;
-            this.lblMotivRespingere.Text = "MotivRespingere:";
+            this.lblMotivRespingere.Text = "Motiv Respingere:";
             // 
             // tableLayoutPanel1
             // 
@@ -190,7 +190,7 @@
             this.lblInlocuitor.Location = new System.Drawing.Point(198, 78);
             this.lblInlocuitor.Margin = new System.Windows.Forms.Padding(0);
             this.lblInlocuitor.Name = "lblInlocuitor";
-            this.lblInlocuitor.Size = new System.Drawing.Size(59, 25);
+            this.lblInlocuitor.Size = new System.Drawing.Size(50, 20);
             this.lblInlocuitor.TabIndex = 10;
             this.lblInlocuitor.Text = "afsaf";
             // 
