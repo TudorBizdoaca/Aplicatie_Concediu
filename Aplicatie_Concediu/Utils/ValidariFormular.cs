@@ -139,14 +139,21 @@ namespace Aplicatie_Concediu.Utils
         }
 
 
-        public static bool validareDataAngajare(ErrorProvider ep, DateTimePicker dtp)
+        public static bool validareDataAngajare(ErrorProvider ep, DateTimePicker dtp,string cnp)
         {
             bool esteValid = true;
-            if (dtp.Value >= DateTime.Today.AddDays(1))
+            DateTime dataNastere = new DateTime();
+            if (cnp.Length == 13)
+                dataNastere = extragereDataNastereDinCnp(cnp);
+            if (dtp.Value.Date >= DateTime.Today.AddDays(1))
             {
                 ep.SetError(dtp, "Data Angajarii nu poate fi in viitor");
                 esteValid = false;
 
+            } else if(dtp.Value.Date <= dataNastere.Date)
+            {
+                ep.SetError(dtp, "Data Angajarii nu poate inainte de data de nastere");
+                esteValid = false;
             }
             else
             {
