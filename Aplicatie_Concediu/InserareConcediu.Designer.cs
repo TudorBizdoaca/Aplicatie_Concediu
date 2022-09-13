@@ -429,7 +429,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.22946F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.77054F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 245F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 246F));
             this.tableLayoutPanel2.Controls.Add(this.labelSeparator, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.labelNumeUtilizatorLogat, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.pictureBoxUtilizatorLogat, 0, 0);
@@ -451,7 +451,7 @@
             this.labelSeparator.AutoSize = true;
             this.labelSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSeparator.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelSeparator.Location = new System.Drawing.Point(290, 0);
+            this.labelSeparator.Location = new System.Drawing.Point(289, 0);
             this.labelSeparator.Name = "labelSeparator";
             this.labelSeparator.Size = new System.Drawing.Size(26, 76);
             this.labelSeparator.TabIndex = 38;
@@ -468,7 +468,7 @@
             this.labelNumeUtilizatorLogat.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelNumeUtilizatorLogat.Location = new System.Drawing.Point(69, 0);
             this.labelNumeUtilizatorLogat.Name = "labelNumeUtilizatorLogat";
-            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(215, 76);
+            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(214, 76);
             this.labelNumeUtilizatorLogat.TabIndex = 37;
             this.labelNumeUtilizatorLogat.Text = "Nume Utilizator";
             this.labelNumeUtilizatorLogat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -498,9 +498,9 @@
             this.labelDeconectare.AutoSize = true;
             this.labelDeconectare.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDeconectare.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelDeconectare.Location = new System.Drawing.Point(322, 0);
+            this.labelDeconectare.Location = new System.Drawing.Point(321, 0);
             this.labelDeconectare.Name = "labelDeconectare";
-            this.labelDeconectare.Size = new System.Drawing.Size(240, 76);
+            this.labelDeconectare.Size = new System.Drawing.Size(241, 76);
             this.labelDeconectare.TabIndex = 36;
             this.labelDeconectare.Text = "Deconectare";
             this.labelDeconectare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -534,6 +534,7 @@
             this.buttonPanouAdmin.TabIndex = 18;
             this.buttonPanouAdmin.Text = "Panou Admin";
             this.buttonPanouAdmin.UseVisualStyleBackColor = false;
+            this.buttonPanouAdmin.Visible = false;
             this.buttonPanouAdmin.Click += new System.EventHandler(this.buttonPanouAdmin_Click);
             // 
             // buttonDetaliiAngajati
@@ -549,6 +550,7 @@
             this.buttonDetaliiAngajati.TabIndex = 17;
             this.buttonDetaliiAngajati.Text = "Detalii Angajati";
             this.buttonDetaliiAngajati.UseVisualStyleBackColor = false;
+            this.buttonDetaliiAngajati.Visible = false;
             this.buttonDetaliiAngajati.Click += new System.EventHandler(this.buttonDetaliiAngajati_Click);
             // 
             // buttonCerereConcediu

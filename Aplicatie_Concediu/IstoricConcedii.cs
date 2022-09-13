@@ -144,6 +144,11 @@ namespace Aplicatie_Concediu
                 }
                 counter++;
             }
+
+            if (CarduriConcediu.Count == 0)
+            {
+                labelFaraConcedii.Visible = true;
+            }
         }
     }
 }
