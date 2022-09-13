@@ -63,6 +63,7 @@ namespace Aplicatie_Concediu
                 ang.Serie = tbSerieBuletin.Text;
                 ang.No = tbNrBuletin.Text;
                 ang.NrTelefon = tbNrTelefon.Text;
+                ang.ManagerId = 20;
  
                 string imgFilePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName,"Utils", "PozaDefaultAngajati.png");
                 ang.Poza = ImgConvert.ConvertImageToByteArray(imgFilePath);
