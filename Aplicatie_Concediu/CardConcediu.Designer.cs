@@ -64,7 +64,7 @@
             this.lblStatus.Location = new System.Drawing.Point(699, 78);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(57, 20);
+            this.lblStatus.Size = new System.Drawing.Size(70, 25);
             this.lblStatus.TabIndex = 3;
             this.lblStatus.Text = "label4";
             // 
@@ -139,7 +139,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbMotivRespingere.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tableLayoutPanel1.SetColumnSpan(this.rtbMotivRespingere, 3);
-            this.rtbMotivRespingere.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.rtbMotivRespingere.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(133)))), ((int)(((byte)(78)))));
             this.rtbMotivRespingere.Location = new System.Drawing.Point(204, 162);
             this.rtbMotivRespingere.Margin = new System.Windows.Forms.Padding(6);
             this.rtbMotivRespingere.Name = "rtbMotivRespingere";
@@ -190,7 +190,7 @@
             this.lblInlocuitor.Location = new System.Drawing.Point(198, 78);
             this.lblInlocuitor.Margin = new System.Windows.Forms.Padding(0);
             this.lblInlocuitor.Name = "lblInlocuitor";
-            this.lblInlocuitor.Size = new System.Drawing.Size(50, 20);
+            this.lblInlocuitor.Size = new System.Drawing.Size(59, 25);
             this.lblInlocuitor.TabIndex = 10;
             this.lblInlocuitor.Text = "afsaf";
             // 

@@ -25,7 +25,7 @@ namespace Aplicatie_Concediu
         {
             var requestBody = JsonConvert.SerializeObject(ang);
             var requestData = Encoding.UTF8.GetBytes(requestBody);
-            string URL = "http://localhost:5085/PaginaInregistrare/InsertAngajat";
+            string URL = "http://localhost:5085/api/PaginaInregistrare/InsertAngajat";
             HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(new Uri(URL));
             httpWebRequest.Method = "POST";
             httpWebRequest.ContentType = "application/json";
@@ -62,7 +62,7 @@ namespace Aplicatie_Concediu
                 ang.Serie = tbSerieBuletin.Text;
                 ang.No = tbNrBuletin.Text;
                 ang.NrTelefon = tbNrTelefon.Text;
-                ang.Poza = ImgConvert.ConvertImageToByteArray("C:\\AplicatieConcediu\\Aplicatie_Concediu\\Aplicatie_Concediu\\PozaDefaultAngajati.png");
+                ang.Poza = ImgConvert.ConvertImageToByteArray("C:\\Users\\alberto.chirita\\source\\repos\\k\\Aplicatie_Concediu\\PozaDefaultAngajati.png");
                 bool d = InrengistrareAngajatAPI(ang);
                 if (d == true)
                 {
