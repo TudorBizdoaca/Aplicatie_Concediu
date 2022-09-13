@@ -33,7 +33,7 @@ namespace Aplicatie_Concediu
 
         async Task GetNrAngajati()
         {
-            string URL = String.Format("{0}/Angajat/GetNrAngajati", SesiuneLogIn.requestURL);
+            string URL = String.Format("{0}/Angajat/GetNrAngajati?id={1}&esteAdmin={2}", SesiuneLogIn.requestURL,SesiuneLogIn.angajatLogat.Id,SesiuneLogIn.angajatLogat.EsteAdmin);
 
             HttpResponseMessage response = await client.GetAsync(URL);
             string responseBody = await response.Content.ReadAsStringAsync();
@@ -55,7 +55,7 @@ namespace Aplicatie_Concediu
           
                 int position = (pagina - 1) * 10;
 
-                string URL = String.Format("{0}/Angajat/GetAngajati?position={1}", SesiuneLogIn.requestURL, position);
+                string URL = String.Format("{0}/Angajat/GetAngajati?position={1}&id={2}&esteAdmin={3}", SesiuneLogIn.requestURL, position, SesiuneLogIn.angajatLogat.Id, SesiuneLogIn.angajatLogat.EsteAdmin);
 
                 HttpResponseMessage response = await client.GetAsync(URL);
                 string responseBody = await response.Content.ReadAsStringAsync();
