@@ -221,10 +221,11 @@ namespace Aplicatie_Concediu
             StartDate = dtpInceputConcediu.Value;
             EndDate = dtpFinalConcediu.Value;
             DateTime now = DateTime.Now;
-            if(StartDate < now)
+            if(StartDate.Year < now.Year || (StartDate.Month < now.Month && StartDate.Year == now.Year))
             {
                 MessageBox.Show("Actiune imposibila, concediul cerut este in trecut");
                 return;
+                
             }
             if (cbTipConcediu.SelectedItem == null)
             {
