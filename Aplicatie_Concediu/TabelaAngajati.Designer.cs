@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabelaAngajati));
             this.dgvAngajati = new System.Windows.Forms.DataGridView();
-            this.coloanaPoza = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelBackground = new System.Windows.Forms.Panel();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.buttonIesire = new System.Windows.Forms.Button();
@@ -50,6 +49,7 @@
             this.buttonPaginaAnterioara = new System.Windows.Forms.Button();
             this.buttonPaginaUrmatoare = new System.Windows.Forms.Button();
             this.labelDetaliiAngajati = new System.Windows.Forms.Label();
+            this.coloanaPoza = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAngajati)).BeginInit();
             this.panelBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
@@ -74,15 +74,6 @@
             this.dgvAngajati.RowHeadersWidth = 51;
             this.dgvAngajati.Size = new System.Drawing.Size(1081, 253);
             this.dgvAngajati.TabIndex = 0;
-            // 
-            // coloanaPoza
-            // 
-            this.coloanaPoza.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.coloanaPoza.DataPropertyName = "poza";
-            this.coloanaPoza.HeaderText = "poza:";
-            this.coloanaPoza.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.coloanaPoza.MinimumWidth = 50;
-            this.coloanaPoza.Name = "coloanaPoza";
             // 
             // panelBackground
             // 
@@ -136,7 +127,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.22946F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.77054F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 235F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 236F));
             this.tableLayoutPanel1.Controls.Add(this.labelSeparator, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelNumeUtilizatorLogat, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBoxUtilizatorLogat, 0, 0);
@@ -158,7 +149,7 @@
             this.labelSeparator.AutoSize = true;
             this.labelSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSeparator.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelSeparator.Location = new System.Drawing.Point(303, 0);
+            this.labelSeparator.Location = new System.Drawing.Point(302, 0);
             this.labelSeparator.Name = "labelSeparator";
             this.labelSeparator.Size = new System.Drawing.Size(26, 76);
             this.labelSeparator.TabIndex = 38;
@@ -175,7 +166,7 @@
             this.labelNumeUtilizatorLogat.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelNumeUtilizatorLogat.Location = new System.Drawing.Point(72, 0);
             this.labelNumeUtilizatorLogat.Name = "labelNumeUtilizatorLogat";
-            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(225, 76);
+            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(224, 76);
             this.labelNumeUtilizatorLogat.TabIndex = 37;
             this.labelNumeUtilizatorLogat.Text = "Nume Utilizator";
             this.labelNumeUtilizatorLogat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -205,9 +196,9 @@
             this.labelDeconectare.AutoSize = true;
             this.labelDeconectare.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDeconectare.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelDeconectare.Location = new System.Drawing.Point(335, 0);
+            this.labelDeconectare.Location = new System.Drawing.Point(334, 0);
             this.labelDeconectare.Name = "labelDeconectare";
-            this.labelDeconectare.Size = new System.Drawing.Size(230, 76);
+            this.labelDeconectare.Size = new System.Drawing.Size(231, 76);
             this.labelDeconectare.TabIndex = 36;
             this.labelDeconectare.Text = "Deconectare";
             this.labelDeconectare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -382,6 +373,15 @@
             this.labelDetaliiAngajati.TabIndex = 12;
             this.labelDetaliiAngajati.Text = "Detalii Angajati";
             // 
+            // coloanaPoza
+            // 
+            this.coloanaPoza.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.coloanaPoza.DataPropertyName = "poza";
+            this.coloanaPoza.HeaderText = "Poza";
+            this.coloanaPoza.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.coloanaPoza.MinimumWidth = 50;
+            this.coloanaPoza.Name = "coloanaPoza";
+            // 
             // TabelaAngajati
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -412,7 +412,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvAngajati;
-        private System.Windows.Forms.DataGridViewImageColumn coloanaPoza;
         private System.Windows.Forms.Panel panelBackground;
         private System.Windows.Forms.Button buttonIesire;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -432,5 +431,6 @@
         private System.Windows.Forms.Button buttonPaginaAnterioara;
         private System.Windows.Forms.Button buttonPaginaUrmatoare;
         private System.Windows.Forms.Label labelPageNumber;
+        private System.Windows.Forms.DataGridViewImageColumn coloanaPoza;
     }
 }
