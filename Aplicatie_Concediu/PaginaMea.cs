@@ -127,7 +127,7 @@ namespace Aplicatie_Concediu
 
         private void buttonPanouAdmin_Click(object sender, EventArgs e)
         {
-            Tabel_Concedii formTabelConcedii = new Tabel_Concedii();
+            Tabel_Concedii formTabelConcedii = new Tabel_Concedii(1);
             formTabelConcedii.Show();
             this.Close();
         }
@@ -300,7 +300,7 @@ namespace Aplicatie_Concediu
 
         private void textBoxSerie_Validating(object sender, CancelEventArgs e)
         {
-            string errorMsg;
+            
             if (!(Utils.ValidariFormular.validareSerie(errorProvider2, textBoxSerie))) {
                 e.Cancel = true;
                 textBoxSerie.Select(0, textBoxEmail.Text.Length);
@@ -317,12 +317,68 @@ namespace Aplicatie_Concediu
 
         private void textBoxCnp_Validated(object sender, EventArgs e)
         {
-
+            errorProvider6.SetError(textBoxCnp, "");
         }
 
         private void textBoxCnp_Validating(object sender, CancelEventArgs e)
         {
+            string errorMessage;
+            if( !ValidariFormular.ValidareCnp(textBoxCnp.Text,out errorMessage)){
+                e.Cancel = true;
+                textBoxCnp.Select(0, textBoxCnp.Text.Length);
+                errorProvider6.SetError(textBoxCnp, errorMessage);
+                
+            }
+        }
+
+        private void textBoxTelefon_Validating(object sender, CancelEventArgs e)
+        {
+       
+            if(textBoxTelefon.Text.Length != 10)
+            {
+                e.Cancel = true;
+                textBoxTelefon.Select(0, textBoxTelefon.Text.Length);
+                errorProvider3.SetError(textBoxTelefon, "Intrduceti un numar de telefon valid");
+            }
 
         }
+
+        private void textBoxTelefon_Validated(object sender, EventArgs e)
+        {
+            errorProvider3.SetError(textBoxTelefon, "");
+        }
+
+        private void textBoxNume_Validating(object sender, CancelEventArgs e)
+        {
+          if(textBoxNume.Text == string.Empty)
+            {
+                e.Cancel = true;
+                textBoxNume.Select(0, textBoxNume.Text.Length);
+                errorProvider4.SetError(textBoxNume, "Introduceti un nume");
+            }
+        }
+
+        private void textBoxNume_Validated(object sender, EventArgs e)
+        {
+            errorProvider4.SetError(textBoxNume, "");
+        }
+
+        private void textBoxPrenume_Validating(object sender, CancelEventArgs e)
+        {
+            if (textBoxPrenume.Text == string.Empty)
+            {
+                e.Cancel = true;
+                textBoxPrenume.Select(0, textBoxPrenume.Text.Length);
+                errorProvider5.SetError(textBoxPrenume, "Introduceti un nume");
+            }
+        }
+
+        private void textBoxPrenume_Validated(object sender, EventArgs e)
+        {
+            errorProvider5.SetError(textBoxPrenume, "");
+        }
+
+      
     }
-}
+    }
+
