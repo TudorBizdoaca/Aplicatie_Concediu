@@ -45,11 +45,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlCarduri = new System.Windows.Forms.Panel();
             this.labelIstoricConcedii = new System.Windows.Forms.Label();
+            this.labelFaraConcedii = new System.Windows.Forms.Label();
             this.panelBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUtilizatorLogat)).BeginInit();
             this.panel1.SuspendLayout();
+            this.pnlCarduri.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBackground
@@ -106,7 +108,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.22946F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.77054F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 239F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
             this.tableLayoutPanel1.Controls.Add(this.labelSeparator, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelNumeUtilizatorLogat, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBoxUtilizatorLogat, 0, 0);
@@ -128,7 +130,7 @@
             this.labelSeparator.AutoSize = true;
             this.labelSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSeparator.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelSeparator.Location = new System.Drawing.Point(299, 0);
+            this.labelSeparator.Location = new System.Drawing.Point(298, 0);
             this.labelSeparator.Name = "labelSeparator";
             this.labelSeparator.Size = new System.Drawing.Size(26, 76);
             this.labelSeparator.TabIndex = 38;
@@ -145,7 +147,7 @@
             this.labelNumeUtilizatorLogat.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelNumeUtilizatorLogat.Location = new System.Drawing.Point(71, 0);
             this.labelNumeUtilizatorLogat.Name = "labelNumeUtilizatorLogat";
-            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(222, 76);
+            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(221, 76);
             this.labelNumeUtilizatorLogat.TabIndex = 37;
             this.labelNumeUtilizatorLogat.Text = "Nume Utilizator";
             this.labelNumeUtilizatorLogat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -175,9 +177,9 @@
             this.labelDeconectare.AutoSize = true;
             this.labelDeconectare.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDeconectare.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelDeconectare.Location = new System.Drawing.Point(331, 0);
+            this.labelDeconectare.Location = new System.Drawing.Point(330, 0);
             this.labelDeconectare.Name = "labelDeconectare";
-            this.labelDeconectare.Size = new System.Drawing.Size(234, 76);
+            this.labelDeconectare.Size = new System.Drawing.Size(235, 76);
             this.labelDeconectare.TabIndex = 36;
             this.labelDeconectare.Text = "Deconectare";
             this.labelDeconectare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -281,6 +283,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlCarduri.AutoScroll = true;
+            this.pnlCarduri.Controls.Add(this.labelFaraConcedii);
             this.pnlCarduri.Location = new System.Drawing.Point(50, 181);
             this.pnlCarduri.Margin = new System.Windows.Forms.Padding(0);
             this.pnlCarduri.Name = "pnlCarduri";
@@ -299,6 +302,18 @@
             this.labelIstoricConcedii.Size = new System.Drawing.Size(217, 31);
             this.labelIstoricConcedii.TabIndex = 43;
             this.labelIstoricConcedii.Text = "Istoric Concedii";
+            // 
+            // labelFaraConcedii
+            // 
+            this.labelFaraConcedii.AutoSize = true;
+            this.labelFaraConcedii.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFaraConcedii.ForeColor = System.Drawing.Color.Peru;
+            this.labelFaraConcedii.Location = new System.Drawing.Point(3, 0);
+            this.labelFaraConcedii.Name = "labelFaraConcedii";
+            this.labelFaraConcedii.Size = new System.Drawing.Size(245, 29);
+            this.labelFaraConcedii.TabIndex = 45;
+            this.labelFaraConcedii.Text = "Nu ai concedii create.";
+            this.labelFaraConcedii.Visible = false;
             // 
             // IstoricConcedii
             // 
@@ -321,6 +336,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUtilizatorLogat)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pnlCarduri.ResumeLayout(false);
+            this.pnlCarduri.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,5 +360,6 @@
         private System.Windows.Forms.Label labelIstoricConcedii;
         private System.Windows.Forms.Panel pnlCarduri;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
+        private System.Windows.Forms.Label labelFaraConcedii;
     }
 }

@@ -83,14 +83,8 @@ namespace Aplicatie_Concediu
             string responseBody = await response.Content.ReadAsStringAsync();
             zileConcediuPerTip = JsonConvert.DeserializeObject<Dictionary<int, int>>(responseBody);
             lblZileConcediu.Text = zileConcediuPerTip[(int)cbTipConcediu.SelectedValue].ToString();
-            // Validari Butoane Manager
-            if (SesiuneLogIn.angajatLogat.ManagerId == null)
-            {
-                buttonDetaliiAngajati.Visible = true;
-            }
-
-            // Validari Butoane Admini
-            if (SesiuneLogIn.angajatLogat.EsteAdmin == true)
+            // Validari Butoane Manager & Admin
+            if (SesiuneLogIn.angajatLogat.ManagerId == null || SesiuneLogIn.angajatLogat.EsteAdmin == true)
             {
                 buttonDetaliiAngajati.Visible = true;
                 buttonPanouAdmin.Visible = true;
@@ -156,7 +150,7 @@ namespace Aplicatie_Concediu
         private void buttonIesire_Click(object sender, EventArgs e)
         {
             SesiuneLogIn.angajatLogat = null;
-           
+
             Application.Exit();
         }
 

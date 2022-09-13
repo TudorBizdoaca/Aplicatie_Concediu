@@ -163,14 +163,8 @@ namespace Aplicatie_Concediu
             pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(SesiuneLogIn.angajatLogat.Poza));
             labelNumeUtilizatorLogat.Text = SesiuneLogIn.angajatLogat.Nume + " " + SesiuneLogIn.angajatLogat.Prenume;
 
-            // Validari Butoane Manager
-            if (SesiuneLogIn.angajatLogat.ManagerId == null)
-            {
-                buttonDetaliiAngajati.Visible = true;
-            }
-
-            // Validari Butoane Admini
-            if (SesiuneLogIn.angajatLogat.EsteAdmin == true)
+            // Validari Butoane Manager & Admin
+            if (SesiuneLogIn.angajatLogat.ManagerId == null || SesiuneLogIn.angajatLogat.EsteAdmin == true)
             {
                 buttonDetaliiAngajati.Visible = true;
                 buttonPanouAdmin.Visible = true;
