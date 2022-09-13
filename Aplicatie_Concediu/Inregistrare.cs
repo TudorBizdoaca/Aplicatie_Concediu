@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -62,7 +63,9 @@ namespace Aplicatie_Concediu
                 ang.Serie = tbSerieBuletin.Text;
                 ang.No = tbNrBuletin.Text;
                 ang.NrTelefon = tbNrTelefon.Text;
-                ang.Poza = ImgConvert.ConvertImageToByteArray("C:\\Users\\alberto.chirita\\source\\repos\\k\\Aplicatie_Concediu\\PozaDefaultAngajati.png");
+ 
+                string imgFilePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName,"Utils", "PozaDefaultAngajati.png");
+                ang.Poza = ImgConvert.ConvertImageToByteArray(imgFilePath);
                 bool d = InrengistrareAngajatAPI(ang);
                 if (d == true)
                 {
@@ -158,7 +161,7 @@ namespace Aplicatie_Concediu
 
         private void dtpDataAngajare_ValueChanged(object sender, EventArgs e)
         {
-            ValidariFormular.validareDataAngajare(errorProviderDataAngajare, dtpDataAngajare);
+            ValidariFormular.validareDataAngajare(errorProviderDataAngajare, dtpDataAngajare,tbCnp.Text);
         }
 
         private void dtpDataNastere_ValueChanged(object sender, EventArgs e)
@@ -195,7 +198,7 @@ namespace Aplicatie_Concediu
             bool prenumeValid = ValidariFormular.validarePrenume(errorProviderPrenume, tbPrenume);
             bool emailValid = ValidariFormular.validareEmail(errorProviderEmail, tbEmail);
             bool dataNastereValida = ValidariFormular.validareDataNastere(errorProviderCnp, dtpDataNastere, tbCnp, errorProviderDataNastere);
-            bool dataAngajariiValida = ValidariFormular.validareDataAngajare(errorProviderDataAngajare, dtpDataAngajare);
+            bool dataAngajariiValida = ValidariFormular.validareDataAngajare(errorProviderDataAngajare, dtpDataAngajare,tbCnp.Text);
             bool cnpValid = ValidariFormular.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere, errorProviderDataNastere);
             bool serieValida = ValidariFormular.validareSerie(errorProviderSerieBuletin, tbSerieBuletin);
             bool nrvalid = ValidariFormular.validareNrBuletin(errorProviderNrBuletin, tbNrBuletin);
@@ -228,22 +231,11 @@ namespace Aplicatie_Concediu
             ValidariFormular.validareNume(errorProviderNume, tbInregistrareNume);
 
         }
-        private void tbInregistrareNume_Validated(object sender, EventArgs e)
-        {
-            errorProviderNume.Clear();
-
-        }
-
+     
         private void tbPrenume_Validating(object sender, CancelEventArgs e)
         {
 
             ValidariFormular.validarePrenume(errorProviderPrenume, tbPrenume);
-        }
-
-        private void tbPrenume_Validated(object sender, EventArgs e)
-        {
-            errorProviderPrenume.Clear();
-
         }
 
         private void tbEmail_Validating(object sender, CancelEventArgs e)
@@ -269,7 +261,7 @@ namespace Aplicatie_Concediu
  
         private void dtpDataAngajare_Validating(object sender, CancelEventArgs e)
         {
-            ValidariFormular.validareDataAngajare(errorProviderDataAngajare, dtpDataAngajare);
+            ValidariFormular.validareDataAngajare(errorProviderDataAngajare, dtpDataAngajare,tbCnp.Text);
         }
 
         private void tbCnp_Validating(object sender, CancelEventArgs e)
@@ -304,7 +296,18 @@ namespace Aplicatie_Concediu
             validareCodVerificare();
         }
 
-      #endregion
+        private void tbCnp_TextChanged(object sender, EventArgs e)
+        {
+            ValidariFormular.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere, errorProviderDataNastere);
+        }
+
+    
+        private void tbCodVerificare_TextChanged(object sender, EventArgs e)
+        {
+            validareCodVerificare();
+        }
+
+        #endregion
 
 
         #region Trimitere E-mail Cod Verificare
@@ -362,11 +365,7 @@ namespace Aplicatie_Concediu
             Application.Exit();
         }
 
-        private void tbEmail_Leave(object sender, EventArgs e)
-        {
-            ValidariFormular.verificareExistentaEmail(errorProviderEmail, tbEmail, tbEmail.Text);
-            ValidariFormular.validareEmail(errorProviderEmail, tbEmail);
-        }
+     
 
         private void buttonInapoi_Click(object sender, EventArgs e)
         {
@@ -375,6 +374,12 @@ namespace Aplicatie_Concediu
             this.Close();
         }
 
+        #region Apelare validari pe event-ul de leave
+        private void tbEmail_Leave(object sender, EventArgs e)
+        {
+            ValidariFormular.verificareExistentaEmail(errorProviderEmail, tbEmail, tbEmail.Text);
+            ValidariFormular.validareEmail(errorProviderEmail, tbEmail);
+        }
 
         private void tbCnp_Leave_1(object sender, EventArgs e)
         {
@@ -387,6 +392,45 @@ namespace Aplicatie_Concediu
 
 
         }
+        private void tbInregistrareNume_Leave(object sender, EventArgs e)
+        {
+            ValidariFormular.validareNume(errorProviderNume, tbInregistrareNume);
+        }
+
+        private void tbPrenume_Leave(object sender, EventArgs e)
+        {
+            ValidariFormular.validarePrenume(errorProviderPrenume, tbPrenume);
+        }
+
+        private void tbCodVerificare_Leave(object sender, EventArgs e)
+        {
+            validareCodVerificare();
+        }
+        #endregion
+        #region Permitere doar litere in nume si prenume
+
+        private void tbInregistrareNume_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbPrenume_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+
+
+
+        #endregion
+
+        
     }
 
 }
