@@ -17,6 +17,7 @@ namespace Aplicatie_Concediu.Utils
         static readonly HttpClient client = new HttpClient();
         static Angajat angajat;
        static bool eValid = true;
+        public static bool existaEmail = false;
         public static bool validareConfirmaParola(ErrorProvider ep, TextBox tb, string parola)
         {
             bool eValid = true;
@@ -87,6 +88,7 @@ namespace Aplicatie_Concediu.Utils
             {
                 ep.SetError(tb, "E-mailul exista deja in baza de date!!!!!");
                 eValid = false;
+                existaEmail = true;
             }
 
             

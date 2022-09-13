@@ -206,7 +206,7 @@ namespace Aplicatie_Concediu
             bool parolaValida = ValidariFormular.validareParola(errorProviderParola, tbParola);
             bool codVerificareValid = validareCodVerificare();
             bool confirmaParolaValid = ValidariFormular.validareConfirmaParola(errorProviderConfirmaParola, tbParolaConfirmare, tbParola.Text);
-
+            bool existaEmail = ValidariFormular.existaEmail;
             if (cnpValid && dataNastereValida)
             {
                 errorProviderDataNastere.Clear();
@@ -215,7 +215,7 @@ namespace Aplicatie_Concediu
 
 
             if (numeValid && prenumeValid && emailValid && dataAngajariiValida
-                && serieValida && nrvalid && nrTelefonValid && parolaValida && codVerificareValid && confirmaParolaValid)
+                && serieValida && nrvalid && nrTelefonValid && parolaValida && codVerificareValid && confirmaParolaValid && !existaEmail)
             {
                 eValid = true;
             }

@@ -106,7 +106,8 @@ namespace Aplicatie_Concediu
 
             listaConcedii.Clear();
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
-            populareGridView(listaConcedii);
+            if (listaConcedii != null)
+                 populareGridView(listaConcedii);
         }
         private async Task GetStariConcediu()
         {
@@ -252,7 +253,7 @@ namespace Aplicatie_Concediu
         }
         private async Task GetConcediiCuFiltre(string nume,int? stareId, int? tipId, DateTime? dataInceput, DateTime? dataFinal)
         {
-            listaConcedii.Clear();
+         //   listaConcedii.Clear();
             HttpResponseMessage response = await client.GetAsync(String.Format("{0}/TabelConcedii/GetConcediiDupaFiltre?nume={1}&stareId={2}&tipId={3}&dataInceput={4}&dataFinal={5}",SesiuneLogIn.requestURL, nume, stareId,tipId,dataInceput,dataFinal));
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
