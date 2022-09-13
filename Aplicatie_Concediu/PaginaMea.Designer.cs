@@ -324,6 +324,8 @@
             this.textBoxNr.ReadOnly = true;
             this.textBoxNr.Size = new System.Drawing.Size(103, 30);
             this.textBoxNr.TabIndex = 22;
+            this.textBoxNr.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxNr_Validating);
+            this.textBoxNr.Validated += new System.EventHandler(this.textBoxNr_Validated);
             // 
             // labelNr
             // 

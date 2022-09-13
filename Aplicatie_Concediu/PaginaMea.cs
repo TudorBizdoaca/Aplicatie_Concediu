@@ -283,7 +283,7 @@ namespace Aplicatie_Concediu
         private void TextBoxSerie_Validating(object sender, CancelEventArgs e)
         {
 
-            if (!(Utils.ValidariFormular.validareSerie(errorProvider2, textBoxSerie)))
+            if (!(Utils.ValidariFormular.validareSerie(errorProvider2, textBoxSerie)) || textBoxSerie.Text.Contains(" "))
             {
                 e.Cancel = true;
                 textBoxSerie.Select(0, textBoxEmail.Text.Length);
@@ -339,7 +339,7 @@ namespace Aplicatie_Concediu
 
         private void textBoxNume_Validating(object sender, CancelEventArgs e)
         {
-            if (textBoxNume.Text == string.Empty && Regex.IsMatch(textBoxNume.Text, "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u"))
+            if (textBoxNume.Text == string.Empty && !Regex.IsMatch(textBoxNume.Text, "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u"))
             {
                 e.Cancel = true;
                 textBoxNume.Select(0, textBoxNume.Text.Length);
@@ -354,11 +354,11 @@ namespace Aplicatie_Concediu
 
         private void textBoxPrenume_Validating(object sender, CancelEventArgs e)
         {
-            if (textBoxPrenume.Text == string.Empty)
+            if (textBoxPrenume.Text == string.Empty || Regex.IsMatch(textBoxPrenume.Text, "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u"))
             {
                 e.Cancel = true;
                 textBoxPrenume.Select(0, textBoxPrenume.Text.Length);
-                errorProvider5.SetError(textBoxPrenume, "Introduceti un nume");
+                errorProvider5.SetError(textBoxPrenume, "Introduceti un nume valid");
             }
         }
 
@@ -387,10 +387,10 @@ namespace Aplicatie_Concediu
 
         private void textBoxNr_Validating(object sender, CancelEventArgs e)
         {
-            string nrTelefonRegex = @"^[0-9]*$";
+            string nrTelefonRegex = "^[0-9]*$";
             Regex nrTelefonRegexp = new Regex(nrTelefonRegex);
 
-            if (textBoxNr.Text.Length != 6 || !nrTelefonRegexp.IsMatch(textBoxNr.Text))
+            if (textBoxNr.Text.Length != 6 || !nrTelefonRegexp.IsMatch(textBoxNr.Text) )
             {
                 e.Cancel = true;
                 textBoxNr.Select(0,textBoxNr.Text.Length);
@@ -398,7 +398,9 @@ namespace Aplicatie_Concediu
                 
             }
             
-        }
+           }
+
+   
     }
 }
 
