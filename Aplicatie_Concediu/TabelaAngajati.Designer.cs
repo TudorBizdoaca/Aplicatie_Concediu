@@ -71,6 +71,7 @@
             this.dgvAngajati.Location = new System.Drawing.Point(54, 185);
             this.dgvAngajati.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAngajati.Name = "dgvAngajati";
+            this.dgvAngajati.ReadOnly = true;
             this.dgvAngajati.RowHeadersWidth = 51;
             this.dgvAngajati.Size = new System.Drawing.Size(1081, 253);
             this.dgvAngajati.TabIndex = 0;
