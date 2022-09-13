@@ -1,4 +1,5 @@
 ﻿using Aplicatie_Concediu.Models;
+using Aplicatie_Concediu.Utils;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -58,7 +59,8 @@ namespace Aplicatie_Concediu
             con.MotivRespingere = Motiv.Text;
             con.StareConcediuId = 3;
             bool comentariu = UpdateMotivRespingere(con);
-            await refresh.GetConcedii("http://localhost:5085/api/TabelConcedii/GetConcedii");
+            string URL = String.Format("{0}/TabelConcedii/GetConcedii?esteAdmin={1}&id={2}", SesiuneLogIn.requestURL, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id);
+            await refresh.GetConcedii(URL);
             this.Close();
             
         }

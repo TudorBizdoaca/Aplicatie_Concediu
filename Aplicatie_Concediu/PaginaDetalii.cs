@@ -1,4 +1,5 @@
 ﻿using Aplicatie_Concediu.Models;
+using Aplicatie_Concediu.Utils;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
@@ -10,6 +11,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -104,7 +106,8 @@ namespace Aplicatie_Concediu
             con.Id = Convert.ToInt32(Program.IdConcediu);
             con.StareConcediuId = 1;
             bool stare = UpdateStareConcediu(con);
-            await refresh.GetConcedii("http://localhost:5085/api/TabelConcedii/GetConcedii");
+            string URL = String.Format("{0}/TabelConcedii/GetConcedii?esteAdmin={1}&id={2}", SesiuneLogIn.requestURL, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id);
+            await refresh.GetConcedii(URL);
             this.Close();
          
         }

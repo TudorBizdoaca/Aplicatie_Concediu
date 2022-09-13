@@ -95,7 +95,7 @@ namespace Aplicatie_Concediu
 
         private async Task GetConcediiDupaNumeAngajat(string numeAngajat)
         {
-            string URL = String.Format("{0}/TabelConcedii/GetConcediiDupaNumeAngajat?nume={1}", SesiuneLogIn.requestURL, numeAngajat);
+            string URL = String.Format("{0}/TabelConcedii/GetConcediiDupaNumeAngajat?nume={1}&esteAdmin={2}&id={3}", SesiuneLogIn.requestURL, numeAngajat, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id);
 
             HttpResponseMessage response = await client.GetAsync(URL);
             if (!String.IsNullOrEmpty(numeAngajat))
@@ -174,7 +174,7 @@ namespace Aplicatie_Concediu
 
             labelPageNumber.Text = Convert.ToString(pagina);
 
-            string URL = String.Format("{0}/TabelConcedii/GetNrConcedii", SesiuneLogIn.requestURL);
+            string URL = String.Format("{0}/TabelConcedii/GetNrConcedii?esteAdmin={1}&id={2}", SesiuneLogIn.requestURL, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id);
             await GetNrConcedii(URL);
 
             if (pagina != 1)
@@ -188,7 +188,7 @@ namespace Aplicatie_Concediu
             }
 
             int position = (pagina - 1) * 10;
-            URL = String.Format("{0}/TabelConcedii/GetConcedii?position={1}", SesiuneLogIn.requestURL, position);
+            URL = String.Format("{0}/TabelConcedii/GetConcedii?position={1}&esteAdmin={2}&id={3}", SesiuneLogIn.requestURL, position, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id);
 
             await GetConcedii(URL);
         }
@@ -203,7 +203,7 @@ namespace Aplicatie_Concediu
         {
             listaConcedii.Clear();
 
-            string URL = String.Format("{0}/TabelConcedii/GetConcediiByStareId?stareId={1}", SesiuneLogIn.requestURL, stareId);
+            string URL = String.Format("{0}/TabelConcedii/GetConcediiByStareId?stareId={1}&esteAdmin={2}&id={3}", SesiuneLogIn.requestURL, stareId, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id);
 
             HttpResponseMessage response = await client.GetAsync(URL);
             response.EnsureSuccessStatusCode();
@@ -215,7 +215,7 @@ namespace Aplicatie_Concediu
         private async Task GetConcediiByTip(int tipId)
         {
             listaConcedii.Clear();
-            HttpResponseMessage response = await client.GetAsync(String.Format("{0}/TabelConcedii/GetConcediiByTipConcediuId?tipConcediuId={1}", SesiuneLogIn.requestURL,tipId));
+            HttpResponseMessage response = await client.GetAsync(String.Format("{0}/TabelConcedii/GetConcediiByTipConcediuId?tipConcediuId={1}&esteAdmin={2}&id={3}", SesiuneLogIn.requestURL,tipId, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id));
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
@@ -236,7 +236,7 @@ namespace Aplicatie_Concediu
                  repopulareGvDupaSelectStare();
             else
             {
-                string URL = String.Format("{0}/TabelConcedii/GetConcedii", SesiuneLogIn.requestURL);
+                string URL = String.Format("{0}/TabelConcedii/GetConcedii?&esteAdmin={1}&id={2}", SesiuneLogIn.requestURL, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id);
 
                 await GetConcedii(URL);
                 listaConcedii.Clear();
@@ -253,7 +253,7 @@ namespace Aplicatie_Concediu
         private async Task GetConcediiCuFiltre(string nume,int? stareId, int? tipId, DateTime? dataInceput, DateTime? dataFinal)
         {
             listaConcedii.Clear();
-            HttpResponseMessage response = await client.GetAsync(String.Format("{0}/TabelConcedii/GetConcediiDupaFiltre?nume={1}&stareId={2}&tipId={3}&dataInceput={4}&dataFinal={5}",SesiuneLogIn.requestURL, nume, stareId,tipId,dataInceput,dataFinal));
+            HttpResponseMessage response = await client.GetAsync(String.Format("{0}/TabelConcedii/GetConcediiDupaFiltre?nume={1}&stareId={2}&tipId={3}&dataInceput={4}&dataFinal={5}&esteAdmin={6}&id={7}",SesiuneLogIn.requestURL, nume, stareId,tipId,dataInceput,dataFinal, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id));
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
@@ -270,7 +270,7 @@ namespace Aplicatie_Concediu
             }
             else
             {
-                await GetConcedii(String.Format("{0}/TabelConcedii/GetConcedii",SesiuneLogIn.requestURL));
+                await GetConcedii(String.Format("{0}/TabelConcedii/GetConcedii?esteAdmin={1}&id={2}",SesiuneLogIn.requestURL, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id));
                 listaConcedii.Clear();
                 populareGridView(listaConcedii);
             }
