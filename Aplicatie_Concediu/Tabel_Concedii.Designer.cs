@@ -61,12 +61,12 @@
             this.buttonCerereConcediu = new System.Windows.Forms.Button();
             this.buttonPaginaMea = new System.Windows.Forms.Button();
             this.panelContinut = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelCereriConcediu = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.labelPageNumber = new System.Windows.Forms.Label();
             this.buttonPaginaAnterioara = new System.Windows.Forms.Button();
             this.buttonPaginaUrmatoare = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelCereriConcediu = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.breakingBreadDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breakingBreadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabelConcedii)).BeginInit();
@@ -77,8 +77,8 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUtilizatorLogat)).BeginInit();
             this.panelContinut.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // breakingBreadDataSetBindingSource
@@ -142,7 +142,7 @@
             this.lStareConcediu.Location = new System.Drawing.Point(618, 0);
             this.lStareConcediu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lStareConcediu.Name = "lStareConcediu";
-            this.lStareConcediu.Size = new System.Drawing.Size(102, 50);
+            this.lStareConcediu.Size = new System.Drawing.Size(104, 75);
             this.lStareConcediu.TabIndex = 7;
             this.lStareConcediu.Text = "Stare Concediu:";
             // 
@@ -180,7 +180,7 @@
             this.lDataInceput.Location = new System.Drawing.Point(4, 75);
             this.lDataInceput.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lDataInceput.Name = "lDataInceput";
-            this.lDataInceput.Size = new System.Drawing.Size(82, 50);
+            this.lDataInceput.Size = new System.Drawing.Size(90, 50);
             this.lDataInceput.TabIndex = 10;
             this.lDataInceput.Text = "Data Inceput:";
             // 
@@ -205,7 +205,7 @@
             this.lDataFinal.Location = new System.Drawing.Point(311, 75);
             this.lDataFinal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lDataFinal.Name = "lDataFinal";
-            this.lDataFinal.Size = new System.Drawing.Size(106, 25);
+            this.lDataFinal.Size = new System.Drawing.Size(66, 50);
             this.lDataFinal.TabIndex = 12;
             this.lDataFinal.Text = "Data Final:";
             // 
@@ -217,7 +217,7 @@
             this.lNume.Location = new System.Drawing.Point(4, 0);
             this.lNume.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lNume.Name = "lNume";
-            this.lNume.Size = new System.Drawing.Size(70, 25);
+            this.lNume.Size = new System.Drawing.Size(75, 25);
             this.lNume.TabIndex = 13;
             this.lNume.Text = "Nume:";
             // 
@@ -243,7 +243,7 @@
             this.label1.Location = new System.Drawing.Point(311, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 50);
+            this.label1.Size = new System.Drawing.Size(104, 75);
             this.label1.TabIndex = 15;
             this.label1.Text = "Tip Concediu:";
             // 
@@ -318,7 +318,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.22946F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.77054F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 257F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 258F));
             this.tableLayoutPanel1.Controls.Add(this.labelSeparator, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelNumeUtilizatorLogat, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBoxUtilizatorLogat, 0, 0);
@@ -340,7 +340,7 @@
             this.labelSeparator.AutoSize = true;
             this.labelSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSeparator.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelSeparator.Location = new System.Drawing.Point(281, 0);
+            this.labelSeparator.Location = new System.Drawing.Point(280, 0);
             this.labelSeparator.Name = "labelSeparator";
             this.labelSeparator.Size = new System.Drawing.Size(26, 76);
             this.labelSeparator.TabIndex = 38;
@@ -357,7 +357,7 @@
             this.labelNumeUtilizatorLogat.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelNumeUtilizatorLogat.Location = new System.Drawing.Point(67, 0);
             this.labelNumeUtilizatorLogat.Name = "labelNumeUtilizatorLogat";
-            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(208, 76);
+            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(207, 76);
             this.labelNumeUtilizatorLogat.TabIndex = 37;
             this.labelNumeUtilizatorLogat.Text = "Nume Utilizator";
             this.labelNumeUtilizatorLogat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -387,9 +387,9 @@
             this.labelDeconectare.AutoSize = true;
             this.labelDeconectare.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDeconectare.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelDeconectare.Location = new System.Drawing.Point(313, 0);
+            this.labelDeconectare.Location = new System.Drawing.Point(312, 0);
             this.labelDeconectare.Name = "labelDeconectare";
-            this.labelDeconectare.Size = new System.Drawing.Size(252, 76);
+            this.labelDeconectare.Size = new System.Drawing.Size(253, 76);
             this.labelDeconectare.TabIndex = 36;
             this.labelDeconectare.Text = "Deconectare";
             this.labelDeconectare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -421,7 +421,7 @@
             this.buttonPanouAdmin.Name = "buttonPanouAdmin";
             this.buttonPanouAdmin.Size = new System.Drawing.Size(211, 70);
             this.buttonPanouAdmin.TabIndex = 18;
-            this.buttonPanouAdmin.Text = "Panou Admin";
+            this.buttonPanouAdmin.Text = "Concedii";
             this.buttonPanouAdmin.UseVisualStyleBackColor = false;
             this.buttonPanouAdmin.Visible = false;
             this.buttonPanouAdmin.Click += new System.EventHandler(this.buttonPanouAdmin_Click);
@@ -490,50 +490,6 @@
             this.panelContinut.Size = new System.Drawing.Size(1025, 492);
             this.panelContinut.TabIndex = 9;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 6;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.83333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.83333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.83333F));
-            this.tableLayoutPanel2.Controls.Add(this.tbFiltrareNume, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnAplicaFiltre, 5, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cbTipConcedii, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dtpDataFinal, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.cbStariConcedii, 5, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lDataFinal, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.lStareConcediu, 4, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dtpDataInceput, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.lDataInceput, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.lNume, 0, 0);
-            this.tableLayoutPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(50, 156);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 25);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(925, 136);
-            this.tableLayoutPanel2.TabIndex = 18;
-            // 
-            // labelCereriConcediu
-            // 
-            this.labelCereriConcediu.AutoSize = true;
-            this.labelCereriConcediu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCereriConcediu.ForeColor = System.Drawing.Color.Peru;
-            this.labelCereriConcediu.Location = new System.Drawing.Point(50, 75);
-            this.labelCereriConcediu.Margin = new System.Windows.Forms.Padding(0, 0, 0, 50);
-            this.labelCereriConcediu.Name = "labelCereriConcediu";
-            this.labelCereriConcediu.Size = new System.Drawing.Size(225, 31);
-            this.labelCereriConcediu.TabIndex = 17;
-            this.labelCereriConcediu.Text = "Cereri Concediu";
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -599,6 +555,50 @@
             this.buttonPaginaUrmatoare.Visible = false;
             this.buttonPaginaUrmatoare.Click += new System.EventHandler(this.buttonPaginaUrmatoare_Click);
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 6;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.83333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.83333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.83333F));
+            this.tableLayoutPanel2.Controls.Add(this.tbFiltrareNume, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnAplicaFiltre, 5, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cbTipConcedii, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dtpDataFinal, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.cbStariConcedii, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lDataFinal, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lStareConcediu, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dtpDataInceput, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lDataInceput, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lNume, 0, 0);
+            this.tableLayoutPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(50, 156);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 25);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(925, 136);
+            this.tableLayoutPanel2.TabIndex = 18;
+            // 
+            // labelCereriConcediu
+            // 
+            this.labelCereriConcediu.AutoSize = true;
+            this.labelCereriConcediu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCereriConcediu.ForeColor = System.Drawing.Color.Peru;
+            this.labelCereriConcediu.Location = new System.Drawing.Point(50, 75);
+            this.labelCereriConcediu.Margin = new System.Windows.Forms.Padding(0, 0, 0, 50);
+            this.labelCereriConcediu.Name = "labelCereriConcediu";
+            this.labelCereriConcediu.Size = new System.Drawing.Size(128, 31);
+            this.labelCereriConcediu.TabIndex = 17;
+            this.labelCereriConcediu.Text = "Concedii";
+            // 
             // Tabel_Concedii
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -624,10 +624,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUtilizatorLogat)).EndInit();
             this.panelContinut.ResumeLayout(false);
             this.panelContinut.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
