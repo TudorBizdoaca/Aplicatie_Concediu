@@ -377,8 +377,6 @@ namespace Aplicatie_Concediu
         {
             errorProvider5.SetError(textBoxPrenume, "");
         }
-
-      
     }
     }
 
