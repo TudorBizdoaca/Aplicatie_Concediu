@@ -86,7 +86,10 @@ namespace Aplicatie_Concediu
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
 
-            listaConcedii.Clear();
+            if (listaConcedii != null)
+            {
+                listaConcedii.Clear();
+            }
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
             dgvTabelConcedii.Rows.Clear();
             populareGridView(listaConcedii);
@@ -104,7 +107,10 @@ namespace Aplicatie_Concediu
             if (response.IsSuccessStatusCode)
                 responseBody = await response.Content.ReadAsStringAsync();
 
-            listaConcedii.Clear();
+            if (listaConcedii != null)
+            {
+                listaConcedii.Clear();
+            }
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
             if (listaConcedii != null)
                  populareGridView(listaConcedii);
@@ -202,7 +208,10 @@ namespace Aplicatie_Concediu
         }
         private async Task GetConcediiByStare(int stareId)
         {
-            listaConcedii.Clear();
+            if (listaConcedii != null)
+            {
+                listaConcedii.Clear();
+            }
 
             string URL = String.Format("{0}/TabelConcedii/GetConcediiByStareId?stareId={1}&esteAdmin={2}&id={3}", SesiuneLogIn.requestURL, stareId, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id);
 
@@ -215,7 +224,10 @@ namespace Aplicatie_Concediu
 
         private async Task GetConcediiByTip(int tipId)
         {
-            listaConcedii.Clear();
+            if (listaConcedii != null)
+            {
+                listaConcedii.Clear();
+            }
             HttpResponseMessage response = await client.GetAsync(String.Format("{0}/TabelConcedii/GetConcediiByTipConcediuId?tipConcediuId={1}&esteAdmin={2}&id={3}", SesiuneLogIn.requestURL,tipId, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id));
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
@@ -240,7 +252,10 @@ namespace Aplicatie_Concediu
                 string URL = String.Format("{0}/TabelConcedii/GetConcedii?&esteAdmin={1}&id={2}", SesiuneLogIn.requestURL, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id);
 
                 await GetConcedii(URL);
-                listaConcedii.Clear();
+                if (listaConcedii != null)
+                {
+                    listaConcedii.Clear();
+                }
                 populareGridView(listaConcedii);
             }
         }
@@ -272,7 +287,10 @@ namespace Aplicatie_Concediu
             else
             {
                 await GetConcedii(String.Format("{0}/TabelConcedii/GetConcedii?esteAdmin={1}&id={2}",SesiuneLogIn.requestURL, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id));
-                listaConcedii.Clear();
+                if (listaConcedii != null)
+                {
+                    listaConcedii.Clear();
+                }
                 populareGridView(listaConcedii);
             }
         }
