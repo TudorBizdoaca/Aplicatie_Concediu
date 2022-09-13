@@ -128,7 +128,6 @@
             this.tbInregistrareNume.TabIndex = 1;
             this.tbInregistrareNume.TextChanged += new System.EventHandler(this.tbInregistrareNume_TextChanged);
             this.tbInregistrareNume.Validating += new System.ComponentModel.CancelEventHandler(this.tbInregistrareNume_Validating);
-            this.tbInregistrareNume.Validated += new System.EventHandler(this.tbInregistrareNume_Validated);
             // 
             // lInregistrareTitlu
             // 
@@ -154,7 +153,6 @@
             this.tbPrenume.TabIndex = 3;
             this.tbPrenume.TextChanged += new System.EventHandler(this.tbPrenume_TextChanged);
             this.tbPrenume.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrenume_Validating);
-            this.tbPrenume.Validated += new System.EventHandler(this.tbPrenume_Validated);
             // 
             // tbEmail
             // 
