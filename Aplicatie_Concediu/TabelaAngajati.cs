@@ -101,7 +101,7 @@ namespace Aplicatie_Concediu
                 buttonPaginaAnterioara.Visible = true;
             }
 
-            if (pagina != nrPagini)
+            if (pagina < nrPagini)
             {
                 buttonPaginaUrmatoare.Visible = true;
             }
