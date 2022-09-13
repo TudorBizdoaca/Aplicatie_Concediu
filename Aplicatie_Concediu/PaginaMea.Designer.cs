@@ -135,7 +135,7 @@
             // 
             this.pictureBoxEdit.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxEdit.Image")));
             this.pictureBoxEdit.Location = new System.Drawing.Point(91, 102);
-            this.pictureBoxEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxEdit.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxEdit.Name = "pictureBoxEdit";
             this.pictureBoxEdit.Size = new System.Drawing.Size(24, 21);
             this.pictureBoxEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -158,7 +158,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.95745F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.6383F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.95745F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 122F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
             this.tableLayoutPanel2.Controls.Add(this.textBoxNume, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.dateTimePickerDataNasterii, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.textBoxCnp, 1, 1);
@@ -194,11 +194,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxNume.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNume.Location = new System.Drawing.Point(99, 3);
+            this.textBoxNume.Location = new System.Drawing.Point(69, 3);
             this.textBoxNume.MaxLength = 20;
             this.textBoxNume.Name = "textBoxNume";
             this.textBoxNume.ReadOnly = true;
-            this.textBoxNume.Size = new System.Drawing.Size(235, 26);
+            this.textBoxNume.Size = new System.Drawing.Size(159, 26);
             this.textBoxNume.TabIndex = 13;
             this.textBoxNume.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxNume_Validating);
             this.textBoxNume.Validated += new System.EventHandler(this.textBoxNume_Validated);
@@ -212,10 +212,10 @@
             this.dateTimePickerDataNasterii.CalendarMonthBackground = System.Drawing.SystemColors.Control;
             this.dateTimePickerDataNasterii.Enabled = false;
             this.dateTimePickerDataNasterii.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerDataNasterii.Location = new System.Drawing.Point(98, 185);
-            this.dateTimePickerDataNasterii.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerDataNasterii.Location = new System.Drawing.Point(68, 185);
+            this.dateTimePickerDataNasterii.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerDataNasterii.Name = "dateTimePickerDataNasterii";
-            this.dateTimePickerDataNasterii.Size = new System.Drawing.Size(237, 26);
+            this.dateTimePickerDataNasterii.Size = new System.Drawing.Size(161, 26);
             this.dateTimePickerDataNasterii.TabIndex = 32;
             // 
             // textBoxCnp
@@ -224,10 +224,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxCnp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCnp.Location = new System.Drawing.Point(99, 64);
+            this.textBoxCnp.Location = new System.Drawing.Point(69, 64);
             this.textBoxCnp.Name = "textBoxCnp";
             this.textBoxCnp.ReadOnly = true;
-            this.textBoxCnp.Size = new System.Drawing.Size(235, 26);
+            this.textBoxCnp.Size = new System.Drawing.Size(159, 26);
             this.textBoxCnp.TabIndex = 18;
             this.textBoxCnp.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCnp_Validating);
             this.textBoxCnp.Validated += new System.EventHandler(this.textBoxCnp_Validated);
@@ -241,7 +241,7 @@
             this.labelDataNasterii.ForeColor = System.Drawing.Color.Peru;
             this.labelDataNasterii.Location = new System.Drawing.Point(3, 183);
             this.labelDataNasterii.Name = "labelDataNasterii";
-            this.labelDataNasterii.Size = new System.Drawing.Size(77, 117);
+            this.labelDataNasterii.Size = new System.Drawing.Size(58, 61);
             this.labelDataNasterii.TabIndex = 28;
             this.labelDataNasterii.Text = "Data Nasterii:";
             this.labelDataNasterii.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -252,10 +252,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(99, 125);
+            this.textBoxEmail.Location = new System.Drawing.Point(69, 125);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.ReadOnly = true;
-            this.textBoxEmail.Size = new System.Drawing.Size(235, 26);
+            this.textBoxEmail.Size = new System.Drawing.Size(159, 26);
             this.textBoxEmail.TabIndex = 26;
             this.textBoxEmail.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxEmail_Validating);
             this.textBoxEmail.Validated += new System.EventHandler(this.textBoxEmail_Validated);
@@ -269,7 +269,7 @@
             this.labelEmail.ForeColor = System.Drawing.Color.Peru;
             this.labelEmail.Location = new System.Drawing.Point(3, 122);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(62, 61);
+            this.labelEmail.Size = new System.Drawing.Size(57, 61);
             this.labelEmail.TabIndex = 23;
             this.labelEmail.Text = "Email:";
             this.labelEmail.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -296,11 +296,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.SetColumnSpan(this.textBoxPrenume, 3);
             this.textBoxPrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPrenume.Location = new System.Drawing.Point(474, 3);
+            this.textBoxPrenume.Location = new System.Drawing.Point(338, 3);
             this.textBoxPrenume.MaxLength = 20;
             this.textBoxPrenume.Name = "textBoxPrenume";
             this.textBoxPrenume.ReadOnly = true;
-            this.textBoxPrenume.Size = new System.Drawing.Size(314, 26);
+            this.textBoxPrenume.Size = new System.Drawing.Size(213, 26);
             this.textBoxPrenume.TabIndex = 16;
             this.textBoxPrenume.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPrenume_Validating);
             this.textBoxPrenume.Validated += new System.EventHandler(this.textBoxPrenume_Validated);
@@ -311,11 +311,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxNr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNr.Location = new System.Drawing.Point(674, 64);
+            this.textBoxNr.Location = new System.Drawing.Point(475, 64);
             this.textBoxNr.Name = "textBoxNr";
             this.textBoxNr.ReadOnly = true;
-            this.textBoxNr.Size = new System.Drawing.Size(114, 26);
+            this.textBoxNr.Size = new System.Drawing.Size(76, 26);
             this.textBoxNr.TabIndex = 22;
+            this.textBoxNr.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxNr_Validating);
+            this.textBoxNr.Validated += new System.EventHandler(this.textBoxNr_Validated);
             // 
             // labelNr
             // 
@@ -324,7 +326,7 @@
             this.labelNr.AutoSize = true;
             this.labelNr.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNr.ForeColor = System.Drawing.Color.Peru;
-            this.labelNr.Location = new System.Drawing.Point(594, 61);
+            this.labelNr.Location = new System.Drawing.Point(420, 61);
             this.labelNr.Name = "labelNr";
             this.labelNr.Size = new System.Drawing.Size(35, 61);
             this.labelNr.TabIndex = 21;
@@ -337,10 +339,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSerie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSerie.Location = new System.Drawing.Point(474, 64);
+            this.textBoxSerie.Location = new System.Drawing.Point(338, 64);
             this.textBoxSerie.Name = "textBoxSerie";
             this.textBoxSerie.ReadOnly = true;
-            this.textBoxSerie.Size = new System.Drawing.Size(114, 26);
+            this.textBoxSerie.Size = new System.Drawing.Size(76, 26);
             this.textBoxSerie.TabIndex = 20;
             this.textBoxSerie.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxSerie_Validating);
             this.textBoxSerie.Validated += new System.EventHandler(this.textBoxSerie_Validated);
@@ -353,7 +355,7 @@
             this.labelSerie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSerie.ForeColor = System.Drawing.Color.Peru;
             this.labelSerie.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.labelSerie.Location = new System.Drawing.Point(378, 61);
+            this.labelSerie.Location = new System.Drawing.Point(272, 61);
             this.labelSerie.Name = "labelSerie";
             this.labelSerie.Size = new System.Drawing.Size(59, 61);
             this.labelSerie.TabIndex = 19;
@@ -367,10 +369,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.SetColumnSpan(this.textBoxTelefon, 3);
             this.textBoxTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTelefon.Location = new System.Drawing.Point(474, 125);
+            this.textBoxTelefon.Location = new System.Drawing.Point(338, 125);
             this.textBoxTelefon.Name = "textBoxTelefon";
             this.textBoxTelefon.ReadOnly = true;
-            this.textBoxTelefon.Size = new System.Drawing.Size(314, 26);
+            this.textBoxTelefon.Size = new System.Drawing.Size(213, 26);
             this.textBoxTelefon.TabIndex = 27;
             this.textBoxTelefon.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxTelefon_Validating);
             this.textBoxTelefon.Validated += new System.EventHandler(this.textBoxTelefon_Validated);
@@ -382,9 +384,9 @@
             this.labelTelefon.AutoSize = true;
             this.labelTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTelefon.ForeColor = System.Drawing.Color.Peru;
-            this.labelTelefon.Location = new System.Drawing.Point(378, 122);
+            this.labelTelefon.Location = new System.Drawing.Point(272, 122);
             this.labelTelefon.Name = "labelTelefon";
-            this.labelTelefon.Size = new System.Drawing.Size(79, 61);
+            this.labelTelefon.Size = new System.Drawing.Size(52, 61);
             this.labelTelefon.TabIndex = 25;
             this.labelTelefon.Text = "Telefon:";
             this.labelTelefon.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -399,10 +401,10 @@
             this.tableLayoutPanel2.SetColumnSpan(this.dateTimePickerDataAngajarii, 3);
             this.dateTimePickerDataAngajarii.Enabled = false;
             this.dateTimePickerDataAngajarii.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerDataAngajarii.Location = new System.Drawing.Point(473, 185);
-            this.dateTimePickerDataAngajarii.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerDataAngajarii.Location = new System.Drawing.Point(337, 185);
+            this.dateTimePickerDataAngajarii.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerDataAngajarii.Name = "dateTimePickerDataAngajarii";
-            this.dateTimePickerDataAngajarii.Size = new System.Drawing.Size(316, 26);
+            this.dateTimePickerDataAngajarii.Size = new System.Drawing.Size(215, 26);
             this.dateTimePickerDataAngajarii.TabIndex = 33;
             // 
             // labelDataAngajarii
@@ -412,9 +414,9 @@
             this.labelDataAngajarii.AutoSize = true;
             this.labelDataAngajarii.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDataAngajarii.ForeColor = System.Drawing.Color.Peru;
-            this.labelDataAngajarii.Location = new System.Drawing.Point(378, 183);
+            this.labelDataAngajarii.Location = new System.Drawing.Point(272, 183);
             this.labelDataAngajarii.Name = "labelDataAngajarii";
-            this.labelDataAngajarii.Size = new System.Drawing.Size(88, 117);
+            this.labelDataAngajarii.Size = new System.Drawing.Size(59, 61);
             this.labelDataAngajarii.TabIndex = 30;
             this.labelDataAngajarii.Text = "Data Angajarii:";
             this.labelDataAngajarii.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -429,7 +431,7 @@
             this.labelNume.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.labelNume.Location = new System.Drawing.Point(3, 0);
             this.labelNume.Name = "labelNume";
-            this.labelNume.Size = new System.Drawing.Size(67, 61);
+            this.labelNume.Size = new System.Drawing.Size(51, 61);
             this.labelNume.TabIndex = 12;
             this.labelNume.Text = "Nume:";
             this.labelNume.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -442,9 +444,9 @@
             this.labelPrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrenume.ForeColor = System.Drawing.Color.Peru;
             this.labelPrenume.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.labelPrenume.Location = new System.Drawing.Point(378, 0);
+            this.labelPrenume.Location = new System.Drawing.Point(272, 0);
             this.labelPrenume.Name = "labelPrenume";
-            this.labelPrenume.Size = new System.Drawing.Size(88, 61);
+            this.labelPrenume.Size = new System.Drawing.Size(53, 61);
             this.labelPrenume.TabIndex = 15;
             this.labelPrenume.Text = "Prenume:";
             this.labelPrenume.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -636,9 +638,9 @@
             this.pictureBoxUtilizatorLogat.Enabled = false;
             this.pictureBoxUtilizatorLogat.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUtilizatorLogat.Image")));
             this.pictureBoxUtilizatorLogat.Location = new System.Drawing.Point(2, 2);
-            this.pictureBoxUtilizatorLogat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxUtilizatorLogat.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxUtilizatorLogat.Name = "pictureBoxUtilizatorLogat";
-            this.pictureBoxUtilizatorLogat.Size = new System.Drawing.Size(42, 58);
+            this.pictureBoxUtilizatorLogat.Size = new System.Drawing.Size(41, 58);
             this.pictureBoxUtilizatorLogat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxUtilizatorLogat.TabIndex = 36;
             this.pictureBoxUtilizatorLogat.TabStop = false;
@@ -652,10 +654,10 @@
             this.labelDeconectare.AutoSize = true;
             this.labelDeconectare.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDeconectare.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelDeconectare.Location = new System.Drawing.Point(225, 0);
+            this.labelDeconectare.Location = new System.Drawing.Point(222, 0);
             this.labelDeconectare.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDeconectare.Name = "labelDeconectare";
-            this.labelDeconectare.Size = new System.Drawing.Size(199, 62);
+            this.labelDeconectare.Size = new System.Drawing.Size(202, 62);
             this.labelDeconectare.TabIndex = 36;
             this.labelDeconectare.Text = "Deconectare";
             this.labelDeconectare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -668,7 +670,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.22946F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.77054F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 202F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 205F));
             this.tableLayoutPanel1.Controls.Add(this.labelSeparator, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelNumeUtilizatorLogat, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBoxUtilizatorLogat, 0, 0);
@@ -690,7 +692,7 @@
             this.labelSeparator.AutoSize = true;
             this.labelSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSeparator.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelSeparator.Location = new System.Drawing.Point(201, 0);
+            this.labelSeparator.Location = new System.Drawing.Point(198, 0);
             this.labelSeparator.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSeparator.Name = "labelSeparator";
             this.labelSeparator.Size = new System.Drawing.Size(20, 62);
@@ -706,10 +708,10 @@
             this.labelNumeUtilizatorLogat.AutoSize = true;
             this.labelNumeUtilizatorLogat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNumeUtilizatorLogat.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelNumeUtilizatorLogat.Location = new System.Drawing.Point(48, 0);
+            this.labelNumeUtilizatorLogat.Location = new System.Drawing.Point(47, 0);
             this.labelNumeUtilizatorLogat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNumeUtilizatorLogat.Name = "labelNumeUtilizatorLogat";
-            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(149, 62);
+            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(147, 62);
             this.labelNumeUtilizatorLogat.TabIndex = 37;
             this.labelNumeUtilizatorLogat.Text = "Nume Utilizator";
             this.labelNumeUtilizatorLogat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -787,7 +789,7 @@
             this.ClientSize = new System.Drawing.Size(1040, 640);
             this.Controls.Add(this.panelBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PaginaMea";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PaginaMea";
