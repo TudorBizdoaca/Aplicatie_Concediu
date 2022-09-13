@@ -301,6 +301,7 @@ namespace Aplicatie_Concediu
         private void textBoxCnp_Validated(object sender, EventArgs e)
         {
             errorProvider6.SetError(textBoxCnp, "");
+            dateTimePickerDataNasterii.Value = ValidariFormular.extragereDataNastereDinCnp(textBoxCnp.Text);
         }
 
         private void textBoxCnp_Validating(object sender, CancelEventArgs e)
@@ -400,7 +401,15 @@ namespace Aplicatie_Concediu
             
            }
 
-   
+        private void dateTimePickerDataNasterii_ValueChanged(object sender, EventArgs e)
+        {
+            string dataNastere = dateTimePickerDataNasterii.Value.Year.ToString().Substring(2, 2) + dateTimePickerDataNasterii.Value.Month.ToString() + dateTimePickerDataNasterii.Value.Day.ToString(); ;
+            if(dateTimePickerDataNasterii.Value.Year < 2000 && textBoxCnp.Text[0]%2 == 0)
+            {
+                string foo = '2' + dataNastere + textBoxCnp.Text.Substring(7, 5);
+                textBoxCnp.Text = foo;
+            }
+        }
     }
 }
 
