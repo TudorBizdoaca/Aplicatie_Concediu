@@ -166,6 +166,7 @@ namespace Aplicatie_Concediu
         }
         private async void Tabel_Concedii_Load(object sender, EventArgs e)
         {
+            dtpDataFinal.MinDate = dtpDataInceput.Value;
             // Date Utilizator Logat
             pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(SesiuneLogIn.angajatLogat.Poza));
             labelNumeUtilizatorLogat.Text = SesiuneLogIn.angajatLogat.Nume + " " + SesiuneLogIn.angajatLogat.Prenume;
@@ -334,6 +335,7 @@ namespace Aplicatie_Concediu
         private void dtpDataInceput_ValueChanged(object sender, EventArgs e)
         {
             dataInceputSelectata = true;
+            dtpDataFinal.MinDate = dtpDataInceput.Value;
         }
 
         private void dtpDataFinal_ValueChanged(object sender, EventArgs e)
