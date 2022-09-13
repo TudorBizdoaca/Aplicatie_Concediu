@@ -408,11 +408,12 @@ namespace Aplicatie_Concediu
             validareCodVerificare();
         }
         #endregion
-        #region Permitere doar litere in nume si prenume
+
+        #region Permitere doar litere in nume prenume si serie
 
         private void tbInregistrareNume_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
@@ -420,7 +421,16 @@ namespace Aplicatie_Concediu
 
         private void tbPrenume_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+
+        private void tbSerieBuletin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
@@ -428,10 +438,8 @@ namespace Aplicatie_Concediu
 
 
 
-
         #endregion
 
-        
     }
 
 }

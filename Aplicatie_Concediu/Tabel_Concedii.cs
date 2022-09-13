@@ -70,13 +70,13 @@ namespace Aplicatie_Concediu
 
             int nrConcedii = JsonConvert.DeserializeObject<int>(responseBody);
 
-            if (nrConcedii % 10 == 0)
+            if (nrConcedii % 15 == 0)
             {
-                nrPagini = nrConcedii / 10;
+                nrPagini = nrConcedii / 15;
             }
             else
             {
-                nrPagini = nrConcedii / 10 + 1;
+                nrPagini = nrConcedii / 15 + 1;
             }
         }
 
@@ -166,6 +166,9 @@ namespace Aplicatie_Concediu
         }
         private async void Tabel_Concedii_Load(object sender, EventArgs e)
         {
+            cbStariConcedii.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbTipConcedii.DropDownStyle = ComboBoxStyle.DropDownList;
+            
             dtpDataFinal.MinDate = dtpDataInceput.Value;
             // Date Utilizator Logat
             pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(SesiuneLogIn.angajatLogat.Poza));
@@ -195,7 +198,7 @@ namespace Aplicatie_Concediu
                 buttonPaginaUrmatoare.Visible = true;
             }
 
-            int position = (pagina - 1) * 10;
+            int position = (pagina - 1) * 15;
             URL = String.Format("{0}/TabelConcedii/GetConcedii?position={1}&esteAdmin={2}&id={3}", SesiuneLogIn.requestURL, position, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id);
 
             await GetConcedii(URL);
@@ -425,6 +428,14 @@ namespace Aplicatie_Concediu
             Tabel_Concedii formTabelConcedii = new Tabel_Concedii(pagina);
             formTabelConcedii.Show();
             this.Close();
+        }
+
+        private void tbFiltrareNume_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
         }
     }
 }
