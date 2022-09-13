@@ -64,7 +64,7 @@
             this.lblStatus.Location = new System.Drawing.Point(699, 78);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(57, 20);
+            this.lblStatus.Size = new System.Drawing.Size(70, 25);
             this.lblStatus.TabIndex = 3;
             this.lblStatus.Text = "label4";
             // 
@@ -81,6 +81,7 @@
             // 
             // lblDataInceput
             // 
+            this.lblDataInceput.AutoSize = true;
             this.lblDataInceput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataInceput.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblDataInceput.Location = new System.Drawing.Point(204, 0);
@@ -162,6 +163,7 @@
             // 
             // lblDataSfarsit
             // 
+            this.lblDataSfarsit.AutoSize = true;
             this.lblDataSfarsit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataSfarsit.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblDataSfarsit.Location = new System.Drawing.Point(699, 0);
@@ -190,7 +192,7 @@
             this.lblInlocuitor.Location = new System.Drawing.Point(198, 78);
             this.lblInlocuitor.Margin = new System.Windows.Forms.Padding(0);
             this.lblInlocuitor.Name = "lblInlocuitor";
-            this.lblInlocuitor.Size = new System.Drawing.Size(50, 20);
+            this.lblInlocuitor.Size = new System.Drawing.Size(59, 25);
             this.lblInlocuitor.TabIndex = 10;
             this.lblInlocuitor.Text = "afsaf";
             // 
