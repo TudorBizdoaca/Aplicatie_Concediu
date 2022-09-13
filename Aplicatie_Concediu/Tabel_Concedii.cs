@@ -106,7 +106,8 @@ namespace Aplicatie_Concediu
 
             listaConcedii.Clear();
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
-            populareGridView(listaConcedii);
+            if (listaConcedii != null)
+                 populareGridView(listaConcedii);
         }
         private async Task GetStariConcediu()
         {
@@ -182,7 +183,7 @@ namespace Aplicatie_Concediu
                 buttonPaginaAnterioara.Visible = true;
             }
 
-            if (pagina != nrPagini)
+            if (pagina < nrPagini)
             {
                 buttonPaginaUrmatoare.Visible = true;
             }

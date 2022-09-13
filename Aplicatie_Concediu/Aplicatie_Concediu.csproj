@@ -241,7 +241,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Image1.png" />
-    <Content Include="PozaDefaultAngajati.png" />
+    <Content Include="Utils\PozaDefaultAngajati.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.5\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.5\build\System.Text.Json.targets')" />

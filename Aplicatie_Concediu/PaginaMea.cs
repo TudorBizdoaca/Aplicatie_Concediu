@@ -143,6 +143,7 @@ namespace Aplicatie_Concediu
             buttonEditeazaProfil.Visible = false;
             buttonAnuleaza.Visible = true;
             buttonSalveaza.Visible = true;
+            pictureBoxEdit.Visible = true;
         }
 
         private void buttonAnuleaza_Click(object sender, EventArgs e)
@@ -367,6 +368,19 @@ namespace Aplicatie_Concediu
         private void textBoxPrenume_Validated(object sender, EventArgs e)
         {
             errorProvider5.SetError(textBoxPrenume, "");
+        }
+
+        private void pictureBoxEdit_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
+            {
+                openFileDialog1.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxUtilizator.Image = new Bitmap(openFileDialog1.FileName);
+                }
+            }
         }
     }
     }

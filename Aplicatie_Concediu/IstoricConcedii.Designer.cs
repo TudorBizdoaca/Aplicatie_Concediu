@@ -44,8 +44,8 @@
             this.buttonPaginaMea = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlCarduri = new System.Windows.Forms.Panel();
-            this.labelIstoricConcedii = new System.Windows.Forms.Label();
             this.labelFaraConcedii = new System.Windows.Forms.Label();
+            this.labelIstoricConcedii = new System.Windows.Forms.Label();
             this.panelBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -108,7 +108,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.22946F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.77054F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 241F));
             this.tableLayoutPanel1.Controls.Add(this.labelSeparator, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelNumeUtilizatorLogat, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBoxUtilizatorLogat, 0, 0);
@@ -130,7 +130,7 @@
             this.labelSeparator.AutoSize = true;
             this.labelSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSeparator.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelSeparator.Location = new System.Drawing.Point(298, 0);
+            this.labelSeparator.Location = new System.Drawing.Point(297, 0);
             this.labelSeparator.Name = "labelSeparator";
             this.labelSeparator.Size = new System.Drawing.Size(26, 76);
             this.labelSeparator.TabIndex = 38;
@@ -147,7 +147,7 @@
             this.labelNumeUtilizatorLogat.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelNumeUtilizatorLogat.Location = new System.Drawing.Point(71, 0);
             this.labelNumeUtilizatorLogat.Name = "labelNumeUtilizatorLogat";
-            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(221, 76);
+            this.labelNumeUtilizatorLogat.Size = new System.Drawing.Size(220, 76);
             this.labelNumeUtilizatorLogat.TabIndex = 37;
             this.labelNumeUtilizatorLogat.Text = "Nume Utilizator";
             this.labelNumeUtilizatorLogat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -177,9 +177,9 @@
             this.labelDeconectare.AutoSize = true;
             this.labelDeconectare.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDeconectare.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelDeconectare.Location = new System.Drawing.Point(330, 0);
+            this.labelDeconectare.Location = new System.Drawing.Point(329, 0);
             this.labelDeconectare.Name = "labelDeconectare";
-            this.labelDeconectare.Size = new System.Drawing.Size(235, 76);
+            this.labelDeconectare.Size = new System.Drawing.Size(236, 76);
             this.labelDeconectare.TabIndex = 36;
             this.labelDeconectare.Text = "Deconectare";
             this.labelDeconectare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -211,7 +211,7 @@
             this.buttonPanouAdmin.Name = "buttonPanouAdmin";
             this.buttonPanouAdmin.Size = new System.Drawing.Size(211, 70);
             this.buttonPanouAdmin.TabIndex = 18;
-            this.buttonPanouAdmin.Text = "Panou Admin";
+            this.buttonPanouAdmin.Text = "Concedii";
             this.buttonPanouAdmin.UseVisualStyleBackColor = false;
             this.buttonPanouAdmin.Visible = false;
             this.buttonPanouAdmin.Click += new System.EventHandler(this.buttonPanouAdmin_Click);
@@ -290,6 +290,18 @@
             this.pnlCarduri.Size = new System.Drawing.Size(926, 267);
             this.pnlCarduri.TabIndex = 44;
             // 
+            // labelFaraConcedii
+            // 
+            this.labelFaraConcedii.AutoSize = true;
+            this.labelFaraConcedii.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFaraConcedii.ForeColor = System.Drawing.Color.Peru;
+            this.labelFaraConcedii.Location = new System.Drawing.Point(3, 0);
+            this.labelFaraConcedii.Name = "labelFaraConcedii";
+            this.labelFaraConcedii.Size = new System.Drawing.Size(245, 29);
+            this.labelFaraConcedii.TabIndex = 45;
+            this.labelFaraConcedii.Text = "Nu ai concedii create.";
+            this.labelFaraConcedii.Visible = false;
+            // 
             // labelIstoricConcedii
             // 
             this.labelIstoricConcedii.AutoSize = true;
@@ -302,18 +314,6 @@
             this.labelIstoricConcedii.Size = new System.Drawing.Size(217, 31);
             this.labelIstoricConcedii.TabIndex = 43;
             this.labelIstoricConcedii.Text = "Istoric Concedii";
-            // 
-            // labelFaraConcedii
-            // 
-            this.labelFaraConcedii.AutoSize = true;
-            this.labelFaraConcedii.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFaraConcedii.ForeColor = System.Drawing.Color.Peru;
-            this.labelFaraConcedii.Location = new System.Drawing.Point(3, 0);
-            this.labelFaraConcedii.Name = "labelFaraConcedii";
-            this.labelFaraConcedii.Size = new System.Drawing.Size(245, 29);
-            this.labelFaraConcedii.TabIndex = 45;
-            this.labelFaraConcedii.Text = "Nu ai concedii create.";
-            this.labelFaraConcedii.Visible = false;
             // 
             // IstoricConcedii
             // 

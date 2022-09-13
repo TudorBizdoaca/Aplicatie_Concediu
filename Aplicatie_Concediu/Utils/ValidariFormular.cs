@@ -17,6 +17,7 @@ namespace Aplicatie_Concediu.Utils
         static readonly HttpClient client = new HttpClient();
         static Angajat angajat;
        static bool eValid = true;
+        public static bool existaEmail = false;
         public static bool validareConfirmaParola(ErrorProvider ep, TextBox tb, string parola)
         {
             bool eValid = true;
@@ -87,6 +88,7 @@ namespace Aplicatie_Concediu.Utils
             {
                 ep.SetError(tb, "E-mailul exista deja in baza de date!!!!!");
                 eValid = false;
+                existaEmail = true;
             }
 
             
@@ -139,14 +141,21 @@ namespace Aplicatie_Concediu.Utils
         }
 
 
-        public static bool validareDataAngajare(ErrorProvider ep, DateTimePicker dtp)
+        public static bool validareDataAngajare(ErrorProvider ep, DateTimePicker dtp,string cnp)
         {
             bool esteValid = true;
-            if (dtp.Value >= DateTime.Today.AddDays(1))
+            DateTime dataNastere = new DateTime();
+            if (cnp.Length == 13)
+                dataNastere = extragereDataNastereDinCnp(cnp);
+            if (dtp.Value.Date >= DateTime.Today.AddDays(1))
             {
                 ep.SetError(dtp, "Data Angajarii nu poate fi in viitor");
                 esteValid = false;
 
+            } else if(dtp.Value.Date <= dataNastere.Date)
+            {
+                ep.SetError(dtp, "Data Angajarii nu poate inainte de data de nastere");
+                esteValid = false;
             }
             else
             {
