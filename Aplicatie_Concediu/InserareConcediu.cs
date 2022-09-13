@@ -74,7 +74,8 @@ namespace Aplicatie_Concediu
         {
             cbInlocuitorLoad();
             await cbTipConcediuLoadAsync();
-
+            cbInlocuitor.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbTipConcediu.DropDownStyle = ComboBoxStyle.DropDownList;
             // Date Utilizator Logat
             pictureBoxUtilizatorLogat.Image = System.Drawing.Image.FromStream(new MemoryStream(SesiuneLogIn.angajatLogat.Poza));
             labelNumeUtilizatorLogat.Text = SesiuneLogIn.angajatLogat.Nume + " " + SesiuneLogIn.angajatLogat.Prenume;

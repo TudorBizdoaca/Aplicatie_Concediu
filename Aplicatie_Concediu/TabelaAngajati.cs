@@ -40,20 +40,20 @@ namespace Aplicatie_Concediu
 
             int nrAngajati = JsonConvert.DeserializeObject<int>(responseBody);
 
-            if (nrAngajati % 10 == 0)
+            if (nrAngajati % 15 == 0)
             {
-                nrPagini = nrAngajati / 10;
+                nrPagini = nrAngajati / 15;
             }
             else
             {
-                nrPagini = nrAngajati / 10 + 1;
+                nrPagini = nrAngajati / 15 + 1;
             }
         }
 
         async Task GetAngajati()
         {
           
-                int position = (pagina - 1) * 10;
+                int position = (pagina - 1) * 15;
 
                 string URL = String.Format("{0}/Angajat/GetAngajati?position={1}&id={2}&esteAdmin={3}", SesiuneLogIn.requestURL, position, SesiuneLogIn.angajatLogat.Id, SesiuneLogIn.angajatLogat.EsteAdmin);
 

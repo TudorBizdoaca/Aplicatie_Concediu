@@ -324,11 +324,7 @@ namespace Aplicatie_Concediu.Utils
             string dataNastere = "";
 
             bool eValid = true;
-            if (!DateTime.TryParseExact(dataNastere, "yyyyMMdd", null, DateTimeStyles.None, out DateTime result))
-            {
-                eValid = false;
-            }
-   
+         
             int codJudet = 0;
 
             if (cnp.Length > 9)
@@ -352,8 +348,14 @@ namespace Aplicatie_Concediu.Utils
                 }
 
             }
-            DateTime dataNasterii = cnp.Length == 13 ? extragereDataNastereDinCnp(cnp, ep, tb, dtp, epData) : new DateTime();
+            if (!DateTime.TryParseExact(dataNastere, "yyyyMMdd", null, DateTimeStyles.None, out DateTime result))
+            {
+                eValid = false;
 
+            }
+
+            DateTime dataNasterii = cnp.Length == 13 ? extragereDataNastereDinCnp(cnp, ep, tb, dtp, epData) : new DateTime();
+            if (eValid) { 
             if (String.IsNullOrEmpty(cnp) || String.IsNullOrWhiteSpace(cnp))
             {
                 ep.SetError(tb, "Introduceti un CNP!");
@@ -383,7 +385,7 @@ namespace Aplicatie_Concediu.Utils
                 ep.SetError(tb, "");
                 eValid = true;
             }
-           
+           }
             return eValid;
         }
         public static Boolean ValidareCnp(string CNP, out string errorMessage)
