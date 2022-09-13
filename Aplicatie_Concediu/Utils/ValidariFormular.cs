@@ -377,5 +377,35 @@ namespace Aplicatie_Concediu.Utils
            
             return eValid;
         }
+        public static Boolean ValidareCnp(string CNP, out string errorMessage)
+        {   DateTime dt = new DateTime();
+            string date;
+            
+            if (CNP.Length != 13) {
+                errorMessage = "CNP-ul nu are lungimea corespunzatoare!";
+                return false;
+            }
+                
+            if (CNP.StartsWith("5") || CNP.StartsWith("6"))
+            {
+                date = "20";
+            }
+            else
+                date = "19";
+            date = date + CNP.Substring(1, 6);
+            if (!DateTime.TryParseExact(date, "yyyyMMdd", DateTimeFormatInfo.InvariantInfo,DateTimeStyles.None, out dt)) {
+                errorMessage = "CNP-ul nu are o data vaida!";
+                return false;
+            }
+              
+            if (int.Parse(CNP.Substring(7, 2)) > 52) {
+                errorMessage = "CNP-ul nu are un cod de judet valid";
+                return false;
+            }
+            errorMessage = string.Empty;
+            return true;
+          
+            
+        }
     }
 }
