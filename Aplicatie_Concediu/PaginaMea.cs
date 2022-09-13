@@ -2,23 +2,13 @@
 using Aplicatie_Concediu.Utils;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Data.SqlTypes;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Aplicatie_Concediu
 {
@@ -62,7 +52,7 @@ namespace Aplicatie_Concediu
         private void buttonIesire_Click(object sender, EventArgs e)
         {
             SesiuneLogIn.angajatLogat = null;
-            
+
             Application.Exit();
         }
 
@@ -148,11 +138,11 @@ namespace Aplicatie_Concediu
 
         private void buttonAnuleaza_Click(object sender, EventArgs e)
         {
-            textBoxEmail_Validated( sender,  e);
+            textBoxEmail_Validated(sender, e);
 
-         
-          
-         
+
+
+
 
             PaginaMea formPaginaMea = new PaginaMea();
             formPaginaMea.Show();
@@ -209,7 +199,7 @@ namespace Aplicatie_Concediu
             using (Stream requestStream = request.GetRequestStream())
             {
                 requestStream.Write(requestData, 0, requestData.Length);
-             
+
             }
             var response = (HttpWebResponse)request.GetResponse();
 
@@ -221,7 +211,7 @@ namespace Aplicatie_Concediu
             {
                 return false;
             }
-           
+
         }
 
         // Upload Image
@@ -280,26 +270,27 @@ namespace Aplicatie_Concediu
             return false;
         }
 
-     
+
 
         private void PaginaMea_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = false;
             this.errorProvider1.Clear();
             this.textBoxEmail_Validated(sender, e);
-            
+
         }
 
-        private void textBoxSerie_Validating(object sender, CancelEventArgs e)
+        private void TextBoxSerie_Validating(object sender, CancelEventArgs e)
         {
-            
-            if (!(Utils.ValidariFormular.validareSerie(errorProvider2, textBoxSerie))) {
+
+            if (!(Utils.ValidariFormular.validareSerie(errorProvider2, textBoxSerie)))
+            {
                 e.Cancel = true;
                 textBoxSerie.Select(0, textBoxEmail.Text.Length);
                 errorProvider2.SetError(textBoxSerie, "Selectai o serie de buletin Valida!");
             }
-           
-               
+
+
         }
 
         private void textBoxSerie_Validated(object sender, EventArgs e)
@@ -315,23 +306,29 @@ namespace Aplicatie_Concediu
         private void textBoxCnp_Validating(object sender, CancelEventArgs e)
         {
             string errorMessage;
-            if( !ValidariFormular.ValidareCnp(textBoxCnp.Text,out errorMessage)){
+            if (!ValidariFormular.ValidareCnp(textBoxCnp.Text, out errorMessage))
+            {
                 e.Cancel = true;
                 textBoxCnp.Select(0, textBoxCnp.Text.Length);
                 errorProvider6.SetError(textBoxCnp, errorMessage);
-                
+
             }
         }
 
         private void textBoxTelefon_Validating(object sender, CancelEventArgs e)
         {
-       
-            if(textBoxTelefon.Text.Length != 10)
+            string nrTelefonRegex = @"^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$";
+            Regex nrTelefonRegexp = new Regex(nrTelefonRegex);
+
+
+            if (!nrTelefonRegexp.IsMatch(textBoxTelefon.Text) || textBoxTelefon.Text.Length > 15)
             {
                 e.Cancel = true;
                 textBoxTelefon.Select(0, textBoxTelefon.Text.Length);
                 errorProvider3.SetError(textBoxTelefon, "Intrduceti un numar de telefon valid");
+
             }
+
 
         }
 
@@ -342,7 +339,7 @@ namespace Aplicatie_Concediu
 
         private void textBoxNume_Validating(object sender, CancelEventArgs e)
         {
-          if(textBoxNume.Text == string.Empty)
+            if (textBoxNume.Text == string.Empty && Regex.IsMatch(textBoxNume.Text, "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u"))
             {
                 e.Cancel = true;
                 textBoxNume.Select(0, textBoxNume.Text.Length);
@@ -382,6 +379,26 @@ namespace Aplicatie_Concediu
                 }
             }
         }
+
+        private void textBoxNr_Validated(object sender, EventArgs e)
+        {
+            errorProvider7.SetError(textBoxNr, "");
+        }
+
+        private void textBoxNr_Validating(object sender, CancelEventArgs e)
+        {
+            string nrTelefonRegex = @"^[0-9]*$";
+            Regex nrTelefonRegexp = new Regex(nrTelefonRegex);
+
+            if (textBoxNr.Text.Length != 6 || !nrTelefonRegexp.IsMatch(textBoxNr.Text))
+            {
+                e.Cancel = true;
+                textBoxNr.Select(0,textBoxNr.Text.Length);
+                errorProvider7.SetError(textBoxNr, "Numar gresit");
+                
+            }
+            
+        }
     }
-    }
+}
 
