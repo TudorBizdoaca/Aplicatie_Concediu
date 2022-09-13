@@ -81,6 +81,7 @@
             // 
             // lblDataInceput
             // 
+            this.lblDataInceput.AutoSize = true;
             this.lblDataInceput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataInceput.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblDataInceput.Location = new System.Drawing.Point(204, 0);
@@ -99,7 +100,7 @@
             this.lblMotivRespingere.Name = "lblMotivRespingere";
             this.lblMotivRespingere.Size = new System.Drawing.Size(180, 25);
             this.lblMotivRespingere.TabIndex = 9;
-            this.lblMotivRespingere.Text = "MotivRespingere:";
+            this.lblMotivRespingere.Text = "Motiv Respingere:";
             // 
             // tableLayoutPanel1
             // 
@@ -162,6 +163,7 @@
             // 
             // lblDataSfarsit
             // 
+            this.lblDataSfarsit.AutoSize = true;
             this.lblDataSfarsit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataSfarsit.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblDataSfarsit.Location = new System.Drawing.Point(699, 0);

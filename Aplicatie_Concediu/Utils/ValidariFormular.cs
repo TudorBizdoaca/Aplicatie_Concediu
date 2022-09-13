@@ -168,7 +168,7 @@ namespace Aplicatie_Concediu.Utils
         public static bool validareSerie(ErrorProvider ep, TextBox tb)
         {
             bool eValid = true;
-            if (String.IsNullOrEmpty(tb.Text) || tb.Text.Length != 2)
+            if (String.IsNullOrEmpty(tb.Text) || tb.Text.Length != 2 || Regex.IsMatch(tb.Text, "[^a-zA-Z]"))
             {
                 ep.SetError(tb, "Introduceti o serie de buletin valida!");
                 eValid = false;
@@ -205,11 +205,11 @@ namespace Aplicatie_Concediu.Utils
         public static bool validareNrTelefon(ErrorProvider ep, TextBox tb)
         {
             bool eValid = true;
-            string nrTelefonRegex = @"^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$";
+            string nrTelefonRegex = @"^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$";
             Regex nrTelefonRegexp = new Regex(nrTelefonRegex);
 
 
-            if (!nrTelefonRegexp.IsMatch(tb.Text))
+            if (!nrTelefonRegexp.IsMatch(tb.Text) || tb.Text.Length > 15)
             {
                 ep.SetError(tb, "Nr de telefon invalid!");
                 eValid = false;
