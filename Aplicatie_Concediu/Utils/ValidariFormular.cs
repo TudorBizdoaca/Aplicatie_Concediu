@@ -1,4 +1,5 @@
 ﻿using Aplicatie_Concediu.Models;
+using Concediu_WebApi.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -291,7 +292,7 @@ namespace Aplicatie_Concediu.Utils
 
                     break;
             }
-            //        MessageBox.Show("datanstring " + dataNastere);
+      
             CultureInfo provider = CultureInfo.InvariantCulture;
             try
             {
@@ -303,8 +304,7 @@ namespace Aplicatie_Concediu.Utils
             {
                 Console.WriteLine(ex.Message);
             }
-            // MessageBox.Show("data extrasa " + dataNasterii.ToString());
-            //   MessageBox.Show("data din dtp " + dtp.Value.ToString());
+            
             if (dataNasterii.Date != dtp.Value.Date)
             {
                 epCnp.SetError(tb, "CNP Invalid! Data nasterii e invalida!");
@@ -324,7 +324,6 @@ namespace Aplicatie_Concediu.Utils
             string dataNastere = "";
 
             bool eValid = true;
-         
             int codJudet = 0;
 
             if (cnp.Length > 9)
@@ -339,7 +338,7 @@ namespace Aplicatie_Concediu.Utils
                     case "2":
                         dataNastere = "19" + cnp.Substring(1, 6);
                         break;
-                    case "5":
+                 case "5":
                         dataNastere = "20" + cnp.Substring(1, 6);
                         break;
                     case "6":
@@ -348,14 +347,9 @@ namespace Aplicatie_Concediu.Utils
                 }
 
             }
-            if (!DateTime.TryParseExact(dataNastere, "yyyyMMdd", null, DateTimeStyles.None, out DateTime result))
-            {
-                eValid = false;
-
-            }
 
             DateTime dataNasterii = cnp.Length == 13 ? extragereDataNastereDinCnp(cnp, ep, tb, dtp, epData) : new DateTime();
-            if (eValid) { 
+    
             if (String.IsNullOrEmpty(cnp) || String.IsNullOrWhiteSpace(cnp))
             {
                 ep.SetError(tb, "Introduceti un CNP!");
@@ -366,14 +360,24 @@ namespace Aplicatie_Concediu.Utils
                 ep.SetError(tb, "CNP Invalid! Lungimea trebuie sa fie 13!");
                 eValid = false;
             }
-            else if (dataNasterii > DateTime.Today)
+            else if (!DateTime.TryParseExact(dataNastere, "yyyyMMdd", null, DateTimeStyles.None, out DateTime r))
+            {
+                ep.SetError(tb, "CNP Invalid! Data Nastere Invalida!!");
+                eValid = false;
+
+            } else
+            if (dataNasterii > DateTime.Today)
             {
                 ep.SetError(tb, "CNP Invalid! Data nasterii e in viitor!");
                 eValid = false;
             }
-            else if (cnp.Substring(0, 1) == "0" || cnp.Substring(0, 1) == "3" || cnp.Substring(0, 1) == "4")
+            else if ((DateTime.Today.Year - dataNasterii.Year) < 18)
             {
-                ep.SetError(tb, "CNP Invalid!! Prima cifra poate fi 1,2,5,6,7,8 sau 9");
+                ep.SetError(tb, "Varsta minima este de 18 ani!!!!!!!");
+            }
+            else if (cnp.Substring(0, 1) == "0")
+            {
+                ep.SetError(tb, "CNP Invalid!! Prima cifra poate fi 1,2,3,4,5,6,7,8 sau 9");
 
             }
             else if (codJudet < 1 || codJudet > 52)
@@ -383,8 +387,7 @@ namespace Aplicatie_Concediu.Utils
             else
             {
                 ep.SetError(tb, "");
-                eValid = true;
-            }
+                          
            }
             return eValid;
         }

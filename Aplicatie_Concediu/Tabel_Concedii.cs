@@ -210,60 +210,6 @@ namespace Aplicatie_Concediu
             PaginaDetalii paginaDetalii = new PaginaDetalii(this);
             paginaDetalii.Show();
         }
-        private async Task GetConcediiByStare(int stareId)
-        {
-            if (listaConcedii != null)
-            {
-                listaConcedii.Clear();
-            }
-
-            string URL = String.Format("{0}/TabelConcedii/GetConcediiByStareId?stareId={1}&esteAdmin={2}&id={3}", SesiuneLogIn.requestURL, stareId, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id);
-
-            HttpResponseMessage response = await client.GetAsync(URL);
-            response.EnsureSuccessStatusCode();
-            string responseBody = await response.Content.ReadAsStringAsync();
-            listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
-        
-        }
-
-        private async Task GetConcediiByTip(int tipId)
-        {
-            if (listaConcedii != null)
-            {
-                listaConcedii.Clear();
-            }
-            HttpResponseMessage response = await client.GetAsync(String.Format("{0}/TabelConcedii/GetConcediiByTipConcediuId?tipConcediuId={1}&esteAdmin={2}&id={3}", SesiuneLogIn.requestURL,tipId, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id));
-            response.EnsureSuccessStatusCode();
-            string responseBody = await response.Content.ReadAsStringAsync();
-            listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
-
-        }
-
-        public async void repopulareGvDupaSelectStare()
-        {
-            dgvTabelConcedii.Rows.Clear();
-            await GetConcediiByStare((int)cbStariConcedii.SelectedValue);
-            populareGridView(listaConcedii);
-            
-        }
-       
-        private async void cbStariConcedii_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            if(cbStariConcedii.SelectedValue.ToString() !="0")
-                 repopulareGvDupaSelectStare();
-            else
-            {
-                string URL = String.Format("{0}/TabelConcedii/GetConcedii?&esteAdmin={1}&id={2}", SesiuneLogIn.requestURL, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id);
-
-                await GetConcedii(URL);
-                if (listaConcedii != null)
-                {
-                    listaConcedii.Clear();
-                }
-                populareGridView(listaConcedii);
-            }
-        }
-
         private async void tbFiltrareNume_Leave(object sender, EventArgs e)
         {
             dgvTabelConcedii.Rows.Clear();
@@ -279,26 +225,6 @@ namespace Aplicatie_Concediu
             listaConcedii = JsonConvert.DeserializeObject<List<Concediu>>(responseBody);
         
         }
-
-        private async void cbTipConcedii_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            if (cbTipConcedii.SelectedValue.ToString() != "0")
-            {
-                dgvTabelConcedii.Rows.Clear();
-                await GetConcediiByTip((int)cbTipConcedii.SelectedValue);
-                populareGridView(listaConcedii);
-            }
-            else
-            {
-                await GetConcedii(String.Format("{0}/TabelConcedii/GetConcedii?esteAdmin={1}&id={2}",SesiuneLogIn.requestURL, SesiuneLogIn.angajatLogat.EsteAdmin, SesiuneLogIn.angajatLogat.Id));
-                if (listaConcedii != null)
-                {
-                    listaConcedii.Clear();
-                }
-                populareGridView(listaConcedii);
-            }
-        }
-
         private async void btnAplicaFiltre_Click(object sender, EventArgs e)
         {
             string nume;
@@ -432,7 +358,7 @@ namespace Aplicatie_Concediu
 
         private void tbFiltrareNume_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '-')
             {
                 e.Handled = true;
             }

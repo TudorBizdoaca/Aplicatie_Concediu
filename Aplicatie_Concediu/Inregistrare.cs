@@ -172,6 +172,8 @@ namespace Aplicatie_Concediu
                 errorProviderDataNastere.SetError(dtpDataNastere, "");
                 errorProviderCnp.SetError(tbCnp, "");
             }
+         
+         
 
         }
 
@@ -297,12 +299,12 @@ namespace Aplicatie_Concediu
             validareCodVerificare();
         }
 
-        private void tbCnp_TextChanged(object sender, EventArgs e)
+
+        private void tbCnp_TextChanged_1(object sender, EventArgs e)
         {
             ValidariFormular.verificareCifreCnp(tbCnp.Text, errorProviderCnp, tbCnp, dtpDataNastere, errorProviderDataNastere);
         }
 
-    
         private void tbCodVerificare_TextChanged(object sender, EventArgs e)
         {
             validareCodVerificare();
@@ -389,16 +391,20 @@ namespace Aplicatie_Concediu
                 dtpDataNastere.Value = Utils.ValidariFormular.extragereDataNastereDinCnp(tbCnp.Text);
                 errorProviderCnp.Clear();
                 errorProviderDataNastere.Clear();
+                DateTime dataN = ValidariFormular.extragereDataNastereDinCnp(tbCnp.Text);
+                if (DateTime.Today.Year - dataN.Year < 18)
+                {
+                    errorProviderCnp.SetError(tbCnp, "Varsta minima este de 18 ani!!!!!!!");
+                }
             }
 
-
         }
-        private void tbInregistrareNume_Leave(object sender, EventArgs e)
+      private void tbInregistrareNume_Leave_1(object sender, EventArgs e)
         {
             ValidariFormular.validareNume(errorProviderNume, tbInregistrareNume);
         }
 
-        private void tbPrenume_Leave(object sender, EventArgs e)
+        private void tbPrenume_Leave_1(object sender, EventArgs e)
         {
             ValidariFormular.validarePrenume(errorProviderPrenume, tbPrenume);
         }
@@ -440,6 +446,7 @@ namespace Aplicatie_Concediu
 
         #endregion
 
+       
     }
 
 }

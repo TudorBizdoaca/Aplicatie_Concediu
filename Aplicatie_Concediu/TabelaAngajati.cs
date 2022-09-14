@@ -65,6 +65,7 @@ namespace Aplicatie_Concediu
                 dgvAngajati.DataSource = source;
             if (dgvAngajati.Columns.Count != 0)
             {
+                dgvAngajati.Columns.Remove("Id");
                 dgvAngajati.Columns.Remove("Manager");
                 dgvAngajati.Columns.Remove("ConcediuAngajats");
                 dgvAngajati.Columns.Remove("ConcediuInlocuitors");
