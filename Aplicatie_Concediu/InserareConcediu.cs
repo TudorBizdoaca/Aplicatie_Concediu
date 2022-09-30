@@ -221,7 +221,8 @@ namespace Aplicatie_Concediu
             StartDate = dtpInceputConcediu.Value;
             EndDate = dtpFinalConcediu.Value;
             DateTime now = DateTime.Now;
-            if(StartDate < now)
+            DateTime compare = now.AddDays(-7);
+            if(StartDate <= compare)
             {
                 MessageBox.Show("Actiune imposibila, concediul cerut este in trecut");
                 return;
