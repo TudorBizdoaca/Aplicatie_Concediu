@@ -62,7 +62,7 @@ namespace Aplicatie_Concediu
             smtpClient.Port = 587;
             smtpClient.EnableSsl = true;
             smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = new NetworkCredential("madalina.mireag@totalsoft.ro", "Skillet19");
+            smtpClient.Credentials = new NetworkCredential("E-MAIL", "PAROLA");
           
             try
             {
